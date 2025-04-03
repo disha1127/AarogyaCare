@@ -1,0 +1,69 @@
+Issues to Fix:
+1️⃣ Diet Plan Should Provide Actual Results
+
+The current diet plan feature does not generate meaningful, personalized meal recommendations.
+
+Ensure that the diet plan provides real meal suggestions based on:
+
+User's region (suggest foods available locally).
+
+Medical conditions (e.g., diabetes, hypertension).
+
+Allergies (avoid triggering ingredients).
+
+Dietary preferences (vegetarian, vegan, keto, high-protein, etc.).
+
+Nutritional value (calories, proteins, fats, carbs).
+
+Ensure data is fetched from a structured dataset (not placeholders) and works offline.
+
+2️⃣ Replace Keyholders with Proper Header Names
+
+Many sections are showing keys instead of actual labels (e.g., home("hi") returned an object instead of string).
+
+Fix all translation-related issues so that:
+
+Proper headings appear instead of key placeholders.
+
+All labels, buttons, and sections have meaningful human-readable text.
+
+The translation files return strings, not objects.
+
+3️⃣ Fix Navigation: Each Feature Must Have a Working Route
+
+Ensure that all homepage features are correctly linked to their respective pages.
+
+Fix broken links so that clicking on:
+
+Symptom Checker → Navigates to /symptom-checker
+
+Diet Plan → Navigates to /diet-plans
+
+Medication Reminder → Navigates to /medication-reminders
+
+Health Articles → Navigates to /health-articles
+
+Government Schemes → Navigates to /government-schemes
+
+Hospital Finder → Navigates to /hospital-finder
+
+Ensure Next.js routing works properly with correct paths and no 404 errors.
+
+4️⃣ Ensure Multilingual Support Works Properly
+
+Fix all translation issues to support multiple languages.
+
+Ensure that:
+
+The language switcher updates the entire application dynamically.
+
+No broken translations or missing keys.
+
+Multilingual support works offline by storing translations locally.
+
+Expected Outcome:
+✅ A fully functional diet plan that gives real, region-based meal recommendations.
+✅ Readable headers instead of key placeholders for all sections.
+✅ Properly working routers for every homepage feature, without broken links.
+✅ Multilingual support that dynamically updates text across the application.
+

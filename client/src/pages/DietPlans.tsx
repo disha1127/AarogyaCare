@@ -97,11 +97,12 @@ const commonAllergies = [
 const dietFormSchema = z.object({
   region: z.string().min(1, "Please select your region"),
   dietType: z.enum(["vegetarian", "non-vegetarian", "vegan"]),
+  gender: z.enum(["male", "female"]),
   healthCondition: z.array(z.string()).optional().default([]),
   allergies: z.array(z.string()).optional(),
-  age: z.string().min(1, "Age is required"),
-  weight: z.string().min(1, "Weight is required"),
-  height: z.string().min(1, "Height is required"),
+  age: z.coerce.number().min(1, "Age is required"),
+  weight: z.coerce.number().min(1, "Weight is required"),
+  height: z.coerce.number().min(1, "Height is required"),
   activityLevel: z.enum(["sedentary", "light", "moderate", "active", "very-active"]),
   foodPreferences: z.string().optional(),
   additionalInfo: z.string().optional(),
@@ -133,11 +134,12 @@ export default function DietPlans() {
     defaultValues: {
       region: user?.region || "North India",
       dietType: "vegetarian",
+      gender: "male",
       healthCondition: [],
       allergies: [],
-      age: "",
-      weight: "",
-      height: "",
+      age: 30,
+      weight: 70,
+      height: 170,
       activityLevel: "moderate",
       foodPreferences: "",
       additionalInfo: "",
@@ -147,8 +149,8 @@ export default function DietPlans() {
   // Generate personalized diet plan mutation
   const generatePlanMutation = useMutation({
     mutationFn: async (formData: DietFormValues) => {
-      // In a real implementation, this would call an AI service via the backend
-      // For now, we'll simulate the AI response with a logic to select the best fitting diet plan
+      // This would normally call an AI service via the backend
+      // We'll implement a robust algorithm to create a meaningful personalized diet plan
       
       // Set loading state
       setIsGeneratingPlan(true);
@@ -157,65 +159,300 @@ export default function DietPlans() {
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 2000));
         
-        // Derive plan based on form data (in production, this would be an AI recommendation)
-        // This is a simplified logic to demonstrate functionality
-        let matchingDiets = diets.filter(
-          diet => diet.region.includes(formData.region.toLowerCase().split(' ')[0]) && 
-                 diet.type === formData.dietType
+        // Step 1: Find region-specific diets as a foundation
+        const regionKeywords = formData.region.toLowerCase().split(' ');
+        let matchingDiets = diets.filter(diet => 
+          regionKeywords.some(keyword => 
+            diet.region.toLowerCase().includes(keyword)
+          ) && diet.type === formData.dietType
         );
         
-        // If no exact match, take any diet from the region
+        // If no exact region+type match, try just region match
         if (matchingDiets.length === 0) {
-          matchingDiets = diets.filter(
-            diet => diet.region.includes(formData.region.toLowerCase().split(' ')[0])
+          matchingDiets = diets.filter(diet => 
+            regionKeywords.some(keyword => 
+              diet.region.toLowerCase().includes(keyword)
+            )
           );
         }
         
-        // If still no match, take any diet
+        // If still no match, use any diet of the requested type
         if (matchingDiets.length === 0) {
-          matchingDiets = [diets[0]];
+          matchingDiets = diets.filter(diet => diet.type === formData.dietType);
         }
         
-        // Find diet that accommodates allergies if possible
-        const allergySafe = matchingDiets.filter(diet => 
-          !formData.allergies?.some(allergy => 
-            !diet.accommodatesAllergies.includes(allergy))
-        );
+        // Last fallback - just use any diet
+        if (matchingDiets.length === 0) {
+          matchingDiets = [...diets];
+        }
         
-        // Find diet suitable for selected health conditions if possible
-        let selectedDiet = allergySafe.length > 0 ? allergySafe[0] : matchingDiets[0];
+        // Step 2: Filter for allergy safety
+        const userAllergies = formData.allergies || [];
+        const allergySafeDiets = userAllergies.length > 0 
+          ? matchingDiets.filter(diet => 
+              !userAllergies.some(allergy => 
+                !diet.accommodatesAllergies.includes(allergy)
+              )
+            )
+          : matchingDiets;
         
-        if (formData.healthCondition.length > 0) {
-          const conditionMatch = allergySafe.filter(diet => 
-            formData.healthCondition.some(condition => 
-              diet.suitableForConditions.includes(condition.toLowerCase()))
-          );
-          
-          if (conditionMatch.length > 0) {
-            selectedDiet = conditionMatch[0];
+        // Step 3: Find diet suitable for health conditions
+        const userHealthConditions = formData.healthCondition || ["General Health"];
+        const conditionMatchDiets = userHealthConditions.length > 0 && userHealthConditions[0] !== "General Health"
+          ? allergySafeDiets.filter(diet => 
+              userHealthConditions.some(condition => 
+                diet.suitableForConditions.some(suitableCondition =>
+                  suitableCondition.toLowerCase().includes(condition.toLowerCase())
+                )
+              )
+            )
+          : allergySafeDiets;
+        
+        // Step 4: Select the best matching diet based on our filters
+        const selectedDiet = conditionMatchDiets.length > 0 
+          ? conditionMatchDiets[0] 
+          : (allergySafeDiets.length > 0 
+              ? allergySafeDiets[0] 
+              : matchingDiets[0]
+            );
+        
+        // Step 5: Generate a truly personalized diet plan by incorporating user specifics
+        
+        // Calculate BMR (Basal Metabolic Rate) using the Harris-Benedict equation
+        const isMale = formData.gender === 'male';
+        let bmr = 0;
+        
+        if (isMale) {
+          // BMR for men = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)
+          bmr = 88.362 + (13.397 * formData.weight) + (4.799 * formData.height) - (5.677 * formData.age);
+        } else {
+          // BMR for women = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)
+          bmr = 447.593 + (9.247 * formData.weight) + (3.098 * formData.height) - (4.330 * formData.age);
+        }
+        
+        // Apply activity multiplier
+        const activityMultipliers = {
+          'sedentary': 1.2,    // Little or no exercise
+          'light': 1.375,      // Light exercise 1-3 days/week
+          'moderate': 1.55,    // Moderate exercise 3-5 days/week
+          'active': 1.725,     // Active exercise 3-5 days/week
+          'very-active': 1.9   // Hard exercise 6-7 days/week
+        };
+        
+        const calorieNeeds = Math.round(bmr * activityMultipliers[formData.activityLevel]);
+        
+        // Adjust macronutrient ratios based on health conditions
+        let proteinPercentage = "20-25%";
+        let carbPercentage = "50-55%";
+        let fatPercentage = "25-30%";
+        
+        // Reuse userHealthConditions from earlier
+        
+        if (userHealthConditions.includes("Diabetes")) {
+          carbPercentage = "40-45%";
+          proteinPercentage = "25-30%";
+          fatPercentage = "30-35%";
+        } else if (userHealthConditions.includes("Hypertension")) {
+          fatPercentage = "20-25%";
+        } else if (userHealthConditions.includes("Heart Disease")) {
+          fatPercentage = "15-20%";
+          carbPercentage = "55-60%";
+        }
+        
+        // Generate personalized meal items based on dietary preferences and health conditions
+        // Use the selected diet as a foundation but customize it
+        let breakfastOptions = [];
+        let lunchOptions = [];
+        let dinnerOptions = [];
+        let snackOptions = [];
+        
+        // Get base meals from the selected diet
+        const baseMeals = {
+          breakfast: selectedDiet.sampleMeals.breakfast,
+          lunch: selectedDiet.sampleMeals.lunch,
+          dinner: selectedDiet.sampleMeals.dinner,
+          snacks: selectedDiet.sampleMeals.snacks
+        };
+        
+        // Add additional meal options based on region
+        const regionalSpecificMeals = {
+          "North India": {
+            breakfast: ["Stuffed Paratha with Curd", "Besan Chilla with Mint Chutney"],
+            lunch: ["Rajma Chawal with Cucumber Raita", "Chole Bhature with Pickled Onions"],
+            dinner: ["Vegetable Korma with Roti", "Paneer Butter Masala with Naan"],
+            snacks: ["Roasted Makhana", "Masala Chai with Marie Biscuits"]
+          },
+          "South India": {
+            breakfast: ["Idli with Sambar and Coconut Chutney", "Rava Upma with Coconut Chutney"],
+            lunch: ["Vegetable Sambhar with Rice", "Curd Rice with Pickle"],
+            dinner: ["Vegetable Stew with Appam", "Dosa with Tomato Chutney"],
+            snacks: ["Spiced Buttermilk", "Murukku with Filter Coffee"]
+          },
+          "East India": {
+            breakfast: ["Luchi with Aloor Dom", "Pitha with Curd"],
+            lunch: ["Fish Curry with Rice", "Daal Puri with Mixed Vegetables"],
+            dinner: ["Machher Jhol with Rice", "Vegetable Chop with Luchi"],
+            snacks: ["Jhalmuri", "Mishti Doi"]
+          },
+          "West India": {
+            breakfast: ["Poha with Peanuts", "Thalipeeth with Curd"],
+            lunch: ["Pav Bhaji", "Varan Bhaat with Lemon"],
+            dinner: ["Vegetable Undhiyu with Puri", "Batata Vada with Chutney"],
+            snacks: ["Dhokla with Green Chutney", "Khandvi"]
+          },
+          "Central India": {
+            breakfast: ["Poha with Sev", "Bedai with Sabzi"],
+            lunch: ["Dal Bafla", "Kadhi Chawal"],
+            dinner: ["Bhutte Ka Kees with Roti", "Mixed Dal with Rice"],
+            snacks: ["Chakki ki Shaak", "Sabudana Khichdi"]
+          },
+          "Northeast India": {
+            breakfast: ["Putharo with Jadoh", "Chura with Black Tea"],
+            lunch: ["Bamboo Shoot Pork", "Smoked Fish with Rice"],
+            dinner: ["Iromba with Rice", "Alu Pitika with Rice"],
+            snacks: ["Singju", "Black Tea with Til Pitha"]
           }
+        };
+        
+        // Get regional meals if available
+        const regionKey = Object.keys(regionalSpecificMeals).find(r => 
+          formData.region.includes(r)
+        );
+        
+        if (regionKey && regionKey in regionalSpecificMeals) {
+          const typedRegionKey = regionKey as keyof typeof regionalSpecificMeals;
+          breakfastOptions = [...regionalSpecificMeals[typedRegionKey].breakfast];
+          lunchOptions = [...regionalSpecificMeals[typedRegionKey].lunch];
+          dinnerOptions = [...regionalSpecificMeals[typedRegionKey].dinner];
+          snackOptions = [...regionalSpecificMeals[typedRegionKey].snacks];
+        } else {
+          // Fallback to the base diet
+          breakfastOptions = [baseMeals.breakfast];
+          lunchOptions = [baseMeals.lunch];
+          dinnerOptions = [baseMeals.dinner];
+          snackOptions = [baseMeals.snacks];
         }
         
-        // Create synthetic AI-generated diet plan based on selected diet
+        // Adjust for diet type
+        if (formData.dietType === 'vegetarian') {
+          // Filter out any non-vegetarian options
+          breakfastOptions = breakfastOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
+          lunchOptions = lunchOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
+          dinnerOptions = dinnerOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
+          snackOptions = snackOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
+        } else if (formData.dietType === 'vegan') {
+          // Filter out any animal products
+          breakfastOptions = breakfastOptions.filter(meal => 
+            !meal.toLowerCase().includes('meat') && 
+            !meal.toLowerCase().includes('fish') && 
+            !meal.toLowerCase().includes('chicken') &&
+            !meal.toLowerCase().includes('milk') &&
+            !meal.toLowerCase().includes('curd') &&
+            !meal.toLowerCase().includes('yogurt') &&
+            !meal.toLowerCase().includes('paneer') &&
+            !meal.toLowerCase().includes('ghee')
+          );
+          lunchOptions = lunchOptions.filter(meal => 
+            !meal.toLowerCase().includes('meat') && 
+            !meal.toLowerCase().includes('fish') && 
+            !meal.toLowerCase().includes('chicken') &&
+            !meal.toLowerCase().includes('milk') &&
+            !meal.toLowerCase().includes('curd') &&
+            !meal.toLowerCase().includes('yogurt') &&
+            !meal.toLowerCase().includes('paneer') &&
+            !meal.toLowerCase().includes('ghee')
+          );
+          dinnerOptions = dinnerOptions.filter(meal => 
+            !meal.toLowerCase().includes('meat') && 
+            !meal.toLowerCase().includes('fish') && 
+            !meal.toLowerCase().includes('chicken') &&
+            !meal.toLowerCase().includes('milk') &&
+            !meal.toLowerCase().includes('curd') &&
+            !meal.toLowerCase().includes('yogurt') &&
+            !meal.toLowerCase().includes('paneer') &&
+            !meal.toLowerCase().includes('ghee')
+          );
+          snackOptions = snackOptions.filter(meal => 
+            !meal.toLowerCase().includes('meat') && 
+            !meal.toLowerCase().includes('fish') && 
+            !meal.toLowerCase().includes('chicken') &&
+            !meal.toLowerCase().includes('milk') &&
+            !meal.toLowerCase().includes('curd') &&
+            !meal.toLowerCase().includes('yogurt') &&
+            !meal.toLowerCase().includes('paneer') &&
+            !meal.toLowerCase().includes('ghee')
+          );
+        }
+        
+        // Make sure we have at least one option for each meal
+        if (breakfastOptions.length === 0) breakfastOptions = ["Fruits with nuts and seeds"];
+        if (lunchOptions.length === 0) lunchOptions = ["Mixed vegetable salad with whole grains"];
+        if (dinnerOptions.length === 0) dinnerOptions = ["Steamed vegetables with legumes"];
+        if (snackOptions.length === 0) snackOptions = ["Fresh fruit or vegetable sticks"];
+        
+        // Generate weekly meal plan
+        const weekdayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        const mealPlan = weekdayNames.map((day, index) => {
+          // Use modulo to cycle through options if fewer than 7 options
+          const breakfastIdx = index % breakfastOptions.length;
+          const lunchIdx = index % lunchOptions.length;
+          const dinnerIdx = index % dinnerOptions.length;
+          const snackIdx = index % snackOptions.length;
+          
+          return `${day}: Breakfast - ${breakfastOptions[breakfastIdx]}, Lunch - ${lunchOptions[lunchIdx]}, Dinner - ${dinnerOptions[dinnerIdx]}, Snack - ${snackOptions[snackIdx]}`;
+        });
+        
+        // Calculate actual nutrients based on health condition and activity level
+        // These would normally be much more accurate with a real nutritional database
+        const proteins = Math.round((calorieNeeds * (parseFloat(proteinPercentage.split('-')[0]) / 100)) / 4); // 4 calories per gram of protein
+        const carbs = Math.round((calorieNeeds * (parseFloat(carbPercentage.split('-')[0]) / 100)) / 4); // 4 calories per gram of carbs
+        const fats = Math.round((calorieNeeds * (parseFloat(fatPercentage.split('-')[0]) / 100)) / 9); // 9 calories per gram of fat
+        
+        // Build nutrient profile
+        const nutrients = {
+          "Total Calories": `${calorieNeeds} kcal/day`,
+          "Protein": `${proteins}g (${proteinPercentage} of calories)`,
+          "Carbohydrates": `${carbs}g (${carbPercentage} of calories)`,
+          "Fat": `${fats}g (${fatPercentage} of calories)`,
+          "Fiber": formData.healthCondition.includes("Diabetes") ? "25-30g" : "20-25g",
+          "Water": "2-3 liters"
+        };
+        
+        // Get restrictions based on health conditions and allergies
+        let restrictions = [...selectedDiet.foodsToAvoid];
+        
+        // Add specific restrictions based on health conditions
+        if (userHealthConditions.includes("Diabetes")) {
+          restrictions.push("Limit refined sugars and carbohydrates");
+          restrictions.push("Avoid sugary beverages and desserts");
+          restrictions.push("Limit white rice and white bread consumption");
+        } else if (userHealthConditions.includes("Hypertension")) {
+          restrictions.push("Limit salt intake to less than 5g per day");
+          restrictions.push("Avoid processed and preserved foods high in sodium");
+          restrictions.push("Minimize caffeine consumption");
+        } else if (userHealthConditions.includes("Heart Disease")) {
+          restrictions.push("Limit saturated and trans fats");
+          restrictions.push("Avoid fried foods and high-fat dairy products");
+          restrictions.push("Limit red meat consumption");
+        }
+        
+        // Add restrictions for allergies
+        if (formData.allergies && formData.allergies.length > 0) {
+          formData.allergies.forEach(allergy => {
+            restrictions.push(`Avoid all foods containing ${allergy}`);
+          });
+        }
+        
+        // Create the personalized diet plan
         const plan: DietPlan = {
           id: 999,
-          name: `Personalized ${selectedDiet.nameKey} Plan`,
-          description: `A customized diet plan based on ${selectedDiet.descriptionKey} tailored for your specific needs and health conditions.`,
+          name: `Personalized ${formData.region} Diet Plan`,
+          description: `A customized diet plan for ${formData.healthCondition.join(', ') || 'General Health'} tailored to your age, weight, height, and activity level.`,
           forCondition: formData.healthCondition,
           region: formData.region,
-          items: [
-            `Breakfast: ${t(selectedDiet.sampleMeals.breakfast)}`,
-            `Lunch: ${t(selectedDiet.sampleMeals.lunch)}`,
-            `Dinner: ${t(selectedDiet.sampleMeals.dinner)}`,
-            `Snacks: ${t(selectedDiet.sampleMeals.snacks)}`
-          ],
-          nutrients: {
-            calories: `${1800 + (formData.activityLevel === "active" ? 300 : 0) + (formData.activityLevel === "very-active" ? 500 : 0)}`,
-            carbohydrates: "50-55%",
-            proteins: "20-25%",
-            fats: "20-30%"
-          },
-          restrictions: selectedDiet.foodsToAvoid.map(item => t(item))
+          items: mealPlan,
+          nutrients: nutrients,
+          restrictions: restrictions
         };
         
         return plan;
@@ -273,7 +510,7 @@ export default function DietPlans() {
 
   // When online, update filtered diet plans based on API data
   useEffect(() => {
-    if (!isOffline && apiDietPlans) {
+    if (!isOffline && apiDietPlans && Array.isArray(apiDietPlans)) {
       setFilteredDietPlans(apiDietPlans);
       // Cache diet plans for offline use
       saveOfflineData('dietPlans', apiDietPlans);
@@ -282,9 +519,16 @@ export default function DietPlans() {
 
   // Apply filters whenever region or condition changes
   useEffect(() => {
-    const dietPlans = !isOffline && apiDietPlans ? apiDietPlans : (isOffline ? localDietPlans : []);
+    const availableDietPlans = !isOffline && apiDietPlans && Array.isArray(apiDietPlans) ? 
+      apiDietPlans : (isOffline ? localDietPlans : []);
     
-    let filtered = [...dietPlans];
+    if (!Array.isArray(availableDietPlans) || availableDietPlans.length === 0) {
+      // Default to empty array if no data available
+      setFilteredDietPlans([]);
+      return;
+    }
+    
+    let filtered = [...availableDietPlans];
     
     // Apply region filter
     if (selectedRegion !== "All Regions") {
