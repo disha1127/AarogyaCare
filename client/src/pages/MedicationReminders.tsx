@@ -49,6 +49,11 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { Calendar, CalendarDays, Check, Clock, AlertCircle, Bell } from "lucide-react";
+import MedicationAdherence, { AdherenceRecord } from "@/components/MedicationAdherence";
+import { useAuth } from "@/hooks/use-auth";
 
 // Define days of the week for the form
 const daysOfWeek = [
@@ -68,9 +73,6 @@ const timeSlots = [
   "20:00", "21:00", "22:00", "23:00", "00:00"
 ];
 
-// Dummy user ID - In a real app, this would come from authentication
-const DUMMY_USER_ID = 1;
-
 // Form schema extends the insert medication schema with validation
 const formSchema = insertMedicationSchema.extend({
   // Additional validation rules
@@ -78,16 +80,35 @@ const formSchema = insertMedicationSchema.extend({
   selectedDays: z.array(z.string()).optional(),
 });
 
+// Adherence log form schema
+const adherenceLogSchema = z.object({
+  medicationId: z.number(),
+  date: z.string(),
+  time: z.string(),
+  taken: z.boolean(),
+  notes: z.string().optional(),
+});
+
+type AdherenceLogFormValues = z.infer<typeof adherenceLogSchema>;
+
 export default function MedicationReminders() {
   const { t, currentLanguage } = useLanguage();
   const { isOffline, getOfflineData, saveOfflineData } = useOffline();
+  const { user } = useAuth();
   const { toast } = useToast();
+  const [activeTab, setActiveTab] = useState("medications");
   const [reminderDialogOpen, setReminderDialogOpen] = useState(false);
   const [editingMedication, setEditingMedication] = useState<Medication | null>(null);
+  const [logDialogOpen, setLogDialogOpen] = useState(false);
+  const [selectedMedicationForLog, setSelectedMedicationForLog] = useState<Medication | null>(null);
+  const [adherenceRecords, setAdherenceRecords] = useState<AdherenceRecord[]>([]);
+
+  // Get user ID from auth, or use dummy value for development
+  const userId = user?.id || 1;
 
   // Fetch user's medications
   const { data: medications, isLoading } = useQuery({
-    queryKey: [`/api/medications/user/${DUMMY_USER_ID}`],
+    queryKey: [`/api/medications/user/${userId}`],
     enabled: !isOffline
   });
 
@@ -95,7 +116,7 @@ export default function MedicationReminders() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      userId: DUMMY_USER_ID,
+      userId: userId,
       name: "",
       dosage: "",
       frequency: "once daily",
@@ -108,12 +129,24 @@ export default function MedicationReminders() {
     }
   });
 
+  // Create log form with validation
+  const logForm = useForm<AdherenceLogFormValues>({
+    resolver: zodResolver(adherenceLogSchema),
+    defaultValues: {
+      medicationId: 0,
+      date: new Date().toISOString().split('T')[0],
+      time: new Date().toTimeString().substring(0, 5),
+      taken: true,
+      notes: "",
+    }
+  });
+
   // Reset form when dialog closes
   useEffect(() => {
     if (!reminderDialogOpen) {
       setEditingMedication(null);
       form.reset({
-        userId: DUMMY_USER_ID,
+        userId: userId,
         name: "",
         dosage: "",
         frequency: "once daily",
@@ -125,7 +158,7 @@ export default function MedicationReminders() {
         selectedDays: daysOfWeek.map(d => d.id)
       });
     }
-  }, [reminderDialogOpen, form]);
+  }, [reminderDialogOpen, form, userId]);
 
   // Set form values when editing a medication
   useEffect(() => {
@@ -142,6 +175,35 @@ export default function MedicationReminders() {
     }
   }, [editingMedication, form]);
 
+  // Set log form values when opening the log dialog
+  useEffect(() => {
+    if (selectedMedicationForLog) {
+      logForm.reset({
+        medicationId: selectedMedicationForLog.id,
+        date: new Date().toISOString().split('T')[0],
+        time: new Date().toTimeString().substring(0, 5),
+        taken: true,
+        notes: "",
+      });
+    }
+  }, [selectedMedicationForLog, logForm]);
+
+  // Load adherence records from offline storage
+  useEffect(() => {
+    const loadAdherenceRecords = async () => {
+      try {
+        const records = await getOfflineData<AdherenceRecord[]>('adherenceRecords');
+        if (records && records.length > 0) {
+          setAdherenceRecords(records);
+        }
+      } catch (error) {
+        console.error("Error loading adherence records:", error);
+      }
+    };
+
+    loadAdherenceRecords();
+  }, [getOfflineData]);
+
   // Create medication mutation
   const createMutation = useMutation({
     mutationFn: (data: z.infer<typeof formSchema>) => {
@@ -149,7 +211,7 @@ export default function MedicationReminders() {
     },
     onSuccess: () => {
       setReminderDialogOpen(false);
-      queryClient.invalidateQueries({ queryKey: [`/api/medications/user/${DUMMY_USER_ID}`] });
+      queryClient.invalidateQueries({ queryKey: [`/api/medications/user/${userId}`] });
       toast({
         title: t("medicationAdded", "Medication Reminder Added"),
         description: t("medicationAddedDesc", "Your medication reminder has been successfully set."),
@@ -171,7 +233,7 @@ export default function MedicationReminders() {
     },
     onSuccess: () => {
       setReminderDialogOpen(false);
-      queryClient.invalidateQueries({ queryKey: [`/api/medications/user/${DUMMY_USER_ID}`] });
+      queryClient.invalidateQueries({ queryKey: [`/api/medications/user/${userId}`] });
       toast({
         title: t("medicationUpdated", "Medication Reminder Updated"),
         description: t("medicationUpdatedDesc", "Your medication reminder has been successfully updated."),
@@ -192,7 +254,7 @@ export default function MedicationReminders() {
       return apiRequest("DELETE", `/api/medications/${id}`, undefined);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [`/api/medications/user/${DUMMY_USER_ID}`] });
+      queryClient.invalidateQueries({ queryKey: [`/api/medications/user/${userId}`] });
       toast({
         title: t("medicationRemoved", "Medication Reminder Removed"),
         description: t("medicationRemovedDesc", "Your medication reminder has been successfully removed."),
@@ -228,6 +290,45 @@ export default function MedicationReminders() {
     }
   };
 
+  // Handle adherence log submission
+  const onLogSubmit = async (data: AdherenceLogFormValues) => {
+    // Create the adherence record
+    const newRecord: AdherenceRecord = {
+      medicationId: data.medicationId,
+      date: data.date,
+      taken: data.taken,
+      scheduledTime: selectedMedicationForLog?.reminderTimes[0] as string || "08:00",
+      actualTime: data.time,
+    };
+
+    try {
+      // In a real app, we would save this to the API
+      // For now, we'll just save it to our state and local storage
+      
+      // Add the new record to state
+      const updatedRecords = [...adherenceRecords, newRecord];
+      setAdherenceRecords(updatedRecords);
+      
+      // Save to offline storage
+      await saveOfflineData('adherenceRecords', updatedRecords);
+      
+      toast({
+        title: data.taken 
+          ? t("medicationTaken", "Medication Taken") 
+          : t("medicationSkipped", "Medication Skipped"),
+        description: t("adherenceLoggedDesc", "Your medication adherence has been logged successfully."),
+      });
+      
+      setLogDialogOpen(false);
+    } catch (error) {
+      toast({
+        title: t("errorLoggingAdherence", "Error Logging Adherence"),
+        description: error.toString(),
+        variant: "destructive",
+      });
+    }
+  };
+
   // Handle deletion confirmation
   const handleDeleteMedication = (id: number) => {
     if (confirm(t("confirmDelete", "Are you sure you want to delete this medication reminder?"))) {
@@ -239,6 +340,12 @@ export default function MedicationReminders() {
   const handleEditMedication = (medication: Medication) => {
     setEditingMedication(medication);
     setReminderDialogOpen(true);
+  };
+
+  // Handle log medication
+  const handleLogMedication = (medication: Medication) => {
+    setSelectedMedicationForLog(medication);
+    setLogDialogOpen(true);
   };
 
   // Function to determine if a medication is today
@@ -264,6 +371,14 @@ export default function MedicationReminders() {
     return true;
   };
 
+  // Function to check if a medication has been logged today
+  const isLoggedToday = (medicationId: number) => {
+    const today = new Date().toISOString().split('T')[0];
+    return adherenceRecords.some(
+      record => record.medicationId === medicationId && record.date === today
+    );
+  };
+
   return (
     <div className="container mx-auto max-w-7xl py-12 px-4 sm:px-6">
       <div className="mb-8">
@@ -273,377 +388,557 @@ export default function MedicationReminders() {
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-        <h2 className="text-xl font-semibold text-slate-800">
-          {t("yourMedications", "Your Medications")}
-        </h2>
+      <Tabs 
+        value={activeTab} 
+        onValueChange={setActiveTab}
+        className="mb-8"
+      >
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="medications">
+            <Clock className="h-4 w-4 mr-2" />
+            {t("medications", "Medications")}
+          </TabsTrigger>
+          <TabsTrigger value="adherence">
+            <Check className="h-4 w-4 mr-2" />
+            {t("adherenceTracking", "Adherence Tracking")}
+          </TabsTrigger>
+        </TabsList>
         
-        <Dialog open={reminderDialogOpen} onOpenChange={setReminderDialogOpen}>
-          <DialogTrigger asChild>
-            <Button>
-              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-              </svg>
-              {t("addMedication", "Add Medication")}
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[500px]">
-            <DialogHeader>
-              <DialogTitle>
-                {editingMedication ? t("editMedication", "Edit Medication") : t("addNewMedication", "Add New Medication")}
-              </DialogTitle>
-              <DialogDescription>
-                {t("medicationFormDescription", "Enter the details of your medication and set up reminders.")}
-              </DialogDescription>
-            </DialogHeader>
+        <TabsContent value="medications" className="mt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            <h2 className="text-xl font-semibold text-slate-800">
+              {t("yourMedications", "Your Medications")}
+            </h2>
             
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("medicationName", "Medication Name")}</FormLabel>
-                      <FormControl>
-                        <Input {...field} placeholder={t("enterMedicationName", "Enter medication name")} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+            <Dialog open={reminderDialogOpen} onOpenChange={setReminderDialogOpen}>
+              <DialogTrigger asChild>
+                <Button>
+                  <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                  {t("addMedication", "Add Medication")}
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[500px]">
+                <DialogHeader>
+                  <DialogTitle>
+                    {editingMedication ? t("editMedication", "Edit Medication") : t("addNewMedication", "Add New Medication")}
+                  </DialogTitle>
+                  <DialogDescription>
+                    {t("medicationFormDescription", "Enter the details of your medication and set up reminders.")}
+                  </DialogDescription>
+                </DialogHeader>
                 
-                <div className="grid grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="dosage"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("dosage", "Dosage")}</FormLabel>
-                        <FormControl>
-                          <Input {...field} placeholder={t("enterDosage", "E.g., 1 tablet, 5ml")} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="frequency"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("frequency", "Frequency")}</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("medicationName", "Medication Name")}</FormLabel>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder={t("selectFrequency", "Select frequency")} />
-                            </SelectTrigger>
+                            <Input {...field} placeholder={t("enterMedicationName", "Enter medication name")} />
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="once daily">{t("onceDaily", "Once Daily")}</SelectItem>
-                            <SelectItem value="twice daily">{t("twiceDaily", "Twice Daily")}</SelectItem>
-                            <SelectItem value="three times daily">{t("thriceDaily", "Three Times Daily")}</SelectItem>
-                            <SelectItem value="four times daily">{t("fourTimesDaily", "Four Times Daily")}</SelectItem>
-                            <SelectItem value="as needed">{t("asNeeded", "As Needed")}</SelectItem>
-                            <SelectItem value="weekly">{t("weekly", "Weekly")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="startDate"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("startDate", "Start Date")}</FormLabel>
-                        <FormControl>
-                          <Input type="date" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="endDate"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>{t("endDate", "End Date (Optional)")}</FormLabel>
-                        <FormControl>
-                          <Input type="date" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                
-                <FormField
-                  control={form.control}
-                  name="instructions"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("instructions", "Instructions (Optional)")}</FormLabel>
-                      <FormControl>
-                        <Input {...field} placeholder={t("enterInstructions", "E.g., Take with food")} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="reminderTimes"
-                  render={() => (
-                    <FormItem>
-                      <FormLabel>{t("reminderTimes", "Reminder Times")}</FormLabel>
-                      <div className="grid grid-cols-3 gap-2">
-                        {timeSlots.map((time) => (
-                          <FormItem
-                            key={time}
-                            className="flex flex-row items-start space-x-2 space-y-0 rounded-md border p-2"
-                          >
-                            <FormControl>
-                              <Checkbox
-                                checked={form.watch("reminderTimes").includes(time)}
-                                onCheckedChange={(checked) => {
-                                  const currentValues = form.watch("reminderTimes");
-                                  if (checked) {
-                                    form.setValue("reminderTimes", [...currentValues, time]);
-                                  } else {
-                                    form.setValue(
-                                      "reminderTimes",
-                                      currentValues.filter((val) => val !== time)
-                                    );
-                                  }
-                                }}
-                              />
-                            </FormControl>
-                            <FormLabel className="font-normal cursor-pointer">
-                              {time}
-                            </FormLabel>
-                          </FormItem>
-                        ))}
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="isActive"
-                  render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
-                      <div className="space-y-0.5">
-                        <FormLabel className="text-base">
-                          {t("activateReminders", "Activate Reminders")}
-                        </FormLabel>
-                        <FormDescription>
-                          {t("activateRemindersDesc", "Receive notifications for this medication")}
-                        </FormDescription>
-                      </div>
-                      <FormControl>
-                        <Switch
-                          checked={field.value}
-                          onCheckedChange={field.onChange}
-                        />
-                      </FormControl>
-                    </FormItem>
-                  )}
-                />
-                
-                <DialogFooter>
-                  <Button 
-                    type="submit" 
-                    disabled={createMutation.isPending || updateMutation.isPending}
-                  >
-                    {(createMutation.isPending || updateMutation.isPending) 
-                      ? t("saving", "Saving...") 
-                      : (editingMedication ? t("updateMedication", "Update Medication") : t("addMedication", "Add Medication"))}
-                  </Button>
-                </DialogFooter>
-              </form>
-            </Form>
-          </DialogContent>
-        </Dialog>
-      </div>
-
-      {isLoading ? (
-        <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600 mx-auto mb-3"></div>
-          <p className="text-slate-500">{t("loading", "Loading...")}</p>
-        </div>
-      ) : medications && medications.length > 0 ? (
-        <div className="space-y-6">
-          <div className="bg-primary-50 p-4 rounded-lg mb-8">
-            <h3 className="font-medium text-primary-800 mb-2">{t("todaysMedications", "Today's Medications")}</h3>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {medications
-                .filter((med: Medication) => isMedicationActive(med) && isMedicationForToday(med))
-                .map((medication: Medication) => (
-                  <Card key={medication.id} className="border-primary-100">
-                    <CardHeader className="pb-2">
-                      <div className="flex justify-between items-start">
-                        <CardTitle className="text-lg">{medication.name}</CardTitle>
-                        <Badge variant={medication.isActive ? "default" : "outline"}>
-                          {medication.isActive ? t("active", "Active") : t("inactive", "Inactive")}
-                        </Badge>
-                      </div>
-                      <CardDescription>{medication.dosage} - {medication.frequency}</CardDescription>
-                    </CardHeader>
-                    <CardContent className="pb-2">
-                      <div className="flex flex-wrap gap-1 mb-2">
-                        {(medication.reminderTimes as string[]).map((time, idx) => (
-                          <Badge key={idx} variant="outline" className="bg-blue-50">
-                            {time}
-                          </Badge>
-                        ))}
-                      </div>
-                      {medication.instructions && (
-                        <p className="text-sm text-slate-600 italic">{medication.instructions}</p>
+                          <FormMessage />
+                        </FormItem>
                       )}
-                    </CardContent>
-                    <CardFooter className="flex justify-between">
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => handleEditMedication(medication)}
-                      >
-                        {t("edit", "Edit")}
+                    />
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="dosage"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("dosage", "Dosage")}</FormLabel>
+                            <FormControl>
+                              <Input {...field} placeholder={t("enterDosage", "E.g., 1 tablet, 5ml")} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="frequency"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("frequency", "Frequency")}</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger>
+                                  <SelectValue placeholder={t("selectFrequency", "Select frequency")} />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="once daily">{t("onceDaily", "Once Daily")}</SelectItem>
+                                <SelectItem value="twice daily">{t("twiceDaily", "Twice Daily")}</SelectItem>
+                                <SelectItem value="three times daily">{t("thriceDaily", "Three Times Daily")}</SelectItem>
+                                <SelectItem value="four times daily">{t("fourTimesDaily", "Four Times Daily")}</SelectItem>
+                                <SelectItem value="as needed">{t("asNeeded", "As Needed")}</SelectItem>
+                                <SelectItem value="weekly">{t("weekly", "Weekly")}</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
+                        name="startDate"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("startDate", "Start Date")}</FormLabel>
+                            <FormControl>
+                              <Input type="date" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="endDate"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("endDate", "End Date (Optional)")}</FormLabel>
+                            <FormControl>
+                              <Input type="date" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <FormField
+                      control={form.control}
+                      name="instructions"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("instructions", "Instructions (Optional)")}</FormLabel>
+                          <FormControl>
+                            <Textarea {...field} placeholder={t("enterInstructions", "E.g., Take with food, avoid dairy products")} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="reminderTimes"
+                      render={() => (
+                        <FormItem>
+                          <FormLabel>{t("reminderTimes", "Reminder Times")}</FormLabel>
+                          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                            {timeSlots.map((time) => (
+                              <FormItem
+                                key={time}
+                                className="flex flex-row items-start space-x-2 space-y-0 rounded-md border p-2"
+                              >
+                                <FormControl>
+                                  <Checkbox
+                                    checked={form.watch("reminderTimes").includes(time)}
+                                    onCheckedChange={(checked) => {
+                                      const currentValues = form.watch("reminderTimes");
+                                      if (checked) {
+                                        form.setValue("reminderTimes", [...currentValues, time]);
+                                      } else {
+                                        form.setValue(
+                                          "reminderTimes",
+                                          currentValues.filter((value) => value !== time)
+                                        );
+                                      }
+                                    }}
+                                  />
+                                </FormControl>
+                                <FormLabel className="font-normal text-sm cursor-pointer">
+                                  {time}
+                                </FormLabel>
+                              </FormItem>
+                            ))}
+                          </div>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={form.control}
+                      name="isActive"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3">
+                          <div className="space-y-0.5">
+                            <FormLabel>{t("isActive", "Active Reminder")}</FormLabel>
+                            <FormDescription>
+                              {t("isActiveDescription", "Toggle on to receive reminders for this medication")}
+                            </FormDescription>
+                          </div>
+                          <FormControl>
+                            <Switch
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <DialogFooter className="gap-2 sm:gap-0">
+                      {editingMedication && (
+                        <Button
+                          type="button"
+                          variant="destructive"
+                          onClick={() => handleDeleteMedication(editingMedication.id)}
+                        >
+                          {t("delete", "Delete")}
+                        </Button>
+                      )}
+                      <Button type="submit">
+                        {editingMedication 
+                          ? t("updateMedication", "Update Medication") 
+                          : t("addMedication", "Add Medication")
+                        }
                       </Button>
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-red-500 hover:text-red-700 hover:bg-red-50"
-                        onClick={() => handleDeleteMedication(medication.id)}
-                      >
-                        {t("delete", "Delete")}
+                    </DialogFooter>
+                  </form>
+                </Form>
+              </DialogContent>
+            </Dialog>
+            
+            {/* Medication Log Dialog */}
+            <Dialog open={logDialogOpen} onOpenChange={setLogDialogOpen}>
+              <DialogContent className="sm:max-w-[425px]">
+                <DialogHeader>
+                  <DialogTitle>{t("logMedicationAdherence", "Log Medication Adherence")}</DialogTitle>
+                  <DialogDescription>
+                    {selectedMedicationForLog && (
+                      <span>
+                        {selectedMedicationForLog.name} - {selectedMedicationForLog.dosage}
+                      </span>
+                    )}
+                  </DialogDescription>
+                </DialogHeader>
+                
+                <Form {...logForm}>
+                  <form onSubmit={logForm.handleSubmit(onLogSubmit)} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <FormField
+                        control={logForm.control}
+                        name="date"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("date", "Date")}</FormLabel>
+                            <FormControl>
+                              <Input type="date" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={logForm.control}
+                        name="time"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>{t("time", "Time")}</FormLabel>
+                            <FormControl>
+                              <Input type="time" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <FormField
+                      control={logForm.control}
+                      name="taken"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-center justify-between space-x-2 space-y-0 rounded-md border p-4">
+                          <div className="space-y-0.5">
+                            <FormLabel>{t("medicationTaken", "Medication Taken")}</FormLabel>
+                            <FormDescription>
+                              {t("markAsTaken", "Mark whether you took this medication or skipped it")}
+                            </FormDescription>
+                          </div>
+                          <FormControl>
+                            <Switch 
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <FormField
+                      control={logForm.control}
+                      name="notes"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>{t("notes", "Notes (Optional)")}</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              {...field} 
+                              placeholder={t("notesPlaceholder", "E.g., Felt nauseous, Skipped due to illness")}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <DialogFooter>
+                      <Button type="submit">
+                        {t("saveLog", "Save Log")}
                       </Button>
-                    </CardFooter>
-                  </Card>
-                ))}
+                    </DialogFooter>
+                  </form>
+                </Form>
+              </DialogContent>
+            </Dialog>
+          </div>
+
+          {isLoading ? (
+            <div className="text-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600 mx-auto mb-3"></div>
+              <p className="text-slate-500">{t("loading", "Loading...")}</p>
             </div>
-          </div>
-
-          <Separator />
-
-          <h3 className="font-medium text-slate-800 mt-4 mb-2">{t("allMedications", "All Medications")}</h3>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {medications.map((medication: Medication) => (
-              <Card key={medication.id}>
-                <CardHeader className="pb-2">
-                  <div className="flex justify-between items-start">
-                    <CardTitle className="text-lg">{medication.name}</CardTitle>
-                    <Badge variant={medication.isActive ? "default" : "outline"}>
-                      {medication.isActive ? t("active", "Active") : t("inactive", "Inactive")}
-                    </Badge>
-                  </div>
-                  <CardDescription>{medication.dosage} - {medication.frequency}</CardDescription>
-                </CardHeader>
-                <CardContent className="pb-2">
-                  <div className="text-sm text-slate-500 mb-2">
-                    <span className="font-medium">{t("duration", "Duration")}:</span>{" "}
-                    {formatDate(medication.startDate, currentLanguage.code)}
-                    {medication.endDate ? ` - ${formatDate(medication.endDate, currentLanguage.code)}` : ` - ${t("ongoing", "Ongoing")}`}
-                  </div>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {(medication.reminderTimes as string[]).map((time, idx) => (
-                      <Badge key={idx} variant="outline">
-                        {time}
-                      </Badge>
+          ) : medications && medications.length > 0 ? (
+            <div className="space-y-6">
+              <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-6">
+                <h3 className="font-medium text-slate-900 mb-2">{t("todayMedications", "Today's Medications")}</h3>
+                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                  {medications
+                    .filter(med => isMedicationActive(med) && isMedicationForToday(med))
+                    .map((medication) => (
+                      <Card key={medication.id} className="border-l-4 border-l-primary-500 overflow-hidden">
+                        {isLoggedToday(medication.id) && (
+                          <div className="bg-green-100 text-green-800 text-xs font-medium text-center py-1">
+                            <Check className="h-3 w-3 inline-block mr-1" />
+                            {t("takenToday", "Taken Today")}
+                          </div>
+                        )}
+                        <CardHeader className="pb-2">
+                          <div className="flex justify-between items-start">
+                            <CardTitle className="text-lg">{medication.name}</CardTitle>
+                            <Badge variant={medication.isActive ? "default" : "outline"}>
+                              {medication.isActive ? t("active", "Active") : t("inactive", "Inactive")}
+                            </Badge>
+                          </div>
+                          <CardDescription>
+                            {medication.dosage} - {medication.frequency}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="pb-2">
+                          <div className="text-sm text-slate-600">
+                            <p>
+                              <span className="font-medium">{t("reminderTimes", "Reminder Times")}:</span>{" "}
+                              {(medication.reminderTimes as string[]).join(", ")}
+                            </p>
+                            {medication.instructions && (
+                              <p className="mt-1">
+                                <span className="font-medium">{t("instructions", "Instructions")}:</span>{" "}
+                                {medication.instructions}
+                              </p>
+                            )}
+                          </div>
+                        </CardContent>
+                        <CardFooter className="flex justify-between pt-0">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleLogMedication(medication)}
+                          >
+                            {isLoggedToday(medication.id) 
+                              ? t("updateLog", "Update Log") 
+                              : t("logDose", "Log Dose")}
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleEditMedication(medication)}
+                          >
+                            {t("edit", "Edit")}
+                          </Button>
+                        </CardFooter>
+                      </Card>
                     ))}
-                  </div>
-                  {medication.instructions && (
-                    <p className="text-sm text-slate-600 italic">{medication.instructions}</p>
-                  )}
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    onClick={() => handleEditMedication(medication)}
-                  >
-                    {t("edit", "Edit")}
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm"
-                    className="text-red-500 hover:text-red-700 hover:bg-red-50"
-                    onClick={() => handleDeleteMedication(medication.id)}
-                  >
-                    {t("delete", "Delete")}
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div className="text-center py-12 bg-slate-50 rounded-lg">
-          <svg className="mx-auto h-12 w-12 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <h3 className="mt-2 text-sm font-medium text-slate-900">{t("noMedications", "No Medications")}</h3>
-          <p className="mt-1 text-sm text-slate-500">{t("noMedicationsDesc", "You haven't added any medication reminders yet.")}</p>
-          <div className="mt-6">
-            <Button 
-              onClick={() => setReminderDialogOpen(true)}
-              className="inline-flex items-center"
-            >
-              <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="font-medium text-slate-900 mb-3">{t("allMedications", "All Medications")}</h3>
+                <div className="space-y-4">
+                  {medications.map((medication) => (
+                    <Card key={medication.id}>
+                      <CardHeader className="pb-2">
+                        <div className="flex justify-between items-start">
+                          <CardTitle>{medication.name}</CardTitle>
+                          <Badge variant={isMedicationActive(medication) ? "default" : "outline"}>
+                            {isMedicationActive(medication) ? t("active", "Active") : t("inactive", "Inactive")}
+                          </Badge>
+                        </div>
+                        <CardDescription>
+                          {medication.dosage} - {medication.frequency}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid gap-2 sm:grid-cols-2">
+                          <div>
+                            <p className="text-sm text-slate-500">{t("startDate", "Start Date")}</p>
+                            <p className="text-slate-900">{formatDate(medication.startDate, currentLanguage)}</p>
+                          </div>
+                          {medication.endDate && (
+                            <div>
+                              <p className="text-sm text-slate-500">{t("endDate", "End Date")}</p>
+                              <p className="text-slate-900">{formatDate(medication.endDate, currentLanguage)}</p>
+                            </div>
+                          )}
+                        </div>
+                        <Separator className="my-3" />
+                        <div>
+                          <p className="text-sm text-slate-500">{t("reminderTimes", "Reminder Times")}</p>
+                          <div className="flex flex-wrap gap-1 mt-1">
+                            {(medication.reminderTimes as string[]).map((time, idx) => (
+                              <Badge key={idx} variant="outline" className="bg-slate-50">
+                                {time}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                        {medication.instructions && (
+                          <>
+                            <Separator className="my-3" />
+                            <div>
+                              <p className="text-sm text-slate-500">{t("instructions", "Instructions")}</p>
+                              <p className="text-slate-900 mt-1">{medication.instructions}</p>
+                            </div>
+                          </>
+                        )}
+                      </CardContent>
+                      <CardFooter className="flex justify-between pt-0">
+                        <div>
+                          <Button
+                            variant="destructive"
+                            size="sm"
+                            onClick={() => handleDeleteMedication(medication.id)}
+                          >
+                            {t("delete", "Delete")}
+                          </Button>
+                        </div>
+                        <div className="space-x-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleLogMedication(medication)}
+                          >
+                            {t("logDose", "Log Dose")}
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleEditMedication(medication)}
+                          >
+                            {t("edit", "Edit")}
+                          </Button>
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-12 bg-slate-50 rounded-lg">
+              <svg className="mx-auto h-12 w-12 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
               </svg>
-              {t("addMedication", "Add Medication")}
-            </Button>
-          </div>
-        </div>
-      )}
-
-      <div className="mt-12 space-y-6">
-        <h2 className="text-2xl font-bold text-slate-900">{t("medicationTips", "Medication Tips")}</h2>
+              <h3 className="mt-2 text-sm font-medium text-slate-900">{t("noMedications", "No Medications")}</h3>
+              <p className="mt-1 text-sm text-slate-500">{t("noMedicationsDescription", "You haven't added any medication reminders yet.")}</p>
+              <div className="mt-6">
+                <Button
+                  onClick={() => setReminderDialogOpen(true)}
+                >
+                  <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                  {t("addFirstMedication", "Add Your First Medication")}
+                </Button>
+              </div>
+            </div>
+          )}
+        </TabsContent>
         
+        <TabsContent value="adherence" className="mt-6">
+          {!medications || medications.length === 0 ? (
+            <div className="text-center py-12 bg-slate-50 rounded-lg">
+              <AlertCircle className="mx-auto h-12 w-12 text-slate-400" />
+              <h3 className="mt-2 text-sm font-medium text-slate-900">{t("noMedicationsForAdherence", "No Medications")}</h3>
+              <p className="mt-1 text-sm text-slate-500">{t("noMedicationsForAdherenceDesc", "You need to add medications before tracking adherence.")}</p>
+              <div className="mt-6">
+                <Button
+                  onClick={() => {
+                    setActiveTab("medications");
+                    setReminderDialogOpen(true);
+                  }}
+                >
+                  <svg className="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                  </svg>
+                  {t("addMedication", "Add Medication")}
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <MedicationAdherence medications={medications} adherenceRecords={adherenceRecords} />
+          )}
+        </TabsContent>
+      </Tabs>
+
+      <div className="mt-10 bg-slate-50 p-6 rounded-lg border border-slate-200">
+        <h2 className="text-xl font-semibold text-slate-800 mb-4">
+          {t("medicationManagementTips", "Medication Management Tips")}
+        </h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">{t("consistencyMatters", "Consistency Matters")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600">
-                {t("consistencyMattersDesc", "Take your medications at the same time each day to establish a routine. This helps in maintaining consistent drug levels in your body.")}
-              </p>
-            </CardContent>
-          </Card>
+          <div className="bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
+            <div className="flex items-center mb-3">
+              <Bell className="h-5 w-5 text-primary-500 mr-2" />
+              <h3 className="font-medium text-slate-900">{t("setReminders", "Set Reminders")}</h3>
+            </div>
+            <p className="text-sm text-slate-600">
+              {t("setRemindersDesc", "Use this app's reminder feature or set alarms on your phone. Place medications in visible locations as a visual reminder.")}
+            </p>
+          </div>
           
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">{t("foodInteractions", "Food Interactions")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600">
-                {t("foodInteractionsDesc", "Some medications work better with food, while others should be taken on an empty stomach. Always follow your doctor's or pharmacist's advice.")}
-              </p>
-            </CardContent>
-          </Card>
+          <div className="bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
+            <div className="flex items-center mb-3">
+              <Calendar className="h-5 w-5 text-primary-500 mr-2" />
+              <h3 className="font-medium text-slate-900">{t("useOrganizers", "Use Pill Organizers")}</h3>
+            </div>
+            <p className="text-sm text-slate-600">
+              {t("useOrganizersDesc", "Weekly pill organizers help you track which medications you've taken and prevent double-dosing.")}
+            </p>
+          </div>
           
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg">{t("storeMedicationsProperly", "Store Medications Properly")}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-slate-600">
-                {t("storeMedicationsProperlyDesc", "Keep medications in a cool, dry place away from direct sunlight. Some may require refrigeration. Always check the storage instructions.")}
-              </p>
-            </CardContent>
-          </Card>
+          <div className="bg-white p-4 rounded-lg border border-slate-100 shadow-sm">
+            <div className="flex items-center mb-3">
+              <CalendarDays className="h-5 w-5 text-primary-500 mr-2" />
+              <h3 className="font-medium text-slate-900">{t("establishRoutine", "Establish a Routine")}</h3>
+            </div>
+            <p className="text-sm text-slate-600">
+              {t("establishRoutineDesc", "Take medications at the same time each day. Link medication times with daily activities like meals or brushing teeth.")}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -658,7 +953,7 @@ export default function MedicationReminders() {
                 {t("offlineMode", "Offline Mode")}
               </h3>
               <p className="text-sm text-amber-700 mt-1">
-                {t("offlineMedicationsInfo", "You're currently offline. Your medication reminders are available, but you can't add new ones until you reconnect.")}
+                {t("offlineModeDescription", "You're currently in offline mode. Your medication logs are being saved locally and will sync when you reconnect.")}
               </p>
             </div>
           </div>
