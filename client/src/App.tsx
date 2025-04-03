@@ -11,6 +11,8 @@ import HospitalFinder from "@/pages/HospitalFinder";
 import GovernmentSchemes from "@/pages/GovernmentSchemes";
 import MedicationReminders from "@/pages/MedicationReminders";
 import Layout from "@/components/Layout";
+import { OfflineProvider } from "./context/OfflineContext";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function Router() {
   return (
@@ -29,12 +31,16 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Layout>
-        <Router />
-      </Layout>
-      <Toaster />
-    </QueryClientProvider>
+    <OfflineProvider>
+      <LanguageProvider>
+        <QueryClientProvider client={queryClient}>
+          <Layout>
+            <Router />
+          </Layout>
+          <Toaster />
+        </QueryClientProvider>
+      </LanguageProvider>
+    </OfflineProvider>
   );
 }
 
