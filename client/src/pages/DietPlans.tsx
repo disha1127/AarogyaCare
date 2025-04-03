@@ -97,7 +97,7 @@ const commonAllergies = [
 const dietFormSchema = z.object({
   region: z.string().min(1, "Please select your region"),
   dietType: z.enum(["vegetarian", "non-vegetarian", "vegan"]),
-  healthCondition: z.array(z.string()).min(1, "Select at least one health condition"),
+  healthCondition: z.array(z.string()).optional().default([]),
   allergies: z.array(z.string()).optional(),
   age: z.string().min(1, "Age is required"),
   weight: z.string().min(1, "Weight is required"),
@@ -241,7 +241,18 @@ export default function DietPlans() {
 
   // Handle form submission
   const onPersonalizedSubmit = (data: DietFormValues) => {
-    generatePlanMutation.mutate(data);
+    // Make sure we can handle case where no health conditions are selected
+    // by using either those specified or a default "General Health"
+    const healthConditions = data.healthCondition && data.healthCondition.length > 0 
+      ? data.healthCondition 
+      : ["General Health"];
+    
+    const formDataWithDefaults = {
+      ...data,
+      healthCondition: healthConditions
+    };
+    
+    generatePlanMutation.mutate(formDataWithDefaults);
   };
 
   // If offline, use cached diet plans or fallback to local data
@@ -530,9 +541,9 @@ export default function DietPlans() {
                       render={() => (
                         <FormItem>
                           <div className="mb-4">
-                            <FormLabel>{t("healthConditions", "Health Conditions")}</FormLabel>
+                            <FormLabel>Health Conditions</FormLabel>
                             <FormDescription>
-                              {t("selectAllThatApply", "Select all that apply")}
+                              Select all that apply or leave blank for general health
                             </FormDescription>
                           </div>
                           <div className="grid grid-cols-2 gap-2">
@@ -574,9 +585,9 @@ export default function DietPlans() {
                       render={() => (
                         <FormItem>
                           <div className="mb-4">
-                            <FormLabel>{t("allergies", "Allergies")}</FormLabel>
+                            <FormLabel>Allergies</FormLabel>
                             <FormDescription>
-                              {t("selectAllergies", "Select any allergies you have")}
+                              Select any allergies you have
                             </FormDescription>
                           </div>
                           <div className="grid grid-cols-2 gap-2">
@@ -602,7 +613,7 @@ export default function DietPlans() {
                                   />
                                 </FormControl>
                                 <FormLabel className="font-normal">
-                                  {t(allergy.id, allergy.label)}
+                                  {allergy.label}
                                 </FormLabel>
                               </FormItem>
                             ))}
@@ -617,10 +628,10 @@ export default function DietPlans() {
                       name="foodPreferences"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{t("foodPreferences", "Food Preferences")}</FormLabel>
+                          <FormLabel>Food Preferences</FormLabel>
                           <FormControl>
                             <Textarea 
-                              placeholder={t("foodPreferencesPlaceholder", "List any specific foods you like or dislike")}
+                              placeholder="List any specific foods you like or dislike"
                               rows={3}
                               {...field}
                             />
@@ -635,10 +646,10 @@ export default function DietPlans() {
                       name="additionalInfo"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{t("additionalInfo", "Additional Information")}</FormLabel>
+                          <FormLabel>Additional Information</FormLabel>
                           <FormControl>
                             <Textarea 
-                              placeholder={t("additionalInfoPlaceholder", "Any other relevant information about your diet or lifestyle")}
+                              placeholder="Any other relevant information about your diet or lifestyle"
                               rows={3}
                               {...field}
                             />
