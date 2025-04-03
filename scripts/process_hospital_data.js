@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import csvtojson from 'csvtojson';
 
+// In ES modules, __dirname is not directly available, so we recreate it
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

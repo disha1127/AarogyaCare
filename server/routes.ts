@@ -148,11 +148,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Hospitals API routes
-  app.get("/api/hospitals", async (req, res) => {
-    const hospitals = await storage.getHospitals();
-    return res.json(hospitals);
-  });
-
+  // Note: Order matters! More specific routes (like /nearby) must come before generic ones (like /:id)
   app.get("/api/hospitals/nearby", async (req, res) => {
     const latQuery = req.query.lat;
     const lngQuery = req.query.lng;
@@ -172,6 +168,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     const nearbyHospitals = await storage.getHospitalsByLocation(lat, lng, radius);
     return res.json(nearbyHospitals);
+  });
+  
+  app.get("/api/hospitals", async (req, res) => {
+    const hospitals = await storage.getHospitals();
+    return res.json(hospitals);
   });
 
   app.get("/api/hospitals/:id", async (req, res) => {
@@ -202,11 +203,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Symptoms API routes
-  app.get("/api/symptoms", async (req, res) => {
-    const symptoms = await storage.getSymptoms();
-    return res.json(symptoms);
-  });
-
+  // Note: Order matters! More specific routes (like /name) must come before generic ones (like /:id)
   app.get("/api/symptoms/name/:name", async (req, res) => {
     const name = req.params.name;
     
@@ -216,6 +213,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
     
     return res.json(symptom);
+  });
+  
+  app.get("/api/symptoms", async (req, res) => {
+    const symptoms = await storage.getSymptoms();
+    return res.json(symptoms);
   });
 
   app.get("/api/symptoms/:id", async (req, res) => {
@@ -293,6 +295,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Medication reminders API routes
+  // Note: Order matters! More specific routes (like /user) must come before generic ones (like /:id)
   app.get("/api/medications/user/:userId", async (req, res) => {
     const userId = parseInt(req.params.userId);
     if (isNaN(userId)) {
