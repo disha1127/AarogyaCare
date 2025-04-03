@@ -30,29 +30,19 @@ export default function Footer() {
             <h3 className="text-white text-lg font-semibold mb-4">{t("quickLinks", "Quick Links")}</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <a className="text-slate-400 hover:text-white">{t("home", "Home")}</a>
-                </Link>
+                <Link href="/" className="text-slate-400 hover:text-white">{t("common.home", "Home")}</Link>
               </li>
               <li>
-                <Link href="/articles">
-                  <a className="text-slate-400 hover:text-white">{t("healthArticles", "Health Articles")}</a>
-                </Link>
+                <Link href="/articles" className="text-slate-400 hover:text-white">{t("common.healthArticles", "Health Articles")}</Link>
               </li>
               <li>
-                <Link href="/symptom-checker">
-                  <a className="text-slate-400 hover:text-white">{t("symptomChecker", "Symptom Checker")}</a>
-                </Link>
+                <Link href="/symptom-checker" className="text-slate-400 hover:text-white">{t("common.symptomChecker", "Symptom Checker")}</Link>
               </li>
               <li>
-                <Link href="/hospital-finder">
-                  <a className="text-slate-400 hover:text-white">{t("hospitalFinder", "Hospital Finder")}</a>
-                </Link>
+                <Link href="/hospital-finder" className="text-slate-400 hover:text-white">{t("common.hospitalFinder", "Hospital Finder")}</Link>
               </li>
               <li>
-                <Link href="/government-schemes">
-                  <a className="text-slate-400 hover:text-white">{t("governmentSchemes", "Government Schemes")}</a>
-                </Link>
+                <Link href="/government-schemes" className="text-slate-400 hover:text-white">{t("common.governmentSchemes", "Government Schemes")}</Link>
               </li>
             </ul>
           </div>
@@ -67,14 +57,10 @@ export default function Footer() {
                 <a href="#" className="text-slate-400 hover:text-white">{t("emergencyContacts", "Emergency Contacts")}</a>
               </li>
               <li>
-                <Link href="/diet-plans">
-                  <a className="text-slate-400 hover:text-white">{t("dietNutrition", "Diet & Nutrition")}</a>
-                </Link>
+                <Link href="/diet-plans" className="text-slate-400 hover:text-white">{t("common.dietPlans", "Diet & Nutrition")}</Link>
               </li>
               <li>
-                <Link href="/medication-reminders">
-                  <a className="text-slate-400 hover:text-white">{t("medicationGuide", "Medication Guide")}</a>
-                </Link>
+                <Link href="/medication-reminders" className="text-slate-400 hover:text-white">{t("common.medicationReminders", "Medication Guide")}</Link>
               </li>
               <li>
                 <a href="#" className="text-slate-400 hover:text-white">{t("firstAidTips", "First Aid Tips")}</a>

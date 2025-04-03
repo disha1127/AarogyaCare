@@ -27,10 +27,8 @@ export default function ArticleCard({ article }: ArticleCardProps) {
           <span className="text-sm text-slate-500">
             {formatDate(article.publishedAt, currentLanguage.code)}
           </span>
-          <Link href={`/articles/${article.id}`}>
-            <a className="text-primary-600 hover:text-primary-700 font-medium text-sm">
-              {t("readMore", "Read more")}
-            </a>
+          <Link href={`/articles/${article.id}`} className="text-primary-600 hover:text-primary-700 font-medium text-sm">
+            {t("common.readMore", "Read more")}
           </Link>
         </div>
       </div>

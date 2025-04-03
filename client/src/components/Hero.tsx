@@ -24,10 +24,18 @@ export default function Hero() {
               {t("home.heroDescription", "Access essential healthcare services tailored for rural needs, even when offline. Your health companion, wherever you are.")}
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/symptom-checker" className="inline-flex items-center justify-center rounded-md text-base font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-white text-primary-800 hover:bg-gray-100 h-12 px-6 py-3 shadow-md transition-colors">
+              <Link 
+                href="/symptom-checker" 
+                className="inline-flex items-center justify-center rounded-md text-base font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-white text-primary-800 hover:bg-primary-100 h-12 px-6 py-3 shadow-lg transition-colors border-2 border-white"
+              >
+                <i className="fa-solid fa-stethoscope mr-2"></i>
                 {t("home.checkSymptoms", "Check Symptoms")}
               </Link>
-              <Link href="/hospital-finder" className="inline-flex items-center justify-center rounded-md text-base font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-primary-500 text-white hover:bg-primary-600 border-2 border-white h-12 px-6 py-3 shadow-md transition-colors">
+              <Link 
+                href="/hospital-finder" 
+                className="inline-flex items-center justify-center rounded-md text-base font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-primary-500 text-white hover:bg-primary-600 border-2 border-white h-12 px-6 py-3 shadow-lg transition-colors"
+              >
+                <i className="fa-solid fa-hospital mr-2"></i>
                 {t("home.findHospitals", "Find Hospitals")}
               </Link>
             </div>
