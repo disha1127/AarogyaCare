@@ -20,10 +20,8 @@ export default function Header() {
     <header className="bg-white border-b border-slate-200">
       <div className="container mx-auto px-4 py-3 sm:px-6 flex items-center justify-between">
         <div className="flex items-center">
-          <Link href="/">
-            <a className="text-primary-600 text-2xl font-bold flex items-center">
-              <i className="fa-solid fa-heartbeat mr-2"></i> AROGYA
-            </a>
+          <Link href="/" className="text-primary-600 text-2xl font-bold flex items-center">
+            <i className="fa-solid fa-heartbeat mr-2"></i> AROGYA
           </Link>
         </div>
         
@@ -40,30 +38,20 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 text-sm font-medium">
-          <Link href="/">
-            <a className={`px-3 py-2 ${isActivePath("/") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-              {t("home", "Home")}
-            </a>
+          <Link href="/" className={`px-3 py-2 ${isActivePath("/") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
+            {t("home", "Home")}
           </Link>
-          <Link href="/articles">
-            <a className={`px-3 py-2 ${isActivePath("/articles") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-              {t("healthArticles", "Health Articles")}
-            </a>
+          <Link href="/articles" className={`px-3 py-2 ${isActivePath("/articles") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
+            {t("healthArticles", "Health Articles")}
           </Link>
-          <Link href="/symptom-checker">
-            <a className={`px-3 py-2 ${isActivePath("/symptom-checker") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-              {t("symptomChecker", "Symptom Checker")}
-            </a>
+          <Link href="/symptom-checker" className={`px-3 py-2 ${isActivePath("/symptom-checker") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
+            {t("symptomChecker", "Symptom Checker")}
           </Link>
-          <Link href="/diet-plans">
-            <a className={`px-3 py-2 ${isActivePath("/diet-plans") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-              {t("dietPlans", "Diet Plans")}
-            </a>
+          <Link href="/diet-plans" className={`px-3 py-2 ${isActivePath("/diet-plans") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
+            {t("dietPlans", "Diet Plans")}
           </Link>
-          <Link href="/hospital-finder">
-            <a className={`px-3 py-2 ${isActivePath("/hospital-finder") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-              {t("hospitalFinder", "Hospital Finder")}
-            </a>
+          <Link href="/hospital-finder" className={`px-3 py-2 ${isActivePath("/hospital-finder") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
+            {t("hospitalFinder", "Hospital Finder")}
           </Link>
         </nav>
       </div>

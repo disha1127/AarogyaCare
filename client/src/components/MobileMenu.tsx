@@ -51,40 +51,54 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </button>
         </div>
         <nav className="flex flex-col space-y-2">
-          <Link href="/">
-            <a className="font-medium text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("home", "Home")}
-            </a>
+          <Link 
+            href="/" 
+            className="font-medium text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("home", "Home")}
           </Link>
-          <Link href="/articles">
-            <a className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("healthArticles", "Health Articles")}
-            </a>
+          <Link 
+            href="/articles" 
+            className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("healthArticles", "Health Articles")}
           </Link>
-          <Link href="/symptom-checker">
-            <a className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("symptomChecker", "Symptom Checker")}
-            </a>
+          <Link 
+            href="/symptom-checker" 
+            className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("symptomChecker", "Symptom Checker")}
           </Link>
-          <Link href="/diet-plans">
-            <a className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("dietPlans", "Diet Plans")}
-            </a>
+          <Link 
+            href="/diet-plans" 
+            className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("dietPlans", "Diet Plans")}
           </Link>
-          <Link href="/hospital-finder">
-            <a className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("hospitalFinder", "Hospital Finder")}
-            </a>
+          <Link 
+            href="/hospital-finder" 
+            className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("hospitalFinder", "Hospital Finder")}
           </Link>
-          <Link href="/medication-reminders">
-            <a className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("medicationReminders", "Medication Reminders")}
-            </a>
+          <Link 
+            href="/medication-reminders" 
+            className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("medicationReminders", "Medication Reminders")}
           </Link>
-          <Link href="/government-schemes">
-            <a className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" onClick={onClose}>
-              {t("governmentSchemes", "Government Schemes")}
-            </a>
+          <Link 
+            href="/government-schemes" 
+            className="font-medium text-slate-800 hover:text-primary-600 py-3 border-b border-slate-100" 
+            onClick={onClose}
+          >
+            {t("governmentSchemes", "Government Schemes")}
           </Link>
         </nav>
       </div>
