@@ -197,13 +197,13 @@ export default function SymptomChecker() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
-                {t("symptoms", "Step 1: Symptoms")}
+                {t("common.symptoms", "Step 1: Symptoms")}
               </TabsTrigger>
               <TabsTrigger value="personalInfo" className="text-base py-3">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
-                {t("personalInfo", "Step 2: Personal Info")}
+                {t("common.personalInfo", "Step 2: Personal Info")}
               </TabsTrigger>
             </TabsList>
 
@@ -216,10 +216,10 @@ export default function SymptomChecker() {
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                       </svg>
-                      {t("selectSymptoms", "Select Your Symptoms")}
+                      {t("common.selectSymptoms", "Select Your Symptoms")}
                     </CardTitle>
                     <CardDescription className="text-blue-700">
-                      {t("selectSymptomsDescription", "Choose from dropdown or common symptoms below")}
+                      {t("common.selectSymptomsDescription", "Choose from dropdown or common symptoms below")}
                     </CardDescription>
                   </CardHeader>
                   
@@ -273,7 +273,7 @@ export default function SymptomChecker() {
                         {Object.entries(commonSymptomGroups).map(([group, groupSymptoms]) => (
                           <AccordionItem key={group} value={group} className="border-blue-100">
                             <AccordionTrigger className="text-blue-700 hover:text-blue-900 py-3">
-                              {t(group.toLowerCase().replace(/\s+/g, ''), group)}
+                              {t(`common.${group.toLowerCase().replace(/\s+/g, '')}`, group)}
                             </AccordionTrigger>
                             <AccordionContent className="space-y-1 pt-1 pb-3 px-1">
                               <div className="grid grid-cols-2 gap-2">
