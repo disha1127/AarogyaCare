@@ -16,19 +16,19 @@ export default function Home() {
   const { isOffline, getOfflineData, saveOfflineData } = useOffline();
 
   // Fetch articles
-  const { data: articles, isLoading: isArticlesLoading } = useQuery({
+  const { data: articles, isLoading: isArticlesLoading } = useQuery<Article[]>({
     queryKey: ['/api/articles'],
     enabled: !isOffline
   });
 
   // Fetch schemes
-  const { data: schemes, isLoading: isSchemesLoading } = useQuery({
+  const { data: schemes, isLoading: isSchemesLoading } = useQuery<Scheme[]>({
     queryKey: ['/api/schemes'],
     enabled: !isOffline
   });
 
   // Fetch hospitals
-  const { data: hospitals, isLoading: isHospitalsLoading } = useQuery({
+  const { data: hospitals, isLoading: isHospitalsLoading } = useQuery<Hospital[]>({
     queryKey: ['/api/hospitals'],
     enabled: !isOffline
   });
@@ -143,7 +143,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {articles && (articles as Article[]).slice(0, 3).map((article: Article) => (
+                {articles?.slice(0, 3).map((article) => (
                   <ArticleCard key={article.id} article={article} />
                 ))}
               </div>
@@ -182,7 +182,7 @@ export default function Home() {
                     <p className="text-slate-500">{t("loading", "Loading...")}</p>
                   </div>
                 ) : (
-                  hospitals && (hospitals as Hospital[]).slice(0, 3).map((hospital: Hospital) => (
+                  hospitals?.slice(0, 3).map((hospital) => (
                     <HospitalCard key={hospital.id} hospital={hospital} />
                   ))
                 )}
@@ -200,7 +200,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
-                {schemes && (schemes as Scheme[]).slice(0, 4).map((scheme: Scheme) => (
+                {schemes?.slice(0, 4).map((scheme) => (
                   <SchemeCard key={scheme.id} scheme={scheme} />
                 ))}
               </div>

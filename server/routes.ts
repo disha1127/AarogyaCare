@@ -153,20 +153,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.json(hospitals);
   });
 
-  app.get("/api/hospitals/:id", async (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      return res.status(400).json({ message: "Invalid hospital ID" });
-    }
-    
-    const hospital = await storage.getHospital(id);
-    if (!hospital) {
-      return res.status(404).json({ message: "Hospital not found" });
-    }
-    
-    return res.json(hospital);
-  });
-
   app.get("/api/hospitals/nearby", async (req, res) => {
     const latQuery = req.query.lat;
     const lngQuery = req.query.lng;
@@ -188,6 +174,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.json(nearbyHospitals);
   });
 
+  app.get("/api/hospitals/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ message: "Invalid hospital ID" });
+    }
+    
+    const hospital = await storage.getHospital(id);
+    if (!hospital) {
+      return res.status(404).json({ message: "Hospital not found" });
+    }
+    
+    return res.json(hospital);
+  });
+
   app.post("/api/hospitals", async (req, res) => {
     try {
       const hospitalData = insertHospitalSchema.parse(req.body);
@@ -207,13 +207,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.json(symptoms);
   });
 
-  app.get("/api/symptoms/:id", async (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      return res.status(400).json({ message: "Invalid symptom ID" });
-    }
+  app.get("/api/symptoms/name/:name", async (req, res) => {
+    const name = req.params.name;
     
-    const symptom = await storage.getSymptom(id);
+    const symptom = await storage.getSymptomByName(name);
     if (!symptom) {
       return res.status(404).json({ message: "Symptom not found" });
     }
@@ -221,10 +218,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.json(symptom);
   });
 
-  app.get("/api/symptoms/name/:name", async (req, res) => {
-    const name = req.params.name;
+  app.get("/api/symptoms/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ message: "Invalid symptom ID" });
+    }
     
-    const symptom = await storage.getSymptomByName(name);
+    const symptom = await storage.getSymptom(id);
     if (!symptom) {
       return res.status(404).json({ message: "Symptom not found" });
     }
@@ -251,20 +251,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     return res.json(dietPlans);
   });
 
-  app.get("/api/diet-plans/:id", async (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      return res.status(400).json({ message: "Invalid diet plan ID" });
-    }
-    
-    const dietPlan = await storage.getDietPlan(id);
-    if (!dietPlan) {
-      return res.status(404).json({ message: "Diet plan not found" });
-    }
-    
-    return res.json(dietPlan);
-  });
-
   app.get("/api/diet-plans/condition/:condition", async (req, res) => {
     const condition = req.params.condition;
     
@@ -277,6 +263,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
     
     const dietPlans = await storage.getDietPlansByRegion(region);
     return res.json(dietPlans);
+  });
+  
+  app.get("/api/diet-plans/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) {
+      return res.status(400).json({ message: "Invalid diet plan ID" });
+    }
+    
+    const dietPlan = await storage.getDietPlan(id);
+    if (!dietPlan) {
+      return res.status(404).json({ message: "Diet plan not found" });
+    }
+    
+    return res.json(dietPlan);
   });
 
   app.post("/api/diet-plans", async (req, res) => {
