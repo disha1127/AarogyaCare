@@ -55,9 +55,9 @@ export default function Home() {
   useEffect(() => {
     const saveDataForOffline = async () => {
       if (!isOffline && articles && schemes && hospitals) {
-        await saveOfflineData('articles', articles.filter((article: Article) => article.isOfflineAvailable));
-        await saveOfflineData('schemes', schemes.filter((scheme: Scheme) => scheme.isOfflineAvailable));
-        await saveOfflineData('hospitals', hospitals);
+        await saveOfflineData('articles', (articles as Article[]).filter((article: Article) => article.isOfflineAvailable));
+        await saveOfflineData('schemes', (schemes as Scheme[]).filter((scheme: Scheme) => scheme.isOfflineAvailable));
+        await saveOfflineData('hospitals', hospitals as Hospital[]);
       }
     };
 
@@ -128,13 +128,11 @@ export default function Home() {
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-slate-900">{t("latestArticles", "Latest Health Articles")}</h2>
-              <Link href="/articles">
-                <a className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center">
-                  {t("viewAllArticles", "View all articles")}
-                  <svg className="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-                  </svg>
-                </a>
+              <Link href="/articles" className="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center">
+                {t("viewAllArticles", "View all articles")}
+                <svg className="ml-1 w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                </svg>
               </Link>
             </div>
             
@@ -145,7 +143,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {articles && articles.slice(0, 3).map((article: Article) => (
+                {articles && (articles as Article[]).slice(0, 3).map((article: Article) => (
                   <ArticleCard key={article.id} article={article} />
                 ))}
               </div>
@@ -173,10 +171,8 @@ export default function Home() {
               <div id="hospital-map" className="h-80 rounded-lg bg-slate-100 relative">
                 {/* Map will be rendered in HospitalFinder page */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Link href="/hospital-finder">
-                    <a className="inline-flex items-center justify-center rounded-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-primary-600 text-white hover:bg-primary-700 h-11 px-6 py-3">
-                      {t("openHospitalFinder", "Open Hospital Finder")}
-                    </a>
+                  <Link href="/hospital-finder" className="inline-flex items-center justify-center rounded-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-primary-600 text-white hover:bg-primary-700 h-11 px-6 py-3">
+                    {t("openHospitalFinder", "Open Hospital Finder")}
                   </Link>
                 </div>
               </div>
@@ -186,7 +182,7 @@ export default function Home() {
                     <p className="text-slate-500">{t("loading", "Loading...")}</p>
                   </div>
                 ) : (
-                  hospitals && hospitals.slice(0, 3).map((hospital: Hospital) => (
+                  hospitals && (hospitals as Hospital[]).slice(0, 3).map((hospital: Hospital) => (
                     <HospitalCard key={hospital.id} hospital={hospital} />
                   ))
                 )}
@@ -204,7 +200,7 @@ export default function Home() {
               </div>
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
-                {schemes && schemes.slice(0, 4).map((scheme: Scheme) => (
+                {schemes && (schemes as Scheme[]).slice(0, 4).map((scheme: Scheme) => (
                   <SchemeCard key={scheme.id} scheme={scheme} />
                 ))}
               </div>
