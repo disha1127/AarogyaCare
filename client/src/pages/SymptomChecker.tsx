@@ -8,7 +8,8 @@ import {
   CardContent,
   CardDescription,
   CardHeader,
-  CardTitle 
+  CardTitle,
+  CardFooter
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,11 +30,40 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Symptom } from "@shared/schema";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Textarea } from "@/components/ui/textarea";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface SelectedSymptom {
   id: number;
   name: string;
 }
+
+// Form validation schema for detailed user info
+const userInfoSchema = z.object({
+  age: z.string().min(1, "Age is required"),
+  gender: z.string().min(1, "Gender is required"),
+  weight: z.string().optional(),
+  height: z.string().optional(),
+  priorConditions: z.array(z.string()).default([]),
+  medications: z.string().optional(),
+  additionalSymptoms: z.string().optional(),
+  symptomsStarted: z.string().optional(),
+  severity: z.string().default("moderate"),
+});
 
 export default function SymptomChecker() {
   const { t } = useLanguage();
@@ -42,6 +72,43 @@ export default function SymptomChecker() {
   const [currentSelectedSymptom, setCurrentSelectedSymptom] = useState<string>("");
   const [results, setResults] = useState<Symptom[]>([]);
   const [analyzed, setAnalyzed] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>("symptoms");
+
+  // Initialize form for user info
+  const userInfoForm = useForm<z.infer<typeof userInfoSchema>>({
+    resolver: zodResolver(userInfoSchema),
+    defaultValues: {
+      age: "",
+      gender: "",
+      weight: "",
+      height: "",
+      priorConditions: [],
+      medications: "",
+      additionalSymptoms: "",
+      symptomsStarted: "",
+      severity: "moderate"
+    },
+  });
+
+  // Common health conditions for checkboxes
+  const commonHealthConditions = [
+    "Diabetes",
+    "Hypertension",
+    "Asthma",
+    "Heart Disease",
+    "Thyroid Disorder",
+    "Arthritis",
+    "Allergies",
+    "Kidney Disease"
+  ];
+
+  // Common symptoms for checkboxes
+  const commonSymptomGroups = {
+    "Cold & Flu": ["Fever", "Cough", "Sore Throat", "Runny Nose", "Headache", "Body Aches"],
+    "Digestive Issues": ["Nausea", "Vomiting", "Diarrhea", "Stomach Pain", "Bloating", "Loss of Appetite"],
+    "Respiratory": ["Shortness of Breath", "Chest Pain", "Wheezing", "Rapid Breathing", "Persistent Cough"],
+    "Pain": ["Headache", "Back Pain", "Joint Pain", "Muscle Pain", "Abdominal Pain", "Chest Pain"]
+  };
 
   // Fetch symptoms from the API
   const { data: apiSymptoms, isLoading } = useQuery({
@@ -69,8 +136,21 @@ export default function SymptomChecker() {
     setSelectedSymptoms(selectedSymptoms.filter(s => s.name !== symptomName));
   };
 
+  const handleAddSymptomByName = (symptomName: string) => {
+    const symptomToAdd = symptoms.find(s => s.name === symptomName);
+    if (!symptomToAdd) return;
+    
+    const alreadySelected = selectedSymptoms.some(s => s.name === symptomName);
+    if (alreadySelected) return;
+    
+    setSelectedSymptoms([...selectedSymptoms, { id: symptomToAdd.id, name: symptomToAdd.name }]);
+  };
+
   const handleAnalyzeSymptoms = () => {
     if (selectedSymptoms.length === 0) return;
+    
+    // Get user info data if available
+    const userInfo = userInfoForm.getValues();
     
     // Rule-based symptom checker
     // Find symptoms that match the selected symptoms
@@ -87,6 +167,8 @@ export default function SymptomChecker() {
     setCurrentSelectedSymptom("");
     setResults([]);
     setAnalyzed(false);
+    userInfoForm.reset();
+    setActiveTab("symptoms");
   };
 
   const severityColor = (severity: string) => {
@@ -103,276 +185,486 @@ export default function SymptomChecker() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 mb-2">{t("symptomChecker", "Symptom Checker")}</h1>
         <p className="text-slate-600 max-w-3xl">
-          {t("symptomCheckerDescription", "Select your symptoms to get potential health conditions and recommended actions. This tool is for informational purposes only and should not replace professional medical advice.")}
+          {t("symptomCheckerDescription", "Select your symptoms and provide personal information to get potential health conditions and recommended actions. This tool is for informational purposes only and should not replace professional medical advice.")}
         </p>
       </div>
 
       {!analyzed ? (
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>{t("selectSymptoms", "Select Your Symptoms")}</CardTitle>
-              <CardDescription>{t("selectSymptomsDescription", "Choose the symptoms you are experiencing.")}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-sm font-medium text-blue-700 mb-2">
-                    {t("addYourSymptoms", "Add Your Symptoms")}
-                  </h3>
-                  <div className="flex space-x-2">
-                    <Select
-                      value={currentSelectedSymptom}
-                      onValueChange={setCurrentSelectedSymptom}
-                    >
-                      <SelectTrigger className="flex-1 border-blue-200 focus:ring-blue-500">
-                        <SelectValue placeholder={t("selectSymptom", "Select a symptom")} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {isLoading ? (
-                          <SelectItem value="loading" disabled>{t("loading", "Loading...")}</SelectItem>
-                        ) : (
-                          symptoms
-                            .filter(symptom => !selectedSymptoms.some(s => s.name === symptom.name))
-                            .map((symptom) => (
-                              <SelectItem key={symptom.id} value={symptom.name}>
-                                {symptom.name}
-                              </SelectItem>
-                            ))
-                        )}
-                      </SelectContent>
-                    </Select>
-                    <Button 
-                      onClick={handleAddSymptom}
-                      className="bg-blue-600 hover:bg-blue-700"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
-                      </svg>
-                      {t("add", "Add")}
-                    </Button>
-                  </div>
-                  <p className="text-xs text-slate-500 italic">
-                    {t("addMultipleSymptoms", "You can add multiple symptoms to get a more accurate analysis")}
-                  </p>
-                </div>
+        <div className="space-y-8">
+          <Tabs defaultValue="symptoms" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <TabsList className="grid grid-cols-2 w-full">
+              <TabsTrigger value="symptoms" className="text-base py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                {t("symptoms", "Step 1: Symptoms")}
+              </TabsTrigger>
+              <TabsTrigger value="personalInfo" className="text-base py-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                </svg>
+                {t("personalInfo", "Step 2: Personal Info")}
+              </TabsTrigger>
+            </TabsList>
 
-                <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-medium text-blue-800">
-                      {t("selectedSymptoms", "Selected Symptoms")} 
-                      <span className="ml-2 bg-blue-100 text-blue-800 inline-flex items-center justify-center h-5 w-5 rounded-full text-xs">
-                        {selectedSymptoms.length}
-                      </span>
-                    </h3>
-                    {selectedSymptoms.length > 0 && (
+            <TabsContent value="symptoms" className="mt-6 space-y-6">
+              <div className="grid gap-6 md:grid-cols-2">
+                {/* Select individual symptoms */}
+                <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-100">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center text-blue-900 text-xl">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                      {t("selectSymptoms", "Select Your Symptoms")}
+                    </CardTitle>
+                    <CardDescription className="text-blue-700">
+                      {t("selectSymptomsDescription", "Choose from dropdown or common symptoms below")}
+                    </CardDescription>
+                  </CardHeader>
+                  
+                  <CardContent className="space-y-6">
+                    <div className="space-y-3">
+                      <div className="flex space-x-2">
+                        <Select
+                          value={currentSelectedSymptom}
+                          onValueChange={setCurrentSelectedSymptom}
+                        >
+                          <SelectTrigger className="flex-1 border-blue-200 focus:ring-blue-500">
+                            <SelectValue placeholder={t("selectSymptom", "Select a symptom")} />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {isLoading ? (
+                              <SelectItem value="loading" disabled>{t("loading", "Loading...")}</SelectItem>
+                            ) : (
+                              symptoms
+                                .filter(symptom => !selectedSymptoms.some(s => s.name === symptom.name))
+                                .map((symptom) => (
+                                  <SelectItem key={symptom.id} value={symptom.name}>
+                                    {symptom.name}
+                                  </SelectItem>
+                                ))
+                            )}
+                          </SelectContent>
+                        </Select>
+                        <Button 
+                          onClick={handleAddSymptom}
+                          className="bg-blue-600 hover:bg-blue-700"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
+                          </svg>
+                          {t("add", "Add")}
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Common symptom checkboxes */}
+                    <div className="bg-white rounded-lg p-4 border border-blue-100 shadow-sm space-y-4">
+                      <h3 className="text-sm font-medium text-blue-800 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                          <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+                        </svg>
+                        {t("commonSymptoms", "Common Symptoms")}
+                      </h3>
+                      
+                      <Accordion type="multiple" className="w-full">
+                        {Object.entries(commonSymptomGroups).map(([group, groupSymptoms]) => (
+                          <AccordionItem key={group} value={group} className="border-blue-100">
+                            <AccordionTrigger className="text-blue-700 hover:text-blue-900 py-3">
+                              {t(group.toLowerCase().replace(/\s+/g, ''), group)}
+                            </AccordionTrigger>
+                            <AccordionContent className="space-y-1 pt-1 pb-3 px-1">
+                              <div className="grid grid-cols-2 gap-2">
+                                {groupSymptoms.map((symptomName) => {
+                                  const symptom = symptoms.find(s => s.name === symptomName);
+                                  const isSelected = selectedSymptoms.some(s => s.name === symptomName);
+                                  
+                                  return (
+                                    <div key={symptomName} className="flex items-center space-x-2">
+                                      <Checkbox 
+                                        id={`${group}-${symptomName}`}
+                                        checked={isSelected}
+                                        onCheckedChange={(checked) => {
+                                          if (checked && symptom) {
+                                            if (!isSelected) {
+                                              setSelectedSymptoms([...selectedSymptoms, 
+                                                { id: symptom.id, name: symptom.name }
+                                              ]);
+                                            }
+                                          } else {
+                                            setSelectedSymptoms(selectedSymptoms.filter(
+                                              s => s.name !== symptomName
+                                            ));
+                                          }
+                                        }}
+                                      />
+                                      <Label 
+                                        htmlFor={`${group}-${symptomName}`}
+                                        className={isSelected ? "text-blue-800 font-medium" : "text-slate-700"}
+                                      >
+                                        {symptomName}
+                                      </Label>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </AccordionContent>
+                          </AccordionItem>
+                        ))}
+                      </Accordion>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Selected symptoms and free text input */}
+                <div className="space-y-6">
+                  <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-100">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center text-blue-900 text-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        {t("selectedSymptoms", "Selected Symptoms")}
+                      </CardTitle>
+                      <CardDescription className="text-blue-700">
+                        {t("selectedSymptomsDescription", "Your selected symptoms for analysis")}
+                      </CardDescription>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <div className="bg-white p-4 rounded-lg border border-blue-100 min-h-[100px]">
+                        {selectedSymptoms.length === 0 ? (
+                          <p className="text-slate-500 text-center italic py-4">
+                            {t("noSymptomsSelected", "No symptoms selected yet. Please select symptoms from the left panel.")}
+                          </p>
+                        ) : (
+                          <div className="flex flex-wrap gap-2">
+                            {selectedSymptoms.map((symptom) => (
+                              <div 
+                                key={symptom.id} 
+                                className="flex items-center gap-1.5 bg-blue-50 py-1.5 px-3 rounded-full border border-blue-200"
+                              >
+                                <span className="text-sm text-blue-800">{symptom.name}</span>
+                                <button 
+                                  type="button"
+                                  className="text-blue-400 hover:text-blue-600 focus:outline-none"
+                                  onClick={() => handleRemoveSymptom(symptom.name)}
+                                  aria-label={`Remove ${symptom.name}`}
+                                >
+                                  <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                  </svg>
+                                </button>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      <Textarea 
+                        className="mt-4 border-blue-200 focus-visible:ring-blue-500" 
+                        placeholder={t("additionalSymptoms", "Describe any additional symptoms or details not covered above...")}
+                        onChange={(e) => userInfoForm.setValue("additionalSymptoms", e.target.value)}
+                      />
+                    </CardContent>
+                    
+                    <CardFooter className="flex justify-between">
                       <Button 
-                        variant="ghost" 
-                        size="sm"
-                        className="text-blue-600 hover:text-blue-700 hover:bg-blue-100 h-7 px-2 py-1"
+                        variant="outline"
                         onClick={() => setSelectedSymptoms([])}
+                        disabled={selectedSymptoms.length === 0}
+                        className="text-blue-600 border-blue-200"
                       >
                         {t("clearAll", "Clear All")}
                       </Button>
-                    )}
-                  </div>
-                  
-                  {selectedSymptoms.length === 0 ? (
-                    <div className="bg-white rounded p-3 text-center border border-blue-100">
-                      <p className="text-sm text-slate-500 italic">
-                        {t("noSymptomsSelected", "No symptoms selected yet.")}
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="flex flex-wrap gap-2">
-                      {selectedSymptoms.map((symptom) => (
-                        <div 
-                          key={symptom.id} 
-                          className="flex items-center gap-1 bg-white py-1 px-2 rounded-full border border-blue-200"
-                        >
-                          <span className="text-sm text-blue-800">{symptom.name}</span>
-                          <button 
-                            type="button"
-                            className="text-blue-400 hover:text-blue-600 focus:outline-none"
-                            onClick={() => handleRemoveSymptom(symptom.name)}
-                            aria-label={`Remove ${symptom.name}`}
-                          >
-                            <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                            </svg>
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                      
+                      <Button 
+                        onClick={() => setActiveTab("personalInfo")}
+                        className="bg-blue-600 hover:bg-blue-700"
+                        disabled={selectedSymptoms.length === 0}
+                      >
+                        {t("next", "Next: Personal Info")}
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      </Button>
+                    </CardFooter>
+                  </Card>
                 </div>
-
-                <Button 
-                  className="w-full mt-6 bg-blue-600 hover:bg-blue-700 h-12 text-base" 
-                  onClick={handleAnalyzeSymptoms}
-                  disabled={selectedSymptoms.length === 0}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-                  </svg>
-                  {t("analyzeSymptoms", "Analyze Symptoms")}
-                </Button>
               </div>
-            </CardContent>
-          </Card>
+            </TabsContent>
 
-          <Card className="bg-gradient-to-br from-purple-50 to-indigo-50 border-purple-100">
-            <CardHeader className="pb-3">
-              <CardTitle className="flex items-center text-purple-900">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                  <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
-                </svg>
-                {t("commonSymptomGroups", "Common Symptom Groups")}
-              </CardTitle>
-              <CardDescription className="text-purple-700">
-                {t("commonSymptomGroupsDescription", "Quickly select symptoms that often occur together")}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ScrollArea className="h-[350px] pr-4">
-                <div className="space-y-6">
-                  <div className="bg-white rounded-lg p-4 border border-purple-100 shadow-sm">
-                    <h3 className="text-sm font-medium text-purple-800 mb-3 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                      </svg>
-                      {t("coldAndFlu", "Cold & Flu")}
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      {['Fever', 'Cough', 'Sore Throat', 'Runny Nose', 'Headache', 'Body Aches'].map((symptomName) => {
-                        const symptomObj = symptoms.find(s => s.name === symptomName);
-                        const isSelected = selectedSymptoms.some(s => s.name === symptomName);
+            <TabsContent value="personalInfo" className="mt-6">
+              <Card className="bg-gradient-to-br from-indigo-50 to-purple-50 border-indigo-100">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center text-indigo-900 text-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                    </svg>
+                    {t("personalHealthInfo", "Personal Health Information")}
+                  </CardTitle>
+                  <CardDescription className="text-indigo-700">
+                    {t("personalHealthInfoDescription", "Provide your personal health information for more accurate analysis")}
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent>
+                  <Form {...userInfoForm}>
+                    <form className="space-y-6">
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <FormField
+                          control={userInfoForm.control}
+                          name="age"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-indigo-900">{t("age", "Age")}</FormLabel>
+                              <FormControl>
+                                <Input type="number" className="border-indigo-200 focus-visible:ring-indigo-500" placeholder="e.g. 45" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                         
-                        return (
-                          <div key={symptomName} className="flex items-center space-x-2">
-                            <Checkbox 
-                              id={`cold-${symptomName}`}
-                              checked={isSelected}
-                              onCheckedChange={(checked) => {
-                                if (checked && symptomObj) {
-                                  // Only add if not already in the list
-                                  if (!selectedSymptoms.some(s => s.name === symptomName)) {
-                                    setSelectedSymptoms([...selectedSymptoms, 
-                                      { id: symptomObj.id, name: symptomObj.name }
-                                    ]);
-                                  }
-                                } else {
-                                  setSelectedSymptoms(selectedSymptoms.filter(
-                                    s => s.name !== symptomName
-                                  ));
-                                }
-                              }}
-                              className="border-purple-300 text-purple-600"
-                            />
-                            <Label 
-                              htmlFor={`cold-${symptomName}`}
-                              className={isSelected ? "text-purple-800 font-medium" : "text-slate-700"}
-                            >
-                              {symptomName}
-                            </Label>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="bg-white rounded-lg p-4 border border-purple-100 shadow-sm">
-                    <h3 className="text-sm font-medium text-purple-800 mb-3 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clipRule="evenodd" />
-                      </svg>
-                      {t("digestiveIssues", "Digestive Issues")}
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      {['Nausea', 'Vomiting', 'Diarrhea', 'Stomach Pain', 'Bloating', 'Loss of Appetite'].map((symptomName) => {
-                        const symptomObj = symptoms.find(s => s.name === symptomName);
-                        const isSelected = selectedSymptoms.some(s => s.name === symptomName);
+                        <FormField
+                          control={userInfoForm.control}
+                          name="gender"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-indigo-900">{t("gender", "Gender")}</FormLabel>
+                              <FormControl>
+                                <RadioGroup
+                                  onValueChange={field.onChange}
+                                  value={field.value}
+                                  className="flex space-x-4"
+                                >
+                                  <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                      <RadioGroupItem value="male" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal cursor-pointer">
+                                      {t("male", "Male")}
+                                    </FormLabel>
+                                  </FormItem>
+                                  <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                      <RadioGroupItem value="female" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal cursor-pointer">
+                                      {t("female", "Female")}
+                                    </FormLabel>
+                                  </FormItem>
+                                  <FormItem className="flex items-center space-x-2 space-y-0">
+                                    <FormControl>
+                                      <RadioGroupItem value="other" />
+                                    </FormControl>
+                                    <FormLabel className="font-normal cursor-pointer">
+                                      {t("other", "Other")}
+                                    </FormLabel>
+                                  </FormItem>
+                                </RadioGroup>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <FormField
+                          control={userInfoForm.control}
+                          name="weight"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-indigo-900">{t("weight", "Weight (kg)")}</FormLabel>
+                              <FormControl>
+                                <Input type="number" className="border-indigo-200 focus-visible:ring-indigo-500" placeholder="e.g. 70" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                         
-                        return (
-                          <div key={symptomName} className="flex items-center space-x-2">
-                            <Checkbox 
-                              id={`digestive-${symptomName}`}
-                              checked={isSelected}
-                              onCheckedChange={(checked) => {
-                                if (checked && symptomObj) {
-                                  if (!selectedSymptoms.some(s => s.name === symptomName)) {
-                                    setSelectedSymptoms([...selectedSymptoms, 
-                                      { id: symptomObj.id, name: symptomObj.name }
-                                    ]);
-                                  }
-                                } else {
-                                  setSelectedSymptoms(selectedSymptoms.filter(
-                                    s => s.name !== symptomName
-                                  ));
-                                }
-                              }}
-                              className="border-purple-300 text-purple-600"
-                            />
-                            <Label 
-                              htmlFor={`digestive-${symptomName}`}
-                              className={isSelected ? "text-purple-800 font-medium" : "text-slate-700"}
-                            >
-                              {symptomName}
-                            </Label>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="bg-white rounded-lg p-4 border border-purple-100 shadow-sm">
-                    <h3 className="text-sm font-medium text-purple-800 mb-3 flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-purple-600" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                      </svg>
-                      {t("respiratoryProblems", "Respiratory Problems")}
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      {['Shortness of Breath', 'Chest Pain', 'Wheezing', 'Rapid Breathing', 'Persistent Cough', 'Coughing Blood'].map((symptomName) => {
-                        const symptomObj = symptoms.find(s => s.name === symptomName);
-                        const isSelected = selectedSymptoms.some(s => s.name === symptomName);
-                        
-                        return (
-                          <div key={symptomName} className="flex items-center space-x-2">
-                            <Checkbox 
-                              id={`respiratory-${symptomName}`}
-                              checked={isSelected}
-                              onCheckedChange={(checked) => {
-                                if (checked && symptomObj) {
-                                  if (!selectedSymptoms.some(s => s.name === symptomName)) {
-                                    setSelectedSymptoms([...selectedSymptoms, 
-                                      { id: symptomObj.id, name: symptomObj.name }
-                                    ]);
-                                  }
-                                } else {
-                                  setSelectedSymptoms(selectedSymptoms.filter(
-                                    s => s.name !== symptomName
-                                  ));
-                                }
-                              }}
-                              className="border-purple-300 text-purple-600"
-                            />
-                            <Label 
-                              htmlFor={`respiratory-${symptomName}`}
-                              className={isSelected ? "text-purple-800 font-medium" : "text-slate-700"}
-                            >
-                              {symptomName}
-                            </Label>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </ScrollArea>
-            </CardContent>
-          </Card>
+                        <FormField
+                          control={userInfoForm.control}
+                          name="height"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-indigo-900">{t("height", "Height (cm)")}</FormLabel>
+                              <FormControl>
+                                <Input type="number" className="border-indigo-200 focus-visible:ring-indigo-500" placeholder="e.g. 165" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <FormField
+                        control={userInfoForm.control}
+                        name="priorConditions"
+                        render={() => (
+                          <FormItem>
+                            <div className="mb-2">
+                              <FormLabel className="text-indigo-900">{t("priorConditions", "Pre-existing Medical Conditions")}</FormLabel>
+                              <FormDescription>
+                                {t("priorConditionsDescription", "Select all that apply")}
+                              </FormDescription>
+                            </div>
+                            <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+                              {commonHealthConditions.map((condition) => (
+                                <FormItem 
+                                  key={condition} 
+                                  className="flex items-center space-x-2 space-y-0"
+                                >
+                                  <FormControl>
+                                    <Checkbox 
+                                      checked={userInfoForm.watch("priorConditions").includes(condition)}
+                                      onCheckedChange={(checked) => {
+                                        const current = userInfoForm.getValues("priorConditions");
+                                        if (checked) {
+                                          userInfoForm.setValue("priorConditions", [...current, condition]);
+                                        } else {
+                                          userInfoForm.setValue(
+                                            "priorConditions", 
+                                            current.filter((value) => value !== condition)
+                                          );
+                                        }
+                                      }}
+                                    />
+                                  </FormControl>
+                                  <FormLabel className="font-normal cursor-pointer">
+                                    {condition}
+                                  </FormLabel>
+                                </FormItem>
+                              ))}
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={userInfoForm.control}
+                        name="medications"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-indigo-900">{t("medications", "Current Medications")}</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                className="border-indigo-200 focus-visible:ring-indigo-500" 
+                                placeholder={t("medicationsPlaceholder", "List any medications you are currently taking...")}
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={userInfoForm.control}
+                        name="symptomsStarted"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-indigo-900">{t("symptomsStarted", "When did your symptoms start?")}</FormLabel>
+                            <FormControl>
+                              <Select onValueChange={field.onChange} value={field.value}>
+                                <SelectTrigger className="border-indigo-200 focus-visible:ring-indigo-500">
+                                  <SelectValue placeholder={t("selectDuration", "Select duration")} />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="today">{t("today", "Today")}</SelectItem>
+                                  <SelectItem value="yesterday">{t("yesterday", "Yesterday")}</SelectItem>
+                                  <SelectItem value="few-days">{t("fewDays", "Few days ago")}</SelectItem>
+                                  <SelectItem value="week">{t("week", "About a week ago")}</SelectItem>
+                                  <SelectItem value="more-than-week">{t("moreThanWeek", "More than a week ago")}</SelectItem>
+                                  <SelectItem value="month">{t("month", "About a month ago")}</SelectItem>
+                                  <SelectItem value="more-than-month">{t("moreThanMonth", "More than a month ago")}</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={userInfoForm.control}
+                        name="severity"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-indigo-900">{t("symptomSeverity", "Symptom Severity")}</FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="space-y-2"
+                              >
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                  <FormControl>
+                                    <RadioGroupItem value="mild" />
+                                  </FormControl>
+                                  <FormLabel className="font-normal cursor-pointer">
+                                    <span className="font-medium text-green-600 mr-1">{t("mild", "Mild:")}</span>
+                                    {t("mildDescription", "Noticeable but doesn't interfere with daily activities")}
+                                  </FormLabel>
+                                </FormItem>
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                  <FormControl>
+                                    <RadioGroupItem value="moderate" />
+                                  </FormControl>
+                                  <FormLabel className="font-normal cursor-pointer">
+                                    <span className="font-medium text-amber-600 mr-1">{t("moderate", "Moderate:")}</span>
+                                    {t("moderateDescription", "Causes some difficulty with daily activities")}
+                                  </FormLabel>
+                                </FormItem>
+                                <FormItem className="flex items-center space-x-2 space-y-0">
+                                  <FormControl>
+                                    <RadioGroupItem value="severe" />
+                                  </FormControl>
+                                  <FormLabel className="font-normal cursor-pointer">
+                                    <span className="font-medium text-red-600 mr-1">{t("severe", "Severe:")}</span>
+                                    {t("severeDescription", "Significantly disrupts daily activities")}
+                                  </FormLabel>
+                                </FormItem>
+                              </RadioGroup>
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </form>
+                  </Form>
+                </CardContent>
+                
+                <CardFooter className="flex justify-between">
+                  <Button 
+                    variant="outline"
+                    onClick={() => setActiveTab("symptoms")}
+                    className="text-indigo-600 border-indigo-200"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
+                    </svg>
+                    {t("back", "Back to Symptoms")}
+                  </Button>
+                  
+                  <Button 
+                    onClick={handleAnalyzeSymptoms}
+                    className="bg-indigo-600 hover:bg-indigo-700"
+                    disabled={selectedSymptoms.length === 0 || !userInfoForm.getValues("age") || !userInfoForm.getValues("gender")}
+                  >
+                    {t("analyzeSymptoms", "Analyze Symptoms")}
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </Button>
+                </CardFooter>
+              </Card>
+            </TabsContent>
+          </Tabs>
         </div>
       ) : (
         <div className="space-y-6">
@@ -391,21 +683,59 @@ export default function SymptomChecker() {
             </CardHeader>
             <CardContent>
               <div className="mb-6 bg-white rounded-lg p-4 border border-indigo-100 shadow-sm">
-                <h3 className="text-sm font-medium text-indigo-800 mb-3 flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM6.77 9.45a.5.5 0 01.73-.44l2 1.2.8.5c.18.1.35.2.5.28V6.11a.5.5 0 01.4-.49l2-.5a.5.5 0 01.6.49v8.26a.5.5 0 01-.23.42l-4 2.5a.5.5 0 01-.75-.37L6.77 9.45z" clipRule="evenodd" />
-                  </svg>
-                  {t("symptomsAnalyzed", "Symptoms Analyzed")}
-                </h3>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {selectedSymptoms.map((symptom) => (
-                    <span 
-                      key={symptom.id} 
-                      className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800"
-                    >
-                      {symptom.name}
-                    </span>
-                  ))}
+                <div className="grid gap-6 md:grid-cols-2 mb-4">
+                  <div>
+                    <h3 className="text-sm font-medium text-indigo-800 mb-3 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM6.77 9.45a.5.5 0 01.73-.44l2 1.2.8.5c.18.1.35.2.5.28V6.11a.5.5 0 01.4-.49l2-.5a.5.5 0 01.6.49v8.26a.5.5 0 01-.23.42l-4 2.5a.5.5 0 01-.75-.37L6.77 9.45z" clipRule="evenodd" />
+                      </svg>
+                      {t("symptomsAnalyzed", "Symptoms Analyzed")}
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedSymptoms.map((symptom) => (
+                        <span 
+                          key={symptom.id} 
+                          className="inline-flex items-center rounded-full bg-indigo-100 px-3 py-1 text-xs font-medium text-indigo-800"
+                        >
+                          {symptom.name}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-medium text-indigo-800 mb-3 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                      </svg>
+                      {t("patientInfo", "Patient Information")}
+                    </h3>
+                    <ul className="space-y-1 text-sm text-slate-600">
+                      {userInfoForm.getValues("age") && (
+                        <li className="flex items-center gap-2">
+                          <span className="font-medium">{t("age", "Age")}:</span> {userInfoForm.getValues("age")}
+                        </li>
+                      )}
+                      {userInfoForm.getValues("gender") && (
+                        <li className="flex items-center gap-2">
+                          <span className="font-medium">{t("gender", "Gender")}:</span> {t(userInfoForm.getValues("gender"), userInfoForm.getValues("gender"))}
+                        </li>
+                      )}
+                      {userInfoForm.getValues("priorConditions").length > 0 && (
+                        <li className="flex items-start gap-2">
+                          <span className="font-medium">{t("priorConditions", "Conditions")}:</span> 
+                          <span>{userInfoForm.getValues("priorConditions").join(", ")}</span>
+                        </li>
+                      )}
+                      {userInfoForm.getValues("severity") && (
+                        <li className="flex items-center gap-2">
+                          <span className="font-medium">{t("severity", "Severity")}:</span> 
+                          <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${severityColor(userInfoForm.getValues("severity"))}`}>
+                            {t(userInfoForm.getValues("severity"), userInfoForm.getValues("severity"))}
+                          </span>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
                 </div>
 
                 <Separator className="my-4 bg-indigo-100" />
@@ -480,19 +810,18 @@ export default function SymptomChecker() {
                 )}
               </div>
             </CardContent>
+            <CardFooter>
+              <Button 
+                onClick={resetChecker}
+                className="bg-indigo-600 hover:bg-indigo-700 w-full"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
+                </svg>
+                {t("startOver", "Start Over")}
+              </Button>
+            </CardFooter>
           </Card>
-
-          <div className="flex justify-center gap-4">
-            <Button 
-              onClick={resetChecker}
-              className="bg-indigo-600 hover:bg-indigo-700"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
-              </svg>
-              {t("startOver", "Start Over")}
-            </Button>
-          </div>
 
           <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6">
             <div className="flex items-start space-x-3">

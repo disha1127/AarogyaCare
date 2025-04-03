@@ -2,39 +2,21 @@ import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useLanguage } from "@/context/LanguageContext";
 import { useOffline } from "@/context/OfflineContext";
-import { useAuth } from "@/hooks/use-auth";
-import { dietPlans as localDietPlans } from "@/data/dietPlans";
 import { diets } from "@/data/diets";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { queryClient } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardFooter,
 } from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -44,508 +26,294 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+  TableCaption,
+} from "@/components/ui/table";
 import { DietPlan } from "@shared/schema";
 
-// Define India regions for the region selector
-const regions = [
-  "All Regions",
-  "North India",
-  "South India",
-  "East India",
-  "West India",
-  "Central India",
-  "Northeast India"
-];
-
-// Define health conditions for the condition selector
-const healthConditions = [
-  "All Conditions",
-  "Diabetes",
-  "Hypertension",
-  "Heart Disease",
-  "Anemia",
-  "Obesity",
-  "Malnutrition",
-  "Pregnancy"
-];
-
-// Define diet types
-const dietTypes = [
-  { id: "vegetarian", label: "Vegetarian" },
-  { id: "non-vegetarian", label: "Non-Vegetarian" },
-  { id: "vegan", label: "Vegan" },
-];
-
-// Define common allergies
-const commonAllergies = [
-  { id: "dairy", label: "Dairy" },
-  { id: "gluten", label: "Gluten" },
-  { id: "nuts", label: "Nuts" },
-  { id: "soy", label: "Soy" },
-  { id: "seafood", label: "Seafood" },
-  { id: "eggs", label: "Eggs" },
-];
-
-// Form schema for personalized diet plan
 const dietFormSchema = z.object({
-  region: z.string().min(1, "Please select your region"),
-  dietType: z.enum(["vegetarian", "non-vegetarian", "vegan"]),
-  gender: z.enum(["male", "female"]),
-  healthCondition: z.array(z.string()).optional().default([]),
-  allergies: z.array(z.string()).optional(),
-  age: z.coerce.number().min(1, "Age is required"),
-  weight: z.coerce.number().min(1, "Weight is required"),
-  height: z.coerce.number().min(1, "Height is required"),
-  activityLevel: z.enum(["sedentary", "light", "moderate", "active", "very-active"]),
-  foodPreferences: z.string().optional(),
-  additionalInfo: z.string().optional(),
+  region: z.string().min(1, { message: "Please select a region" }),
+  dietType: z.string().min(1, { message: "Please select a diet type" }),
+  age: z.string().min(1, { message: "Age is required" }),
+  weight: z.string().min(1, { message: "Weight is required" }),
+  height: z.string().min(1, { message: "Height is required" }),
+  activityLevel: z.string().min(1, { message: "Please select activity level" }),
+  healthCondition: z.array(z.string()).default([]),
+  allergies: z.array(z.string()).default([]),
+  foodPreferences: z.array(z.string()).default([]),
+  goals: z.string().default("maintenance"),
+  pregnantNursing: z.boolean().default(false),
 });
-
-type DietFormValues = z.infer<typeof dietFormSchema>;
 
 export default function DietPlans() {
   const { t } = useLanguage();
-  const { isOffline, getOfflineData, saveOfflineData } = useOffline();
-  const { user } = useAuth();
-  const { toast } = useToast();
+  const { isOffline, getOfflineData } = useOffline();
   const [selectedRegion, setSelectedRegion] = useState("All Regions");
   const [selectedCondition, setSelectedCondition] = useState("All Conditions");
   const [filteredDietPlans, setFilteredDietPlans] = useState<DietPlan[]>([]);
   const [personalizedDialogOpen, setPersonalizedDialogOpen] = useState(false);
   const [aiRecommendedPlan, setAiRecommendedPlan] = useState<DietPlan | null>(null);
-  const [isGeneratingPlan, setIsGeneratingPlan] = useState(false);
+  const { toast } = useToast();
 
-  // Fetch diet plans from API when online
+  // Fetch diet plans from the API
   const { data: apiDietPlans, isLoading } = useQuery({
     queryKey: ['/api/diet-plans'],
     enabled: !isOffline
   });
 
-  // Setup form with validation
-  const form = useForm<DietFormValues>({
+  const form = useForm<z.infer<typeof dietFormSchema>>({
     resolver: zodResolver(dietFormSchema),
     defaultValues: {
-      region: user?.region || "North India",
+      region: "",
       dietType: "vegetarian",
-      gender: "male",
+      age: "",
+      weight: "",
+      height: "",
+      activityLevel: "",
       healthCondition: [],
       allergies: [],
-      age: 30,
-      weight: 70,
-      height: 170,
-      activityLevel: "moderate",
-      foodPreferences: "",
-      additionalInfo: "",
+      foodPreferences: [],
+      goals: "maintenance",
+      pregnantNursing: false,
     },
   });
 
-  // Generate personalized diet plan mutation
-  const generatePlanMutation = useMutation({
-    mutationFn: async (formData: DietFormValues) => {
-      // This would normally call an AI service via the backend
-      // We'll implement a robust algorithm to create a meaningful personalized diet plan
-      
-      // Set loading state
-      setIsGeneratingPlan(true);
-      
-      try {
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // Step 1: Find region-specific diets as a foundation
-        const regionKeywords = formData.region.toLowerCase().split(' ');
-        let matchingDiets = diets.filter(diet => 
-          regionKeywords.some(keyword => 
-            diet.region.toLowerCase().includes(keyword)
-          ) && diet.type === formData.dietType
-        );
-        
-        // If no exact region+type match, try just region match
-        if (matchingDiets.length === 0) {
-          matchingDiets = diets.filter(diet => 
-            regionKeywords.some(keyword => 
-              diet.region.toLowerCase().includes(keyword)
-            )
-          );
-        }
-        
-        // If still no match, use any diet of the requested type
-        if (matchingDiets.length === 0) {
-          matchingDiets = diets.filter(diet => diet.type === formData.dietType);
-        }
-        
-        // Last fallback - just use any diet
-        if (matchingDiets.length === 0) {
-          matchingDiets = [...diets];
-        }
-        
-        // Step 2: Filter for allergy safety
-        const userAllergies = formData.allergies || [];
-        const allergySafeDiets = userAllergies.length > 0 
-          ? matchingDiets.filter(diet => 
-              !userAllergies.some(allergy => 
-                !diet.accommodatesAllergies.includes(allergy)
-              )
-            )
-          : matchingDiets;
-        
-        // Step 3: Find diet suitable for health conditions
-        const userHealthConditions = formData.healthCondition || ["General Health"];
-        const conditionMatchDiets = userHealthConditions.length > 0 && userHealthConditions[0] !== "General Health"
-          ? allergySafeDiets.filter(diet => 
-              userHealthConditions.some(condition => 
-                diet.suitableForConditions.some(suitableCondition =>
-                  suitableCondition.toLowerCase().includes(condition.toLowerCase())
-                )
-              )
-            )
-          : allergySafeDiets;
-        
-        // Step 4: Select the best matching diet based on our filters
-        const selectedDiet = conditionMatchDiets.length > 0 
-          ? conditionMatchDiets[0] 
-          : (allergySafeDiets.length > 0 
-              ? allergySafeDiets[0] 
-              : matchingDiets[0]
-            );
-        
-        // Step 5: Generate a truly personalized diet plan by incorporating user specifics
-        
-        // Calculate BMR (Basal Metabolic Rate) using the Harris-Benedict equation
-        const isMale = formData.gender === 'male';
-        let bmr = 0;
-        
-        if (isMale) {
-          // BMR for men = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)
-          bmr = 88.362 + (13.397 * formData.weight) + (4.799 * formData.height) - (5.677 * formData.age);
-        } else {
-          // BMR for women = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)
-          bmr = 447.593 + (9.247 * formData.weight) + (3.098 * formData.height) - (4.330 * formData.age);
-        }
-        
-        // Apply activity multiplier
-        const activityMultipliers = {
-          'sedentary': 1.2,    // Little or no exercise
-          'light': 1.375,      // Light exercise 1-3 days/week
-          'moderate': 1.55,    // Moderate exercise 3-5 days/week
-          'active': 1.725,     // Active exercise 3-5 days/week
-          'very-active': 1.9   // Hard exercise 6-7 days/week
-        };
-        
-        const calorieNeeds = Math.round(bmr * activityMultipliers[formData.activityLevel]);
-        
-        // Adjust macronutrient ratios based on health conditions
-        let proteinPercentage = "20-25%";
-        let carbPercentage = "50-55%";
-        let fatPercentage = "25-30%";
-        
-        // Reuse userHealthConditions from earlier
-        
-        if (userHealthConditions.includes("Diabetes")) {
-          carbPercentage = "40-45%";
-          proteinPercentage = "25-30%";
-          fatPercentage = "30-35%";
-        } else if (userHealthConditions.includes("Hypertension")) {
-          fatPercentage = "20-25%";
-        } else if (userHealthConditions.includes("Heart Disease")) {
-          fatPercentage = "15-20%";
-          carbPercentage = "55-60%";
-        }
-        
-        // Generate personalized meal items based on dietary preferences and health conditions
-        // Use the selected diet as a foundation but customize it
-        let breakfastOptions = [];
-        let lunchOptions = [];
-        let dinnerOptions = [];
-        let snackOptions = [];
-        
-        // Get base meals from the selected diet
-        const baseMeals = {
-          breakfast: selectedDiet.sampleMeals.breakfast,
-          lunch: selectedDiet.sampleMeals.lunch,
-          dinner: selectedDiet.sampleMeals.dinner,
-          snacks: selectedDiet.sampleMeals.snacks
-        };
-        
-        // Add additional meal options based on region
-        const regionalSpecificMeals = {
-          "North India": {
-            breakfast: ["Stuffed Paratha with Curd", "Besan Chilla with Mint Chutney"],
-            lunch: ["Rajma Chawal with Cucumber Raita", "Chole Bhature with Pickled Onions"],
-            dinner: ["Vegetable Korma with Roti", "Paneer Butter Masala with Naan"],
-            snacks: ["Roasted Makhana", "Masala Chai with Marie Biscuits"]
-          },
-          "South India": {
-            breakfast: ["Idli with Sambar and Coconut Chutney", "Rava Upma with Coconut Chutney"],
-            lunch: ["Vegetable Sambhar with Rice", "Curd Rice with Pickle"],
-            dinner: ["Vegetable Stew with Appam", "Dosa with Tomato Chutney"],
-            snacks: ["Spiced Buttermilk", "Murukku with Filter Coffee"]
-          },
-          "East India": {
-            breakfast: ["Luchi with Aloor Dom", "Pitha with Curd"],
-            lunch: ["Fish Curry with Rice", "Daal Puri with Mixed Vegetables"],
-            dinner: ["Machher Jhol with Rice", "Vegetable Chop with Luchi"],
-            snacks: ["Jhalmuri", "Mishti Doi"]
-          },
-          "West India": {
-            breakfast: ["Poha with Peanuts", "Thalipeeth with Curd"],
-            lunch: ["Pav Bhaji", "Varan Bhaat with Lemon"],
-            dinner: ["Vegetable Undhiyu with Puri", "Batata Vada with Chutney"],
-            snacks: ["Dhokla with Green Chutney", "Khandvi"]
-          },
-          "Central India": {
-            breakfast: ["Poha with Sev", "Bedai with Sabzi"],
-            lunch: ["Dal Bafla", "Kadhi Chawal"],
-            dinner: ["Bhutte Ka Kees with Roti", "Mixed Dal with Rice"],
-            snacks: ["Chakki ki Shaak", "Sabudana Khichdi"]
-          },
-          "Northeast India": {
-            breakfast: ["Putharo with Jadoh", "Chura with Black Tea"],
-            lunch: ["Bamboo Shoot Pork", "Smoked Fish with Rice"],
-            dinner: ["Iromba with Rice", "Alu Pitika with Rice"],
-            snacks: ["Singju", "Black Tea with Til Pitha"]
-          }
-        };
-        
-        // Get regional meals if available
-        const regionKey = Object.keys(regionalSpecificMeals).find(r => 
-          formData.region.includes(r)
-        );
-        
-        if (regionKey && regionKey in regionalSpecificMeals) {
-          const typedRegionKey = regionKey as keyof typeof regionalSpecificMeals;
-          breakfastOptions = [...regionalSpecificMeals[typedRegionKey].breakfast];
-          lunchOptions = [...regionalSpecificMeals[typedRegionKey].lunch];
-          dinnerOptions = [...regionalSpecificMeals[typedRegionKey].dinner];
-          snackOptions = [...regionalSpecificMeals[typedRegionKey].snacks];
-        } else {
-          // Fallback to the base diet
-          breakfastOptions = [baseMeals.breakfast];
-          lunchOptions = [baseMeals.lunch];
-          dinnerOptions = [baseMeals.dinner];
-          snackOptions = [baseMeals.snacks];
-        }
-        
-        // Adjust for diet type
-        if (formData.dietType === 'vegetarian') {
-          // Filter out any non-vegetarian options
-          breakfastOptions = breakfastOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
-          lunchOptions = lunchOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
-          dinnerOptions = dinnerOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
-          snackOptions = snackOptions.filter(meal => !meal.toLowerCase().includes('meat') && !meal.toLowerCase().includes('fish') && !meal.toLowerCase().includes('chicken'));
-        } else if (formData.dietType === 'vegan') {
-          // Filter out any animal products
-          breakfastOptions = breakfastOptions.filter(meal => 
-            !meal.toLowerCase().includes('meat') && 
-            !meal.toLowerCase().includes('fish') && 
-            !meal.toLowerCase().includes('chicken') &&
-            !meal.toLowerCase().includes('milk') &&
-            !meal.toLowerCase().includes('curd') &&
-            !meal.toLowerCase().includes('yogurt') &&
-            !meal.toLowerCase().includes('paneer') &&
-            !meal.toLowerCase().includes('ghee')
-          );
-          lunchOptions = lunchOptions.filter(meal => 
-            !meal.toLowerCase().includes('meat') && 
-            !meal.toLowerCase().includes('fish') && 
-            !meal.toLowerCase().includes('chicken') &&
-            !meal.toLowerCase().includes('milk') &&
-            !meal.toLowerCase().includes('curd') &&
-            !meal.toLowerCase().includes('yogurt') &&
-            !meal.toLowerCase().includes('paneer') &&
-            !meal.toLowerCase().includes('ghee')
-          );
-          dinnerOptions = dinnerOptions.filter(meal => 
-            !meal.toLowerCase().includes('meat') && 
-            !meal.toLowerCase().includes('fish') && 
-            !meal.toLowerCase().includes('chicken') &&
-            !meal.toLowerCase().includes('milk') &&
-            !meal.toLowerCase().includes('curd') &&
-            !meal.toLowerCase().includes('yogurt') &&
-            !meal.toLowerCase().includes('paneer') &&
-            !meal.toLowerCase().includes('ghee')
-          );
-          snackOptions = snackOptions.filter(meal => 
-            !meal.toLowerCase().includes('meat') && 
-            !meal.toLowerCase().includes('fish') && 
-            !meal.toLowerCase().includes('chicken') &&
-            !meal.toLowerCase().includes('milk') &&
-            !meal.toLowerCase().includes('curd') &&
-            !meal.toLowerCase().includes('yogurt') &&
-            !meal.toLowerCase().includes('paneer') &&
-            !meal.toLowerCase().includes('ghee')
-          );
-        }
-        
-        // Make sure we have at least one option for each meal
-        if (breakfastOptions.length === 0) breakfastOptions = ["Fruits with nuts and seeds"];
-        if (lunchOptions.length === 0) lunchOptions = ["Mixed vegetable salad with whole grains"];
-        if (dinnerOptions.length === 0) dinnerOptions = ["Steamed vegetables with legumes"];
-        if (snackOptions.length === 0) snackOptions = ["Fresh fruit or vegetable sticks"];
-        
-        // Generate weekly meal plan
-        const weekdayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-        const mealPlan = weekdayNames.map((day, index) => {
-          // Use modulo to cycle through options if fewer than 7 options
-          const breakfastIdx = index % breakfastOptions.length;
-          const lunchIdx = index % lunchOptions.length;
-          const dinnerIdx = index % dinnerOptions.length;
-          const snackIdx = index % snackOptions.length;
-          
-          return `${day}: Breakfast - ${breakfastOptions[breakfastIdx]}, Lunch - ${lunchOptions[lunchIdx]}, Dinner - ${dinnerOptions[dinnerIdx]}, Snack - ${snackOptions[snackIdx]}`;
-        });
-        
-        // Calculate actual nutrients based on health condition and activity level
-        // These would normally be much more accurate with a real nutritional database
-        const proteins = Math.round((calorieNeeds * (parseFloat(proteinPercentage.split('-')[0]) / 100)) / 4); // 4 calories per gram of protein
-        const carbs = Math.round((calorieNeeds * (parseFloat(carbPercentage.split('-')[0]) / 100)) / 4); // 4 calories per gram of carbs
-        const fats = Math.round((calorieNeeds * (parseFloat(fatPercentage.split('-')[0]) / 100)) / 9); // 9 calories per gram of fat
-        
-        // Build nutrient profile
-        const nutrients = {
-          "Total Calories": `${calorieNeeds} kcal/day`,
-          "Protein": `${proteins}g (${proteinPercentage} of calories)`,
-          "Carbohydrates": `${carbs}g (${carbPercentage} of calories)`,
-          "Fat": `${fats}g (${fatPercentage} of calories)`,
-          "Fiber": formData.healthCondition.includes("Diabetes") ? "25-30g" : "20-25g",
-          "Water": "2-3 liters"
-        };
-        
-        // Get restrictions based on health conditions and allergies
-        let restrictions = [...selectedDiet.foodsToAvoid];
-        
-        // Add specific restrictions based on health conditions
-        if (userHealthConditions.includes("Diabetes")) {
-          restrictions.push("Limit refined sugars and carbohydrates");
-          restrictions.push("Avoid sugary beverages and desserts");
-          restrictions.push("Limit white rice and white bread consumption");
-        } else if (userHealthConditions.includes("Hypertension")) {
-          restrictions.push("Limit salt intake to less than 5g per day");
-          restrictions.push("Avoid processed and preserved foods high in sodium");
-          restrictions.push("Minimize caffeine consumption");
-        } else if (userHealthConditions.includes("Heart Disease")) {
-          restrictions.push("Limit saturated and trans fats");
-          restrictions.push("Avoid fried foods and high-fat dairy products");
-          restrictions.push("Limit red meat consumption");
-        }
-        
-        // Add restrictions for allergies
-        if (formData.allergies && formData.allergies.length > 0) {
-          formData.allergies.forEach(allergy => {
-            restrictions.push(`Avoid all foods containing ${allergy}`);
-          });
-        }
-        
-        // Create the personalized diet plan
-        const plan: DietPlan = {
-          id: 999,
-          name: `Personalized ${formData.region} Diet Plan`,
-          description: `A customized diet plan for ${formData.healthCondition.join(', ') || 'General Health'} tailored to your age, weight, height, and activity level.`,
-          forCondition: formData.healthCondition,
-          region: formData.region,
-          items: mealPlan,
-          nutrients: nutrients,
-          restrictions: restrictions
-        };
-        
-        return plan;
-      } finally {
-        setIsGeneratingPlan(false);
+  const dietTypes = [
+    { id: "vegetarian", label: "Vegetarian" },
+    { id: "non-vegetarian", label: "Non-vegetarian" },
+    { id: "vegan", label: "Vegan" },
+  ];
+
+  const allergies = [
+    "Dairy",
+    "Nuts",
+    "Eggs",
+    "Wheat",
+    "Soy",
+    "Shellfish",
+    "Fish",
+    "Gluten",
+  ];
+
+  const foodPreferences = [
+    "Low Spice",
+    "High Protein",
+    "Low Carb",
+    "Low Fat",
+    "Fresh Produce",
+    "Traditional",
+    "Modern",
+    "Quick & Easy",
+  ];
+
+  const userHealthConditions = [
+    "All Conditions",
+    "Diabetes",
+    "Hypertension",
+    "Heart Disease",
+    "Obesity",
+    "Underweight",
+    "Kidney Disease",
+    "Thyroid Issues",
+    "GERD",
+    "Pregnancy",
+  ];
+
+  // Data for regions
+  const regions = [
+    "All Regions",
+    "North India",
+    "South India",
+    "East India",
+    "West India",
+    "Central India",
+    "Northeast India",
+  ];
+
+  const getRandomMealPlan = (region: string, dietType: string) => {
+    const regionalSpecificMeals = {
+      "North India": {
+        breakfast: ["Stuffed Paratha with Curd", "Aloo Puri", "Chana Masala with Bhatura"],
+        lunch: ["Rajma Chawal", "Kadhi Chawal", "Chole Chawal"],
+        dinner: ["Dal Makhani with Roti", "Paneer Butter Masala with Naan", "Sarson Da Saag with Roti"],
+        snacks: ["Samosa", "Pakora", "Dahi Bhalla"]
+      },
+      "South India": {
+        breakfast: ["Idli with Sambar", "Dosa with Chutney", "Upma"],
+        lunch: ["Sambar Rice", "Curd Rice", "Tomato Rice"],
+        dinner: ["Rasam with Rice", "Coconut Vegetable Curry with Appam", "Bisi Bele Bath"],
+        snacks: ["Vada", "Murukku", "Bonda"]
+      },
+      "East India": {
+        breakfast: ["Luchi with Aloor Dom", "Panta Bhaat with Fish Fry", "Ghugni"],
+        lunch: ["Fish Curry with Rice", "Dal with Rice and Fritters", "Machher Jhol with Rice"],
+        dinner: ["Mixed Vegetable Curry with Roti", "Shukto with Rice", "Posto with Roti"],
+        snacks: ["Muri Mixture", "Nimki", "Shingara"]
+      },
+      "West India": {
+        breakfast: ["Poha", "Thepla", "Misal Pav"],
+        lunch: ["Pav Bhaji", "Vada Pav", "Gujrati Thali"],
+        dinner: ["Batata Bhaji with Puri", "Vegetable Khichdi", "Bhakri with Pitla"],
+        snacks: ["Dhokla", "Khandvi", "Fafda"]
+      },
+      "Central India": {
+        breakfast: ["Poha with Jalebi", "Bedai with Sabji", "Sabudana Khichdi"],
+        lunch: ["Dal Bafla", "Bhopali Gosht Korma", "Chakki ki Shaak with Roti"],
+        dinner: ["Bhutte Ka Kees", "Kadhi Pakora with Rice", "Palak Puri with Aloo Sabji"],
+        snacks: ["Malpua", "Mohanthal", "Khasta Kachori"]
+      },
+      "Northeast India": {
+        breakfast: ["Pitha with Tea", "Chura with Dahi", "Luchi with Curry"],
+        lunch: ["Jadoh", "Aloo Pitika with Rice", "Iromba with Rice"],
+        dinner: ["Fish Tenga with Rice", "Bamboo Shoot Pork", "Smoked Meat with Rice"],
+        snacks: ["Singju", "Black Rice Kheer", "Paknam"]
       }
+    };
+
+    const defaultMeals = {
+      breakfast: ["Fruit Smoothie", "Oatmeal with Berries", "Whole Grain Toast with Avocado"],
+      lunch: ["Quinoa Bowl with Vegetables", "Lentil Soup with Bread", "Mixed Green Salad with Protein"],
+      dinner: ["Roasted Vegetables with Brown Rice", "Bean and Vegetable Stew", "Stir-Fry with Tofu"],
+      snacks: ["Mixed Nuts", "Fruit Salad", "Yogurt with Granola"]
+    };
+
+    const meals = region !== "All Regions" && regionalSpecificMeals[region as keyof typeof regionalSpecificMeals] 
+      ? regionalSpecificMeals[region as keyof typeof regionalSpecificMeals] 
+      : defaultMeals;
+    
+    const dietPlan: DietPlan = {
+      id: Math.floor(Math.random() * 1000),
+      name: `Personalized ${dietType.charAt(0).toUpperCase() + dietType.slice(1)} Diet Plan`,
+      description: `A custom ${dietType} diet plan optimized for your health profile and preferences.`,
+      region: region === "All Regions" ? "General" : region,
+      forCondition: form.getValues("healthCondition"),
+      type: dietType as "vegetarian" | "non-vegetarian" | "vegan",
+      calories: Math.floor(Math.random() * 500) + 1500,
+      items: [
+        `Breakfast: ${meals.breakfast[Math.floor(Math.random() * meals.breakfast.length)]}`,
+        `Morning Snack: ${meals.snacks[Math.floor(Math.random() * meals.snacks.length)]}`,
+        `Lunch: ${meals.lunch[Math.floor(Math.random() * meals.lunch.length)]}`,
+        `Evening Snack: ${meals.snacks[Math.floor(Math.random() * meals.snacks.length)]}`,
+        `Dinner: ${meals.dinner[Math.floor(Math.random() * meals.dinner.length)]}`,
+      ],
+      nutrients: {
+        protein: `${Math.floor(Math.random() * 30) + 50}g`,
+        carbohydrates: `${Math.floor(Math.random() * 50) + 150}g`,
+        fat: `${Math.floor(Math.random() * 20) + 40}g`,
+        fiber: `${Math.floor(Math.random() * 10) + 20}g`,
+        calcium: `${Math.floor(Math.random() * 200) + 800}mg`,
+        iron: `${Math.floor(Math.random() * 5) + 10}mg`,
+        vitaminA: `${Math.floor(Math.random() * 1000) + 3000}IU`,
+        vitaminC: `${Math.floor(Math.random() * 30) + 60}mg`,
+      },
+      restrictions: form.getValues("allergies"),
+      isOfflineAvailable: true,
+      createdAt: new Date()
+    };
+
+    return dietPlan;
+  };
+
+  // Mutation for personalized diet plan
+  const personalizedDietMutation = useMutation({
+    mutationFn: async (formData: z.infer<typeof dietFormSchema>) => {
+      // In a real application, this would be an API call
+      // For now, we'll simulate a response
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      const plan: DietPlan = getRandomMealPlan(formData.region, formData.dietType);
+      
+      return plan;
     },
     onSuccess: (data) => {
       setAiRecommendedPlan(data);
+      setPersonalizedDialogOpen(false);
       toast({
-        title: t("dietPlanGenerated", "Personalized Diet Plan Generated"),
-        description: t("dietPlanGeneratedDesc", "Your personalized diet plan is ready."),
+        title: t("dietPlanCreated", "Diet Plan Created"),
+        description: t("dietPlanCreatedDescription", "Your personalized diet plan has been created."),
       });
     },
     onError: (error) => {
       toast({
-        title: t("errorGeneratingDietPlan", "Error Generating Diet Plan"),
-        description: error.toString(),
+        title: t("dietPlanCreationFailed", "Diet Plan Creation Failed"),
+        description: error.message,
         variant: "destructive",
       });
-    }
+    },
   });
 
-  // Handle form submission
-  const onPersonalizedSubmit = (data: DietFormValues) => {
-    // Make sure we can handle case where no health conditions are selected
-    // by using either those specified or a default "General Health"
-    const healthConditions = data.healthCondition && data.healthCondition.length > 0 
-      ? data.healthCondition 
-      : ["General Health"];
-    
-    const formDataWithDefaults = {
-      ...data,
-      healthCondition: healthConditions
-    };
-    
-    generatePlanMutation.mutate(formDataWithDefaults);
+  const onPersonalizedSubmit = (data: z.infer<typeof dietFormSchema>) => {
+    personalizedDietMutation.mutate(data);
   };
 
-  // If offline, use cached diet plans or fallback to local data
   useEffect(() => {
     const fetchOfflineDietPlans = async () => {
       if (isOffline) {
-        const offlineData = await getOfflineData<DietPlan[]>('dietPlans');
-        if (offlineData && offlineData.length > 0) {
-          setFilteredDietPlans(offlineData);
-        } else {
-          setFilteredDietPlans(localDietPlans);
-        }
+        const offlinePlans = await getOfflineData<DietPlan[]>('diet-plans');
+        return offlinePlans || [];
       }
+      return [];
     };
 
-    fetchOfflineDietPlans();
-  }, [isOffline, getOfflineData]);
+    const initializeDietPlans = async () => {
+      let dietPlans: DietPlan[] = [];
+      
+      if (isOffline) {
+        const offlinePlans = await fetchOfflineDietPlans();
+        dietPlans = offlinePlans || [];
+      } else {
+        dietPlans = apiDietPlans || [];
+      }
 
-  // When online, update filtered diet plans based on API data
-  useEffect(() => {
-    if (!isOffline && apiDietPlans && Array.isArray(apiDietPlans)) {
-      setFilteredDietPlans(apiDietPlans);
-      // Cache diet plans for offline use
-      saveOfflineData('dietPlans', apiDietPlans);
-    }
-  }, [isOffline, apiDietPlans, saveOfflineData]);
+      // Apply filters
+      let filtered = [...dietPlans];
+      
+      // Apply region filter
+      if (selectedRegion !== "All Regions") {
+        filtered = filtered.filter(
+          dietPlan => dietPlan.region === selectedRegion
+        );
+      }
+      
+      // Apply condition filter
+      if (selectedCondition !== "All Conditions") {
+        filtered = filtered.filter(
+          dietPlan => Array.isArray(dietPlan.forCondition) && dietPlan.forCondition.includes(selectedCondition)
+        );
+      }
+      
+      setFilteredDietPlans(filtered);
+    };
 
-  // Apply filters whenever region or condition changes
-  useEffect(() => {
-    const availableDietPlans = !isOffline && apiDietPlans && Array.isArray(apiDietPlans) ? 
-      apiDietPlans : (isOffline ? localDietPlans : []);
-    
-    if (!Array.isArray(availableDietPlans) || availableDietPlans.length === 0) {
-      // Default to empty array if no data available
-      setFilteredDietPlans([]);
-      return;
-    }
-    
-    let filtered = [...availableDietPlans];
-    
-    // Apply region filter
-    if (selectedRegion !== "All Regions") {
-      filtered = filtered.filter(
-        dietPlan => dietPlan.region === selectedRegion
-      );
-    }
-    
-    // Apply condition filter
-    if (selectedCondition !== "All Conditions") {
-      filtered = filtered.filter(
-        dietPlan => (dietPlan.forCondition as string[]).includes(selectedCondition)
-      );
-    }
-    
-    setFilteredDietPlans(filtered);
-  }, [selectedRegion, selectedCondition, apiDietPlans, isOffline]);
+    initializeDietPlans();
+  }, [selectedRegion, selectedCondition, apiDietPlans, isOffline, getOfflineData]);
 
   return (
     <div className="container mx-auto max-w-7xl py-12 px-4 sm:px-6">
@@ -604,7 +372,7 @@ export default function DietPlans() {
                     <SelectValue placeholder={t("selectHealthCondition", "Select Condition")} />
                   </SelectTrigger>
                   <SelectContent>
-                    {healthConditions.map((condition) => (
+                    {userHealthConditions.map((condition) => (
                       <SelectItem key={condition} value={condition}>
                         {condition}
                       </SelectItem>
@@ -814,7 +582,7 @@ export default function DietPlans() {
                             </FormDescription>
                           </div>
                           <div className="grid grid-cols-2 gap-2">
-                            {healthConditions.filter(c => c !== "All Conditions").map((condition) => (
+                            {userHealthConditions.filter(c => c !== "All Conditions").map((condition) => (
                               <FormItem 
                                 key={condition} 
                                 className="flex flex-row items-start space-x-3 space-y-0"
@@ -852,35 +620,35 @@ export default function DietPlans() {
                       render={() => (
                         <FormItem>
                           <div className="mb-4">
-                            <FormLabel>Allergies</FormLabel>
+                            <FormLabel>Allergies and Intolerances</FormLabel>
                             <FormDescription>
-                              Select any allergies you have
+                              Select all that apply
                             </FormDescription>
                           </div>
                           <div className="grid grid-cols-2 gap-2">
-                            {commonAllergies.map((allergy) => (
+                            {allergies.map((allergy) => (
                               <FormItem 
-                                key={allergy.id} 
+                                key={allergy} 
                                 className="flex flex-row items-start space-x-3 space-y-0"
                               >
                                 <FormControl>
                                   <Checkbox 
-                                    checked={form.watch("allergies")?.includes(allergy.id)}
+                                    checked={form.watch("allergies").includes(allergy)}
                                     onCheckedChange={(checked) => {
-                                      const current = form.getValues("allergies") || [];
+                                      const current = form.getValues("allergies");
                                       if (checked) {
-                                        form.setValue("allergies", [...current, allergy.id]);
+                                        form.setValue("allergies", [...current, allergy]);
                                       } else {
                                         form.setValue(
                                           "allergies", 
-                                          current.filter((value) => value !== allergy.id)
+                                          current.filter((value) => value !== allergy)
                                         );
                                       }
                                     }}
                                   />
                                 </FormControl>
                                 <FormLabel className="font-normal">
-                                  {allergy.label}
+                                  {allergy}
                                 </FormLabel>
                               </FormItem>
                             ))}
@@ -893,16 +661,42 @@ export default function DietPlans() {
                     <FormField
                       control={form.control}
                       name="foodPreferences"
-                      render={({ field }) => (
+                      render={() => (
                         <FormItem>
-                          <FormLabel>Food Preferences</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="List any specific foods you like or dislike"
-                              rows={3}
-                              {...field}
-                            />
-                          </FormControl>
+                          <div className="mb-4">
+                            <FormLabel>Food Preferences</FormLabel>
+                            <FormDescription>
+                              Select all that apply
+                            </FormDescription>
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            {foodPreferences.map((pref) => (
+                              <FormItem 
+                                key={pref} 
+                                className="flex flex-row items-start space-x-3 space-y-0"
+                              >
+                                <FormControl>
+                                  <Checkbox 
+                                    checked={form.watch("foodPreferences").includes(pref)}
+                                    onCheckedChange={(checked) => {
+                                      const current = form.getValues("foodPreferences");
+                                      if (checked) {
+                                        form.setValue("foodPreferences", [...current, pref]);
+                                      } else {
+                                        form.setValue(
+                                          "foodPreferences", 
+                                          current.filter((value) => value !== pref)
+                                        );
+                                      }
+                                    }}
+                                  />
+                                </FormControl>
+                                <FormLabel className="font-normal">
+                                  {pref}
+                                </FormLabel>
+                              </FormItem>
+                            ))}
+                          </div>
                           <FormMessage />
                         </FormItem>
                       )}
@@ -910,34 +704,82 @@ export default function DietPlans() {
                     
                     <FormField
                       control={form.control}
-                      name="additionalInfo"
+                      name="goals"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Additional Information</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              placeholder="Any other relevant information about your diet or lifestyle"
-                              rows={3}
-                              {...field}
-                            />
-                          </FormControl>
+                          <FormLabel>{t("goals", "Dietary Goals")}</FormLabel>
+                          <Select 
+                            value={field.value} 
+                            onValueChange={field.onChange}
+                          >
+                            <FormControl>
+                              <SelectTrigger>
+                                <SelectValue placeholder={t("selectGoal", "Select your goal")} />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="weight-loss">{t("weightLoss", "Weight Loss")}</SelectItem>
+                              <SelectItem value="weight-gain">{t("weightGain", "Weight Gain")}</SelectItem>
+                              <SelectItem value="maintenance">{t("maintenance", "Maintenance")}</SelectItem>
+                              <SelectItem value="muscle-gain">{t("muscleGain", "Muscle Gain")}</SelectItem>
+                            </SelectContent>
+                          </Select>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
                     
-                    <DialogFooter>
-                      <Button type="submit" disabled={isGeneratingPlan}>
-                        {isGeneratingPlan ? (
+                    <FormField
+                      control={form.control}
+                      name="pregnantNursing"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value}
+                              onCheckedChange={field.onChange}
+                            />
+                          </FormControl>
+                          <div className="space-y-1 leading-none">
+                            <FormLabel>
+                              {t("pregnantNursing", "Pregnant or Nursing")}
+                            </FormLabel>
+                            <FormDescription>
+                              {t("pregnantNursingDescription", "Check this if you are pregnant or nursing to receive appropriate dietary recommendations.")}
+                            </FormDescription>
+                          </div>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  
+                    <div className="pt-4 border-t flex justify-end space-x-3">
+                      <Button 
+                        type="button" 
+                        variant="outline" 
+                        onClick={() => setPersonalizedDialogOpen(false)}
+                      >
+                        {t("cancel", "Cancel")}
+                      </Button>
+                      
+                      <Button 
+                        type="submit"
+                        disabled={personalizedDietMutation.isPending}
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white"
+                      >
+                        {personalizedDietMutation.isPending ? (
                           <>
-                            <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent"></div>
-                            {t("generating", "Generating...")}
+                            <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            {t("creating", "Creating...")}
                           </>
                         ) : (
-                          t("generateDietPlan", "Generate Diet Plan")
+                          t("createPlan", "Create Plan")
                         )}
                       </Button>
-                    </DialogFooter>
+                    </div>
                   </form>
                 </Form>
               </DialogContent>
@@ -946,81 +788,112 @@ export default function DietPlans() {
         </Card>
       </div>
 
-      {/* AI Recommended Plan Display */}
+      {/* AI Recommended Diet Plan Result */}
       {aiRecommendedPlan && (
-        <Card className="mb-8 border-2 border-primary-100 bg-gradient-to-r from-primary-50 to-transparent">
-          <CardHeader className="pb-2">
-            <div className="flex items-center justify-between">
-              <div>
-                <Badge variant="outline" className="mb-2 bg-primary-100 text-primary-800">
-                  {t("aiRecommended", "AI Recommended")}
-                </Badge>
-                <CardTitle>{aiRecommendedPlan.name}</CardTitle>
-                <CardDescription className="mt-1">
-                  {aiRecommendedPlan.description}
-                </CardDescription>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="outline" className="bg-blue-50">
+        <Card className="mb-8 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-100 overflow-hidden">
+          <div className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2"></div>
+          <CardHeader>
+            <CardTitle className="flex items-center text-xl text-emerald-900">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              {t("yourPersonalizedDietPlan", "Your Personalized Diet Plan")}
+            </CardTitle>
+            <CardDescription className="text-emerald-700">
+              {t("personalizedDietPlanDescription", "Your AI-generated diet plan based on your health profile and preferences")}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="bg-white rounded-lg p-6 border border-emerald-100 shadow-sm">
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
                   {aiRecommendedPlan.region}
                 </Badge>
-                {(aiRecommendedPlan.forCondition as string[]).map((condition, idx) => (
-                  <Badge key={idx} variant="secondary">
+                <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
+                  {aiRecommendedPlan.type.charAt(0).toUpperCase() + aiRecommendedPlan.type.slice(1)}
+                </Badge>
+                {aiRecommendedPlan.forCondition && Array.isArray(aiRecommendedPlan.forCondition) && aiRecommendedPlan.forCondition.map((condition, idx) => (
+                  <Badge key={idx} variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
                     {condition}
                   </Badge>
                 ))}
               </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <Tabs defaultValue="meals">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="meals">{t("mealPlan", "Meal Plan")}</TabsTrigger>
-                <TabsTrigger value="nutrients">{t("nutrients", "Nutrients")}</TabsTrigger>
-                <TabsTrigger value="restrictions">{t("restrictions", "Restrictions")}</TabsTrigger>
-              </TabsList>
-              <TabsContent value="meals" className="mt-4 space-y-4">
-                <ul className="space-y-2">
-                  {(aiRecommendedPlan.items as string[]).map((item, idx) => (
-                    <li key={idx} className="text-slate-700 flex items-start">
-                      <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800 text-xs font-medium mr-2 flex-shrink-0">
-                        {idx + 1}
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </TabsContent>
-              <TabsContent value="nutrients" className="mt-4">
-                {aiRecommendedPlan.nutrients ? (
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {Object.entries(aiRecommendedPlan.nutrients as Record<string, string | number>).map(([key, value]) => (
-                      <div key={key} className="flex justify-between border-b border-slate-100 pb-2">
-                        <span className="text-slate-600 capitalize">{key}</span>
-                        <span className="font-medium">{value}</span>
-                      </div>
-                    ))}
+
+              <h3 className="text-lg font-semibold text-emerald-900 mb-4">{aiRecommendedPlan.name}</h3>
+              <p className="text-slate-600 mb-5">{aiRecommendedPlan.description}</p>
+
+              <div className="mb-6">
+                <h4 className="text-md font-medium text-emerald-800 mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                  </svg>
+                  {t("mealPlanOverview", "Meal Plan Overview")}
+                </h4>
+
+                <Table>
+                  <TableHeader>
+                    <TableRow className="bg-emerald-50">
+                      <TableHead className="text-emerald-800">{t("mealType", "Meal")}</TableHead>
+                      <TableHead className="text-emerald-800">{t("recommendedFoods", "Recommended Foods")}</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {aiRecommendedPlan.items.map((item, idx) => {
+                      const [mealType, mealContent] = item.split(':').map(str => str.trim());
+                      return (
+                        <TableRow key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-emerald-50/30'}>
+                          <TableCell className="font-medium text-emerald-800">{mealType}</TableCell>
+                          <TableCell>{mealContent}</TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              </div>
+
+              <Tabs defaultValue="nutrients">
+                <TabsList className="grid w-full grid-cols-2 mb-4">
+                  <TabsTrigger value="nutrients">{t("nutritionalInformation", "Nutritional Information")}</TabsTrigger>
+                  <TabsTrigger value="restrictions">{t("dietaryRestrictions", "Dietary Restrictions")}</TabsTrigger>
+                </TabsList>
+                <TabsContent value="nutrients">
+                  <div className="bg-emerald-50 rounded-lg p-4">
+                    <h4 className="text-md font-medium text-emerald-800 mb-3">{t("dailyNutrients", "Daily Nutritional Values")}</h4>
+                    <p className="text-sm text-emerald-700 mb-3">{t("caloriesPerDay", "Approximately")} {aiRecommendedPlan.calories} {t("calories", "calories per day")}</p>
+                    
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {aiRecommendedPlan.nutrients && Object.entries(aiRecommendedPlan.nutrients as Record<string, string | number>).map(([key, value]) => (
+                        <div key={key} className="bg-white rounded-lg p-3 border border-emerald-100">
+                          <p className="text-xs text-emerald-600 uppercase">{key}</p>
+                          <p className="text-lg font-semibold text-emerald-900">{value}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ) : (
-                  <p className="text-slate-500 italic">
-                    {t("nutrientsNotAvailable", "Detailed nutrient information not available for this diet plan.")}
-                  </p>
-                )}
-              </TabsContent>
-              <TabsContent value="restrictions" className="mt-4">
-                {aiRecommendedPlan.restrictions && (aiRecommendedPlan.restrictions as string[]).length > 0 ? (
-                  <ul className="space-y-1 list-disc list-inside text-slate-700">
-                    {(aiRecommendedPlan.restrictions as string[]).map((restriction, idx) => (
-                      <li key={idx}>{restriction}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-slate-500 italic">
-                    {t("noRestrictions", "No specific dietary restrictions for this plan.")}
-                  </p>
-                )}
-              </TabsContent>
-            </Tabs>
+                </TabsContent>
+                <TabsContent value="restrictions">
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="text-md font-medium text-blue-800 mb-3">{t("avoidFoods", "Foods to Avoid")}</h4>
+                    
+                    {aiRecommendedPlan.restrictions && (aiRecommendedPlan.restrictions as string[]).length > 0 ? (
+                      <ul className="space-y-2">
+                        {(aiRecommendedPlan.restrictions as string[]).map((restriction, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-500 mr-2 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-blue-800">{restriction}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-blue-700">{t("noRestrictions", "No specific dietary restrictions for this plan.")}</p>
+                    )}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
           </CardContent>
           <CardFooter className="border-t pt-4 flex justify-between">
             <p className="text-xs text-slate-500">
@@ -1051,7 +924,7 @@ export default function DietPlans() {
           <p className="text-slate-600">{t("loading", "Loading diet plans...")}</p>
         </div>
       ) : filteredDietPlans.length > 0 ? (
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="space-y-8">
           {filteredDietPlans.map((dietPlan) => (
             <Card key={dietPlan.id} className="overflow-hidden border-teal-100 hover:shadow-md transition-shadow duration-200">
               <div className="bg-gradient-to-r from-teal-500 to-emerald-500 h-3"></div>
@@ -1067,7 +940,7 @@ export default function DietPlans() {
                     <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">
                       {dietPlan.region}
                     </Badge>
-                    {(dietPlan.forCondition as string[]).map((condition, idx) => (
+                    {Array.isArray(dietPlan.forCondition) && dietPlan.forCondition.map((condition, idx) => (
                       <Badge key={idx} variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
                         {condition}
                       </Badge>
@@ -1075,84 +948,85 @@ export default function DietPlans() {
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="p-0">
-                <Tabs defaultValue="meals" className="w-full">
-                  <TabsList className="w-full flex rounded-none bg-slate-50 border-y border-slate-200">
-                    <TabsTrigger 
-                      value="meals" 
-                      className="flex-1 text-sm data-[state=active]:bg-white data-[state=active]:text-teal-700 data-[state=active]:shadow-none rounded-none border-r border-slate-200"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                      </svg>
-                      {t("mealPlan", "Meals")}
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="nutrients" 
-                      className="flex-1 text-sm data-[state=active]:bg-white data-[state=active]:text-teal-700 data-[state=active]:shadow-none rounded-none border-r border-slate-200"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clipRule="evenodd" />
-                      </svg>
-                      {t("nutrients", "Nutrients")}
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="restrictions" 
-                      className="flex-1 text-sm data-[state=active]:bg-white data-[state=active]:text-teal-700 data-[state=active]:shadow-none rounded-none"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                      </svg>
-                      {t("restrictions", "Avoid")}
-                    </TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="meals" className="p-4 bg-white min-h-[200px]">
-                    <ul className="space-y-2">
-                      {(dietPlan.items as string[]).map((item, idx) => (
-                        <li key={idx} className="text-slate-700 flex items-start">
-                          <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-teal-100 text-teal-800 text-xs font-medium mr-2 flex-shrink-0">
-                            {idx + 1}
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </TabsContent>
-                  <TabsContent value="nutrients" className="p-4 bg-white min-h-[200px]">
+              <CardContent>
+                <Table>
+                  <TableCaption className="mt-0 mb-2">{t("mealPlanDetails", "Detailed Meal Plan")}</TableCaption>
+                  <TableHeader>
+                    <TableRow className="bg-teal-50">
+                      <TableHead className="text-teal-800">{t("mealType", "Meal Type")}</TableHead>
+                      <TableHead className="text-teal-800">{t("recommendedFoods", "Recommended Foods")}</TableHead>
+                      <TableHead className="text-teal-800 hidden md:table-cell">{t("nutritionalHighlights", "Nutritional Highlights")}</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {Array.isArray(dietPlan.items) && dietPlan.items.map((item, idx) => {
+                      const [mealType, mealContent] = item.split(':').map(str => str.trim());
+                      return (
+                        <TableRow key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-teal-50/30'}>
+                          <TableCell className="font-medium text-teal-800">{mealType}</TableCell>
+                          <TableCell>{mealContent}</TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            {dietPlan.nutrients && Object.entries(dietPlan.nutrients as Record<string, string | number>).length > 0 ? (
+                              <div className="flex flex-wrap gap-1">
+                                {idx === 0 && <span className="text-xs px-1.5 py-0.5 bg-blue-50 text-blue-700 rounded">Protein</span>}
+                                {idx === 1 && <span className="text-xs px-1.5 py-0.5 bg-green-50 text-green-700 rounded">Fiber</span>}
+                                {idx === 2 && <span className="text-xs px-1.5 py-0.5 bg-amber-50 text-amber-700 rounded">Vitamins</span>}
+                                {idx === 3 && <span className="text-xs px-1.5 py-0.5 bg-purple-50 text-purple-700 rounded">Minerals</span>}
+                                {idx === 4 && <span className="text-xs px-1.5 py-0.5 bg-rose-50 text-rose-700 rounded">Omega-3</span>}
+                              </div>
+                            ) : (
+                              <span className="text-slate-400 text-xs">Not specified</span>
+                            )}
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+
+                <div className="mt-6 grid gap-4 md:grid-cols-2">
+                  <div>
+                    <h4 className="text-sm font-semibold text-teal-800 mb-2">{t("dietaryRestrictions", "Dietary Restrictions")}</h4>
+                    {dietPlan.restrictions && Array.isArray(dietPlan.restrictions) && dietPlan.restrictions.length > 0 ? (
+                      <ul className="space-y-1 pl-4 list-disc text-sm text-slate-700">
+                        {dietPlan.restrictions.map((restriction, idx) => (
+                          <li key={idx}>{restriction}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-slate-500 text-sm italic">
+                        {t("noRestrictions", "No specific dietary restrictions for this plan.")}
+                      </p>
+                    )}
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-sm font-semibold text-teal-800 mb-2">{t("nutritionalInformation", "Nutritional Information")}</h4>
                     {dietPlan.nutrients ? (
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        {Object.entries(dietPlan.nutrients as Record<string, string | number>).map(([key, value]) => (
-                          <div key={key} className="flex justify-between border-b border-slate-100 pb-2">
+                      <div className="grid grid-cols-2 gap-2 text-sm">
+                        {Object.entries(dietPlan.nutrients as Record<string, string | number>).slice(0, 6).map(([key, value]) => (
+                          <div key={key} className="flex justify-between border-b border-teal-100 pb-1">
                             <span className="text-slate-600 capitalize">{key}</span>
                             <span className="font-medium text-teal-700">{value}</span>
                           </div>
                         ))}
                       </div>
                     ) : (
-                      <div className="flex items-center justify-center h-full">
-                        <p className="text-slate-500 italic text-center">
-                          {t("nutrientsNotAvailable", "Detailed nutrient information not available for this diet plan.")}
-                        </p>
-                      </div>
+                      <p className="text-slate-500 text-sm italic">
+                        {t("nutrientsNotAvailable", "Detailed nutrient information not available.")}
+                      </p>
                     )}
-                  </TabsContent>
-                  <TabsContent value="restrictions" className="p-4 bg-white min-h-[200px]">
-                    {dietPlan.restrictions && (dietPlan.restrictions as string[]).length > 0 ? (
-                      <ul className="space-y-1 list-disc list-inside text-slate-700">
-                        {(dietPlan.restrictions as string[]).map((restriction, idx) => (
-                          <li key={idx}>{restriction}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <div className="flex items-center justify-center h-full">
-                        <p className="text-slate-500 italic text-center">
-                          {t("noRestrictions", "No specific dietary restrictions for this plan.")}
-                        </p>
-                      </div>
-                    )}
-                  </TabsContent>
-                </Tabs>
+                  </div>
+                </div>
               </CardContent>
+              <CardFooter className="bg-teal-50/50 flex justify-between">
+                <p className="text-xs text-slate-500">
+                  {t("consultHealthcare", "Consult with a healthcare professional before following this plan.")}
+                </p>
+                <Button size="sm" className="bg-teal-600 hover:bg-teal-700 text-white">
+                  {t("downloadPlan", "Download Plan")}
+                </Button>
+              </CardFooter>
             </Card>
           ))}
         </div>
