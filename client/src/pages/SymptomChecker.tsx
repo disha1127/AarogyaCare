@@ -228,14 +228,28 @@ export default function SymptomChecker() {
                       <div className="flex space-x-2">
                         <Select
                           value={currentSelectedSymptom}
-                          onValueChange={setCurrentSelectedSymptom}
+                          onValueChange={(value) => {
+                            setCurrentSelectedSymptom(value);
+                            // If a value is selected, automatically add it
+                            if (value) {
+                              const symptomToAdd = symptoms.find(s => s.name === value);
+                              if (symptomToAdd && !selectedSymptoms.some(s => s.name === value)) {
+                                setSelectedSymptoms([...selectedSymptoms, { 
+                                  id: symptomToAdd.id, 
+                                  name: symptomToAdd.name 
+                                }]);
+                                // Clear selection after adding
+                                setTimeout(() => setCurrentSelectedSymptom(""), 100);
+                              }
+                            }
+                          }}
                         >
                           <SelectTrigger className="flex-1 border-blue-200 focus:ring-blue-500">
-                            <SelectValue placeholder={t("selectSymptom", "Select a symptom")} />
+                            <SelectValue placeholder={t("common.selectSymptom", "Select a symptom")} />
                           </SelectTrigger>
                           <SelectContent>
                             {isLoading ? (
-                              <SelectItem value="loading" disabled>{t("loading", "Loading...")}</SelectItem>
+                              <SelectItem value="loading" disabled>{t("common.loading", "Loading...")}</SelectItem>
                             ) : (
                               symptoms
                                 .filter(symptom => !selectedSymptoms.some(s => s.name === symptom.name))
@@ -247,15 +261,6 @@ export default function SymptomChecker() {
                             )}
                           </SelectContent>
                         </Select>
-                        <Button 
-                          onClick={handleAddSymptom}
-                          className="bg-blue-600 hover:bg-blue-700"
-                        >
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
-                          </svg>
-                          {t("add", "Add")}
-                        </Button>
                       </div>
                     </div>
 
@@ -266,7 +271,7 @@ export default function SymptomChecker() {
                           <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                           <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                         </svg>
-                        {t("commonSymptoms", "Common Symptoms")}
+                        {t("common.commonSymptoms", "Common Symptoms")}
                       </h3>
                       
                       <Accordion type="multiple" className="w-full">
@@ -326,10 +331,10 @@ export default function SymptomChecker() {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                        {t("selectedSymptoms", "Selected Symptoms")}
+                        {t("common.selectedSymptoms", "Selected Symptoms")}
                       </CardTitle>
                       <CardDescription className="text-blue-700">
-                        {t("selectedSymptomsDescription", "Your selected symptoms for analysis")}
+                        {t("common.selectedSymptomsDescription", "Your selected symptoms for analysis")}
                       </CardDescription>
                     </CardHeader>
                     
@@ -337,7 +342,7 @@ export default function SymptomChecker() {
                       <div className="bg-white p-4 rounded-lg border border-blue-100 min-h-[100px]">
                         {selectedSymptoms.length === 0 ? (
                           <p className="text-slate-500 text-center italic py-4">
-                            {t("noSymptomsSelected", "No symptoms selected yet. Please select symptoms from the left panel.")}
+                            {t("common.noSymptomsSelected", "No symptoms selected yet. Please select symptoms from the left panel.")}
                           </p>
                         ) : (
                           <div className="flex flex-wrap gap-2">
@@ -377,7 +382,7 @@ export default function SymptomChecker() {
                         disabled={selectedSymptoms.length === 0}
                         className="text-blue-600 border-blue-200"
                       >
-                        {t("clearAll", "Clear All")}
+                        {t("common.clearAll", "Clear All")}
                       </Button>
                       
                       <Button 
@@ -385,7 +390,7 @@ export default function SymptomChecker() {
                         className="bg-blue-600 hover:bg-blue-700"
                         disabled={selectedSymptoms.length === 0}
                       >
-                        {t("next", "Next: Personal Info")}
+                        {t("common.next", "Next: Personal Info")}
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                           <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                         </svg>
@@ -403,10 +408,10 @@ export default function SymptomChecker() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>
-                    {t("personalHealthInfo", "Personal Health Information")}
+                    {t("common.personalHealthInfo", "Personal Health Information")}
                   </CardTitle>
                   <CardDescription className="text-indigo-700">
-                    {t("personalHealthInfoDescription", "Provide your personal health information for more accurate analysis")}
+                    {t("common.personalHealthInfoDescription", "Provide your personal health information for more accurate analysis")}
                   </CardDescription>
                 </CardHeader>
                 
@@ -648,7 +653,7 @@ export default function SymptomChecker() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clipRule="evenodd" />
                     </svg>
-                    {t("back", "Back to Symptoms")}
+                    {t("common.back", "Back to Symptoms")}
                   </Button>
                   
                   <Button 
@@ -656,7 +661,7 @@ export default function SymptomChecker() {
                     className="bg-indigo-600 hover:bg-indigo-700"
                     disabled={selectedSymptoms.length === 0 || !userInfoForm.getValues("age") || !userInfoForm.getValues("gender")}
                   >
-                    {t("analyzeSymptoms", "Analyze Symptoms")}
+                    {t("common.analyzeSymptoms", "Analyze Symptoms")}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
                     </svg>
@@ -818,7 +823,7 @@ export default function SymptomChecker() {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
                 </svg>
-                {t("startOver", "Start Over")}
+                {t("common.startOver", "Start Over")}
               </Button>
             </CardFooter>
           </Card>
