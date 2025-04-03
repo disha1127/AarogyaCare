@@ -556,26 +556,31 @@ export default function DietPlans() {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 mb-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("browseDietPlans", "Browse Diet Plans")}</CardTitle>
-            <CardDescription>
-              {t("browseDietPlansDescription", "Explore diet plans filtered by region and health condition.")}
+      <div className="grid gap-8 md:grid-cols-12 mb-8">
+        <Card className="md:col-span-5 bg-gradient-to-br from-blue-50 to-teal-50 border-blue-100">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center text-xl text-blue-900">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+              </svg>
+              {t("browseDietPlans", "Find Diet Plans")}
+            </CardTitle>
+            <CardDescription className="text-blue-700">
+              {t("browseDietPlansDescription", "Filter plans based on your region and health condition")}
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700">
-                  {t("selectRegion", "Select Your Region")}
+            <div className="grid gap-6">
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-blue-800">
+                  {t("selectRegion", "Your Region")}
                 </label>
                 <Select
                   value={selectedRegion}
                   onValueChange={setSelectedRegion}
                 >
-                  <SelectTrigger>
-                    <SelectValue placeholder={t("selectRegion", "Select Your Region")} />
+                  <SelectTrigger className="bg-white border-blue-200 focus:ring-blue-500">
+                    <SelectValue placeholder={t("selectRegion", "Select Region")} />
                   </SelectTrigger>
                   <SelectContent>
                     {regions.map((region) => (
@@ -587,16 +592,16 @@ export default function DietPlans() {
                 </Select>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-700">
-                  {t("selectHealthCondition", "Select Health Condition")}
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-blue-800">
+                  {t("selectHealthCondition", "Health Condition")}
                 </label>
                 <Select
                   value={selectedCondition}
                   onValueChange={setSelectedCondition}
                 >
-                  <SelectTrigger>
-                    <SelectValue placeholder={t("selectHealthCondition", "Select Health Condition")} />
+                  <SelectTrigger className="bg-white border-blue-200 focus:ring-blue-500">
+                    <SelectValue placeholder={t("selectHealthCondition", "Select Condition")} />
                   </SelectTrigger>
                   <SelectContent>
                     {healthConditions.map((condition) => (
@@ -609,32 +614,50 @@ export default function DietPlans() {
               </div>
             </div>
 
-            <div className="mt-6 flex justify-end">
-              <Button onClick={() => {
-                setSelectedRegion("All Regions");
-                setSelectedCondition("All Conditions");
-              }} variant="outline">
+            <div className="mt-6 flex justify-center">
+              <Button 
+                onClick={() => {
+                  setSelectedRegion("All Regions");
+                  setSelectedCondition("All Conditions");
+                }} 
+                variant="outline"
+                className="bg-white border-blue-200 hover:bg-blue-50 text-blue-800"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clipRule="evenodd" />
+                </svg>
                 {t("resetFilters", "Reset Filters")}
               </Button>
             </div>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("aiPersonalizedDietPlan", "AI Personalized Diet Plan")}</CardTitle>
-            <CardDescription>
-              {t("aiPersonalizedDietPlanDescription", "Get a tailored diet plan that considers your specific health needs, allergies, and lifestyle.")}
+        <Card className="md:col-span-7 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-100">
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center text-xl text-emerald-900">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              {t("aiPersonalizedDietPlan", "AI Personalized Diet Plan")}
+            </CardTitle>
+            <CardDescription className="text-emerald-700">
+              {t("aiPersonalizedDietPlanDescription", "Get a diet plan tailored to your specific health needs")}
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-slate-600 mb-6">
-              {t("dietPlanAIExplanation", "Our AI system analyzes your health profile, regional preferences, and dietary restrictions to create a personalized nutrition plan optimized for your wellbeing.")}
-            </p>
+            <div className="bg-white rounded-lg p-4 mb-6 border border-emerald-100 shadow-sm">
+              <p className="text-emerald-800">
+                {t("dietPlanAIExplanation", "Our AI system analyzes your health profile, regional preferences, and dietary restrictions to create a personalized nutrition plan optimized for your wellbeing.")}
+              </p>
+            </div>
             
             <Dialog open={personalizedDialogOpen} onOpenChange={setPersonalizedDialogOpen}>
               <DialogTrigger asChild>
-                <Button className="w-full">
+                <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z" />
+                    <path fillRule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clipRule="evenodd" />
+                  </svg>
                   {t("createPersonalizedPlan", "Create Personalized Plan")}
                 </Button>
               </DialogTrigger>
@@ -1015,49 +1038,79 @@ export default function DietPlans() {
       )}
 
       {/* Diet Plans List */}
-      <h2 className="text-2xl font-bold text-slate-900 mb-6">{t("availableDietPlans", "Available Diet Plans")}</h2>
+      <div className="pb-4 border-b border-slate-200 mb-6 flex items-center justify-between">
+        <h2 className="text-2xl font-bold text-slate-900">{t("availableDietPlans", "Available Diet Plans")}</h2>
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-teal-50 text-teal-800">
+          {isLoading ? "..." : filteredDietPlans.length} {t("plansFound", "plans found")}
+        </span>
+      </div>
 
       {isLoading ? (
-        <div className="text-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600 mx-auto mb-3"></div>
-          <p className="text-slate-500">{t("loading", "Loading...")}</p>
+        <div className="text-center py-12 rounded-lg bg-slate-50 border border-slate-100">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-teal-600 mx-auto mb-4"></div>
+          <p className="text-slate-600">{t("loading", "Loading diet plans...")}</p>
         </div>
       ) : filteredDietPlans.length > 0 ? (
-        <div className="space-y-8">
+        <div className="grid gap-6 md:grid-cols-2">
           {filteredDietPlans.map((dietPlan) => (
-            <Card key={dietPlan.id}>
-              <CardHeader>
+            <Card key={dietPlan.id} className="overflow-hidden border-teal-100 hover:shadow-md transition-shadow duration-200">
+              <div className="bg-gradient-to-r from-teal-500 to-emerald-500 h-3"></div>
+              <CardHeader className="pb-3">
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>
-                    <CardTitle>{dietPlan.name}</CardTitle>
-                    <CardDescription className="mt-1">
+                    <CardTitle className="text-teal-800">{dietPlan.name}</CardTitle>
+                    <CardDescription className="mt-1 text-slate-600">
                       {dietPlan.description}
                     </CardDescription>
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="outline" className="bg-blue-50">
+                  <div className="flex flex-wrap gap-1.5">
+                    <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">
                       {dietPlan.region}
                     </Badge>
                     {(dietPlan.forCondition as string[]).map((condition, idx) => (
-                      <Badge key={idx} variant="secondary">
+                      <Badge key={idx} variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200">
                         {condition}
                       </Badge>
                     ))}
                   </div>
                 </div>
               </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="meals">
-                  <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="meals">{t("mealPlan", "Meal Plan")}</TabsTrigger>
-                    <TabsTrigger value="nutrients">{t("nutrients", "Nutrients")}</TabsTrigger>
-                    <TabsTrigger value="restrictions">{t("restrictions", "Restrictions")}</TabsTrigger>
+              <CardContent className="p-0">
+                <Tabs defaultValue="meals" className="w-full">
+                  <TabsList className="w-full flex rounded-none bg-slate-50 border-y border-slate-200">
+                    <TabsTrigger 
+                      value="meals" 
+                      className="flex-1 text-sm data-[state=active]:bg-white data-[state=active]:text-teal-700 data-[state=active]:shadow-none rounded-none border-r border-slate-200"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                      </svg>
+                      {t("mealPlan", "Meals")}
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="nutrients" 
+                      className="flex-1 text-sm data-[state=active]:bg-white data-[state=active]:text-teal-700 data-[state=active]:shadow-none rounded-none border-r border-slate-200"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clipRule="evenodd" />
+                      </svg>
+                      {t("nutrients", "Nutrients")}
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="restrictions" 
+                      className="flex-1 text-sm data-[state=active]:bg-white data-[state=active]:text-teal-700 data-[state=active]:shadow-none rounded-none"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                      {t("restrictions", "Avoid")}
+                    </TabsTrigger>
                   </TabsList>
-                  <TabsContent value="meals" className="mt-4 space-y-4">
+                  <TabsContent value="meals" className="p-4 bg-white min-h-[200px]">
                     <ul className="space-y-2">
                       {(dietPlan.items as string[]).map((item, idx) => (
                         <li key={idx} className="text-slate-700 flex items-start">
-                          <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-primary-100 text-primary-800 text-xs font-medium mr-2 flex-shrink-0">
+                          <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-teal-100 text-teal-800 text-xs font-medium mr-2 flex-shrink-0">
                             {idx + 1}
                           </span>
                           <span>{item}</span>
@@ -1065,23 +1118,25 @@ export default function DietPlans() {
                       ))}
                     </ul>
                   </TabsContent>
-                  <TabsContent value="nutrients" className="mt-4">
+                  <TabsContent value="nutrients" className="p-4 bg-white min-h-[200px]">
                     {dietPlan.nutrients ? (
                       <div className="grid gap-4 sm:grid-cols-2">
                         {Object.entries(dietPlan.nutrients as Record<string, string | number>).map(([key, value]) => (
                           <div key={key} className="flex justify-between border-b border-slate-100 pb-2">
                             <span className="text-slate-600 capitalize">{key}</span>
-                            <span className="font-medium">{value}</span>
+                            <span className="font-medium text-teal-700">{value}</span>
                           </div>
                         ))}
                       </div>
                     ) : (
-                      <p className="text-slate-500 italic">
-                        {t("nutrientsNotAvailable", "Detailed nutrient information not available for this diet plan.")}
-                      </p>
+                      <div className="flex items-center justify-center h-full">
+                        <p className="text-slate-500 italic text-center">
+                          {t("nutrientsNotAvailable", "Detailed nutrient information not available for this diet plan.")}
+                        </p>
+                      </div>
                     )}
                   </TabsContent>
-                  <TabsContent value="restrictions" className="mt-4">
+                  <TabsContent value="restrictions" className="p-4 bg-white min-h-[200px]">
                     {dietPlan.restrictions && (dietPlan.restrictions as string[]).length > 0 ? (
                       <ul className="space-y-1 list-disc list-inside text-slate-700">
                         {(dietPlan.restrictions as string[]).map((restriction, idx) => (
@@ -1089,9 +1144,11 @@ export default function DietPlans() {
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-slate-500 italic">
-                        {t("noRestrictions", "No specific dietary restrictions for this plan.")}
-                      </p>
+                      <div className="flex items-center justify-center h-full">
+                        <p className="text-slate-500 italic text-center">
+                          {t("noRestrictions", "No specific dietary restrictions for this plan.")}
+                        </p>
+                      </div>
                     )}
                   </TabsContent>
                 </Tabs>
@@ -1100,12 +1157,22 @@ export default function DietPlans() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12">
-          <svg className="mx-auto h-12 w-12 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <div className="text-center py-12 bg-slate-50 rounded-lg border border-slate-100">
+          <svg className="mx-auto h-16 w-16 text-slate-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <h3 className="mt-2 text-sm font-medium text-slate-900">{t("noDietPlansFound", "No Diet Plans Found")}</h3>
-          <p className="mt-1 text-sm text-slate-500">{t("tryDifferentFilters", "Try selecting different region or health condition.")}</p>
+          <h3 className="mt-4 text-lg font-medium text-slate-900">{t("noDietPlansFound", "No Diet Plans Found")}</h3>
+          <p className="mt-2 text-slate-500 max-w-md mx-auto">{t("tryDifferentFilters", "Try selecting different region or health condition.")}</p>
+          <Button 
+            onClick={() => {
+              setSelectedRegion("All Regions");
+              setSelectedCondition("All Conditions");
+            }}
+            variant="outline"
+            className="mt-4"
+          >
+            {t("resetFilters", "Reset Filters")}
+          </Button>
         </div>
       )}
 
