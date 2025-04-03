@@ -1,0 +1,50 @@
+Create a full-stack AI-driven rural healthcare website named AROGYA that is multilingual, supports offline features, and provides essential healthcare services tailored for rural users. The project should be built using Next.js 14 (App Router), TypeScript, Tailwind CSS, shadcn/ui, React Context API, Framer Motion, and other modern web technologies. The backend should leverage Next.js API Routes with potential database support from MongoDB/PostgreSQL with Prisma.
+
+Key Features:
+Multilingual Support: Implement dynamic language switching using @formatjs/intl-localematcher.
+
+Offline Mode: Store critical data using PWA capabilities (local storage, IndexedDB) for offline access.
+
+Government Schemes: Fetch and display government healthcare schemes relevant to rural users.
+
+Health Articles: Integrate articles from WHO and other trusted sources.
+
+Symptom Checker: Implement a rule-based symptom checker (without OpenAI API). Use a structured dataset for medical symptoms and conditions.
+
+Personalized Diet Plan: Recommend a diet based on user’s region, allergies, and health conditions. Use a JSON dataset or API for regional food preferences.
+
+Health Problem Insights: Provide AI-driven insights on common rural health problems and their prevention.
+
+Medication Reminder: Allow users to set medicine reminders with push notifications or browser alerts.
+
+Hospital Finder Map: Use Leaflet.js, Leaflet.heat, and Leaflet.markercluster to display hospitals from a provided dataset.
+
+SOS Feature: Implement an SOS button that sends an emergency SMS or alert to predefined contacts.
+
+Tech Stack:
+Frontend: Next.js 14, TypeScript, Tailwind CSS, shadcn/ui, Lucide React (icons), Framer Motion (animation).
+
+Backend: Next.js API Routes (server-side processing), Prisma (MongoDB/PostgreSQL).
+
+State Management: React Context API.
+
+Form Handling & Validation: React Hook Form + Zod.
+
+Maps & Data Visualization: Leaflet.js, Recharts.
+
+PWA: Offline storage using localStorage, IndexedDB.
+
+Constraints:
+Do NOT use OpenAI API. Use local datasets or rule-based logic for AI-driven features like the symptom checker and diet plan.
+
+Ensure the site is lightweight, mobile-friendly, and optimized for rural users with slow internet connections.
+
+Deliverables:
+
+A fully functional Next.js 14 project with the above features.
+
+A clean, minimal UI/UX using Tailwind CSS and shadcn/ui.
+
+A dataset for hospitals, symptoms, diet plans, and government schemes.
+
+Offline capabilities for critical healthcare information.
