@@ -12,8 +12,17 @@ import {
   type DietPlan,
   type InsertDietPlan,
   type Medication,
-  type InsertMedication
+  type InsertMedication,
+  users,
+  articles,
+  schemes,
+  hospitals,
+  symptoms,
+  dietPlans,
+  medications
 } from "@shared/schema";
+import { db } from "./db";
+import { and, eq, ilike, sql } from "drizzle-orm";
 
 // Define the interface for our storage
 export interface IStorage {
@@ -62,467 +71,413 @@ export interface IStorage {
   deleteMedication(id: number): Promise<boolean>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private articles: Map<number, Article>;
-  private schemes: Map<number, Scheme>;
-  private hospitals: Map<number, Hospital>;
-  private symptoms: Map<number, Symptom>;
-  private dietPlans: Map<number, DietPlan>;
-  private medications: Map<number, Medication>;
-  
-  private userIdCounter: number;
-  private articleIdCounter: number;
-  private schemeIdCounter: number;
-  private hospitalIdCounter: number;
-  private symptomIdCounter: number;
-  private dietPlanIdCounter: number;
-  private medicationIdCounter: number;
-
-  constructor() {
-    this.users = new Map();
-    this.articles = new Map();
-    this.schemes = new Map();
-    this.hospitals = new Map();
-    this.symptoms = new Map();
-    this.dietPlans = new Map();
-    this.medications = new Map();
-    
-    this.userIdCounter = 1;
-    this.articleIdCounter = 1;
-    this.schemeIdCounter = 1;
-    this.hospitalIdCounter = 1;
-    this.symptomIdCounter = 1;
-    this.dietPlanIdCounter = 1;
-    this.medicationIdCounter = 1;
-    
-    // Initialize with some data
-    this.seedData();
-  }
-
+export class DatabaseStorage implements IStorage {
   // User operations
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userIdCounter++;
-    const createdAt = new Date();
-    const user: User = { ...insertUser, id, createdAt };
-    this.users.set(id, user);
+    const [user] = await db.insert(users).values(insertUser).returning();
     return user;
   }
 
   async updateUser(id: number, userData: Partial<User>): Promise<User | undefined> {
-    const user = await this.getUser(id);
-    if (!user) return undefined;
-    
-    const updatedUser = { ...user, ...userData };
-    this.users.set(id, updatedUser);
+    const [updatedUser] = await db
+      .update(users)
+      .set(userData)
+      .where(eq(users.id, id))
+      .returning();
     return updatedUser;
   }
 
   // Article operations
   async getArticles(): Promise<Article[]> {
-    return Array.from(this.articles.values());
+    return await db.select().from(articles);
   }
 
   async getArticle(id: number): Promise<Article | undefined> {
-    return this.articles.get(id);
+    const [article] = await db.select().from(articles).where(eq(articles.id, id));
+    return article;
   }
   
   async getOfflineArticles(): Promise<Article[]> {
-    return Array.from(this.articles.values()).filter(
-      (article) => article.isOfflineAvailable
-    );
+    return await db.select().from(articles).where(eq(articles.isOfflineAvailable, true));
   }
 
   async createArticle(insertArticle: InsertArticle): Promise<Article> {
-    const id = this.articleIdCounter++;
-    const article: Article = { ...insertArticle, id };
-    this.articles.set(id, article);
+    const [article] = await db.insert(articles).values(insertArticle).returning();
     return article;
   }
 
   // Government scheme operations
   async getSchemes(): Promise<Scheme[]> {
-    return Array.from(this.schemes.values());
+    return await db.select().from(schemes);
   }
 
   async getScheme(id: number): Promise<Scheme | undefined> {
-    return this.schemes.get(id);
+    const [scheme] = await db.select().from(schemes).where(eq(schemes.id, id));
+    return scheme;
   }
   
   async getOfflineSchemes(): Promise<Scheme[]> {
-    return Array.from(this.schemes.values()).filter(
-      (scheme) => scheme.isOfflineAvailable
-    );
+    return await db.select().from(schemes).where(eq(schemes.isOfflineAvailable, true));
   }
 
   async createScheme(insertScheme: InsertScheme): Promise<Scheme> {
-    const id = this.schemeIdCounter++;
-    const scheme: Scheme = { ...insertScheme, id };
-    this.schemes.set(id, scheme);
+    const [scheme] = await db.insert(schemes).values(insertScheme).returning();
     return scheme;
   }
 
   // Hospital operations
   async getHospitals(): Promise<Hospital[]> {
-    return Array.from(this.hospitals.values());
+    return await db.select().from(hospitals);
   }
 
   async getHospital(id: number): Promise<Hospital | undefined> {
-    return this.hospitals.get(id);
+    const [hospital] = await db.select().from(hospitals).where(eq(hospitals.id, id));
+    return hospital;
   }
 
   async getHospitalsByLocation(lat: number, lng: number, radius: number): Promise<Hospital[]> {
-    // Simple proximity calculation using Euclidean distance
-    return Array.from(this.hospitals.values()).filter(hospital => {
-      const hospitalLat = parseFloat(hospital.latitude);
-      const hospitalLng = parseFloat(hospital.longitude);
-      
-      // Calculate distance using Euclidean distance (simplified for demo)
-      const distance = Math.sqrt(
-        Math.pow(hospitalLat - lat, 2) + Math.pow(hospitalLng - lng, 2)
-      );
-      
-      // Convert to approximate kilometers (very rough approximation)
-      const distanceKm = distance * 111;
-      
-      return distanceKm <= radius;
-    });
+    // Using PostgreSQL's built-in earth distance functions
+    // Convert lat/long to radians and calculate distance
+    const result = await db.execute<Hospital>(sql`
+      SELECT *,
+      6371 * 2 * ASIN(SQRT(
+        POWER(SIN((CAST(${lat} AS float) - CAST(latitude AS float)) * PI() / 180 / 2), 2) +
+        COS(CAST(${lat} AS float) * PI() / 180) *
+        COS(CAST(latitude AS float) * PI() / 180) *
+        POWER(SIN((CAST(${lng} AS float) - CAST(longitude AS float)) * PI() / 180 / 2), 2)
+      )) AS distance
+      FROM hospitals
+      WHERE 6371 * 2 * ASIN(SQRT(
+        POWER(SIN((CAST(${lat} AS float) - CAST(latitude AS float)) * PI() / 180 / 2), 2) +
+        COS(CAST(${lat} AS float) * PI() / 180) *
+        COS(CAST(latitude AS float) * PI() / 180) *
+        POWER(SIN((CAST(${lng} AS float) - CAST(longitude AS float)) * PI() / 180 / 2), 2)
+      )) <= ${radius}
+      ORDER BY distance
+    `);
+    return result.rows;
   }
 
   async createHospital(insertHospital: InsertHospital): Promise<Hospital> {
-    const id = this.hospitalIdCounter++;
-    const hospital: Hospital = { ...insertHospital, id };
-    this.hospitals.set(id, hospital);
+    const [hospital] = await db.insert(hospitals).values(insertHospital).returning();
     return hospital;
   }
 
   // Symptom operations
   async getSymptoms(): Promise<Symptom[]> {
-    return Array.from(this.symptoms.values());
+    return await db.select().from(symptoms);
   }
 
   async getSymptom(id: number): Promise<Symptom | undefined> {
-    return this.symptoms.get(id);
+    const [symptom] = await db.select().from(symptoms).where(eq(symptoms.id, id));
+    return symptom;
   }
 
   async getSymptomByName(name: string): Promise<Symptom | undefined> {
-    return Array.from(this.symptoms.values()).find(
-      (symptom) => symptom.name.toLowerCase() === name.toLowerCase()
-    );
+    const [symptom] = await db.select().from(symptoms).where(ilike(symptoms.name, name));
+    return symptom;
   }
 
   async createSymptom(insertSymptom: InsertSymptom): Promise<Symptom> {
-    const id = this.symptomIdCounter++;
-    const symptom: Symptom = { ...insertSymptom, id };
-    this.symptoms.set(id, symptom);
+    const [symptom] = await db.insert(symptoms).values(insertSymptom).returning();
     return symptom;
   }
 
   // Diet plan operations
   async getDietPlans(): Promise<DietPlan[]> {
-    return Array.from(this.dietPlans.values());
+    return await db.select().from(dietPlans);
   }
 
   async getDietPlan(id: number): Promise<DietPlan | undefined> {
-    return this.dietPlans.get(id);
+    const [dietPlan] = await db.select().from(dietPlans).where(eq(dietPlans.id, id));
+    return dietPlan;
   }
 
   async getDietPlansByCondition(condition: string): Promise<DietPlan[]> {
-    return Array.from(this.dietPlans.values()).filter(plan => 
-      (plan.forCondition as string[]).includes(condition)
+    // Using PostgreSQL's JSON contains operator
+    return await db.select().from(dietPlans).where(
+      sql`${dietPlans.forCondition} ? ${condition}`
     );
   }
 
   async getDietPlansByRegion(region: string): Promise<DietPlan[]> {
-    return Array.from(this.dietPlans.values()).filter(plan => 
-      plan.region.toLowerCase() === region.toLowerCase()
+    return await db.select().from(dietPlans).where(
+      ilike(dietPlans.region, `%${region}%`)
     );
   }
 
   async createDietPlan(insertDietPlan: InsertDietPlan): Promise<DietPlan> {
-    const id = this.dietPlanIdCounter++;
-    const dietPlan: DietPlan = { ...insertDietPlan, id };
-    this.dietPlans.set(id, dietPlan);
+    const [dietPlan] = await db.insert(dietPlans).values(insertDietPlan).returning();
     return dietPlan;
   }
 
   // Medication reminder operations
   async getMedicationsByUser(userId: number): Promise<Medication[]> {
-    return Array.from(this.medications.values()).filter(
-      medication => medication.userId === userId
-    );
+    return await db.select().from(medications).where(eq(medications.userId, userId));
   }
 
   async getMedication(id: number): Promise<Medication | undefined> {
-    return this.medications.get(id);
+    const [medication] = await db.select().from(medications).where(eq(medications.id, id));
+    return medication;
   }
 
   async createMedication(insertMedication: InsertMedication): Promise<Medication> {
-    const id = this.medicationIdCounter++;
-    const medication: Medication = { ...insertMedication, id };
-    this.medications.set(id, medication);
+    const [medication] = await db.insert(medications).values(insertMedication).returning();
     return medication;
   }
 
   async updateMedication(id: number, medicationData: Partial<Medication>): Promise<Medication | undefined> {
-    const medication = await this.getMedication(id);
-    if (!medication) return undefined;
-    
-    const updatedMedication = { ...medication, ...medicationData };
-    this.medications.set(id, updatedMedication);
+    const [updatedMedication] = await db
+      .update(medications)
+      .set(medicationData)
+      .where(eq(medications.id, id))
+      .returning();
     return updatedMedication;
   }
 
   async deleteMedication(id: number): Promise<boolean> {
-    return this.medications.delete(id);
+    const result = await db
+      .delete(medications)
+      .where(eq(medications.id, id))
+      .returning({ id: medications.id });
+    return result.length > 0;
   }
-
-  // Seed initial data
-  private seedData() {
-    // Seed initial data for demo purposes
-    // This would normally be done via API endpoints
-
-    // Seed some articles
-    this.createArticle({
-      title: "Importance of Clean Water in Rural Areas",
-      content: "Clean water is essential for human health. Many waterborne diseases such as cholera, diarrhea, dysentery, hepatitis A, typhoid, and polio can be prevented through access to clean water...",
-      summary: "Learn about the critical impact of clean water on public health in rural communities and ways to ensure water safety.",
-      source: "WHO",
-      imageUrl: "https://images.unsplash.com/photo-1559941727-6fb446e7e8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      category: "Water Safety",
-      publishedAt: new Date("2023-05-10"),
-      isOfflineAvailable: true
-    });
-
-    this.createArticle({
-      title: "Preventing Seasonal Diseases During Monsoon",
-      content: "The monsoon season brings relief from the summer heat but also creates favorable conditions for disease-causing pathogens. Vector-borne diseases like malaria and dengue spike during this season...",
-      summary: "Practical tips to safeguard yourself and your family from common monsoon-related illnesses like dengue and malaria.",
-      source: "Health Tips",
-      imageUrl: "https://images.unsplash.com/photo-1580281657702-257584239a42?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      category: "Seasonal Health",
-      publishedAt: new Date("2023-06-05"),
-      isOfflineAvailable: true
-    });
-
-    this.createArticle({
-      title: "Affordable Nutritious Foods for Rural Families",
-      content: "Nutrition plays a vital role in maintaining good health. In rural areas, focusing on locally available, seasonal foods can provide essential nutrients without straining the household budget...",
-      summary: "Discover budget-friendly nutritious foods that are locally available and can improve family health outcomes.",
-      source: "Nutrition",
-      imageUrl: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      category: "Nutrition",
-      publishedAt: new Date("2023-06-18"),
-      isOfflineAvailable: true
-    });
+  
+  // Method to seed initial data into the database
+  async seedInitialData() {
+    // Check if data already exists before seeding
+    const articleCount = await db.select({ count: sql<number>`count(*)` }).from(articles);
+    if (articleCount[0].count > 0) {
+      console.log("Database already has data, skipping seed");
+      return;
+    }
+    
+    console.log("Seeding initial data...");
+    
+    // Seed articles
+    await db.insert(articles).values([
+      {
+        title: "Importance of Clean Water in Rural Areas",
+        content: "Clean water is essential for human health. Many waterborne diseases such as cholera, diarrhea, dysentery, hepatitis A, typhoid, and polio can be prevented through access to clean water...",
+        summary: "Learn about the critical impact of clean water on public health in rural communities and ways to ensure water safety.",
+        source: "WHO",
+        imageUrl: "https://images.unsplash.com/photo-1559941727-6fb446e7e8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        category: "Water Safety",
+        publishedAt: new Date("2023-05-10"),
+        isOfflineAvailable: true
+      },
+      {
+        title: "Preventing Seasonal Diseases During Monsoon",
+        content: "The monsoon season brings relief from the summer heat but also creates favorable conditions for disease-causing pathogens. Vector-borne diseases like malaria and dengue spike during this season...",
+        summary: "Practical tips to safeguard yourself and your family from common monsoon-related illnesses like dengue and malaria.",
+        source: "Health Tips",
+        imageUrl: "https://images.unsplash.com/photo-1580281657702-257584239a42?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        category: "Seasonal Health",
+        publishedAt: new Date("2023-06-05"),
+        isOfflineAvailable: true
+      },
+      {
+        title: "Affordable Nutritious Foods for Rural Families",
+        content: "Nutrition plays a vital role in maintaining good health. In rural areas, focusing on locally available, seasonal foods can provide essential nutrients without straining the household budget...",
+        summary: "Discover budget-friendly nutritious foods that are locally available and can improve family health outcomes.",
+        source: "Nutrition",
+        imageUrl: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        category: "Nutrition",
+        publishedAt: new Date("2023-06-18"),
+        isOfflineAvailable: true
+      }
+    ]);
 
     // Seed government schemes
-    this.createScheme({
-      name: "Ayushman Bharat",
-      description: "Health insurance scheme providing coverage up to ₹5 lakhs per family per year for secondary and tertiary care hospitalization.",
-      category: "Health Insurance",
-      eligibilityCriteria: "Families identified based on deprivation categories in rural and occupational criteria in urban areas.",
-      benefits: "Cashless and paperless access to healthcare services at public and private empaneled hospitals.",
-      applicationProcess: "Eligible citizens can check their enrollment status online or through Common Service Centers.",
-      documentationRequired: ["Aadhaar Card", "Ration Card", "Income Certificate"],
-      isOfflineAvailable: true
-    });
-
-    this.createScheme({
-      name: "Janani Suraksha Yojana",
-      description: "Cash assistance scheme for pregnant women to encourage institutional delivery and reduce maternal and infant mortality.",
-      category: "Maternal Health",
-      eligibilityCriteria: "Below poverty line pregnant women who opt for delivery in government or accredited private health facilities.",
-      benefits: "Cash incentive which varies by rural or urban areas, ranging from ₹600 to ₹1400.",
-      applicationProcess: "Registration at local health center or through ASHA worker.",
-      documentationRequired: ["BPL Card", "Aadhaar Card", "Bank Account Details"],
-      isOfflineAvailable: true
-    });
-
-    this.createScheme({
-      name: "Jan Aushadhi Scheme",
-      description: "Provides quality generic medicines at affordable prices through dedicated outlets known as Jan Aushadhi Kendras.",
-      category: "Affordable Medicines",
-      eligibilityCriteria: "Available to all citizens.",
-      benefits: "Access to quality medicines at prices lower than the market prices.",
-      applicationProcess: "No application needed. Visit the nearest Jan Aushadhi Kendra.",
-      documentationRequired: [],
-      isOfflineAvailable: true
-    });
-
-    this.createScheme({
-      name: "National Programme for Control of Blindness",
-      description: "Aims to reduce the prevalence of blindness through early identification and treatment of eye diseases.",
-      category: "Eye Care",
-      eligibilityCriteria: "Available to all citizens, especially those with vision impairments.",
-      benefits: "Free eye check-ups, cataract surgery, and provision of spectacles for school children.",
-      applicationProcess: "Register at eye camps or government hospitals.",
-      documentationRequired: ["Identification proof"],
-      isOfflineAvailable: true
-    });
+    await db.insert(schemes).values([
+      {
+        name: "Ayushman Bharat",
+        description: "Health insurance scheme providing coverage up to ₹5 lakhs per family per year for secondary and tertiary care hospitalization.",
+        category: "Health Insurance",
+        eligibilityCriteria: "Families identified based on deprivation categories in rural and occupational criteria in urban areas.",
+        benefits: "Cashless and paperless access to healthcare services at public and private empaneled hospitals.",
+        applicationProcess: "Eligible citizens can check their enrollment status online or through Common Service Centers.",
+        documentationRequired: ["Aadhaar Card", "Ration Card", "Income Certificate"],
+        isOfflineAvailable: true
+      },
+      {
+        name: "Janani Suraksha Yojana",
+        description: "Cash assistance scheme for pregnant women to encourage institutional delivery and reduce maternal and infant mortality.",
+        category: "Maternal Health",
+        eligibilityCriteria: "Below poverty line pregnant women who opt for delivery in government or accredited private health facilities.",
+        benefits: "Cash incentive which varies by rural or urban areas, ranging from ₹600 to ₹1400.",
+        applicationProcess: "Registration at local health center or through ASHA worker.",
+        documentationRequired: ["BPL Card", "Aadhaar Card", "Bank Account Details"],
+        isOfflineAvailable: true
+      },
+      {
+        name: "Jan Aushadhi Scheme",
+        description: "Provides quality generic medicines at affordable prices through dedicated outlets known as Jan Aushadhi Kendras.",
+        category: "Affordable Medicines",
+        eligibilityCriteria: "Available to all citizens.",
+        benefits: "Access to quality medicines at prices lower than the market prices.",
+        applicationProcess: "No application needed. Visit the nearest Jan Aushadhi Kendra.",
+        documentationRequired: [],
+        isOfflineAvailable: true
+      },
+      {
+        name: "National Programme for Control of Blindness",
+        description: "Aims to reduce the prevalence of blindness through early identification and treatment of eye diseases.",
+        category: "Eye Care",
+        eligibilityCriteria: "Available to all citizens, especially those with vision impairments.",
+        benefits: "Free eye check-ups, cataract surgery, and provision of spectacles for school children.",
+        applicationProcess: "Register at eye camps or government hospitals.",
+        documentationRequired: ["Identification proof"],
+        isOfflineAvailable: true
+      }
+    ]);
 
     // Seed hospitals
-    this.createHospital({
-      name: "District Hospital",
-      address: "Main Road, Sambalpur",
-      city: "Sambalpur",
-      state: "Odisha",
-      zipCode: "768001",
-      phone: "0663-2520100",
-      email: "dh.sambalpur@gov.in",
-      latitude: "21.466",
-      longitude: "83.975",
-      type: "Government",
-      services: ["Emergency", "General Medicine", "Surgery", "Pediatrics", "Obstetrics"],
-      emergencyServices: true,
-      specialties: ["General Medicine", "Orthopedics"]
-    });
-
-    this.createHospital({
-      name: "Community Health Center",
-      address: "Near Bus Stand, Bargarh",
-      city: "Bargarh",
-      state: "Odisha",
-      zipCode: "768028",
-      phone: "0664-2345678",
-      email: "chc.bargarh@gov.in",
-      latitude: "21.346",
-      longitude: "83.828",
-      type: "Government",
-      services: ["Primary Care", "Maternal Health", "Child Health", "Family Planning"],
-      emergencyServices: false,
-      specialties: ["Family Medicine"]
-    });
-
-    this.createHospital({
-      name: "Primary Health Center",
-      address: "Hirakud Dam Colony, Hirakud",
-      city: "Hirakud",
-      state: "Odisha",
-      zipCode: "768016",
-      phone: "0663-2456789",
-      email: "phc.hirakud@gov.in",
-      latitude: "21.511",
-      longitude: "83.872",
-      type: "Government",
-      services: ["Primary Care", "Immunization", "Basic Medicine"],
-      emergencyServices: false,
-      specialties: ["General Practice"]
-    });
+    await db.insert(hospitals).values([
+      {
+        name: "District Hospital",
+        address: "Main Road, Sambalpur",
+        city: "Sambalpur",
+        state: "Odisha",
+        zipCode: "768001",
+        phone: "0663-2520100",
+        email: "dh.sambalpur@gov.in",
+        latitude: "21.466",
+        longitude: "83.975",
+        type: "Government",
+        services: ["Emergency", "General Medicine", "Surgery", "Pediatrics", "Obstetrics"],
+        emergencyServices: true,
+        specialties: ["General Medicine", "Orthopedics"]
+      },
+      {
+        name: "Community Health Center",
+        address: "Near Bus Stand, Bargarh",
+        city: "Bargarh",
+        state: "Odisha",
+        zipCode: "768028",
+        phone: "0664-2345678",
+        email: "chc.bargarh@gov.in",
+        latitude: "21.346",
+        longitude: "83.828",
+        type: "Government",
+        services: ["Primary Care", "Maternal Health", "Child Health", "Family Planning"],
+        emergencyServices: false,
+        specialties: ["Family Medicine"]
+      },
+      {
+        name: "Primary Health Center",
+        address: "Hirakud Dam Colony, Hirakud",
+        city: "Hirakud",
+        state: "Odisha",
+        zipCode: "768016",
+        phone: "0663-2456789",
+        email: "phc.hirakud@gov.in",
+        latitude: "21.511",
+        longitude: "83.872",
+        type: "Government",
+        services: ["Primary Care", "Immunization", "Basic Medicine"],
+        emergencyServices: false,
+        specialties: ["General Practice"]
+      }
+    ]);
 
     // Seed symptoms
-    this.createSymptom({
-      name: "Fever",
-      description: "Elevated body temperature above the normal range of 36-37°C (98-100°F)",
-      possibleConditions: ["Common Cold", "Flu", "Malaria", "Typhoid", "COVID-19"],
-      severity: "moderate",
-      recommendedActions: [
-        "Rest and stay hydrated",
-        "Take over-the-counter fever reducers like paracetamol",
-        "Seek medical attention if fever persists for more than 3 days or is accompanied by severe symptoms"
-      ]
-    });
-
-    this.createSymptom({
-      name: "Cough",
-      description: "A sudden, forceful expulsion of air from the lungs that helps clear the lung airways of irritants",
-      possibleConditions: ["Common Cold", "Flu", "Bronchitis", "Asthma", "COVID-19"],
-      severity: "mild",
-      recommendedActions: [
-        "Stay hydrated",
-        "Use honey and warm liquids to soothe throat",
-        "Seek medical attention if cough persists for more than 2 weeks or is accompanied by blood/thick mucus"
-      ]
-    });
-
-    this.createSymptom({
-      name: "Headache",
-      description: "Pain in any region of the head",
-      possibleConditions: ["Tension Headache", "Migraine", "Sinus Infection", "Dehydration", "High Blood Pressure"],
-      severity: "mild",
-      recommendedActions: [
-        "Rest in a quiet, dark room",
-        "Apply a cold or warm compress to the head",
-        "Drink water as dehydration can cause headaches",
-        "Take over-the-counter pain relievers",
-        "Seek medical attention if headache is severe or accompanied by confusion, stiff neck, or high fever"
-      ]
-    });
+    await db.insert(symptoms).values([
+      {
+        name: "Fever",
+        description: "Elevated body temperature above the normal range of 36-37°C (98-100°F)",
+        possibleConditions: ["Common Cold", "Flu", "Malaria", "Typhoid", "COVID-19"],
+        severity: "moderate",
+        recommendedActions: [
+          "Rest and stay hydrated",
+          "Take over-the-counter fever reducers like paracetamol",
+          "Seek medical attention if fever persists for more than 3 days"
+        ]
+      },
+      {
+        name: "Cough",
+        description: "Sudden expulsion of air from the lungs to clear the air passages",
+        possibleConditions: ["Common Cold", "Bronchitis", "Asthma", "Pneumonia", "COVID-19"],
+        severity: "mild",
+        recommendedActions: [
+          "Stay hydrated",
+          "Use honey for soothing (except for children under 1 year)",
+          "Use over-the-counter cough suppressants if needed",
+          "Seek medical help if cough persists for more than 2 weeks"
+        ]
+      },
+      {
+        name: "Headache",
+        description: "Pain in any region of the head",
+        possibleConditions: ["Tension Headache", "Migraine", "Sinus Infection", "Dehydration"],
+        severity: "mild",
+        recommendedActions: [
+          "Rest in a quiet, dark room",
+          "Apply cold or warm compress",
+          "Take over-the-counter pain relievers",
+          "Stay hydrated",
+          "Seek medical attention for severe or recurring headaches"
+        ]
+      }
+    ]);
 
     // Seed diet plans
-    this.createDietPlan({
-      name: "Diabetes Management Diet",
-      description: "A balanced diet plan to help manage blood sugar levels for diabetic patients",
-      forCondition: ["Diabetes"],
-      region: "North India",
-      items: [
-        "Breakfast: Barley porridge with mixed nuts",
-        "Mid-morning: Guava or apple",
-        "Lunch: 2 rotis, mixed vegetable curry, dal, curd",
-        "Evening: Roasted chana with lemon juice",
-        "Dinner: 1 roti, bottle gourd curry, small bowl of dal"
-      ],
-      nutrients: {
-        calories: 1800,
-        carbohydrates: "50%",
-        protein: "20%",
-        fat: "30%"
+    await db.insert(dietPlans).values([
+      {
+        name: "Diabetic Diet Plan",
+        description: "A balanced diet plan suitable for people with diabetes to help maintain blood sugar levels",
+        forCondition: ["Diabetes", "Metabolic Syndrome"],
+        region: "North India",
+        items: [
+          "Breakfast: Whole grain roti with vegetable sabzi",
+          "Mid-morning: Apple or guava with a handful of nuts",
+          "Lunch: Brown rice, dal, vegetable curry, and a small bowl of yogurt",
+          "Evening snack: Roasted chana with spices",
+          "Dinner: Multigrain roti with vegetable curry and a small bowl of buttermilk"
+        ],
+        nutrients: {
+          calories: "1800-2000 per day",
+          carbohydrates: "50-55%",
+          proteins: "20-25%",
+          fats: "20-30%"
+        },
+        restrictions: ["Added sugar", "White rice", "Processed snacks", "Sweetened beverages"]
       },
-      restrictions: ["Avoid white rice", "Limit sweet fruits", "Avoid sugar and jaggery"]
-    });
-
-    this.createDietPlan({
-      name: "Heart Healthy Diet",
-      description: "A diet plan focused on cardiovascular health",
-      forCondition: ["Hypertension", "Heart Disease"],
-      region: "South India",
-      items: [
-        "Breakfast: Idli with sambar (no coconut chutney)",
-        "Mid-morning: Orange or apple",
-        "Lunch: Brown rice, vegetable curry, rasam, small piece of fish",
-        "Evening: Sprouts salad",
-        "Dinner: 2 multigrain dosas with vegetable curry"
-      ],
-      nutrients: {
-        calories: 1600,
-        carbohydrates: "55%",
-        protein: "20%",
-        fat: "25%"
-      },
-      restrictions: ["Low salt", "Avoid fried foods", "Limit coconut use"]
-    });
-
-    this.createDietPlan({
-      name: "Anemia Recovery Diet",
-      description: "Iron-rich diet for recovering from anemia",
-      forCondition: ["Anemia"],
-      region: "East India",
-      items: [
-        "Breakfast: Oats porridge with jaggery and seeds",
-        "Mid-morning: Amla juice with honey",
-        "Lunch: Rice, spinach dal, vegetable curry with drumsticks, curd",
-        "Evening: Dates and nuts",
-        "Dinner: 2 rotis, green leafy vegetable curry, small bowl of lentils"
-      ],
-      nutrients: {
-        calories: 2000,
-        carbohydrates: "60%",
-        protein: "15%",
-        fat: "25%"
-      },
-      restrictions: ["Avoid tea/coffee with meals as they inhibit iron absorption"]
-    });
+      {
+        name: "Heart-Healthy Diet",
+        description: "Diet plan focused on cardiovascular health, suitable for hypertension and heart disease prevention",
+        forCondition: ["Hypertension", "Heart Disease"],
+        region: "East India",
+        items: [
+          "Breakfast: Whole grain poha with vegetables",
+          "Mid-morning: Orange or papaya",
+          "Lunch: Mixed rice with fish curry (low oil), leafy vegetable sabzi",
+          "Evening snack: Roasted makhana (fox nuts)",
+          "Dinner: Multigrain roti with dal and vegetable curry"
+        ],
+        nutrients: {
+          calories: "1600-1800 per day",
+          carbohydrates: "45-50%",
+          proteins: "25-30%",
+          fats: "20-25% (emphasizing omega-3 fatty acids)"
+        },
+        restrictions: ["Excess salt", "Red meat", "Full-fat dairy", "Fried foods", "Packaged snacks"]
+      }
+    ]);
+    
+    console.log("Initial data seeding complete");
   }
 }
 
-export const storage = new MemStorage();
+// Export a singleton instance of the storage
+export const storage = new DatabaseStorage();

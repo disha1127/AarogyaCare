@@ -1,6 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { storage } from "./storage";
 
 const app = express();
 app.use(express.json());
@@ -36,7 +37,27 @@ app.use((req, res, next) => {
   next();
 });
 
+// Seed the database with initial data
+const seedDatabase = async () => {
+  log('Attempting to seed database with initial data');
+  try {
+    // Check if our storage instance is DatabaseStorage
+    if ('seedInitialData' in storage) {
+      // @ts-ignore - we know this exists
+      await storage.seedInitialData();
+      log('Database seeding completed successfully');
+    } else {
+      log('Using in-memory storage, no database seeding required');
+    }
+  } catch (error) {
+    log(`Error seeding database: ${error}`);
+  }
+};
+
 (async () => {
+  // Seed the database before starting the server
+  await seedDatabase();
+  
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
