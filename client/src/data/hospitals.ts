@@ -3,111 +3,15 @@ import { Hospital } from "@shared/schema";
 export const hospitals: Hospital[] = [
   {
     "id": 1,
-    "name": "AYUSH Community Health Center, Vijayawada",
-    "address": "463, Hospital Road",
-    "city": "Vijayawada",
+    "name": "Ayurvedic Community Health Center, Guntur",
+    "address": "95, Main Road",
+    "city": "Guntur",
     "state": "Andhra Pradesh",
-    "zipCode": "648374",
-    "phone": "03500-875273",
-    "email": "info@ayush.community.org",
-    "latitude": "15.99335",
-    "longitude": "79.78959",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 2,
-    "name": "Homeopathic Medical College & Hospital, Vijayawada",
-    "address": "375, Main Road",
-    "city": "Vijayawada",
-    "state": "Andhra Pradesh",
-    "zipCode": "692206",
-    "phone": "05517-139733",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "16.15583",
-    "longitude": "80.60136",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 3,
-    "name": "Homeopathic Medical College & Hospital, Vijayawada",
-    "address": "423, Healthcare Avenue",
-    "city": "Vijayawada",
-    "state": "Andhra Pradesh",
-    "zipCode": "867791",
-    "phone": "02412-863114",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "15.82485",
-    "longitude": "79.81517",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 4,
-    "name": "AYUSH Health Center, Vijayawada",
-    "address": "49, Main Road",
-    "city": "Vijayawada",
-    "state": "Andhra Pradesh",
-    "zipCode": "351974",
-    "phone": "05170-949902",
-    "email": "info@ayush.health.org",
-    "latitude": "15.42431",
-    "longitude": "79.55216",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 5,
-    "name": "Homeopathic Community Health Center, Vijayawada",
-    "address": "47, Healthcare Avenue",
-    "city": "Vijayawada",
-    "state": "Andhra Pradesh",
-    "zipCode": "445654",
-    "phone": "05782-774964",
-    "email": "info@homeopathic.community.org",
-    "latitude": "15.10493",
-    "longitude": "79.19227",
+    "zipCode": "857762",
+    "phone": "03670-330763",
+    "email": "info@ayurvedic.community.org",
+    "latitude": "16.52230",
+    "longitude": "80.37444",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -118,78 +22,49 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "Mobile Healthcare"
     ]
   },
   {
-    "id": 6,
-    "name": "Unani Health Center, Pasighat",
-    "address": "359, Healthcare Avenue",
-    "city": "Pasighat",
-    "state": "Arunachal Pradesh",
-    "zipCode": "280136",
-    "phone": "07609-595277",
-    "email": "info@unani.health.org",
-    "latitude": "28.75827",
-    "longitude": "94.77342",
+    "id": 2,
+    "name": "Siddha Medical Center, Guntur",
+    "address": "403, Healthcare Avenue",
+    "city": "Guntur",
+    "state": "Andhra Pradesh",
+    "zipCode": "854376",
+    "phone": "01259-250127",
+    "email": "info@siddha.medical.org",
+    "latitude": "15.84553",
+    "longitude": "79.45943",
     "type": "AYUSH",
     "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
       "General Practice"
     ]
   },
   {
-    "id": 7,
-    "name": "Unani Medical Center, Pasighat",
-    "address": "479, Healthcare Avenue",
-    "city": "Pasighat",
-    "state": "Arunachal Pradesh",
-    "zipCode": "758176",
-    "phone": "05611-812271",
-    "email": "info@unani.medical.org",
-    "latitude": "29.15280",
-    "longitude": "95.34296",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 8,
-    "name": "Ayurvedic Medical College & Hospital, Pasighat",
-    "address": "257, Hospital Road",
-    "city": "Pasighat",
-    "state": "Arunachal Pradesh",
-    "zipCode": "160085",
-    "phone": "04339-570222",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "27.30328",
-    "longitude": "95.57759",
+    "id": 3,
+    "name": "Yoga Community Health Center, Guntur",
+    "address": "285, Hospital Road",
+    "city": "Guntur",
+    "state": "Andhra Pradesh",
+    "zipCode": "255352",
+    "phone": "09492-220818",
+    "email": "info@yoga.community.org",
+    "latitude": "16.83744",
+    "longitude": "80.34825",
     "type": "AYUSH",
     "services": [
       "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -199,22 +74,22 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 9,
-    "name": "Unani Community Health Center, Pasighat",
-    "address": "65, Main Road",
-    "city": "Pasighat",
-    "state": "Arunachal Pradesh",
-    "zipCode": "338557",
-    "phone": "07761-153301",
-    "email": "info@unani.community.org",
-    "latitude": "28.04006",
-    "longitude": "94.03069",
+    "id": 4,
+    "name": "Homeopathic Medical College & Hospital, Guntur",
+    "address": "43, Medical Center Road",
+    "city": "Guntur",
+    "state": "Andhra Pradesh",
+    "zipCode": "517330",
+    "phone": "07843-329609",
+    "email": "info@homeopathic.medical.org",
+    "latitude": "16.84519",
+    "longitude": "79.48213",
     "type": "AYUSH",
     "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -223,16 +98,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 10,
-    "name": "Siddha Medical College & Hospital, Pasighat",
-    "address": "354, Medical Center Road",
-    "city": "Pasighat",
-    "state": "Arunachal Pradesh",
-    "zipCode": "169309",
-    "phone": "02852-783827",
-    "email": "info@siddha.medical.org",
-    "latitude": "27.32857",
-    "longitude": "93.88732",
+    "id": 5,
+    "name": "Siddha Hospital, Guntur",
+    "address": "189, Hospital Road",
+    "city": "Guntur",
+    "state": "Andhra Pradesh",
+    "zipCode": "821967",
+    "phone": "08229-678807",
+    "email": "info@siddha.hospital.org",
+    "latitude": "15.18309",
+    "longitude": "78.81444",
     "type": "AYUSH",
     "services": [
       "Primary Care",
@@ -241,44 +116,147 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Obstetrics",
-      "Pediatrics"
+      "Family Medicine"
     ]
   },
   {
-    "id": 11,
-    "name": "Unani Community Health Center, Dibrugarh",
-    "address": "286, Hospital Road",
-    "city": "Dibrugarh",
-    "state": "Assam",
-    "zipCode": "479369",
-    "phone": "03299-887053",
-    "email": "info@unani.community.org",
-    "latitude": "26.11510",
-    "longitude": "93.23057",
+    "id": 6,
+    "name": "Yoga Community Health Center, Pasighat",
+    "address": "427, Healthcare Avenue",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh",
+    "zipCode": "819932",
+    "phone": "06725-303728",
+    "email": "info@yoga.community.org",
+    "latitude": "29.10810",
+    "longitude": "94.84388",
     "type": "AYUSH",
     "services": [
       "Emergency",
+      "General Medicine",
       "Surgery",
-      "Cardiac Care",
-      "Dialysis"
+      "Pediatrics",
+      "Obstetrics"
     ],
     "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Homeopathic Community Health Center, Pasighat",
+    "address": "204, Main Road",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh",
+    "zipCode": "740413",
+    "phone": "08777-242963",
+    "email": "info@homeopathic.community.org",
+    "latitude": "27.37664",
+    "longitude": "94.63150",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Yoga Medical Center, Pasighat",
+    "address": "23, Hospital Road",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh",
+    "zipCode": "413801",
+    "phone": "01281-568858",
+    "email": "info@yoga.medical.org",
+    "latitude": "27.72801",
+    "longitude": "95.51569",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Siddha Health Center, Pasighat",
+    "address": "186, Medical Center Road",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh",
+    "zipCode": "116163",
+    "phone": "05547-259093",
+    "email": "info@siddha.health.org",
+    "latitude": "28.31631",
+    "longitude": "93.99165",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
     "specialties": [
       "General Practice"
     ]
   },
   {
-    "id": 12,
-    "name": "Siddha Medical Center, Dibrugarh",
-    "address": "449, Hospital Road",
+    "id": 10,
+    "name": "Unani Medical Center, Pasighat",
+    "address": "309, Medical Center Road",
+    "city": "Pasighat",
+    "state": "Arunachal Pradesh",
+    "zipCode": "677309",
+    "phone": "04384-647923",
+    "email": "info@unani.medical.org",
+    "latitude": "28.07129",
+    "longitude": "95.15006",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Yoga Community Health Center, Dibrugarh",
+    "address": "178, Hospital Road",
     "city": "Dibrugarh",
     "state": "Assam",
-    "zipCode": "232317",
-    "phone": "02329-634463",
-    "email": "info@siddha.medical.org",
-    "latitude": "25.48434",
-    "longitude": "93.58103",
+    "zipCode": "466061",
+    "phone": "08396-204552",
+    "email": "info@yoga.community.org",
+    "latitude": "25.96869",
+    "longitude": "92.47702",
     "type": "AYUSH",
     "services": [
       "Primary Care",
@@ -288,222 +266,51 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Homeopathic Community Health Center, Dibrugarh",
+    "address": "359, Main Road",
+    "city": "Dibrugarh",
+    "state": "Assam",
+    "zipCode": "264429",
+    "phone": "06431-872777",
+    "email": "info@homeopathic.community.org",
+    "latitude": "26.81271",
+    "longitude": "93.49780",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
     "id": 13,
-    "name": "Yoga Hospital, Dibrugarh",
-    "address": "45, Hospital Road",
+    "name": "Unani Hospital, Dibrugarh",
+    "address": "239, Medical Center Road",
     "city": "Dibrugarh",
     "state": "Assam",
-    "zipCode": "734883",
-    "phone": "02847-485335",
-    "email": "info@yoga.hospital.org",
-    "latitude": "25.73909",
-    "longitude": "93.65117",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 14,
-    "name": "Ayurvedic Medical Center, Dibrugarh",
-    "address": "48, Main Road",
-    "city": "Dibrugarh",
-    "state": "Assam",
-    "zipCode": "698525",
-    "phone": "07700-797157",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "26.41444",
-    "longitude": "92.67890",
+    "zipCode": "796744",
+    "phone": "04127-908238",
+    "email": "info@unani.hospital.org",
+    "latitude": "27.07024",
+    "longitude": "92.02648",
     "type": "AYUSH",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 15,
-    "name": "AYUSH Hospital, Dibrugarh",
-    "address": "128, Hospital Road",
-    "city": "Dibrugarh",
-    "state": "Assam",
-    "zipCode": "147878",
-    "phone": "09857-848385",
-    "email": "info@ayush.hospital.org",
-    "latitude": "25.43354",
-    "longitude": "92.48325",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 16,
-    "name": "Yoga Medical College & Hospital, Patna",
-    "address": "322, Hospital Road",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "324613",
-    "phone": "01518-990597",
-    "email": "info@yoga.medical.org",
-    "latitude": "24.67341",
-    "longitude": "84.90137",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 17,
-    "name": "Ayurvedic Medical Center, Patna",
-    "address": "37, Medical Center Road",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "214556",
-    "phone": "03535-403823",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "25.26577",
-    "longitude": "85.35152",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 18,
-    "name": "Unani Medical College & Hospital, Patna",
-    "address": "342, Healthcare Avenue",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "378990",
-    "phone": "07769-941049",
-    "email": "info@unani.medical.org",
-    "latitude": "24.46235",
-    "longitude": "84.65988",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 19,
-    "name": "Ayurvedic Community Health Center, Patna",
-    "address": "183, Hospital Road",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "433174",
-    "phone": "09216-931406",
-    "email": "info@ayurvedic.community.org",
-    "latitude": "24.94018",
-    "longitude": "84.33716",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 20,
-    "name": "Unani Medical Center, Patna",
-    "address": "282, Healthcare Avenue",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "446253",
-    "phone": "09430-619765",
-    "email": "info@unani.medical.org",
-    "latitude": "25.23926",
-    "longitude": "84.53145",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 21,
-    "name": "AYUSH Medical Center, Korba",
-    "address": "164, Main Road",
-    "city": "Korba",
-    "state": "Chhattisgarh",
-    "zipCode": "138412",
-    "phone": "09433-635430",
-    "email": "info@ayush.medical.org",
-    "latitude": "22.13929",
-    "longitude": "81.77671",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -512,21 +319,218 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 22,
-    "name": "AYUSH Hospital, Korba",
-    "address": "94, Medical Center Road",
-    "city": "Korba",
-    "state": "Chhattisgarh",
-    "zipCode": "699572",
-    "phone": "04145-875746",
-    "email": "info@ayush.hospital.org",
-    "latitude": "20.93109",
-    "longitude": "81.97926",
+    "id": 14,
+    "name": "Yoga Medical College & Hospital, Dibrugarh",
+    "address": "182, Main Road",
+    "city": "Dibrugarh",
+    "state": "Assam",
+    "zipCode": "430287",
+    "phone": "08488-657379",
+    "email": "info@yoga.medical.org",
+    "latitude": "25.90545",
+    "longitude": "93.38509",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 15,
+    "name": "AYUSH Health Center, Dibrugarh",
+    "address": "276, Hospital Road",
+    "city": "Dibrugarh",
+    "state": "Assam",
+    "zipCode": "688411",
+    "phone": "07849-148936",
+    "email": "info@ayush.health.org",
+    "latitude": "26.03411",
+    "longitude": "92.86766",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 16,
+    "name": "AYUSH Health Center, Patna",
+    "address": "305, Healthcare Avenue",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "694669",
+    "phone": "03267-402055",
+    "email": "info@ayush.health.org",
+    "latitude": "25.64016",
+    "longitude": "85.38887",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Siddha Community Health Center, Patna",
+    "address": "197, Healthcare Avenue",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "337870",
+    "phone": "08652-156252",
+    "email": "info@siddha.community.org",
+    "latitude": "25.34529",
+    "longitude": "86.22092",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Ayurvedic Medical Center, Patna",
+    "address": "74, Medical Center Road",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "348363",
+    "phone": "07145-705493",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "24.26335",
+    "longitude": "84.37902",
     "type": "AYUSH",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Siddha Community Health Center, Patna",
+    "address": "59, Medical Center Road",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "625204",
+    "phone": "04360-338815",
+    "email": "info@siddha.community.org",
+    "latitude": "24.39446",
+    "longitude": "84.80107",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 20,
+    "name": "Yoga Community Health Center, Patna",
+    "address": "358, Hospital Road",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "891573",
+    "phone": "01459-574952",
+    "email": "info@yoga.community.org",
+    "latitude": "24.80987",
+    "longitude": "84.77102",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Yoga Health Center, Korba",
+    "address": "325, Medical Center Road",
+    "city": "Korba",
+    "state": "Chhattisgarh",
+    "zipCode": "172633",
+    "phone": "02841-727822",
+    "email": "info@yoga.health.org",
+    "latitude": "21.47363",
+    "longitude": "81.10637",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 22,
+    "name": "AYUSH Health Center, Korba",
+    "address": "193, Medical Center Road",
+    "city": "Korba",
+    "state": "Chhattisgarh",
+    "zipCode": "692352",
+    "phone": "02566-951057",
+    "email": "info@ayush.health.org",
+    "latitude": "20.33574",
+    "longitude": "82.18867",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -538,15 +542,15 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 23,
-    "name": "Ayurvedic Community Health Center, Korba",
-    "address": "372, Hospital Road",
+    "name": "Ayurvedic Hospital, Korba",
+    "address": "420, Healthcare Avenue",
     "city": "Korba",
     "state": "Chhattisgarh",
-    "zipCode": "136125",
-    "phone": "07187-671882",
-    "email": "info@ayurvedic.community.org",
-    "latitude": "20.90294",
-    "longitude": "82.64946",
+    "zipCode": "294947",
+    "phone": "01856-544040",
+    "email": "info@ayurvedic.hospital.org",
+    "latitude": "21.16166",
+    "longitude": "81.07636",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -556,154 +560,28 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "Obstetrics",
+      "Pediatrics"
     ]
   },
   {
     "id": 24,
-    "name": "AYUSH Community Health Center, Korba",
-    "address": "452, Main Road",
+    "name": "Yoga Health Center, Korba",
+    "address": "300, Healthcare Avenue",
     "city": "Korba",
     "state": "Chhattisgarh",
-    "zipCode": "699308",
-    "phone": "02740-531001",
-    "email": "info@ayush.community.org",
-    "latitude": "21.07747",
-    "longitude": "81.65502",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 25,
-    "name": "Yoga Community Health Center, Korba",
-    "address": "56, Healthcare Avenue",
-    "city": "Korba",
-    "state": "Chhattisgarh",
-    "zipCode": "666469",
-    "phone": "01455-303898",
-    "email": "info@yoga.community.org",
-    "latitude": "21.61707",
-    "longitude": "81.52717",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 26,
-    "name": "Ayurvedic Hospital, North Delhi",
-    "address": "151, Healthcare Avenue",
-    "city": "North Delhi",
-    "state": "Delhi",
-    "zipCode": "197486",
-    "phone": "07229-355202",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "27.74987",
-    "longitude": "77.19677",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 27,
-    "name": "Yoga Health Center, North Delhi",
-    "address": "240, Main Road",
-    "city": "North Delhi",
-    "state": "Delhi",
-    "zipCode": "385908",
-    "phone": "04356-717024",
+    "zipCode": "893455",
+    "phone": "05807-423782",
     "email": "info@yoga.health.org",
-    "latitude": "29.43999",
-    "longitude": "77.03135",
+    "latitude": "21.61044",
+    "longitude": "81.33258",
     "type": "AYUSH",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
+      "Emergency",
+      "General Medicine",
+      "Surgery",
       "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 28,
-    "name": "Unani Community Health Center, North Delhi",
-    "address": "145, Hospital Road",
-    "city": "North Delhi",
-    "state": "Delhi",
-    "zipCode": "396385",
-    "phone": "09859-244336",
-    "email": "info@unani.community.org",
-    "latitude": "28.72014",
-    "longitude": "78.07397",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 29,
-    "name": "Homeopathic Hospital, North Delhi",
-    "address": "151, Hospital Road",
-    "city": "North Delhi",
-    "state": "Delhi",
-    "zipCode": "140217",
-    "phone": "08481-768809",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "28.13642",
-    "longitude": "77.03199",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Obstetrics"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -714,22 +592,95 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 30,
-    "name": "Unani Health Center, North Delhi",
-    "address": "18, Healthcare Avenue",
-    "city": "North Delhi",
+    "id": 25,
+    "name": "Ayurvedic Community Health Center, Korba",
+    "address": "37, Medical Center Road",
+    "city": "Korba",
+    "state": "Chhattisgarh",
+    "zipCode": "855584",
+    "phone": "02946-451139",
+    "email": "info@ayurvedic.community.org",
+    "latitude": "20.78163",
+    "longitude": "81.32756",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 26,
+    "name": "Siddha Health Center, New Delhi",
+    "address": "491, Hospital Road",
+    "city": "New Delhi",
     "state": "Delhi",
-    "zipCode": "570358",
-    "phone": "06498-731146",
-    "email": "info@unani.health.org",
-    "latitude": "29.54445",
-    "longitude": "77.32542",
+    "zipCode": "190006",
+    "phone": "01396-555414",
+    "email": "info@siddha.health.org",
+    "latitude": "28.52470",
+    "longitude": "78.00182",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Yoga Hospital, New Delhi",
+    "address": "463, Hospital Road",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "zipCode": "489605",
+    "phone": "08331-526310",
+    "email": "info@yoga.hospital.org",
+    "latitude": "28.54766",
+    "longitude": "77.92554",
     "type": "AYUSH",
     "services": [
       "Basic Healthcare",
       "Vaccinations",
       "Health Education",
       "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Yoga Health Center, New Delhi",
+    "address": "449, Hospital Road",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "zipCode": "131043",
+    "phone": "08753-103506",
+    "email": "info@yoga.health.org",
+    "latitude": "28.89972",
+    "longitude": "76.32956",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -740,41 +691,162 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 31,
-    "name": "Ayurvedic Health Center, Vasco da Gama",
-    "address": "72, Medical Center Road",
-    "city": "Vasco da Gama",
-    "state": "Goa",
-    "zipCode": "799301",
-    "phone": "02359-578702",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "14.79631",
-    "longitude": "73.28560",
+    "id": 29,
+    "name": "Unani Health Center, New Delhi",
+    "address": "195, Medical Center Road",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "zipCode": "456928",
+    "phone": "01125-450654",
+    "email": "info@unani.health.org",
+    "latitude": "29.07388",
+    "longitude": "76.99610",
     "type": "AYUSH",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "AYUSH Medical Center, New Delhi",
+    "address": "325, Hospital Road",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "zipCode": "651731",
+    "phone": "06915-668049",
+    "email": "info@ayush.medical.org",
+    "latitude": "28.47760",
+    "longitude": "76.59791",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Unani Medical College & Hospital, Vasco da Gama",
+    "address": "103, Hospital Road",
+    "city": "Vasco da Gama",
+    "state": "Goa",
+    "zipCode": "598053",
+    "phone": "06106-578894",
+    "email": "info@unani.medical.org",
+    "latitude": "16.15503",
+    "longitude": "74.50037",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
     ],
     "emergencyServices": true,
     "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 32,
-    "name": "Ayurvedic Health Center, Vasco da Gama",
-    "address": "474, Medical Center Road",
+    "name": "Siddha Community Health Center, Vasco da Gama",
+    "address": "89, Main Road",
     "city": "Vasco da Gama",
     "state": "Goa",
-    "zipCode": "273491",
-    "phone": "08801-575623",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "14.34572",
-    "longitude": "73.35498",
+    "zipCode": "536838",
+    "phone": "08129-396461",
+    "email": "info@siddha.community.org",
+    "latitude": "14.49685",
+    "longitude": "73.62671",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Ayurvedic Medical Center, Ahmedabad",
+    "address": "307, Hospital Road",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "440441",
+    "phone": "07986-789013",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "22.12560",
+    "longitude": "71.35359",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Unani Medical Center, Ahmedabad",
+    "address": "23, Healthcare Avenue",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "536614",
+    "phone": "04926-982710",
+    "email": "info@unani.medical.org",
+    "latitude": "22.70947",
+    "longitude": "71.20805",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Ayurvedic Medical Center, Ahmedabad",
+    "address": "260, Main Road",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "828086",
+    "phone": "07879-869275",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "21.30582",
+    "longitude": "71.94275",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -789,119 +861,38 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 33,
-    "name": "Siddha Community Health Center, Surat",
-    "address": "446, Main Road",
-    "city": "Surat",
+    "id": 36,
+    "name": "AYUSH Health Center, Ahmedabad",
+    "address": "184, Main Road",
+    "city": "Ahmedabad",
     "state": "Gujarat",
-    "zipCode": "217090",
-    "phone": "03760-123189",
-    "email": "info@siddha.community.org",
-    "latitude": "22.33325",
-    "longitude": "72.02736",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 34,
-    "name": "Ayurvedic Health Center, Surat",
-    "address": "253, Medical Center Road",
-    "city": "Surat",
-    "state": "Gujarat",
-    "zipCode": "287510",
-    "phone": "03435-762127",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "23.06308",
-    "longitude": "71.98022",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 35,
-    "name": "Ayurvedic Medical Center, Surat",
-    "address": "425, Hospital Road",
-    "city": "Surat",
-    "state": "Gujarat",
-    "zipCode": "870025",
-    "phone": "07182-397950",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "22.49144",
-    "longitude": "71.08404",
+    "zipCode": "158983",
+    "phone": "09211-354118",
+    "email": "info@ayush.health.org",
+    "latitude": "22.11402",
+    "longitude": "71.30329",
     "type": "AYUSH",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 36,
-    "name": "Siddha Hospital, Surat",
-    "address": "422, Hospital Road",
-    "city": "Surat",
-    "state": "Gujarat",
-    "zipCode": "638841",
-    "phone": "05231-400783",
-    "email": "info@siddha.hospital.org",
-    "latitude": "22.16686",
-    "longitude": "70.24242",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
+      "Family Medicine"
     ]
   },
   {
     "id": 37,
-    "name": "Yoga Medical Center, Surat",
-    "address": "475, Hospital Road",
-    "city": "Surat",
+    "name": "Siddha Medical College & Hospital, Ahmedabad",
+    "address": "478, Medical Center Road",
+    "city": "Ahmedabad",
     "state": "Gujarat",
-    "zipCode": "568574",
-    "phone": "04605-828964",
-    "email": "info@yoga.medical.org",
-    "latitude": "22.17872",
-    "longitude": "72.16953",
+    "zipCode": "529924",
+    "phone": "04387-556141",
+    "email": "info@siddha.medical.org",
+    "latitude": "23.19405",
+    "longitude": "70.22056",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -912,346 +903,46 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
+      "General Medicine",
       "Orthopedics"
     ]
   },
   {
     "id": 38,
-    "name": "Ayurvedic Health Center, Ambala",
-    "address": "476, Medical Center Road",
-    "city": "Ambala",
+    "name": "Unani Community Health Center, Faridabad",
+    "address": "196, Healthcare Avenue",
+    "city": "Faridabad",
     "state": "Haryana",
-    "zipCode": "311145",
-    "phone": "05741-498916",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "29.00848",
-    "longitude": "76.78571",
+    "zipCode": "592406",
+    "phone": "07817-470786",
+    "email": "info@unani.community.org",
+    "latitude": "29.32120",
+    "longitude": "75.53409",
     "type": "AYUSH",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
     ]
   },
   {
     "id": 39,
-    "name": "Unani Health Center, Ambala",
-    "address": "335, Hospital Road",
-    "city": "Ambala",
+    "name": "Unani Medical College & Hospital, Faridabad",
+    "address": "473, Healthcare Avenue",
+    "city": "Faridabad",
     "state": "Haryana",
-    "zipCode": "893072",
-    "phone": "01588-266403",
-    "email": "info@unani.health.org",
-    "latitude": "28.96126",
-    "longitude": "75.17493",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 40,
-    "name": "Ayurvedic Medical Center, Ambala",
-    "address": "176, Healthcare Avenue",
-    "city": "Ambala",
-    "state": "Haryana",
-    "zipCode": "525846",
-    "phone": "07984-626595",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "28.95429",
-    "longitude": "76.61352",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 41,
-    "name": "Unani Medical Center, Ambala",
-    "address": "309, Main Road",
-    "city": "Ambala",
-    "state": "Haryana",
-    "zipCode": "184170",
-    "phone": "01497-439051",
+    "zipCode": "179295",
+    "phone": "02878-969971",
     "email": "info@unani.medical.org",
-    "latitude": "29.07563",
-    "longitude": "76.56823",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 42,
-    "name": "Unani Health Center, Ambala",
-    "address": "321, Main Road",
-    "city": "Ambala",
-    "state": "Haryana",
-    "zipCode": "526631",
-    "phone": "01952-585598",
-    "email": "info@unani.health.org",
-    "latitude": "28.47009",
-    "longitude": "76.85121",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 43,
-    "name": "Ayurvedic Hospital, Mandi",
-    "address": "214, Hospital Road",
-    "city": "Mandi",
-    "state": "Himachal Pradesh",
-    "zipCode": "197416",
-    "phone": "06957-414938",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "30.67069",
-    "longitude": "76.51673",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 44,
-    "name": "Unani Medical College & Hospital, Mandi",
-    "address": "407, Healthcare Avenue",
-    "city": "Mandi",
-    "state": "Himachal Pradesh",
-    "zipCode": "242858",
-    "phone": "09447-901758",
-    "email": "info@unani.medical.org",
-    "latitude": "31.38989",
-    "longitude": "76.78882",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 45,
-    "name": "Yoga Medical College & Hospital, Mandi",
-    "address": "28, Medical Center Road",
-    "city": "Mandi",
-    "state": "Himachal Pradesh",
-    "zipCode": "683038",
-    "phone": "03744-171406",
-    "email": "info@yoga.medical.org",
-    "latitude": "31.12898",
-    "longitude": "76.38683",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 46,
-    "name": "Ayurvedic Hospital, Mandi",
-    "address": "490, Healthcare Avenue",
-    "city": "Mandi",
-    "state": "Himachal Pradesh",
-    "zipCode": "153345",
-    "phone": "03308-928188",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "32.02459",
-    "longitude": "77.42317",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 47,
-    "name": "Ayurvedic Health Center, Mandi",
-    "address": "447, Hospital Road",
-    "city": "Mandi",
-    "state": "Himachal Pradesh",
-    "zipCode": "244819",
-    "phone": "04451-998162",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "31.17255",
-    "longitude": "77.58561",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 48,
-    "name": "Yoga Health Center, Unknown City",
-    "address": "1, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "162986",
-    "phone": "01396-646734",
-    "email": "info@yoga.health.org",
-    "latitude": "19.83006",
-    "longitude": "79.82735",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 49,
-    "name": "Siddha Community Health Center, Unknown City",
-    "address": "8, Main Road",
-    "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "160678",
-    "phone": "03457-430412",
-    "email": "info@siddha.community.org",
-    "latitude": "20.84903",
-    "longitude": "79.61460",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 50,
-    "name": "Homeopathic Medical Center, Unknown City",
-    "address": "300, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "871476",
-    "phone": "01449-766502",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "19.82806",
-    "longitude": "79.48066",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 51,
-    "name": "Unani Hospital, Unknown City",
-    "address": "184, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "544581",
-    "phone": "07147-424590",
-    "email": "info@unani.hospital.org",
-    "latitude": "19.63793",
-    "longitude": "78.31479",
+    "latitude": "28.10979",
+    "longitude": "76.83693",
     "type": "AYUSH",
     "services": [
       "Primary Care",
@@ -1266,16 +957,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 52,
-    "name": "Unani Medical College & Hospital, Unknown City",
-    "address": "421, Main Road",
-    "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "375185",
-    "phone": "08632-722098",
-    "email": "info@unani.medical.org",
-    "latitude": "20.81480",
-    "longitude": "78.68168",
+    "id": 40,
+    "name": "Yoga Health Center, Faridabad",
+    "address": "216, Main Road",
+    "city": "Faridabad",
+    "state": "Haryana",
+    "zipCode": "688795",
+    "phone": "02490-973768",
+    "email": "info@yoga.health.org",
+    "latitude": "29.44664",
+    "longitude": "76.48162",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -1286,49 +977,22 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 53,
-    "name": "Siddha Medical Center, Jamshedpur",
-    "address": "221, Hospital Road",
-    "city": "Jamshedpur",
-    "state": "Jharkhand",
-    "zipCode": "370956",
-    "phone": "05249-818988",
-    "email": "info@siddha.medical.org",
-    "latitude": "22.65173",
-    "longitude": "85.76160",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
       "Cardiology",
-      "Oncology",
-      "Orthopedics"
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
-    "id": 54,
-    "name": "Siddha Medical Center, Jamshedpur",
-    "address": "3, Main Road",
-    "city": "Jamshedpur",
-    "state": "Jharkhand",
-    "zipCode": "466768",
-    "phone": "06683-130435",
-    "email": "info@siddha.medical.org",
-    "latitude": "22.64748",
-    "longitude": "84.48821",
+    "id": 41,
+    "name": "Unani Community Health Center, Faridabad",
+    "address": "375, Main Road",
+    "city": "Faridabad",
+    "state": "Haryana",
+    "zipCode": "881400",
+    "phone": "04156-696705",
+    "email": "info@unani.community.org",
+    "latitude": "28.78372",
+    "longitude": "75.45306",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -1339,20 +1003,69 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Mobile Healthcare"
+      "Obstetrics",
+      "Pediatrics"
     ]
   },
   {
-    "id": 55,
-    "name": "Yoga Community Health Center, Jamshedpur",
-    "address": "204, Medical Center Road",
-    "city": "Jamshedpur",
-    "state": "Jharkhand",
-    "zipCode": "676442",
-    "phone": "04405-722868",
-    "email": "info@yoga.community.org",
-    "latitude": "24.05659",
-    "longitude": "85.07823",
+    "id": 42,
+    "name": "Homeopathic Hospital, Faridabad",
+    "address": "395, Main Road",
+    "city": "Faridabad",
+    "state": "Haryana",
+    "zipCode": "254470",
+    "phone": "05823-640390",
+    "email": "info@homeopathic.hospital.org",
+    "latitude": "28.10095",
+    "longitude": "75.64917",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Ayurvedic Hospital, Solan",
+    "address": "398, Medical Center Road",
+    "city": "Solan",
+    "state": "Himachal Pradesh",
+    "zipCode": "248610",
+    "phone": "05430-914710",
+    "email": "info@ayurvedic.hospital.org",
+    "latitude": "30.81300",
+    "longitude": "76.96667",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Homeopathic Health Center, Solan",
+    "address": "205, Hospital Road",
+    "city": "Solan",
+    "state": "Himachal Pradesh",
+    "zipCode": "140269",
+    "phone": "06542-124623",
+    "email": "info@homeopathic.health.org",
+    "latitude": "30.85825",
+    "longitude": "76.90985",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -1362,20 +1075,142 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Mobile Healthcare"
+      "Family Medicine"
     ]
   },
   {
-    "id": 56,
-    "name": "Ayurvedic Hospital, Jamshedpur",
-    "address": "494, Medical Center Road",
-    "city": "Jamshedpur",
-    "state": "Jharkhand",
-    "zipCode": "890410",
-    "phone": "05953-437413",
+    "id": 45,
+    "name": "Ayurvedic Medical College & Hospital, Solan",
+    "address": "61, Hospital Road",
+    "city": "Solan",
+    "state": "Himachal Pradesh",
+    "zipCode": "158708",
+    "phone": "09263-445780",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "30.13892",
+    "longitude": "76.55867",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Siddha Health Center, Solan",
+    "address": "194, Healthcare Avenue",
+    "city": "Solan",
+    "state": "Himachal Pradesh",
+    "zipCode": "523707",
+    "phone": "07525-299430",
+    "email": "info@siddha.health.org",
+    "latitude": "30.54837",
+    "longitude": "76.90137",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Ayurvedic Hospital, Solan",
+    "address": "417, Hospital Road",
+    "city": "Solan",
+    "state": "Himachal Pradesh",
+    "zipCode": "636635",
+    "phone": "02410-575632",
     "email": "info@ayurvedic.hospital.org",
-    "latitude": "23.36945",
-    "longitude": "85.95031",
+    "latitude": "31.16190",
+    "longitude": "77.79484",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Siddha Medical Center, Unknown City",
+    "address": "110, Main Road",
+    "city": "Unknown City",
+    "state": "Jammu & Kashmir",
+    "zipCode": "575118",
+    "phone": "08348-239661",
+    "email": "info@siddha.medical.org",
+    "latitude": "21.11075",
+    "longitude": "78.98606",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Unani Medical College & Hospital, Unknown City",
+    "address": "248, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Jammu & Kashmir",
+    "zipCode": "555557",
+    "phone": "02834-210439",
+    "email": "info@unani.medical.org",
+    "latitude": "19.86104",
+    "longitude": "79.08497",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Yoga Hospital, Unknown City",
+    "address": "235, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Jammu & Kashmir",
+    "zipCode": "872388",
+    "phone": "03712-308997",
+    "email": "info@yoga.hospital.org",
+    "latitude": "21.15747",
+    "longitude": "79.70081",
     "type": "AYUSH",
     "services": [
       "Basic Healthcare",
@@ -1384,45 +1219,163 @@ export const hospitals: Hospital[] = [
       "First Aid"
     ],
     "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Siddha Medical College & Hospital, Unknown City",
+    "address": "80, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Jammu & Kashmir",
+    "zipCode": "588272",
+    "phone": "01536-823983",
+    "email": "info@siddha.medical.org",
+    "latitude": "20.34300",
+    "longitude": "79.45307",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Siddha Hospital, Unknown City",
+    "address": "44, Hospital Road",
+    "city": "Unknown City",
+    "state": "Jammu & Kashmir",
+    "zipCode": "494676",
+    "phone": "03250-448560",
+    "email": "info@siddha.hospital.org",
+    "latitude": "20.28582",
+    "longitude": "79.86860",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Ayurvedic Community Health Center, Ranchi",
+    "address": "427, Medical Center Road",
+    "city": "Ranchi",
+    "state": "Jharkhand",
+    "zipCode": "231776",
+    "phone": "09380-464698",
+    "email": "info@ayurvedic.community.org",
+    "latitude": "24.50177",
+    "longitude": "86.22743",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Yoga Medical Center, Ranchi",
+    "address": "469, Main Road",
+    "city": "Ranchi",
+    "state": "Jharkhand",
+    "zipCode": "893646",
+    "phone": "04288-315614",
+    "email": "info@yoga.medical.org",
+    "latitude": "22.77200",
+    "longitude": "84.72357",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Siddha Hospital, Ranchi",
+    "address": "336, Main Road",
+    "city": "Ranchi",
+    "state": "Jharkhand",
+    "zipCode": "129737",
+    "phone": "06313-790476",
+    "email": "info@siddha.hospital.org",
+    "latitude": "24.04727",
+    "longitude": "84.54694",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Siddha Medical College & Hospital, Ranchi",
+    "address": "66, Healthcare Avenue",
+    "city": "Ranchi",
+    "state": "Jharkhand",
+    "zipCode": "233988",
+    "phone": "03623-892073",
+    "email": "info@siddha.medical.org",
+    "latitude": "23.56708",
+    "longitude": "85.13409",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
     "specialties": [
       "Family Medicine"
     ]
   },
   {
     "id": 57,
-    "name": "Ayurvedic Hospital, Jamshedpur",
-    "address": "11, Healthcare Avenue",
-    "city": "Jamshedpur",
+    "name": "Homeopathic Medical Center, Ranchi",
+    "address": "262, Healthcare Avenue",
+    "city": "Ranchi",
     "state": "Jharkhand",
-    "zipCode": "238709",
-    "phone": "01331-820579",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "22.79133",
-    "longitude": "84.36617",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 58,
-    "name": "Ayurvedic Medical Center, Mysuru",
-    "address": "497, Hospital Road",
-    "city": "Mysuru",
-    "state": "Karnataka",
-    "zipCode": "520545",
-    "phone": "03118-860962",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "16.19140",
-    "longitude": "76.39118",
+    "zipCode": "490886",
+    "phone": "09261-569903",
+    "email": "info@homeopathic.medical.org",
+    "latitude": "23.86772",
+    "longitude": "85.90477",
     "type": "AYUSH",
     "services": [
       "Primary Care",
@@ -1431,23 +1384,74 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurology",
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "AYUSH Medical Center, Bengaluru",
+    "address": "67, Healthcare Avenue",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "zipCode": "369222",
+    "phone": "07878-857250",
+    "email": "info@ayush.medical.org",
+    "latitude": "15.74426",
+    "longitude": "76.26949",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
       "Cardiology",
       "Nephrology",
-      "Oncology"
+      "Orthopedics"
     ]
   },
   {
     "id": 59,
-    "name": "Siddha Medical Center, Mysuru",
-    "address": "231, Main Road",
-    "city": "Mysuru",
+    "name": "AYUSH Medical Center, Bengaluru",
+    "address": "367, Hospital Road",
+    "city": "Bengaluru",
     "state": "Karnataka",
-    "zipCode": "337560",
-    "phone": "03688-251164",
-    "email": "info@siddha.medical.org",
-    "latitude": "14.54325",
-    "longitude": "75.86282",
+    "zipCode": "439086",
+    "phone": "02963-991104",
+    "email": "info@ayush.medical.org",
+    "latitude": "15.44894",
+    "longitude": "76.22458",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Unani Medical College & Hospital, Bengaluru",
+    "address": "10, Hospital Road",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "zipCode": "789182",
+    "phone": "08503-637044",
+    "email": "info@unani.medical.org",
+    "latitude": "14.45257",
+    "longitude": "75.25918",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -1462,16 +1466,66 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 60,
-    "name": "Unani Medical Center, Mysuru",
-    "address": "369, Main Road",
-    "city": "Mysuru",
+    "id": 61,
+    "name": "Yoga Hospital, Bengaluru",
+    "address": "245, Medical Center Road",
+    "city": "Bengaluru",
     "state": "Karnataka",
-    "zipCode": "489660",
-    "phone": "09257-111298",
-    "email": "info@unani.medical.org",
-    "latitude": "14.44261",
-    "longitude": "76.45328",
+    "zipCode": "819912",
+    "phone": "02121-707465",
+    "email": "info@yoga.hospital.org",
+    "latitude": "16.28819",
+    "longitude": "75.21158",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Homeopathic Community Health Center, Bengaluru",
+    "address": "396, Main Road",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "zipCode": "845506",
+    "phone": "06832-508999",
+    "email": "info@homeopathic.community.org",
+    "latitude": "14.89597",
+    "longitude": "75.55151",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Ayurvedic Medical College & Hospital, Thiruvananthapuram",
+    "address": "87, Main Road",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "275565",
+    "phone": "03285-102253",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "10.63862",
+    "longitude": "76.48481",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -1482,20 +1536,98 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "AYUSH Medical College & Hospital, Thiruvananthapuram",
+    "address": "384, Healthcare Avenue",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "673589",
+    "phone": "03564-191676",
+    "email": "info@ayush.medical.org",
+    "latitude": "11.57133",
+    "longitude": "75.81224",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Homeopathic Health Center, Thiruvananthapuram",
+    "address": "380, Healthcare Avenue",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "229951",
+    "phone": "01491-504123",
+    "email": "info@homeopathic.health.org",
+    "latitude": "11.43058",
+    "longitude": "77.04961",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "AYUSH Hospital, Thiruvananthapuram",
+    "address": "217, Healthcare Avenue",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "245654",
+    "phone": "03847-641760",
+    "email": "info@ayush.hospital.org",
+    "latitude": "10.18466",
+    "longitude": "76.08724",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
       "General Practice"
     ]
   },
   {
-    "id": 61,
-    "name": "Unani Medical College & Hospital, Mysuru",
-    "address": "12, Main Road",
-    "city": "Mysuru",
-    "state": "Karnataka",
-    "zipCode": "329018",
-    "phone": "01901-200358",
-    "email": "info@unani.medical.org",
-    "latitude": "15.30494",
-    "longitude": "74.73585",
+    "id": 67,
+    "name": "Unani Community Health Center, Thiruvananthapuram",
+    "address": "387, Medical Center Road",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "870664",
+    "phone": "01955-859198",
+    "email": "info@unani.community.org",
+    "latitude": "11.04956",
+    "longitude": "75.67232",
     "type": "AYUSH",
     "services": [
       "Primary Care",
@@ -1505,98 +1637,121 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Unani Community Health Center, Gwalior",
+    "address": "118, Main Road",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "zipCode": "578351",
+    "phone": "03918-521574",
+    "email": "info@unani.community.org",
+    "latitude": "23.56303",
+    "longitude": "79.54501",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Yoga Community Health Center, Gwalior",
+    "address": "203, Hospital Road",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "zipCode": "287097",
+    "phone": "01349-704825",
+    "email": "info@yoga.community.org",
+    "latitude": "22.54222",
+    "longitude": "78.25616",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Homeopathic Health Center, Gwalior",
+    "address": "297, Medical Center Road",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "zipCode": "334426",
+    "phone": "02240-437882",
+    "email": "info@homeopathic.health.org",
+    "latitude": "23.69461",
+    "longitude": "78.17195",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Siddha Medical College & Hospital, Gwalior",
+    "address": "421, Main Road",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "zipCode": "695276",
+    "phone": "01978-761970",
+    "email": "info@siddha.medical.org",
+    "latitude": "22.40849",
+    "longitude": "79.37687",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
       "Cardiology",
       "Neurology",
       "Gastroenterology"
     ]
   },
   {
-    "id": 62,
-    "name": "Yoga Hospital, Mysuru",
-    "address": "333, Hospital Road",
-    "city": "Mysuru",
-    "state": "Karnataka",
-    "zipCode": "218912",
-    "phone": "09845-529760",
-    "email": "info@yoga.hospital.org",
-    "latitude": "15.21227",
-    "longitude": "75.33315",
+    "id": 72,
+    "name": "Unani Community Health Center, Gwalior",
+    "address": "24, Main Road",
+    "city": "Gwalior",
+    "state": "Madhya Pradesh",
+    "zipCode": "277282",
+    "phone": "01220-898425",
+    "email": "info@unani.community.org",
+    "latitude": "23.69093",
+    "longitude": "78.16892",
     "type": "AYUSH",
     "services": [
       "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 63,
-    "name": "AYUSH Community Health Center, Kochi",
-    "address": "452, Hospital Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "276656",
-    "phone": "05731-552192",
-    "email": "info@ayush.community.org",
-    "latitude": "11.83136",
-    "longitude": "76.66448",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 64,
-    "name": "Unani Hospital, Kochi",
-    "address": "494, Main Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "136695",
-    "phone": "07624-361759",
-    "email": "info@unani.hospital.org",
-    "latitude": "10.45822",
-    "longitude": "76.31427",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 65,
-    "name": "Homeopathic Medical Center, Kochi",
-    "address": "442, Medical Center Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "834865",
-    "phone": "07878-211695",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "10.47311",
-    "longitude": "76.03913",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -1607,243 +1762,73 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 66,
-    "name": "Yoga Medical College & Hospital, Kochi",
-    "address": "123, Medical Center Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "836534",
-    "phone": "07614-698401",
-    "email": "info@yoga.medical.org",
-    "latitude": "10.61346",
-    "longitude": "75.96228",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 67,
-    "name": "Ayurvedic Medical Center, Kochi",
-    "address": "469, Hospital Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "716963",
-    "phone": "01640-427765",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "10.35757",
-    "longitude": "77.05060",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 68,
-    "name": "Yoga Community Health Center, Bhopal",
-    "address": "76, Medical Center Road",
-    "city": "Bhopal",
-    "state": "Madhya Pradesh",
-    "zipCode": "710275",
-    "phone": "01288-326041",
-    "email": "info@yoga.community.org",
-    "latitude": "22.47362",
-    "longitude": "78.89955",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 69,
-    "name": "Yoga Community Health Center, Bhopal",
-    "address": "84, Main Road",
-    "city": "Bhopal",
-    "state": "Madhya Pradesh",
-    "zipCode": "670182",
-    "phone": "05817-865464",
-    "email": "info@yoga.community.org",
-    "latitude": "22.20060",
-    "longitude": "78.11911",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 70,
-    "name": "Yoga Community Health Center, Bhopal",
-    "address": "300, Main Road",
-    "city": "Bhopal",
-    "state": "Madhya Pradesh",
-    "zipCode": "569215",
-    "phone": "04134-485421",
-    "email": "info@yoga.community.org",
-    "latitude": "22.66008",
-    "longitude": "77.94857",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 71,
-    "name": "Ayurvedic Hospital, Bhopal",
-    "address": "162, Hospital Road",
-    "city": "Bhopal",
-    "state": "Madhya Pradesh",
-    "zipCode": "115027",
-    "phone": "01147-299412",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "22.23981",
-    "longitude": "78.21089",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 72,
-    "name": "Homeopathic Medical Center, Bhopal",
-    "address": "156, Healthcare Avenue",
-    "city": "Bhopal",
-    "state": "Madhya Pradesh",
-    "zipCode": "759411",
-    "phone": "08318-231907",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "22.43746",
-    "longitude": "79.01614",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
     "id": 73,
-    "name": "Ayurvedic Medical College & Hospital, Nagpur",
-    "address": "14, Medical Center Road",
-    "city": "Nagpur",
+    "name": "Siddha Hospital, Mumbai",
+    "address": "470, Healthcare Avenue",
+    "city": "Mumbai",
     "state": "Maharashtra",
-    "zipCode": "748277",
-    "phone": "01974-526542",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "20.32683",
-    "longitude": "76.45182",
+    "zipCode": "382323",
+    "phone": "01701-160385",
+    "email": "info@siddha.hospital.org",
+    "latitude": "18.91334",
+    "longitude": "75.74115",
     "type": "AYUSH",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 74,
-    "name": "AYUSH Medical Center, Nagpur",
-    "address": "200, Main Road",
-    "city": "Nagpur",
-    "state": "Maharashtra",
-    "zipCode": "694282",
-    "phone": "04215-220902",
-    "email": "info@ayush.medical.org",
-    "latitude": "20.52277",
-    "longitude": "75.12076",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
       "Family Medicine"
     ]
   },
   {
-    "id": 75,
-    "name": "Siddha Health Center, Nagpur",
-    "address": "94, Medical Center Road",
-    "city": "Nagpur",
+    "id": 74,
+    "name": "Unani Hospital, Mumbai",
+    "address": "431, Medical Center Road",
+    "city": "Mumbai",
     "state": "Maharashtra",
-    "zipCode": "345339",
-    "phone": "07226-501108",
-    "email": "info@siddha.health.org",
-    "latitude": "19.95972",
-    "longitude": "76.38181",
+    "zipCode": "540866",
+    "phone": "09889-974018",
+    "email": "info@unani.hospital.org",
+    "latitude": "18.98732",
+    "longitude": "75.03184",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Homeopathic Health Center, Mumbai",
+    "address": "413, Main Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "353891",
+    "phone": "09131-173360",
+    "email": "info@homeopathic.health.org",
+    "latitude": "19.45521",
+    "longitude": "75.70437",
     "type": "AYUSH",
     "services": [
       "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -1854,15 +1839,118 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 76,
-    "name": "Siddha Health Center, Nagpur",
-    "address": "320, Healthcare Avenue",
-    "city": "Nagpur",
+    "name": "Ayurvedic Hospital, Mumbai",
+    "address": "183, Hospital Road",
+    "city": "Mumbai",
     "state": "Maharashtra",
-    "zipCode": "832826",
-    "phone": "03420-107940",
-    "email": "info@siddha.health.org",
-    "latitude": "20.31484",
-    "longitude": "76.15114",
+    "zipCode": "277273",
+    "phone": "04252-658489",
+    "email": "info@ayurvedic.hospital.org",
+    "latitude": "19.47203",
+    "longitude": "76.34408",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 77,
+    "name": "Homeopathic Medical Center, Mumbai",
+    "address": "10, Healthcare Avenue",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "653382",
+    "phone": "07298-750530",
+    "email": "info@homeopathic.medical.org",
+    "latitude": "19.64726",
+    "longitude": "75.60574",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Ayurvedic Community Health Center, Thoubal",
+    "address": "419, Medical Center Road",
+    "city": "Thoubal",
+    "state": "Manipur",
+    "zipCode": "484130",
+    "phone": "06124-278829",
+    "email": "info@ayurvedic.community.org",
+    "latitude": "23.77816",
+    "longitude": "94.40280",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Yoga Hospital, Thoubal",
+    "address": "367, Main Road",
+    "city": "Thoubal",
+    "state": "Manipur",
+    "zipCode": "768719",
+    "phone": "02208-357006",
+    "email": "info@yoga.hospital.org",
+    "latitude": "24.63668",
+    "longitude": "94.26350",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 80,
+    "name": "Ayurvedic Medical Center, Tura",
+    "address": "341, Healthcare Avenue",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "644987",
+    "phone": "01837-666299",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "24.52973",
+    "longitude": "91.55407",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -1876,40 +1964,87 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 77,
-    "name": "Unani Medical Center, Nagpur",
-    "address": "355, Main Road",
-    "city": "Nagpur",
-    "state": "Maharashtra",
-    "zipCode": "852500",
-    "phone": "09589-825799",
-    "email": "info@unani.medical.org",
-    "latitude": "20.09828",
-    "longitude": "76.23013",
+    "id": 81,
+    "name": "Ayurvedic Medical Center, Tura",
+    "address": "77, Healthcare Avenue",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "654748",
+    "phone": "09218-653610",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "26.33030",
+    "longitude": "92.27104",
     "type": "AYUSH",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
+      "Family Medicine"
     ]
   },
   {
-    "id": 78,
-    "name": "Siddha Medical College & Hospital, Imphal",
-    "address": "407, Main Road",
-    "city": "Imphal",
-    "state": "Manipur",
-    "zipCode": "413146",
-    "phone": "03126-663651",
+    "id": 82,
+    "name": "Siddha Hospital, Tura",
+    "address": "16, Healthcare Avenue",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "411281",
+    "phone": "08714-479313",
+    "email": "info@siddha.hospital.org",
+    "latitude": "24.55378",
+    "longitude": "91.26662",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Unani Hospital, Tura",
+    "address": "140, Main Road",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "221766",
+    "phone": "09882-336773",
+    "email": "info@unani.hospital.org",
+    "latitude": "25.27773",
+    "longitude": "91.00090",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 84,
+    "name": "Siddha Medical Center, Tura",
+    "address": "298, Main Road",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "876968",
+    "phone": "03144-936812",
     "email": "info@siddha.medical.org",
-    "latitude": "24.79799",
-    "longitude": "94.66651",
+    "latitude": "24.71521",
+    "longitude": "92.23493",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -1925,16 +2060,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 79,
-    "name": "Yoga Medical College & Hospital, Imphal",
-    "address": "28, Hospital Road",
-    "city": "Imphal",
-    "state": "Manipur",
-    "zipCode": "352971",
-    "phone": "08944-404353",
-    "email": "info@yoga.medical.org",
-    "latitude": "24.03266",
-    "longitude": "93.56328",
+    "id": 85,
+    "name": "Siddha Medical Center, Aizawl",
+    "address": "275, Main Road",
+    "city": "Aizawl",
+    "state": "Mizoram",
+    "zipCode": "767222",
+    "phone": "06253-901742",
+    "email": "info@siddha.medical.org",
+    "latitude": "22.81793",
+    "longitude": "93.14964",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -1945,27 +2080,400 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
     ]
   },
   {
-    "id": 80,
-    "name": "AYUSH Health Center, Tura",
-    "address": "149, Healthcare Avenue",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "889283",
-    "phone": "06248-106801",
-    "email": "info@ayush.health.org",
-    "latitude": "26.06672",
-    "longitude": "91.56938",
+    "id": 86,
+    "name": "Siddha Hospital, Aizawl",
+    "address": "153, Healthcare Avenue",
+    "city": "Aizawl",
+    "state": "Mizoram",
+    "zipCode": "172789",
+    "phone": "05759-599003",
+    "email": "info@siddha.hospital.org",
+    "latitude": "23.60018",
+    "longitude": "92.12725",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 87,
+    "name": "Ayurvedic Medical College & Hospital, Aizawl",
+    "address": "52, Medical Center Road",
+    "city": "Aizawl",
+    "state": "Mizoram",
+    "zipCode": "622915",
+    "phone": "06581-165232",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "22.97805",
+    "longitude": "93.31893",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 88,
+    "name": "Siddha Health Center, Aizawl",
+    "address": "241, Main Road",
+    "city": "Aizawl",
+    "state": "Mizoram",
+    "zipCode": "588224",
+    "phone": "03920-442452",
+    "email": "info@siddha.health.org",
+    "latitude": "22.37247",
+    "longitude": "93.40037",
     "type": "AYUSH",
     "services": [
       "Basic Healthcare",
       "Vaccinations",
       "Health Education",
       "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 89,
+    "name": "Siddha Community Health Center, Aizawl",
+    "address": "117, Main Road",
+    "city": "Aizawl",
+    "state": "Mizoram",
+    "zipCode": "420056",
+    "phone": "02994-924797",
+    "email": "info@siddha.community.org",
+    "latitude": "24.10219",
+    "longitude": "92.75693",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 90,
+    "name": "Homeopathic Health Center, Kohima",
+    "address": "492, Healthcare Avenue",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "838734",
+    "phone": "09764-802172",
+    "email": "info@homeopathic.health.org",
+    "latitude": "26.40686",
+    "longitude": "93.86970",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 91,
+    "name": "Homeopathic Community Health Center, Kohima",
+    "address": "450, Medical Center Road",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "142149",
+    "phone": "01394-711120",
+    "email": "info@homeopathic.community.org",
+    "latitude": "26.54756",
+    "longitude": "95.00937",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 92,
+    "name": "Siddha Hospital, Kohima",
+    "address": "248, Hospital Road",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "761187",
+    "phone": "08815-930714",
+    "email": "info@siddha.hospital.org",
+    "latitude": "25.81680",
+    "longitude": "95.04697",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 93,
+    "name": "Siddha Hospital, Kohima",
+    "address": "400, Medical Center Road",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "737149",
+    "phone": "08882-985635",
+    "email": "info@siddha.hospital.org",
+    "latitude": "25.42583",
+    "longitude": "95.04177",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 94,
+    "name": "Homeopathic Medical College & Hospital, Kohima",
+    "address": "473, Medical Center Road",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "150715",
+    "phone": "01262-863071",
+    "email": "info@homeopathic.medical.org",
+    "latitude": "25.73989",
+    "longitude": "94.28913",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 95,
+    "name": "AYUSH Hospital, Rourkela",
+    "address": "166, Main Road",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "zipCode": "220308",
+    "phone": "05349-841491",
+    "email": "info@ayush.hospital.org",
+    "latitude": "21.18325",
+    "longitude": "84.93476",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 96,
+    "name": "AYUSH Health Center, Rourkela",
+    "address": "174, Medical Center Road",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "zipCode": "683002",
+    "phone": "05987-753985",
+    "email": "info@ayush.health.org",
+    "latitude": "20.70903",
+    "longitude": "84.86922",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 97,
+    "name": "Yoga Medical College & Hospital, Rourkela",
+    "address": "418, Hospital Road",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "zipCode": "569817",
+    "phone": "06301-371361",
+    "email": "info@yoga.medical.org",
+    "latitude": "21.76865",
+    "longitude": "85.42555",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 98,
+    "name": "Yoga Medical Center, Rourkela",
+    "address": "456, Medical Center Road",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "zipCode": "773745",
+    "phone": "04823-162437",
+    "email": "info@yoga.medical.org",
+    "latitude": "21.51359",
+    "longitude": "86.09444",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 99,
+    "name": "Unani Health Center, Rourkela",
+    "address": "371, Main Road",
+    "city": "Rourkela",
+    "state": "Odisha",
+    "zipCode": "220933",
+    "phone": "02888-287355",
+    "email": "info@unani.health.org",
+    "latitude": "21.73254",
+    "longitude": "85.93939",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 100,
+    "name": "Yoga Medical Center, Amritsar",
+    "address": "435, Main Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "368272",
+    "phone": "02510-369498",
+    "email": "info@yoga.medical.org",
+    "latitude": "30.98091",
+    "longitude": "74.47569",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 101,
+    "name": "Ayurvedic Medical Center, Amritsar",
+    "address": "442, Hospital Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "355387",
+    "phone": "03300-311905",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "32.00743",
+    "longitude": "75.17185",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -1976,16 +2484,310 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 81,
-    "name": "Siddha Medical Center, Tura",
-    "address": "496, Medical Center Road",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "351304",
-    "phone": "04793-898669",
+    "id": 102,
+    "name": "Homeopathic Community Health Center, Amritsar",
+    "address": "21, Hospital Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "554451",
+    "phone": "09873-416048",
+    "email": "info@homeopathic.community.org",
+    "latitude": "31.82267",
+    "longitude": "75.68632",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 103,
+    "name": "Yoga Medical Center, Amritsar",
+    "address": "13, Medical Center Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "659095",
+    "phone": "05589-858623",
+    "email": "info@yoga.medical.org",
+    "latitude": "30.51061",
+    "longitude": "76.30219",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 104,
+    "name": "Homeopathic Medical College & Hospital, Amritsar",
+    "address": "256, Main Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "793177",
+    "phone": "08229-386782",
+    "email": "info@homeopathic.medical.org",
+    "latitude": "30.92529",
+    "longitude": "74.98112",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 105,
+    "name": "Yoga Community Health Center, Jodhpur",
+    "address": "363, Hospital Road",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "zipCode": "440582",
+    "phone": "01425-130868",
+    "email": "info@yoga.community.org",
+    "latitude": "27.03075",
+    "longitude": "73.55492",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 106,
+    "name": "Yoga Medical Center, Jodhpur",
+    "address": "248, Hospital Road",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "zipCode": "713479",
+    "phone": "01814-171815",
+    "email": "info@yoga.medical.org",
+    "latitude": "27.81318",
+    "longitude": "74.48155",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 107,
+    "name": "Yoga Health Center, Jodhpur",
+    "address": "124, Main Road",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "zipCode": "748058",
+    "phone": "07328-283073",
+    "email": "info@yoga.health.org",
+    "latitude": "26.19254",
+    "longitude": "74.91941",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 108,
+    "name": "Yoga Health Center, Jodhpur",
+    "address": "238, Medical Center Road",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "zipCode": "591028",
+    "phone": "08341-492532",
+    "email": "info@yoga.health.org",
+    "latitude": "26.78101",
+    "longitude": "73.85978",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 109,
+    "name": "AYUSH Hospital, Jodhpur",
+    "address": "199, Medical Center Road",
+    "city": "Jodhpur",
+    "state": "Rajasthan",
+    "zipCode": "254297",
+    "phone": "01797-537477",
+    "email": "info@ayush.hospital.org",
+    "latitude": "26.30519",
+    "longitude": "74.58926",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 110,
+    "name": "Siddha Medical Center, Namchi",
+    "address": "357, Hospital Road",
+    "city": "Namchi",
+    "state": "Sikkim",
+    "zipCode": "816225",
+    "phone": "09974-689620",
     "email": "info@siddha.medical.org",
-    "latitude": "24.72562",
-    "longitude": "91.95909",
+    "latitude": "28.02603",
+    "longitude": "88.68125",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 111,
+    "name": "Siddha Hospital, Namchi",
+    "address": "435, Hospital Road",
+    "city": "Namchi",
+    "state": "Sikkim",
+    "zipCode": "637092",
+    "phone": "04665-526815",
+    "email": "info@siddha.hospital.org",
+    "latitude": "27.88794",
+    "longitude": "87.94288",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 112,
+    "name": "Siddha Health Center, Namchi",
+    "address": "116, Main Road",
+    "city": "Namchi",
+    "state": "Sikkim",
+    "zipCode": "612705",
+    "phone": "02277-492417",
+    "email": "info@siddha.health.org",
+    "latitude": "27.37142",
+    "longitude": "89.38263",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 113,
+    "name": "Unani Medical College & Hospital, Namchi",
+    "address": "255, Main Road",
+    "city": "Namchi",
+    "state": "Sikkim",
+    "zipCode": "398070",
+    "phone": "04683-764650",
+    "email": "info@unani.medical.org",
+    "latitude": "28.44762",
+    "longitude": "88.51006",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 114,
+    "name": "Yoga Hospital, Namchi",
+    "address": "291, Hospital Road",
+    "city": "Namchi",
+    "state": "Sikkim",
+    "zipCode": "519839",
+    "phone": "09926-774149",
+    "email": "info@yoga.hospital.org",
+    "latitude": "28.01068",
+    "longitude": "88.30703",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -2001,108 +2803,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 82,
-    "name": "Unani Community Health Center, Tura",
-    "address": "321, Medical Center Road",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "536880",
-    "phone": "05407-601828",
-    "email": "info@unani.community.org",
-    "latitude": "26.34186",
-    "longitude": "91.66636",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 83,
-    "name": "Homeopathic Medical College & Hospital, Tura",
-    "address": "475, Main Road",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "519291",
-    "phone": "03365-275152",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "25.40338",
-    "longitude": "90.69462",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 84,
-    "name": "Unani Medical College & Hospital, Tura",
-    "address": "450, Medical Center Road",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "535468",
-    "phone": "08241-971762",
-    "email": "info@unani.medical.org",
-    "latitude": "25.92356",
-    "longitude": "91.62278",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 85,
-    "name": "Homeopathic Hospital, Champhai",
-    "address": "425, Healthcare Avenue",
-    "city": "Champhai",
-    "state": "Mizoram",
-    "zipCode": "639104",
-    "phone": "03834-154605",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "23.78059",
-    "longitude": "92.14432",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 86,
-    "name": "AYUSH Community Health Center, Champhai",
-    "address": "382, Medical Center Road",
-    "city": "Champhai",
-    "state": "Mizoram",
-    "zipCode": "772730",
-    "phone": "04518-906048",
-    "email": "info@ayush.community.org",
-    "latitude": "24.10416",
-    "longitude": "92.99419",
+    "id": 115,
+    "name": "Siddha Medical Center, Coimbatore",
+    "address": "60, Main Road",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu",
+    "zipCode": "691151",
+    "phone": "08910-849644",
+    "email": "info@siddha.medical.org",
+    "latitude": "10.71661",
+    "longitude": "78.81056",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -2120,846 +2830,40 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 87,
-    "name": "Ayurvedic Medical Center, Champhai",
-    "address": "259, Healthcare Avenue",
-    "city": "Champhai",
-    "state": "Mizoram",
-    "zipCode": "494130",
-    "phone": "06491-171307",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "23.11737",
-    "longitude": "92.02746",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 88,
-    "name": "Homeopathic Hospital, Champhai",
-    "address": "318, Main Road",
-    "city": "Champhai",
-    "state": "Mizoram",
-    "zipCode": "266523",
-    "phone": "06139-744798",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "22.34143",
-    "longitude": "93.24384",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 89,
-    "name": "Siddha Health Center, Champhai",
-    "address": "58, Main Road",
-    "city": "Champhai",
-    "state": "Mizoram",
-    "zipCode": "726720",
-    "phone": "08863-194471",
-    "email": "info@siddha.health.org",
-    "latitude": "23.74086",
-    "longitude": "93.14479",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 90,
-    "name": "Unani Medical Center, Dimapur",
-    "address": "398, Healthcare Avenue",
-    "city": "Dimapur",
-    "state": "Nagaland",
-    "zipCode": "394698",
-    "phone": "06838-946815",
-    "email": "info@unani.medical.org",
-    "latitude": "25.30287",
-    "longitude": "93.69511",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 91,
-    "name": "Unani Medical Center, Dimapur",
-    "address": "7, Medical Center Road",
-    "city": "Dimapur",
-    "state": "Nagaland",
-    "zipCode": "255373",
-    "phone": "03436-155219",
-    "email": "info@unani.medical.org",
-    "latitude": "25.58701",
-    "longitude": "94.80473",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 92,
-    "name": "Siddha Community Health Center, Dimapur",
-    "address": "35, Medical Center Road",
-    "city": "Dimapur",
-    "state": "Nagaland",
-    "zipCode": "367672",
-    "phone": "06943-621732",
-    "email": "info@siddha.community.org",
-    "latitude": "25.31406",
-    "longitude": "93.96441",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 93,
-    "name": "Ayurvedic Medical College & Hospital, Dimapur",
-    "address": "230, Main Road",
-    "city": "Dimapur",
-    "state": "Nagaland",
-    "zipCode": "844515",
-    "phone": "05307-322256",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "26.49798",
-    "longitude": "94.25295",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 94,
-    "name": "Ayurvedic Medical College & Hospital, Dimapur",
-    "address": "493, Healthcare Avenue",
-    "city": "Dimapur",
-    "state": "Nagaland",
-    "zipCode": "756157",
-    "phone": "04198-430169",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "25.90747",
-    "longitude": "94.90820",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 95,
-    "name": "Homeopathic Medical Center, Rourkela",
-    "address": "276, Medical Center Road",
-    "city": "Rourkela",
-    "state": "Odisha",
-    "zipCode": "622256",
-    "phone": "08536-701985",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "20.24633",
-    "longitude": "85.08313",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 96,
-    "name": "Siddha Medical Center, Rourkela",
-    "address": "241, Healthcare Avenue",
-    "city": "Rourkela",
-    "state": "Odisha",
-    "zipCode": "753280",
-    "phone": "04621-601181",
-    "email": "info@siddha.medical.org",
-    "latitude": "20.71652",
-    "longitude": "84.79215",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 97,
-    "name": "AYUSH Medical Center, Rourkela",
-    "address": "335, Healthcare Avenue",
-    "city": "Rourkela",
-    "state": "Odisha",
-    "zipCode": "174738",
-    "phone": "07282-385624",
-    "email": "info@ayush.medical.org",
-    "latitude": "21.29950",
-    "longitude": "84.13757",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 98,
-    "name": "AYUSH Health Center, Rourkela",
-    "address": "500, Hospital Road",
-    "city": "Rourkela",
-    "state": "Odisha",
-    "zipCode": "826990",
-    "phone": "04484-534503",
-    "email": "info@ayush.health.org",
-    "latitude": "20.49541",
-    "longitude": "84.63544",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 99,
-    "name": "AYUSH Health Center, Rourkela",
-    "address": "354, Hospital Road",
-    "city": "Rourkela",
-    "state": "Odisha",
-    "zipCode": "616182",
-    "phone": "05602-433323",
-    "email": "info@ayush.health.org",
-    "latitude": "21.12589",
-    "longitude": "84.31327",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 100,
-    "name": "AYUSH Medical Center, Amritsar",
-    "address": "221, Main Road",
-    "city": "Amritsar",
-    "state": "Punjab",
-    "zipCode": "657052",
-    "phone": "07321-888392",
-    "email": "info@ayush.medical.org",
-    "latitude": "31.70953",
-    "longitude": "75.27431",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 101,
-    "name": "Homeopathic Hospital, Amritsar",
-    "address": "291, Medical Center Road",
-    "city": "Amritsar",
-    "state": "Punjab",
-    "zipCode": "787938",
-    "phone": "02447-647225",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "31.59071",
-    "longitude": "75.18849",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 102,
-    "name": "Ayurvedic Health Center, Amritsar",
-    "address": "346, Main Road",
-    "city": "Amritsar",
-    "state": "Punjab",
-    "zipCode": "212146",
-    "phone": "09423-673638",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "30.38712",
-    "longitude": "76.12663",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 103,
-    "name": "Homeopathic Medical College & Hospital, Amritsar",
-    "address": "356, Hospital Road",
-    "city": "Amritsar",
-    "state": "Punjab",
-    "zipCode": "587815",
-    "phone": "03253-162574",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "31.98454",
-    "longitude": "75.40777",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 104,
-    "name": "Siddha Community Health Center, Amritsar",
-    "address": "456, Hospital Road",
-    "city": "Amritsar",
-    "state": "Punjab",
-    "zipCode": "478250",
-    "phone": "02923-414065",
-    "email": "info@siddha.community.org",
-    "latitude": "30.85715",
-    "longitude": "75.51432",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 105,
-    "name": "Siddha Hospital, Kota",
-    "address": "57, Hospital Road",
-    "city": "Kota",
-    "state": "Rajasthan",
-    "zipCode": "474278",
-    "phone": "09405-107223",
-    "email": "info@siddha.hospital.org",
-    "latitude": "26.46164",
-    "longitude": "74.31030",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 106,
-    "name": "AYUSH Medical College & Hospital, Kota",
-    "address": "113, Healthcare Avenue",
-    "city": "Kota",
-    "state": "Rajasthan",
-    "zipCode": "723190",
-    "phone": "01426-522788",
-    "email": "info@ayush.medical.org",
-    "latitude": "26.85835",
-    "longitude": "73.62230",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 107,
-    "name": "Unani Medical Center, Kota",
-    "address": "475, Hospital Road",
-    "city": "Kota",
-    "state": "Rajasthan",
-    "zipCode": "824224",
-    "phone": "02809-467201",
-    "email": "info@unani.medical.org",
-    "latitude": "27.29568",
-    "longitude": "73.48646",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 108,
-    "name": "Homeopathic Health Center, Kota",
-    "address": "459, Hospital Road",
-    "city": "Kota",
-    "state": "Rajasthan",
-    "zipCode": "460792",
-    "phone": "06538-686971",
-    "email": "info@homeopathic.health.org",
-    "latitude": "27.86758",
-    "longitude": "75.09162",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 109,
-    "name": "Homeopathic Medical Center, Kota",
-    "address": "62, Medical Center Road",
-    "city": "Kota",
-    "state": "Rajasthan",
-    "zipCode": "430475",
-    "phone": "09119-213495",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "26.37268",
-    "longitude": "74.20033",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 110,
-    "name": "AYUSH Medical College & Hospital, Gangtok",
-    "address": "456, Hospital Road",
-    "city": "Gangtok",
-    "state": "Sikkim",
-    "zipCode": "758207",
-    "phone": "04941-518921",
-    "email": "info@ayush.medical.org",
-    "latitude": "28.41021",
-    "longitude": "88.72531",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 111,
-    "name": "Unani Hospital, Gangtok",
-    "address": "251, Hospital Road",
-    "city": "Gangtok",
-    "state": "Sikkim",
-    "zipCode": "424795",
-    "phone": "03292-593120",
-    "email": "info@unani.hospital.org",
-    "latitude": "28.09329",
-    "longitude": "87.66497",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 112,
-    "name": "Unani Hospital, Gangtok",
-    "address": "150, Main Road",
-    "city": "Gangtok",
-    "state": "Sikkim",
-    "zipCode": "326099",
-    "phone": "05483-241688",
-    "email": "info@unani.hospital.org",
-    "latitude": "27.01660",
-    "longitude": "88.59440",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 113,
-    "name": "Yoga Medical College & Hospital, Gangtok",
-    "address": "459, Healthcare Avenue",
-    "city": "Gangtok",
-    "state": "Sikkim",
-    "zipCode": "490369",
-    "phone": "08737-568235",
-    "email": "info@yoga.medical.org",
-    "latitude": "27.19997",
-    "longitude": "88.24044",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 114,
-    "name": "Siddha Medical College & Hospital, Gangtok",
-    "address": "154, Medical Center Road",
-    "city": "Gangtok",
-    "state": "Sikkim",
-    "zipCode": "697976",
-    "phone": "02330-504658",
-    "email": "info@siddha.medical.org",
-    "latitude": "28.16635",
-    "longitude": "88.36961",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 115,
-    "name": "Siddha Medical Center, Coimbatore",
-    "address": "487, Healthcare Avenue",
-    "city": "Coimbatore",
-    "state": "Tamil Nadu",
-    "zipCode": "617901",
-    "phone": "02893-773837",
-    "email": "info@siddha.medical.org",
-    "latitude": "11.17941",
-    "longitude": "79.11065",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
     "id": 116,
-    "name": "Homeopathic Hospital, Coimbatore",
-    "address": "115, Main Road",
+    "name": "Siddha Health Center, Coimbatore",
+    "address": "114, Medical Center Road",
     "city": "Coimbatore",
     "state": "Tamil Nadu",
-    "zipCode": "620845",
-    "phone": "06635-374388",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "12.12389",
-    "longitude": "79.41748",
+    "zipCode": "896545",
+    "phone": "07297-618935",
+    "email": "info@siddha.health.org",
+    "latitude": "11.55541",
+    "longitude": "79.48940",
     "type": "AYUSH",
     "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
+      "Tribal Medicine",
+      "Infectious Diseases"
     ]
   },
   {
     "id": 117,
-    "name": "Siddha Medical College & Hospital, Coimbatore",
-    "address": "456, Medical Center Road",
+    "name": "Yoga Community Health Center, Coimbatore",
+    "address": "416, Healthcare Avenue",
     "city": "Coimbatore",
     "state": "Tamil Nadu",
-    "zipCode": "520658",
-    "phone": "07991-307205",
-    "email": "info@siddha.medical.org",
-    "latitude": "10.24089",
-    "longitude": "78.37702",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 118,
-    "name": "Homeopathic Medical Center, Coimbatore",
-    "address": "387, Hospital Road",
-    "city": "Coimbatore",
-    "state": "Tamil Nadu",
-    "zipCode": "589117",
-    "phone": "02595-373127",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "11.22143",
-    "longitude": "78.02329",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 119,
-    "name": "Siddha Health Center, Coimbatore",
-    "address": "338, Hospital Road",
-    "city": "Coimbatore",
-    "state": "Tamil Nadu",
-    "zipCode": "678583",
-    "phone": "07551-367965",
-    "email": "info@siddha.health.org",
-    "latitude": "10.59886",
-    "longitude": "79.11273",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 120,
-    "name": "Homeopathic Hospital, Udaipur",
-    "address": "43, Main Road",
-    "city": "Udaipur",
-    "state": "Tripura",
-    "zipCode": "567034",
-    "phone": "08867-993917",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "24.14600",
-    "longitude": "92.36678",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 121,
-    "name": "Siddha Medical College & Hospital, Udaipur",
-    "address": "333, Main Road",
-    "city": "Udaipur",
-    "state": "Tripura",
-    "zipCode": "380496",
-    "phone": "07242-128011",
-    "email": "info@siddha.medical.org",
-    "latitude": "23.46036",
-    "longitude": "91.35718",
+    "zipCode": "695423",
+    "phone": "08226-918684",
+    "email": "info@yoga.community.org",
+    "latitude": "11.23354",
+    "longitude": "79.41277",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -2971,21 +2875,123 @@ export const hospitals: Hospital[] = [
     "emergencyServices": true,
     "specialties": [
       "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 118,
+    "name": "Ayurvedic Medical College & Hospital, Coimbatore",
+    "address": "497, Medical Center Road",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu",
+    "zipCode": "494389",
+    "phone": "08494-128929",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "11.55455",
+    "longitude": "78.11016",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
       "Nephrology",
-      "Orthopedics"
+      "Oncology"
+    ]
+  },
+  {
+    "id": 119,
+    "name": "Unani Health Center, Coimbatore",
+    "address": "64, Hospital Road",
+    "city": "Coimbatore",
+    "state": "Tamil Nadu",
+    "zipCode": "787887",
+    "phone": "08977-629556",
+    "email": "info@unani.health.org",
+    "latitude": "11.18571",
+    "longitude": "77.68886",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Yoga Medical Center, Agartala",
+    "address": "310, Healthcare Avenue",
+    "city": "Agartala",
+    "state": "Tripura",
+    "zipCode": "391087",
+    "phone": "09708-842130",
+    "email": "info@yoga.medical.org",
+    "latitude": "23.01580",
+    "longitude": "91.86578",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 121,
+    "name": "AYUSH Hospital, Agartala",
+    "address": "162, Hospital Road",
+    "city": "Agartala",
+    "state": "Tripura",
+    "zipCode": "226611",
+    "phone": "08838-540550",
+    "email": "info@ayush.hospital.org",
+    "latitude": "23.77219",
+    "longitude": "91.48099",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 122,
-    "name": "Ayurvedic Hospital, Udaipur",
-    "address": "358, Main Road",
-    "city": "Udaipur",
+    "name": "Homeopathic Community Health Center, Agartala",
+    "address": "306, Healthcare Avenue",
+    "city": "Agartala",
     "state": "Tripura",
-    "zipCode": "856912",
-    "phone": "09477-510697",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "24.77733",
-    "longitude": "92.91088",
+    "zipCode": "884157",
+    "phone": "09564-173718",
+    "email": "info@homeopathic.community.org",
+    "latitude": "24.91198",
+    "longitude": "92.30144",
     "type": "AYUSH",
     "services": [
       "Primary Care",
@@ -3003,180 +3009,69 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 123,
-    "name": "AYUSH Health Center, Udaipur",
-    "address": "243, Medical Center Road",
-    "city": "Udaipur",
+    "name": "Siddha Hospital, Agartala",
+    "address": "93, Main Road",
+    "city": "Agartala",
     "state": "Tripura",
-    "zipCode": "528802",
-    "phone": "04929-219499",
-    "email": "info@ayush.health.org",
-    "latitude": "24.52914",
-    "longitude": "92.71179",
+    "zipCode": "255395",
+    "phone": "08314-338002",
+    "email": "info@siddha.hospital.org",
+    "latitude": "24.73145",
+    "longitude": "91.31118",
     "type": "AYUSH",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
+      "Tribal Medicine",
+      "Infectious Diseases"
     ]
   },
   {
     "id": 124,
-    "name": "Yoga Hospital, Udaipur",
-    "address": "375, Main Road",
-    "city": "Udaipur",
+    "name": "Ayurvedic Hospital, Agartala",
+    "address": "21, Hospital Road",
+    "city": "Agartala",
     "state": "Tripura",
-    "zipCode": "435191",
-    "phone": "05598-904105",
-    "email": "info@yoga.hospital.org",
-    "latitude": "23.94805",
-    "longitude": "91.42883",
+    "zipCode": "449987",
+    "phone": "02350-302788",
+    "email": "info@ayurvedic.hospital.org",
+    "latitude": "24.87000",
+    "longitude": "92.16094",
     "type": "AYUSH",
     "services": [
       "Emergency",
-      "General Medicine",
       "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurology",
       "Cardiology",
-      "Nephrology",
-      "Oncology"
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
     "id": 125,
-    "name": "Unani Medical Center, Lucknow",
-    "address": "175, Medical Center Road",
+    "name": "Unani Medical College & Hospital, Lucknow",
+    "address": "249, Main Road",
     "city": "Lucknow",
     "state": "Uttar Pradesh",
-    "zipCode": "463549",
-    "phone": "09193-227344",
+    "zipCode": "715613",
+    "phone": "03835-929144",
     "email": "info@unani.medical.org",
-    "latitude": "26.93467",
-    "longitude": "80.91844",
+    "latitude": "26.80193",
+    "longitude": "81.83085",
     "type": "AYUSH",
     "services": [
       "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 126,
-    "name": "Unani Community Health Center, Lucknow",
-    "address": "171, Healthcare Avenue",
-    "city": "Lucknow",
-    "state": "Uttar Pradesh",
-    "zipCode": "376589",
-    "phone": "01491-110293",
-    "email": "info@unani.community.org",
-    "latitude": "27.44780",
-    "longitude": "81.06643",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 127,
-    "name": "Ayurvedic Medical Center, Lucknow",
-    "address": "51, Main Road",
-    "city": "Lucknow",
-    "state": "Uttar Pradesh",
-    "zipCode": "356009",
-    "phone": "03644-911353",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "26.00147",
-    "longitude": "80.39104",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 128,
-    "name": "AYUSH Community Health Center, Lucknow",
-    "address": "432, Medical Center Road",
-    "city": "Lucknow",
-    "state": "Uttar Pradesh",
-    "zipCode": "395063",
-    "phone": "04876-698016",
-    "email": "info@ayush.community.org",
-    "latitude": "25.92987",
-    "longitude": "80.30672",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 129,
-    "name": "Yoga Hospital, Lucknow",
-    "address": "91, Healthcare Avenue",
-    "city": "Lucknow",
-    "state": "Uttar Pradesh",
-    "zipCode": "191592",
-    "phone": "03550-684360",
-    "email": "info@yoga.hospital.org",
-    "latitude": "27.55554",
-    "longitude": "81.56415",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -3184,22 +3079,222 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 130,
-    "name": "AYUSH Community Health Center, Dehradun",
-    "address": "232, Main Road",
-    "city": "Dehradun",
-    "state": "Uttarakhand",
-    "zipCode": "420474",
-    "phone": "06671-224000",
-    "email": "info@ayush.community.org",
-    "latitude": "29.51982",
-    "longitude": "79.70028",
+    "id": 126,
+    "name": "Unani Medical College & Hospital, Lucknow",
+    "address": "64, Medical Center Road",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "zipCode": "836593",
+    "phone": "04380-690232",
+    "email": "info@unani.medical.org",
+    "latitude": "27.13448",
+    "longitude": "80.57771",
     "type": "AYUSH",
     "services": [
       "Basic Healthcare",
       "Vaccinations",
       "Health Education",
       "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 127,
+    "name": "AYUSH Community Health Center, Lucknow",
+    "address": "12, Medical Center Road",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "zipCode": "836454",
+    "phone": "02568-631484",
+    "email": "info@ayush.community.org",
+    "latitude": "26.34294",
+    "longitude": "80.35180",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 128,
+    "name": "Ayurvedic Medical Center, Lucknow",
+    "address": "287, Healthcare Avenue",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "zipCode": "648588",
+    "phone": "05351-868212",
+    "email": "info@ayurvedic.medical.org",
+    "latitude": "27.68034",
+    "longitude": "80.44702",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 129,
+    "name": "AYUSH Community Health Center, Lucknow",
+    "address": "122, Medical Center Road",
+    "city": "Lucknow",
+    "state": "Uttar Pradesh",
+    "zipCode": "824581",
+    "phone": "02961-169538",
+    "email": "info@ayush.community.org",
+    "latitude": "27.21996",
+    "longitude": "80.14010",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 130,
+    "name": "Unani Health Center, Dehradun",
+    "address": "211, Hospital Road",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "zipCode": "668391",
+    "phone": "08330-568986",
+    "email": "info@unani.health.org",
+    "latitude": "30.12937",
+    "longitude": "79.34606",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 131,
+    "name": "Unani Medical College & Hospital, Dehradun",
+    "address": "89, Healthcare Avenue",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "zipCode": "869154",
+    "phone": "04270-547608",
+    "email": "info@unani.medical.org",
+    "latitude": "30.09221",
+    "longitude": "78.22611",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 132,
+    "name": "AYUSH Health Center, Dehradun",
+    "address": "167, Hospital Road",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "zipCode": "571670",
+    "phone": "07138-181081",
+    "email": "info@ayush.health.org",
+    "latitude": "29.08624",
+    "longitude": "78.71917",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 133,
+    "name": "AYUSH Medical Center, Dehradun",
+    "address": "378, Medical Center Road",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "zipCode": "484764",
+    "phone": "06731-685637",
+    "email": "info@ayush.medical.org",
+    "latitude": "30.07330",
+    "longitude": "78.44492",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 134,
+    "name": "Homeopathic Hospital, Dehradun",
+    "address": "364, Main Road",
+    "city": "Dehradun",
+    "state": "Uttarakhand",
+    "zipCode": "228308",
+    "phone": "08145-694426",
+    "email": "info@homeopathic.hospital.org",
+    "latitude": "30.22671",
+    "longitude": "78.52702",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -3210,112 +3305,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 131,
-    "name": "Ayurvedic Hospital, Dehradun",
-    "address": "15, Healthcare Avenue",
-    "city": "Dehradun",
-    "state": "Uttarakhand",
-    "zipCode": "199852",
-    "phone": "03886-333558",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "29.10386",
-    "longitude": "79.86399",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 132,
-    "name": "Yoga Hospital, Dehradun",
-    "address": "362, Healthcare Avenue",
-    "city": "Dehradun",
-    "state": "Uttarakhand",
-    "zipCode": "272787",
-    "phone": "02881-988316",
-    "email": "info@yoga.hospital.org",
-    "latitude": "29.96154",
-    "longitude": "79.49895",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 133,
-    "name": "Siddha Community Health Center, Dehradun",
-    "address": "411, Main Road",
-    "city": "Dehradun",
-    "state": "Uttarakhand",
-    "zipCode": "322227",
-    "phone": "06493-632052",
-    "email": "info@siddha.community.org",
-    "latitude": "30.08543",
-    "longitude": "78.84736",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 134,
-    "name": "Siddha Health Center, Dehradun",
-    "address": "476, Main Road",
-    "city": "Dehradun",
-    "state": "Uttarakhand",
-    "zipCode": "463187",
-    "phone": "04286-384207",
-    "email": "info@siddha.health.org",
-    "latitude": "30.22146",
-    "longitude": "78.28813",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
     "id": 135,
-    "name": "Ayurvedic Hospital, Asansol",
-    "address": "136, Main Road",
+    "name": "Siddha Health Center, Asansol",
+    "address": "101, Healthcare Avenue",
     "city": "Asansol",
     "state": "West Bengal",
-    "zipCode": "413844",
-    "phone": "04464-965769",
-    "email": "info@ayurvedic.hospital.org",
-    "latitude": "22.28132",
-    "longitude": "87.07933",
+    "zipCode": "751559",
+    "phone": "06215-169771",
+    "email": "info@siddha.health.org",
+    "latitude": "22.07507",
+    "longitude": "88.60062",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -3323,325 +3322,6 @@ export const hospitals: Hospital[] = [
       "Surgery",
       "Pediatrics",
       "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 136,
-    "name": "Ayurvedic Medical College & Hospital, Asansol",
-    "address": "383, Hospital Road",
-    "city": "Asansol",
-    "state": "West Bengal",
-    "zipCode": "411126",
-    "phone": "05314-164025",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "22.21962",
-    "longitude": "88.28846",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 137,
-    "name": "Unani Health Center, Asansol",
-    "address": "471, Healthcare Avenue",
-    "city": "Asansol",
-    "state": "West Bengal",
-    "zipCode": "530283",
-    "phone": "05257-990179",
-    "email": "info@unani.health.org",
-    "latitude": "23.70541",
-    "longitude": "88.45824",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 138,
-    "name": "Unani Medical Center, Asansol",
-    "address": "261, Healthcare Avenue",
-    "city": "Asansol",
-    "state": "West Bengal",
-    "zipCode": "444316",
-    "phone": "04622-100455",
-    "email": "info@unani.medical.org",
-    "latitude": "23.58134",
-    "longitude": "88.27997",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 139,
-    "name": "Homeopathic Medical College & Hospital, Asansol",
-    "address": "118, Medical Center Road",
-    "city": "Asansol",
-    "state": "West Bengal",
-    "zipCode": "286152",
-    "phone": "08412-670513",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "22.87520",
-    "longitude": "87.80651",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 140,
-    "name": "Unani Community Health Center, Unknown City",
-    "address": "222, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "651897",
-    "phone": "09462-714229",
-    "email": "info@unani.community.org",
-    "latitude": "21.53359",
-    "longitude": "77.96985",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 141,
-    "name": "Ayurvedic Health Center, Unknown City",
-    "address": "3, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "170423",
-    "phone": "01904-208732",
-    "email": "info@ayurvedic.health.org",
-    "latitude": "21.48906",
-    "longitude": "79.21507",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 142,
-    "name": "AYUSH Hospital, Unknown City",
-    "address": "131, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "444253",
-    "phone": "07476-698097",
-    "email": "info@ayush.hospital.org",
-    "latitude": "19.99403",
-    "longitude": "79.78439",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 143,
-    "name": "Ayurvedic Medical Center, Unknown City",
-    "address": "45, Main Road",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "449609",
-    "phone": "09646-458407",
-    "email": "info@ayurvedic.medical.org",
-    "latitude": "20.16555",
-    "longitude": "79.94810",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 144,
-    "name": "AYUSH Medical Center, Unknown City",
-    "address": "426, Main Road",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "413304",
-    "phone": "08823-413181",
-    "email": "info@ayush.medical.org",
-    "latitude": "20.50965",
-    "longitude": "78.30246",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 145,
-    "name": "Unani Community Health Center, Unknown City",
-    "address": "369, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Chandigarh",
-    "zipCode": "673768",
-    "phone": "06487-341228",
-    "email": "info@unani.community.org",
-    "latitude": "19.73554",
-    "longitude": "78.98648",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 146,
-    "name": "Siddha Medical College & Hospital, Unknown City",
-    "address": "298, Main Road",
-    "city": "Unknown City",
-    "state": "Chandigarh",
-    "zipCode": "292801",
-    "phone": "04383-681972",
-    "email": "info@siddha.medical.org",
-    "latitude": "20.22157",
-    "longitude": "78.55531",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 147,
-    "name": "Unani Health Center, Unknown City",
-    "address": "466, Hospital Road",
-    "city": "Unknown City",
-    "state": "Dadra &Nagar Haveli",
-    "zipCode": "838763",
-    "phone": "01510-582932",
-    "email": "info@unani.health.org",
-    "latitude": "20.57190",
-    "longitude": "79.85404",
-    "type": "AYUSH",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 148,
-    "name": "Homeopathic Health Center, Unknown City",
-    "address": "148, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Dadra &Nagar Haveli",
-    "zipCode": "239598",
-    "phone": "06561-813027",
-    "email": "info@homeopathic.health.org",
-    "latitude": "20.92019",
-    "longitude": "78.23505",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -3650,22 +3330,342 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 149,
-    "name": "Homeopathic Hospital, Unknown City",
-    "address": "321, Main Road",
+    "id": 136,
+    "name": "Homeopathic Medical Center, Asansol",
+    "address": "474, Healthcare Avenue",
+    "city": "Asansol",
+    "state": "West Bengal",
+    "zipCode": "782874",
+    "phone": "06608-814491",
+    "email": "info@homeopathic.medical.org",
+    "latitude": "23.42765",
+    "longitude": "88.06618",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 137,
+    "name": "Yoga Community Health Center, Asansol",
+    "address": "198, Main Road",
+    "city": "Asansol",
+    "state": "West Bengal",
+    "zipCode": "320238",
+    "phone": "04163-626605",
+    "email": "info@yoga.community.org",
+    "latitude": "23.02911",
+    "longitude": "87.25814",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 138,
+    "name": "Siddha Medical College & Hospital, Asansol",
+    "address": "45, Hospital Road",
+    "city": "Asansol",
+    "state": "West Bengal",
+    "zipCode": "757908",
+    "phone": "03303-892799",
+    "email": "info@siddha.medical.org",
+    "latitude": "23.41386",
+    "longitude": "88.18416",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 139,
+    "name": "AYUSH Medical College & Hospital, Asansol",
+    "address": "386, Main Road",
+    "city": "Asansol",
+    "state": "West Bengal",
+    "zipCode": "247977",
+    "phone": "02326-330023",
+    "email": "info@ayush.medical.org",
+    "latitude": "23.44133",
+    "longitude": "88.43621",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 140,
+    "name": "AYUSH Community Health Center, Unknown City",
+    "address": "193, Medical Center Road",
     "city": "Unknown City",
-    "state": "Daman &Diu",
-    "zipCode": "369477",
-    "phone": "09799-424118",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "21.24877",
-    "longitude": "78.73893",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "281973",
+    "phone": "03793-158999",
+    "email": "info@ayush.community.org",
+    "latitude": "20.76206",
+    "longitude": "79.55483",
+    "type": "AYUSH",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 141,
+    "name": "Ayurvedic Hospital, Unknown City",
+    "address": "218, Hospital Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "572071",
+    "phone": "03657-443750",
+    "email": "info@ayurvedic.hospital.org",
+    "latitude": "19.90705",
+    "longitude": "78.80349",
     "type": "AYUSH",
     "services": [
       "Primary Care",
       "Maternal Health",
       "Child Health",
       "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 142,
+    "name": "AYUSH Medical Center, Unknown City",
+    "address": "144, Main Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "494601",
+    "phone": "04363-302990",
+    "email": "info@ayush.medical.org",
+    "latitude": "20.54579",
+    "longitude": "79.54644",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 143,
+    "name": "Unani Medical Center, Unknown City",
+    "address": "207, Main Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "191213",
+    "phone": "08908-544541",
+    "email": "info@unani.medical.org",
+    "latitude": "20.80936",
+    "longitude": "78.63256",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 144,
+    "name": "Ayurvedic Community Health Center, Unknown City",
+    "address": "98, Main Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "719099",
+    "phone": "09326-623192",
+    "email": "info@ayurvedic.community.org",
+    "latitude": "20.49430",
+    "longitude": "78.91682",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 145,
+    "name": "Siddha Medical College & Hospital, Unknown City",
+    "address": "154, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Chandigarh",
+    "zipCode": "358092",
+    "phone": "09718-970219",
+    "email": "info@siddha.medical.org",
+    "latitude": "20.76655",
+    "longitude": "79.67993",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 146,
+    "name": "Unani Community Health Center, Unknown City",
+    "address": "407, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Chandigarh",
+    "zipCode": "557469",
+    "phone": "04161-529843",
+    "email": "info@unani.community.org",
+    "latitude": "20.23056",
+    "longitude": "79.95455",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 147,
+    "name": "AYUSH Medical College & Hospital, Unknown City",
+    "address": "115, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": "Dadra &Nagar Haveli",
+    "zipCode": "461905",
+    "phone": "03138-568808",
+    "email": "info@ayush.medical.org",
+    "latitude": "20.64601",
+    "longitude": "77.99657",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 148,
+    "name": "Homeopathic Community Health Center, Unknown City",
+    "address": "216, Hospital Road",
+    "city": "Unknown City",
+    "state": "Dadra &Nagar Haveli",
+    "zipCode": "577272",
+    "phone": "03868-361253",
+    "email": "info@homeopathic.community.org",
+    "latitude": "21.39147",
+    "longitude": "77.98756",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 149,
+    "name": "Ayurvedic Community Health Center, Unknown City",
+    "address": "284, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Daman &Diu",
+    "zipCode": "233114",
+    "phone": "02617-371716",
+    "email": "info@ayurvedic.community.org",
+    "latitude": "19.95121",
+    "longitude": "78.60976",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -3674,41 +3674,38 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 150,
-    "name": "AYUSH Medical College & Hospital, Unknown City",
-    "address": "441, Hospital Road",
+    "name": "Homeopathic Health Center, Unknown City",
+    "address": "266, Healthcare Avenue",
     "city": "Unknown City",
     "state": "Daman &Diu",
-    "zipCode": "422254",
-    "phone": "01390-621766",
-    "email": "info@ayush.medical.org",
-    "latitude": "21.40902",
-    "longitude": "78.60207",
+    "zipCode": "242904",
+    "phone": "07202-161675",
+    "email": "info@homeopathic.health.org",
+    "latitude": "21.27787",
+    "longitude": "79.15109",
     "type": "AYUSH",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
+      "General Practice"
     ]
   },
   {
     "id": 151,
-    "name": "Siddha Medical Center, Unknown City",
-    "address": "114, Main Road",
+    "name": "Siddha Medical College & Hospital, Unknown City",
+    "address": "208, Medical Center Road",
     "city": "Unknown City",
     "state": "Daman &Diu",
-    "zipCode": "595903",
-    "phone": "06431-436887",
+    "zipCode": "350039",
+    "phone": "01565-579940",
     "email": "info@siddha.medical.org",
-    "latitude": "20.81115",
-    "longitude": "79.84872",
+    "latitude": "20.11294",
+    "longitude": "79.18710",
     "type": "AYUSH",
     "services": [
       "Emergency",
@@ -3726,15 +3723,87 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 152,
-    "name": "Homeopathic Community Health Center, Unknown City",
-    "address": "235, Medical Center Road",
+    "name": "Yoga Community Health Center, Unknown City",
+    "address": "453, Main Road",
     "city": "Unknown City",
     "state": "Daman &Diu",
-    "zipCode": "594679",
-    "phone": "04448-571513",
-    "email": "info@homeopathic.community.org",
-    "latitude": "20.45393",
-    "longitude": "79.26906",
+    "zipCode": "236010",
+    "phone": "01228-595112",
+    "email": "info@yoga.community.org",
+    "latitude": "20.32772",
+    "longitude": "78.27744",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 153,
+    "name": "Yoga Medical College & Hospital, Unknown City",
+    "address": "491, Hospital Road",
+    "city": "Unknown City",
+    "state": "Daman &Diu",
+    "zipCode": "269078",
+    "phone": "09805-459741",
+    "email": "info@yoga.medical.org",
+    "latitude": "20.30916",
+    "longitude": "78.92140",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 154,
+    "name": "Yoga Medical College & Hospital, Unknown City",
+    "address": "247, Hospital Road",
+    "city": "Unknown City",
+    "state": "Lakshdweep",
+    "zipCode": "214161",
+    "phone": "08528-613831",
+    "email": "info@yoga.medical.org",
+    "latitude": "20.22475",
+    "longitude": "78.67111",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 155,
+    "name": "AYUSH Medical Center, Unknown City",
+    "address": "419, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": "Lakshdweep",
+    "zipCode": "552504",
+    "phone": "05229-548554",
+    "email": "info@ayush.medical.org",
+    "latitude": "19.91762",
+    "longitude": "78.60131",
     "type": "AYUSH",
     "services": [
       "Tertiary Care",
@@ -3743,28 +3812,51 @@ export const hospitals: Hospital[] = [
       "Neurology",
       "Cardiology"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
-      "General Practice"
+      "General Medicine",
+      "Orthopedics"
     ]
   },
   {
-    "id": 153,
-    "name": "Unani Community Health Center, Unknown City",
-    "address": "13, Healthcare Avenue",
+    "id": 156,
+    "name": "Siddha Medical Center, Unknown City",
+    "address": "492, Main Road",
     "city": "Unknown City",
-    "state": "Daman &Diu",
-    "zipCode": "518637",
-    "phone": "01344-834135",
-    "email": "info@unani.community.org",
-    "latitude": "21.17950",
-    "longitude": "78.15348",
+    "state": "Puducherry",
+    "zipCode": "710452",
+    "phone": "08451-759999",
+    "email": "info@siddha.medical.org",
+    "latitude": "21.48661",
+    "longitude": "78.44826",
     "type": "AYUSH",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 157,
+    "name": "AYUSH Hospital, Unknown City",
+    "address": "324, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Puducherry",
+    "zipCode": "649793",
+    "phone": "01408-498074",
+    "email": "info@ayush.hospital.org",
+    "latitude": "19.70702",
+    "longitude": "79.15799",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -3775,17 +3867,469 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 154,
-    "name": "AYUSH Hospital, Unknown City",
-    "address": "396, Main Road",
-    "city": "Unknown City",
-    "state": "Lakshdweep",
-    "zipCode": "671787",
-    "phone": "08282-466775",
-    "email": "info@ayush.hospital.org",
-    "latitude": "21.23499",
-    "longitude": "78.42256",
+    "id": 158,
+    "name": "AYUSH Medical Center, Warangal",
+    "address": "374, Medical Center Road",
+    "city": "Warangal",
+    "state": "Telangana",
+    "zipCode": "764674",
+    "phone": "03549-905197",
+    "email": "info@ayush.medical.org",
+    "latitude": "17.85852",
+    "longitude": "78.37247",
     "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 159,
+    "name": "Yoga Medical College & Hospital, Warangal",
+    "address": "134, Hospital Road",
+    "city": "Warangal",
+    "state": "Telangana",
+    "zipCode": "421867",
+    "phone": "05492-981882",
+    "email": "info@yoga.medical.org",
+    "latitude": "19.06880",
+    "longitude": "79.93157",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 160,
+    "name": "Siddha Health Center, Warangal",
+    "address": "271, Hospital Road",
+    "city": "Warangal",
+    "state": "Telangana",
+    "zipCode": "128880",
+    "phone": "02940-389257",
+    "email": "info@siddha.health.org",
+    "latitude": "18.75447",
+    "longitude": "79.01785",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 161,
+    "name": "AYUSH Medical Center, Warangal",
+    "address": "466, Medical Center Road",
+    "city": "Warangal",
+    "state": "Telangana",
+    "zipCode": "729327",
+    "phone": "06606-269336",
+    "email": "info@ayush.medical.org",
+    "latitude": "18.28336",
+    "longitude": "78.30661",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 162,
+    "name": "Unani Health Center, Warangal",
+    "address": "144, Healthcare Avenue",
+    "city": "Warangal",
+    "state": "Telangana",
+    "zipCode": "648100",
+    "phone": "02253-689195",
+    "email": "info@unani.health.org",
+    "latitude": "17.38509",
+    "longitude": "78.01963",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 163,
+    "name": "Homeopathic Community Health Center, Unknown City",
+    "address": "299, Main Road",
+    "city": "Unknown City",
+    "state": "TOTAL (A)",
+    "zipCode": "130073",
+    "phone": "09485-142703",
+    "email": "info@homeopathic.community.org",
+    "latitude": "20.46986",
+    "longitude": "78.98706",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 164,
+    "name": "Siddha Hospital, Unknown City",
+    "address": "296, Medical Center Road",
+    "city": "Unknown City",
+    "state": "TOTAL (A)",
+    "zipCode": "186810",
+    "phone": "04390-101643",
+    "email": "info@siddha.hospital.org",
+    "latitude": "20.31143",
+    "longitude": "79.53407",
+    "type": "AYUSH",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 165,
+    "name": "Unani Medical College & Hospital, Unknown City",
+    "address": "383, Medical Center Road",
+    "city": "Unknown City",
+    "state": "TOTAL (A)",
+    "zipCode": "178808",
+    "phone": "01864-832615",
+    "email": "info@unani.medical.org",
+    "latitude": "20.19167",
+    "longitude": "78.10576",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 166,
+    "name": "Yoga Community Health Center, Unknown City",
+    "address": "265, Medical Center Road",
+    "city": "Unknown City",
+    "state": "TOTAL (A)",
+    "zipCode": "365572",
+    "phone": "02947-107351",
+    "email": "info@yoga.community.org",
+    "latitude": "20.93726",
+    "longitude": "79.04168",
+    "type": "AYUSH",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 167,
+    "name": "AYUSH Community Health Center, Unknown City",
+    "address": "316, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": "TOTAL (A)",
+    "zipCode": "799649",
+    "phone": "09930-515552",
+    "email": "info@ayush.community.org",
+    "latitude": "20.51205",
+    "longitude": "79.77251",
+    "type": "AYUSH",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 168,
+    "name": "Air Force Hospital, Silchar",
+    "address": "360, Hospital Road",
+    "city": "Silchar",
+    "state": "Assam",
+    "zipCode": "787252",
+    "phone": "04929-970094",
+    "email": "info@air.force.org",
+    "latitude": "26.28813",
+    "longitude": "93.51953",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 169,
+    "name": "Naval Medical College & Hospital, Silchar",
+    "address": "2, Healthcare Avenue",
+    "city": "Silchar",
+    "state": "Assam",
+    "zipCode": "784290",
+    "phone": "06851-869957",
+    "email": "info@naval.medical.org",
+    "latitude": "26.91757",
+    "longitude": "92.12569",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 170,
+    "name": "Defence Health Center, Visakhapatnam",
+    "address": "404, Main Road",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "zipCode": "628211",
+    "phone": "05345-334849",
+    "email": "info@defence.health.org",
+    "latitude": "15.42750",
+    "longitude": "80.33830",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 171,
+    "name": "Defence Medical Center, Visakhapatnam",
+    "address": "158, Healthcare Avenue",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "zipCode": "659171",
+    "phone": "02257-961732",
+    "email": "info@defence.medical.org",
+    "latitude": "15.63242",
+    "longitude": "79.50193",
+    "type": "Military",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 172,
+    "name": "Army Medical Center, Unknown City",
+    "address": "477, Hospital Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "474987",
+    "phone": "02912-772817",
+    "email": "info@army.medical.org",
+    "latitude": "20.19685",
+    "longitude": "78.70459",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 173,
+    "name": "Army Health Center, Unknown City",
+    "address": "375, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "841124",
+    "phone": "08190-509519",
+    "email": "info@army.health.org",
+    "latitude": "19.65792",
+    "longitude": "79.44925",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 174,
+    "name": "Air Force Hospital, Tawang",
+    "address": "400, Healthcare Avenue",
+    "city": "Tawang",
+    "state": "Arunachal Pradesh",
+    "zipCode": "265203",
+    "phone": "04459-232395",
+    "email": "info@air.force.org",
+    "latitude": "28.47176",
+    "longitude": "95.63542",
+    "type": "Military",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 175,
+    "name": "Defence Hospital, Tawang",
+    "address": "390, Main Road",
+    "city": "Tawang",
+    "state": "Arunachal Pradesh",
+    "zipCode": "110285",
+    "phone": "09930-676017",
+    "email": "info@defence.hospital.org",
+    "latitude": "27.59819",
+    "longitude": "94.95520",
+    "type": "Military",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 176,
+    "name": "Defence Health Center, Patna",
+    "address": "358, Main Road",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "531060",
+    "phone": "03521-168161",
+    "email": "info@defence.health.org",
+    "latitude": "25.39618",
+    "longitude": "84.86169",
+    "type": "Military",
     "services": [
       "Emergency",
       "Surgery",
@@ -3798,68 +4342,17 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 155,
-    "name": "Yoga Medical College & Hospital, Unknown City",
-    "address": "413, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Lakshdweep",
-    "zipCode": "869024",
-    "phone": "02201-605510",
-    "email": "info@yoga.medical.org",
-    "latitude": "19.96264",
-    "longitude": "79.52512",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 156,
-    "name": "Siddha Hospital, Unknown City",
-    "address": "289, Main Road",
-    "city": "Unknown City",
-    "state": "Puducherry",
-    "zipCode": "322427",
-    "phone": "01702-201649",
-    "email": "info@siddha.hospital.org",
-    "latitude": "21.28018",
-    "longitude": "78.74767",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 157,
-    "name": "Unani Community Health Center, Unknown City",
-    "address": "73, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Puducherry",
-    "zipCode": "562597",
-    "phone": "09550-561588",
-    "email": "info@unani.community.org",
-    "latitude": "19.82932",
-    "longitude": "78.54783",
-    "type": "AYUSH",
+    "id": 177,
+    "name": "Naval Hospital, Patna",
+    "address": "131, Medical Center Road",
+    "city": "Patna",
+    "state": "Bihar",
+    "zipCode": "793002",
+    "phone": "01634-192883",
+    "email": "info@naval.hospital.org",
+    "latitude": "24.31615",
+    "longitude": "84.87215",
+    "type": "Military",
     "services": [
       "Tertiary Care",
       "Specialized Surgery",
@@ -3867,609 +4360,51 @@ export const hospitals: Hospital[] = [
       "Neurology",
       "Cardiology"
     ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 158,
-    "name": "Homeopathic Hospital, Warangal",
-    "address": "8, Medical Center Road",
-    "city": "Warangal",
-    "state": "Telangana",
-    "zipCode": "584215",
-    "phone": "08470-412666",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "18.40198",
-    "longitude": "78.29650",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 159,
-    "name": "Unani Hospital, Warangal",
-    "address": "8, Medical Center Road",
-    "city": "Warangal",
-    "state": "Telangana",
-    "zipCode": "825809",
-    "phone": "03343-534059",
-    "email": "info@unani.hospital.org",
-    "latitude": "19.00553",
-    "longitude": "79.82702",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 160,
-    "name": "Homeopathic Medical Center, Warangal",
-    "address": "492, Healthcare Avenue",
-    "city": "Warangal",
-    "state": "Telangana",
-    "zipCode": "871171",
-    "phone": "06250-415981",
-    "email": "info@homeopathic.medical.org",
-    "latitude": "17.44892",
-    "longitude": "78.03783",
-    "type": "AYUSH",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
     "emergencyServices": false,
     "specialties": [
       "Neurosurgery",
       "Cardiology",
       "Oncology",
       "Orthopedics"
-    ]
-  },
-  {
-    "id": 161,
-    "name": "Siddha Community Health Center, Warangal",
-    "address": "6, Main Road",
-    "city": "Warangal",
-    "state": "Telangana",
-    "zipCode": "811461",
-    "phone": "07778-830806",
-    "email": "info@siddha.community.org",
-    "latitude": "17.26489",
-    "longitude": "78.09205",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 162,
-    "name": "AYUSH Medical Center, Warangal",
-    "address": "494, Medical Center Road",
-    "city": "Warangal",
-    "state": "Telangana",
-    "zipCode": "315300",
-    "phone": "09665-499480",
-    "email": "info@ayush.medical.org",
-    "latitude": "17.46810",
-    "longitude": "79.47373",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 163,
-    "name": "Unani Medical College & Hospital, Unknown City",
-    "address": "97, Main Road",
-    "city": "Unknown City",
-    "state": "TOTAL (A)",
-    "zipCode": "893435",
-    "phone": "02740-462912",
-    "email": "info@unani.medical.org",
-    "latitude": "20.62090",
-    "longitude": "78.16527",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 164,
-    "name": "Ayurvedic Community Health Center, Unknown City",
-    "address": "264, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "TOTAL (A)",
-    "zipCode": "561613",
-    "phone": "09705-117609",
-    "email": "info@ayurvedic.community.org",
-    "latitude": "19.63958",
-    "longitude": "79.53516",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 165,
-    "name": "Yoga Community Health Center, Unknown City",
-    "address": "167, Main Road",
-    "city": "Unknown City",
-    "state": "TOTAL (A)",
-    "zipCode": "415421",
-    "phone": "05510-519506",
-    "email": "info@yoga.community.org",
-    "latitude": "20.84746",
-    "longitude": "79.78788",
-    "type": "AYUSH",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 166,
-    "name": "Yoga Hospital, Unknown City",
-    "address": "340, Hospital Road",
-    "city": "Unknown City",
-    "state": "TOTAL (A)",
-    "zipCode": "284246",
-    "phone": "05562-398105",
-    "email": "info@yoga.hospital.org",
-    "latitude": "20.75668",
-    "longitude": "78.72164",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 167,
-    "name": "Homeopathic Hospital, Unknown City",
-    "address": "450, Medical Center Road",
-    "city": "Unknown City",
-    "state": "TOTAL (A)",
-    "zipCode": "891790",
-    "phone": "03310-655161",
-    "email": "info@homeopathic.hospital.org",
-    "latitude": "19.64129",
-    "longitude": "79.22745",
-    "type": "AYUSH",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 168,
-    "name": "Defence Medical Center, Dibrugarh",
-    "address": "499, Hospital Road",
-    "city": "Dibrugarh",
-    "state": "Assam",
-    "zipCode": "387837",
-    "phone": "04726-799634",
-    "email": "info@defence.medical.org",
-    "latitude": "27.02426",
-    "longitude": "92.13651",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 169,
-    "name": "Army Health Center, Dibrugarh",
-    "address": "12, Healthcare Avenue",
-    "city": "Dibrugarh",
-    "state": "Assam",
-    "zipCode": "166542",
-    "phone": "06356-289255",
-    "email": "info@army.health.org",
-    "latitude": "27.07589",
-    "longitude": "92.53899",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 170,
-    "name": "Defence Medical College & Hospital, Vijayawada",
-    "address": "92, Healthcare Avenue",
-    "city": "Vijayawada",
-    "state": "Andhra Pradesh",
-    "zipCode": "698904",
-    "phone": "02189-480940",
-    "email": "info@defence.medical.org",
-    "latitude": "16.17480",
-    "longitude": "80.73892",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 171,
-    "name": "Army Medical College & Hospital, Vijayawada",
-    "address": "138, Hospital Road",
-    "city": "Vijayawada",
-    "state": "Andhra Pradesh",
-    "zipCode": "129085",
-    "phone": "03720-909156",
-    "email": "info@army.medical.org",
-    "latitude": "14.93313",
-    "longitude": "79.51352",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 172,
-    "name": "Naval Medical Center, Unknown City",
-    "address": "335, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "246856",
-    "phone": "03536-784704",
-    "email": "info@naval.medical.org",
-    "latitude": "21.05387",
-    "longitude": "78.71933",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 173,
-    "name": "Military Health Center, Unknown City",
-    "address": "392, Hospital Road",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "825385",
-    "phone": "09125-736986",
-    "email": "info@military.health.org",
-    "latitude": "19.74020",
-    "longitude": "79.80150",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 174,
-    "name": "Military Hospital, Naharlagun",
-    "address": "116, Hospital Road",
-    "city": "Naharlagun",
-    "state": "Arunachal Pradesh",
-    "zipCode": "733258",
-    "phone": "05987-765977",
-    "email": "info@military.hospital.org",
-    "latitude": "29.02195",
-    "longitude": "94.79528",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 175,
-    "name": "Defence Health Center, Naharlagun",
-    "address": "130, Medical Center Road",
-    "city": "Naharlagun",
-    "state": "Arunachal Pradesh",
-    "zipCode": "153393",
-    "phone": "04977-518328",
-    "email": "info@defence.health.org",
-    "latitude": "28.80096",
-    "longitude": "95.26950",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 176,
-    "name": "Army Community Health Center, Gaya",
-    "address": "338, Medical Center Road",
-    "city": "Gaya",
-    "state": "Bihar",
-    "zipCode": "422244",
-    "phone": "06586-794762",
-    "email": "info@army.community.org",
-    "latitude": "25.24902",
-    "longitude": "84.80524",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 177,
-    "name": "Military Medical Center, Gaya",
-    "address": "477, Healthcare Avenue",
-    "city": "Gaya",
-    "state": "Bihar",
-    "zipCode": "770242",
-    "phone": "07438-619211",
-    "email": "info@military.medical.org",
-    "latitude": "24.37287",
-    "longitude": "85.13674",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
     ]
   },
   {
     "id": 178,
-    "name": "Naval Health Center, South Delhi",
-    "address": "86, Medical Center Road",
-    "city": "South Delhi",
+    "name": "Military Medical Center, New Delhi",
+    "address": "257, Main Road",
+    "city": "New Delhi",
     "state": "Delhi",
-    "zipCode": "396338",
-    "phone": "04219-719507",
-    "email": "info@naval.health.org",
-    "latitude": "29.40453",
-    "longitude": "77.73277",
+    "zipCode": "728243",
+    "phone": "01147-832766",
+    "email": "info@military.medical.org",
+    "latitude": "28.00850",
+    "longitude": "77.53642",
     "type": "Military",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
     "emergencyServices": false,
     "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 179,
-    "name": "Defence Community Health Center, South Delhi",
-    "address": "172, Medical Center Road",
-    "city": "South Delhi",
-    "state": "Delhi",
-    "zipCode": "181179",
-    "phone": "03609-762815",
-    "email": "info@defence.community.org",
-    "latitude": "29.58167",
-    "longitude": "76.98925",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
       "Cardiology",
       "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 180,
-    "name": "Defence Community Health Center, Vasco da Gama",
-    "address": "237, Hospital Road",
-    "city": "Vasco da Gama",
-    "state": "Goa",
-    "zipCode": "649825",
-    "phone": "02841-542443",
-    "email": "info@defence.community.org",
-    "latitude": "15.29989",
-    "longitude": "73.45735",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 181,
-    "name": "Military Medical College & Hospital, Vasco da Gama",
-    "address": "238, Healthcare Avenue",
-    "city": "Vasco da Gama",
-    "state": "Goa",
-    "zipCode": "796192",
-    "phone": "04246-666728",
-    "email": "info@military.medical.org",
-    "latitude": "16.18657",
-    "longitude": "74.06491",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
       "Orthopedics"
     ]
   },
   {
-    "id": 182,
-    "name": "Defence Health Center, Surat",
-    "address": "242, Main Road",
-    "city": "Surat",
-    "state": "Gujarat",
-    "zipCode": "889065",
-    "phone": "01578-473373",
-    "email": "info@defence.health.org",
-    "latitude": "21.26984",
-    "longitude": "71.53062",
+    "id": 179,
+    "name": "Army Medical Center, New Delhi",
+    "address": "365, Hospital Road",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "zipCode": "470348",
+    "phone": "05572-999570",
+    "email": "info@army.medical.org",
+    "latitude": "28.49139",
+    "longitude": "76.39190",
     "type": "Military",
     "services": [
       "Primary Care",
@@ -4478,46 +4413,97 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "General Medicine",
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 180,
+    "name": "Defence Medical Center, Vasco da Gama",
+    "address": "20, Main Road",
+    "city": "Vasco da Gama",
+    "state": "Goa",
+    "zipCode": "778951",
+    "phone": "03150-384133",
+    "email": "info@defence.medical.org",
+    "latitude": "16.26296",
+    "longitude": "74.26946",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 181,
+    "name": "Air Force Health Center, Vasco da Gama",
+    "address": "404, Medical Center Road",
+    "city": "Vasco da Gama",
+    "state": "Goa",
+    "zipCode": "337818",
+    "phone": "09278-230758",
+    "email": "info@air.force.org",
+    "latitude": "15.35533",
+    "longitude": "75.07828",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 182,
+    "name": "Air Force Medical Center, Ahmedabad",
+    "address": "116, Healthcare Avenue",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "224660",
+    "phone": "02319-753564",
+    "email": "info@air.force.org",
+    "latitude": "21.94252",
+    "longitude": "72.09137",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
       "Orthopedics"
     ]
   },
   {
     "id": 183,
-    "name": "Army Health Center, Surat",
-    "address": "326, Main Road",
-    "city": "Surat",
+    "name": "Military Community Health Center, Ahmedabad",
+    "address": "324, Hospital Road",
+    "city": "Ahmedabad",
     "state": "Gujarat",
-    "zipCode": "685923",
-    "phone": "06268-422857",
-    "email": "info@army.health.org",
-    "latitude": "21.27851",
-    "longitude": "71.38251",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 184,
-    "name": "Air Force Health Center, Panipat",
-    "address": "231, Main Road",
-    "city": "Panipat",
-    "state": "Haryana",
-    "zipCode": "771353",
-    "phone": "04234-623923",
-    "email": "info@air.force.org",
-    "latitude": "29.33108",
-    "longitude": "76.45497",
+    "zipCode": "892834",
+    "phone": "04226-210853",
+    "email": "info@military.community.org",
+    "latitude": "22.05797",
+    "longitude": "70.66646",
     "type": "Military",
     "services": [
       "Primary Care",
@@ -4527,50 +4513,66 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 184,
+    "name": "Army Community Health Center, Gurugram",
+    "address": "275, Main Road",
+    "city": "Gurugram",
+    "state": "Haryana",
+    "zipCode": "548024",
+    "phone": "07770-760032",
+    "email": "info@army.community.org",
+    "latitude": "28.81912",
+    "longitude": "75.90294",
+    "type": "Military",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
     ]
   },
   {
     "id": 185,
-    "name": "Air Force Medical Center, Panipat",
-    "address": "426, Main Road",
-    "city": "Panipat",
+    "name": "Defence Hospital, Gurugram",
+    "address": "438, Main Road",
+    "city": "Gurugram",
     "state": "Haryana",
-    "zipCode": "147452",
-    "phone": "06398-107991",
-    "email": "info@air.force.org",
-    "latitude": "29.26327",
-    "longitude": "75.13322",
+    "zipCode": "696015",
+    "phone": "01628-414725",
+    "email": "info@defence.hospital.org",
+    "latitude": "30.02456",
+    "longitude": "75.64268",
     "type": "Military",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "General Practice"
     ]
   },
   {
     "id": 186,
-    "name": "Air Force Hospital, Shimla",
-    "address": "475, Healthcare Avenue",
+    "name": "Military Community Health Center, Shimla",
+    "address": "76, Healthcare Avenue",
     "city": "Shimla",
     "state": "Himachal Pradesh",
-    "zipCode": "118134",
-    "phone": "06498-781620",
-    "email": "info@air.force.org",
-    "latitude": "32.08262",
-    "longitude": "76.60020",
+    "zipCode": "883989",
+    "phone": "07273-202806",
+    "email": "info@military.community.org",
+    "latitude": "30.29658",
+    "longitude": "77.73768",
     "type": "Military",
     "services": [
       "Primary Care",
@@ -4579,27 +4581,25 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Family Medicine"
     ]
   },
   {
     "id": 187,
-    "name": "Military Medical College & Hospital, Shimla",
-    "address": "240, Hospital Road",
+    "name": "Air Force Medical Center, Shimla",
+    "address": "95, Main Road",
     "city": "Shimla",
     "state": "Himachal Pradesh",
-    "zipCode": "837156",
-    "phone": "07814-429590",
-    "email": "info@military.medical.org",
-    "latitude": "30.55258",
-    "longitude": "77.79445",
+    "zipCode": "744105",
+    "phone": "09871-488609",
+    "email": "info@air.force.org",
+    "latitude": "31.58418",
+    "longitude": "77.97133",
     "type": "Military",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -4608,39 +4608,38 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 188,
-    "name": "Army Medical Center, Unknown City",
-    "address": "359, Main Road",
+    "name": "Defence Community Health Center, Unknown City",
+    "address": "130, Healthcare Avenue",
     "city": "Unknown City",
     "state": "Jammu & Kashmir",
-    "zipCode": "343212",
-    "phone": "04907-517716",
-    "email": "info@army.medical.org",
-    "latitude": "20.95347",
-    "longitude": "79.44193",
+    "zipCode": "645928",
+    "phone": "09144-695148",
+    "email": "info@defence.community.org",
+    "latitude": "20.55370",
+    "longitude": "78.13376",
     "type": "Military",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": false,
     "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
+      "General Practice"
     ]
   },
   {
     "id": 189,
-    "name": "Army Health Center, Unknown City",
-    "address": "45, Main Road",
+    "name": "Naval Medical Center, Unknown City",
+    "address": "190, Medical Center Road",
     "city": "Unknown City",
     "state": "Jammu & Kashmir",
-    "zipCode": "332791",
-    "phone": "09695-958123",
-    "email": "info@army.health.org",
-    "latitude": "20.04784",
-    "longitude": "78.31905",
+    "zipCode": "361292",
+    "phone": "07856-506006",
+    "email": "info@naval.medical.org",
+    "latitude": "20.94427",
+    "longitude": "78.74191",
     "type": "Military",
     "services": [
       "Basic Healthcare",
@@ -4650,26 +4649,82 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Mobile Healthcare"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 190,
-    "name": "Naval Health Center, Ranchi",
-    "address": "78, Hospital Road",
-    "city": "Ranchi",
+    "name": "Army Health Center, Dhanbad",
+    "address": "12, Medical Center Road",
+    "city": "Dhanbad",
     "state": "Jharkhand",
-    "zipCode": "871136",
-    "phone": "06685-947869",
-    "email": "info@naval.health.org",
-    "latitude": "23.56839",
-    "longitude": "84.42365",
+    "zipCode": "367769",
+    "phone": "04526-686321",
+    "email": "info@army.health.org",
+    "latitude": "24.21720",
+    "longitude": "85.54691",
     "type": "Military",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 191,
+    "name": "Defence Community Health Center, Dhanbad",
+    "address": "337, Healthcare Avenue",
+    "city": "Dhanbad",
+    "state": "Jharkhand",
+    "zipCode": "841805",
+    "phone": "01549-965308",
+    "email": "info@defence.community.org",
+    "latitude": "22.88945",
+    "longitude": "84.33922",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 192,
+    "name": "Army Health Center, Hubli",
+    "address": "131, Main Road",
+    "city": "Hubli",
+    "state": "Karnataka",
+    "zipCode": "549206",
+    "phone": "07168-661064",
+    "email": "info@army.health.org",
+    "latitude": "14.88558",
+    "longitude": "75.24755",
+    "type": "Military",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -4679,16 +4734,92 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 191,
-    "name": "Air Force Medical Center, Ranchi",
-    "address": "15, Main Road",
-    "city": "Ranchi",
-    "state": "Jharkhand",
-    "zipCode": "338707",
-    "phone": "09128-821844",
+    "id": 193,
+    "name": "Military Health Center, Hubli",
+    "address": "500, Medical Center Road",
+    "city": "Hubli",
+    "state": "Karnataka",
+    "zipCode": "561440",
+    "phone": "07918-501230",
+    "email": "info@military.health.org",
+    "latitude": "15.96855",
+    "longitude": "76.20288",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 194,
+    "name": "Air Force Medical Center, Kochi",
+    "address": "120, Healthcare Avenue",
+    "city": "Kochi",
+    "state": "Kerala",
+    "zipCode": "852297",
+    "phone": "03833-321414",
     "email": "info@air.force.org",
-    "latitude": "24.42066",
-    "longitude": "85.96244",
+    "latitude": "9.97762",
+    "longitude": "76.29961",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 195,
+    "name": "Air Force Health Center, Kochi",
+    "address": "202, Main Road",
+    "city": "Kochi",
+    "state": "Kerala",
+    "zipCode": "862401",
+    "phone": "01531-998667",
+    "email": "info@air.force.org",
+    "latitude": "10.44417",
+    "longitude": "76.17808",
+    "type": "Military",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 196,
+    "name": "Army Hospital, Bhopal",
+    "address": "373, Healthcare Avenue",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "zipCode": "311231",
+    "phone": "02592-609323",
+    "email": "info@army.hospital.org",
+    "latitude": "22.60283",
+    "longitude": "78.84154",
     "type": "Military",
     "services": [
       "Tertiary Care",
@@ -4699,125 +4830,51 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Practice"
+      "Mobile Healthcare"
     ]
   },
   {
-    "id": 192,
-    "name": "Army Community Health Center, Hubli",
-    "address": "437, Main Road",
-    "city": "Hubli",
-    "state": "Karnataka",
-    "zipCode": "642679",
-    "phone": "07529-631457",
-    "email": "info@army.community.org",
-    "latitude": "16.17470",
-    "longitude": "76.41085",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 193,
-    "name": "Naval Medical College & Hospital, Hubli",
-    "address": "289, Medical Center Road",
-    "city": "Hubli",
-    "state": "Karnataka",
-    "zipCode": "589221",
-    "phone": "06291-994159",
-    "email": "info@naval.medical.org",
-    "latitude": "14.83909",
-    "longitude": "75.52414",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 194,
-    "name": "Defence Community Health Center, Kochi",
-    "address": "319, Main Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "851534",
-    "phone": "01316-370292",
-    "email": "info@defence.community.org",
-    "latitude": "11.49263",
-    "longitude": "75.45770",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 195,
-    "name": "Air Force Medical Center, Kochi",
-    "address": "200, Main Road",
-    "city": "Kochi",
-    "state": "Kerala",
-    "zipCode": "570083",
-    "phone": "02320-152173",
-    "email": "info@air.force.org",
-    "latitude": "10.62146",
-    "longitude": "76.16831",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 196,
-    "name": "Defence Health Center, Gwalior",
-    "address": "278, Main Road",
-    "city": "Gwalior",
+    "id": 197,
+    "name": "Military Medical Center, Bhopal",
+    "address": "123, Healthcare Avenue",
+    "city": "Bhopal",
     "state": "Madhya Pradesh",
-    "zipCode": "187633",
-    "phone": "03840-654726",
-    "email": "info@defence.health.org",
-    "latitude": "23.17799",
-    "longitude": "78.11927",
+    "zipCode": "764168",
+    "phone": "09464-556226",
+    "email": "info@military.medical.org",
+    "latitude": "21.97433",
+    "longitude": "78.01245",
     "type": "Military",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 198,
+    "name": "Defence Community Health Center, Unknown City",
+    "address": "51, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Maharastra",
+    "zipCode": "273106",
+    "phone": "05801-188084",
+    "email": "info@defence.community.org",
+    "latitude": "20.47179",
+    "longitude": "79.79205",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -4827,16 +4884,40 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 197,
-    "name": "Defence Medical Center, Gwalior",
-    "address": "451, Healthcare Avenue",
-    "city": "Gwalior",
-    "state": "Madhya Pradesh",
-    "zipCode": "288391",
-    "phone": "08472-296810",
-    "email": "info@defence.medical.org",
-    "latitude": "23.61731",
-    "longitude": "77.89197",
+    "id": 199,
+    "name": "Air Force Medical College & Hospital, Unknown City",
+    "address": "302, Hospital Road",
+    "city": "Unknown City",
+    "state": "Maharastra",
+    "zipCode": "444082",
+    "phone": "06334-215984",
+    "email": "info@air.force.org",
+    "latitude": "20.93006",
+    "longitude": "78.43987",
+    "type": "Military",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 200,
+    "name": "Military Medical College & Hospital, Ukhrul",
+    "address": "244, Medical Center Road",
+    "city": "Ukhrul",
+    "state": "Manipur",
+    "zipCode": "351898",
+    "phone": "04327-669484",
+    "email": "info@military.medical.org",
+    "latitude": "24.92987",
+    "longitude": "93.82311",
     "type": "Military",
     "services": [
       "Primary Care",
@@ -4845,22 +4926,20 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
+      "General Practice"
     ]
   },
   {
-    "id": 198,
-    "name": "Naval Medical Center, Unknown City",
-    "address": "490, Main Road",
-    "city": "Unknown City",
-    "state": "Maharastra",
-    "zipCode": "147807",
-    "phone": "03673-482864",
-    "email": "info@naval.medical.org",
-    "latitude": "21.47891",
-    "longitude": "78.45495",
+    "id": 201,
+    "name": "Defence Health Center, Ukhrul",
+    "address": "386, Medical Center Road",
+    "city": "Ukhrul",
+    "state": "Manipur",
+    "zipCode": "475647",
+    "phone": "09672-478783",
+    "email": "info@defence.health.org",
+    "latitude": "24.45103",
+    "longitude": "94.82811",
     "type": "Military",
     "services": [
       "Basic Healthcare",
@@ -4874,16 +4953,141 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 199,
-    "name": "Military Community Health Center, Unknown City",
-    "address": "458, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Maharastra",
-    "zipCode": "178640",
-    "phone": "06758-819332",
-    "email": "info@military.community.org",
-    "latitude": "20.61912",
-    "longitude": "79.94741",
+    "id": 202,
+    "name": "Army Medical College & Hospital, Tura",
+    "address": "7, Healthcare Avenue",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "691001",
+    "phone": "09686-695220",
+    "email": "info@army.medical.org",
+    "latitude": "24.74219",
+    "longitude": "92.02538",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 203,
+    "name": "Army Hospital, Tura",
+    "address": "454, Medical Center Road",
+    "city": "Tura",
+    "state": "Meghalaya",
+    "zipCode": "513014",
+    "phone": "04369-390645",
+    "email": "info@army.hospital.org",
+    "latitude": "24.71717",
+    "longitude": "90.88776",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 204,
+    "name": "Army Community Health Center, Kohima",
+    "address": "71, Hospital Road",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "720153",
+    "phone": "09921-425478",
+    "email": "info@army.community.org",
+    "latitude": "25.69455",
+    "longitude": "93.62126",
+    "type": "Military",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 205,
+    "name": "Army Hospital, Kohima",
+    "address": "224, Hospital Road",
+    "city": "Kohima",
+    "state": "Nagaland",
+    "zipCode": "339873",
+    "phone": "05697-806075",
+    "email": "info@army.hospital.org",
+    "latitude": "26.57229",
+    "longitude": "95.47944",
+    "type": "Military",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 206,
+    "name": "Defence Medical Center, Berhampur",
+    "address": "429, Healthcare Avenue",
+    "city": "Berhampur",
+    "state": "Odisha",
+    "zipCode": "448350",
+    "phone": "01769-202964",
+    "email": "info@defence.medical.org",
+    "latitude": "21.15285",
+    "longitude": "84.11478",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 207,
+    "name": "Army Community Health Center, Berhampur",
+    "address": "28, Medical Center Road",
+    "city": "Berhampur",
+    "state": "Odisha",
+    "zipCode": "198578",
+    "phone": "05659-534578",
+    "email": "info@army.community.org",
+    "latitude": "21.76338",
+    "longitude": "84.91652",
     "type": "Military",
     "services": [
       "Primary Care",
@@ -4893,28 +5097,75 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
+      "Mobile Healthcare"
     ]
   },
   {
-    "id": 200,
-    "name": "Air Force Community Health Center, Ukhrul",
-    "address": "413, Hospital Road",
-    "city": "Ukhrul",
-    "state": "Manipur",
-    "zipCode": "227962",
-    "phone": "06498-545968",
-    "email": "info@air.force.org",
-    "latitude": "24.71180",
-    "longitude": "93.25655",
+    "id": 208,
+    "name": "Military Medical College & Hospital, Amritsar",
+    "address": "481, Main Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "764941",
+    "phone": "01262-677284",
+    "email": "info@military.medical.org",
+    "latitude": "30.55047",
+    "longitude": "76.27563",
     "type": "Military",
     "services": [
       "Emergency",
       "Surgery",
       "Cardiac Care",
       "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 209,
+    "name": "Military Medical College & Hospital, Amritsar",
+    "address": "112, Main Road",
+    "city": "Amritsar",
+    "state": "Punjab",
+    "zipCode": "890717",
+    "phone": "01462-830666",
+    "email": "info@military.medical.org",
+    "latitude": "30.49557",
+    "longitude": "75.29426",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 210,
+    "name": "Air Force Medical Center, Udaipur",
+    "address": "40, Main Road",
+    "city": "Udaipur",
+    "state": "Rajasthan",
+    "zipCode": "749159",
+    "phone": "06670-706846",
+    "email": "info@air.force.org",
+    "latitude": "26.98263",
+    "longitude": "73.42711",
+    "type": "Military",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -4923,337 +5174,98 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 201,
-    "name": "Naval Hospital, Ukhrul",
-    "address": "366, Main Road",
-    "city": "Ukhrul",
-    "state": "Manipur",
-    "zipCode": "444285",
-    "phone": "01962-961818",
-    "email": "info@naval.hospital.org",
-    "latitude": "25.47660",
-    "longitude": "93.36531",
-    "type": "Military",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 202,
-    "name": "Military Medical College & Hospital, Tura",
-    "address": "410, Healthcare Avenue",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "715884",
-    "phone": "05890-906906",
-    "email": "info@military.medical.org",
-    "latitude": "25.79077",
-    "longitude": "90.88546",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 203,
-    "name": "Naval Medical Center, Tura",
-    "address": "212, Medical Center Road",
-    "city": "Tura",
-    "state": "Meghalaya",
-    "zipCode": "451336",
-    "phone": "06542-332925",
-    "email": "info@naval.medical.org",
-    "latitude": "26.01382",
-    "longitude": "90.78502",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 204,
-    "name": "Naval Medical College & Hospital, Kohima",
-    "address": "326, Healthcare Avenue",
-    "city": "Kohima",
-    "state": "Nagaland",
-    "zipCode": "262840",
-    "phone": "06219-940341",
-    "email": "info@naval.medical.org",
-    "latitude": "25.47640",
-    "longitude": "93.77219",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 205,
-    "name": "Air Force Medical Center, Kohima",
-    "address": "160, Healthcare Avenue",
-    "city": "Kohima",
-    "state": "Nagaland",
-    "zipCode": "144732",
-    "phone": "09423-925354",
-    "email": "info@air.force.org",
-    "latitude": "26.88570",
-    "longitude": "93.61674",
-    "type": "Military",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 206,
-    "name": "Army Hospital, Berhampur",
-    "address": "211, Medical Center Road",
-    "city": "Berhampur",
-    "state": "Odisha",
-    "zipCode": "872123",
-    "phone": "06900-996637",
-    "email": "info@army.hospital.org",
-    "latitude": "21.19070",
-    "longitude": "85.63597",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 207,
-    "name": "Military Medical College & Hospital, Berhampur",
-    "address": "86, Hospital Road",
-    "city": "Berhampur",
-    "state": "Odisha",
-    "zipCode": "298516",
-    "phone": "04257-408231",
-    "email": "info@military.medical.org",
-    "latitude": "20.00337",
-    "longitude": "84.47798",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 208,
-    "name": "Defence Health Center, Jalandhar",
-    "address": "56, Medical Center Road",
-    "city": "Jalandhar",
-    "state": "Punjab",
-    "zipCode": "334625",
-    "phone": "04102-948815",
-    "email": "info@defence.health.org",
-    "latitude": "30.33514",
-    "longitude": "74.90533",
-    "type": "Military",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 209,
-    "name": "Defence Medical College & Hospital, Jalandhar",
-    "address": "89, Healthcare Avenue",
-    "city": "Jalandhar",
-    "state": "Punjab",
-    "zipCode": "710612",
-    "phone": "03873-879144",
-    "email": "info@defence.medical.org",
-    "latitude": "31.79629",
-    "longitude": "75.94522",
-    "type": "Military",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 210,
-    "name": "Military Health Center, Kota",
-    "address": "491, Main Road",
-    "city": "Kota",
-    "state": "Rajasthan",
-    "zipCode": "235228",
-    "phone": "07450-746664",
-    "email": "info@military.health.org",
-    "latitude": "26.50714",
-    "longitude": "73.69790",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
     "id": 211,
-    "name": "Military Medical Center, Kota",
-    "address": "126, Main Road",
-    "city": "Kota",
+    "name": "Naval Medical Center, Udaipur",
+    "address": "379, Hospital Road",
+    "city": "Udaipur",
     "state": "Rajasthan",
-    "zipCode": "747782",
-    "phone": "09132-721855",
-    "email": "info@military.medical.org",
-    "latitude": "26.24528",
-    "longitude": "73.60809",
+    "zipCode": "444217",
+    "phone": "04234-631881",
+    "email": "info@naval.medical.org",
+    "latitude": "27.67262",
+    "longitude": "74.81414",
     "type": "Military",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "Family Medicine"
     ]
   },
   {
     "id": 212,
-    "name": "Defence Health Center, Gyalshing",
-    "address": "45, Hospital Road",
-    "city": "Gyalshing",
+    "name": "Army Medical Center, Gangtok",
+    "address": "42, Healthcare Avenue",
+    "city": "Gangtok",
     "state": "Sikkim",
-    "zipCode": "612162",
-    "phone": "02772-872810",
-    "email": "info@defence.health.org",
-    "latitude": "28.39235",
-    "longitude": "87.63458",
+    "zipCode": "393951",
+    "phone": "09594-974072",
+    "email": "info@army.medical.org",
+    "latitude": "28.51904",
+    "longitude": "88.65765",
     "type": "Military",
     "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 213,
-    "name": "Defence Health Center, Gyalshing",
-    "address": "14, Medical Center Road",
-    "city": "Gyalshing",
+    "name": "Army Medical Center, Gangtok",
+    "address": "265, Medical Center Road",
+    "city": "Gangtok",
     "state": "Sikkim",
-    "zipCode": "453412",
-    "phone": "04520-357218",
-    "email": "info@defence.health.org",
-    "latitude": "27.08888",
-    "longitude": "88.73722",
+    "zipCode": "733779",
+    "phone": "03378-308219",
+    "email": "info@army.medical.org",
+    "latitude": "26.70143",
+    "longitude": "88.43041",
     "type": "Military",
     "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Practice"
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
     ]
   },
   {
     "id": 214,
-    "name": "Military Medical College & Hospital, Madurai",
-    "address": "119, Medical Center Road",
-    "city": "Madurai",
+    "name": "Military Medical Center, Salem",
+    "address": "283, Main Road",
+    "city": "Salem",
     "state": "Tamil Nadu",
-    "zipCode": "691831",
-    "phone": "01506-813737",
+    "zipCode": "638237",
+    "phone": "02802-777601",
     "email": "info@military.medical.org",
-    "latitude": "11.61629",
-    "longitude": "78.91806",
+    "latitude": "10.64770",
+    "longitude": "78.42803",
     "type": "Military",
     "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -5263,15 +5275,61 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 215,
-    "name": "Army Medical College & Hospital, Madurai",
-    "address": "92, Hospital Road",
-    "city": "Madurai",
+    "name": "Naval Hospital, Salem",
+    "address": "7, Hospital Road",
+    "city": "Salem",
     "state": "Tamil Nadu",
-    "zipCode": "882835",
-    "phone": "06665-225722",
-    "email": "info@army.medical.org",
-    "latitude": "11.20069",
-    "longitude": "79.26189",
+    "zipCode": "285825",
+    "phone": "09833-968685",
+    "email": "info@naval.hospital.org",
+    "latitude": "11.30687",
+    "longitude": "78.91284",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 216,
+    "name": "Air Force Health Center, Hyderabad",
+    "address": "149, Main Road",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zipCode": "524206",
+    "phone": "01918-386759",
+    "email": "info@air.force.org",
+    "latitude": "17.81753",
+    "longitude": "79.39811",
+    "type": "Military",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 217,
+    "name": "Naval Hospital, Hyderabad",
+    "address": "399, Main Road",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zipCode": "585516",
+    "phone": "07845-231093",
+    "email": "info@naval.hospital.org",
+    "latitude": "17.35376",
+    "longitude": "78.37719",
     "type": "Military",
     "services": [
       "Emergency",
@@ -5281,72 +5339,20 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 216,
-    "name": "Army Medical Center, Nizamabad",
-    "address": "305, Medical Center Road",
-    "city": "Nizamabad",
-    "state": "Telangana",
-    "zipCode": "745147",
-    "phone": "01985-815280",
-    "email": "info@army.medical.org",
-    "latitude": "18.95059",
-    "longitude": "79.94165",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 217,
-    "name": "Military Health Center, Nizamabad",
-    "address": "39, Main Road",
-    "city": "Nizamabad",
-    "state": "Telangana",
-    "zipCode": "473257",
-    "phone": "01275-591720",
-    "email": "info@military.health.org",
-    "latitude": "18.06544",
-    "longitude": "78.39100",
-    "type": "Military",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
+      "General Practice"
     ]
   },
   {
     "id": 218,
-    "name": "Air Force Medical College & Hospital, Agartala",
-    "address": "106, Main Road",
+    "name": "Military Medical College & Hospital, Agartala",
+    "address": "250, Medical Center Road",
     "city": "Agartala",
     "state": "Tripura",
-    "zipCode": "151223",
-    "phone": "09866-993091",
-    "email": "info@air.force.org",
-    "latitude": "23.45638",
-    "longitude": "92.36028",
+    "zipCode": "544742",
+    "phone": "03627-287256",
+    "email": "info@military.medical.org",
+    "latitude": "23.82814",
+    "longitude": "91.21825",
     "type": "Military",
     "services": [
       "Emergency",
@@ -5361,1002 +5367,194 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 219,
-    "name": "Military Medical College & Hospital, Agartala",
-    "address": "96, Medical Center Road",
+    "name": "Defence Medical College & Hospital, Agartala",
+    "address": "254, Healthcare Avenue",
     "city": "Agartala",
     "state": "Tripura",
-    "zipCode": "134136",
-    "phone": "04120-506717",
-    "email": "info@military.medical.org",
-    "latitude": "24.41750",
-    "longitude": "91.82019",
+    "zipCode": "136791",
+    "phone": "03122-976666",
+    "email": "info@defence.medical.org",
+    "latitude": "24.79674",
+    "longitude": "91.66601",
     "type": "Military",
     "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "General Practice"
     ]
   },
   {
     "id": 220,
-    "name": "Military Community Health Center, Haldwani",
-    "address": "186, Healthcare Avenue",
+    "name": "Army Health Center, Haldwani",
+    "address": "303, Healthcare Avenue",
     "city": "Haldwani",
     "state": "Uttarakhand",
-    "zipCode": "513517",
-    "phone": "01979-860463",
-    "email": "info@military.community.org",
-    "latitude": "30.83576",
-    "longitude": "78.24607",
+    "zipCode": "334573",
+    "phone": "05862-360463",
+    "email": "info@army.health.org",
+    "latitude": "29.99139",
+    "longitude": "79.31326",
     "type": "Military",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
     "emergencyServices": false,
     "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
+      "Obstetrics",
+      "Pediatrics"
     ]
   },
   {
     "id": 221,
-    "name": "Naval Medical Center, Haldwani",
-    "address": "418, Medical Center Road",
+    "name": "Military Hospital, Haldwani",
+    "address": "53, Main Road",
     "city": "Haldwani",
     "state": "Uttarakhand",
-    "zipCode": "485387",
-    "phone": "08185-347762",
-    "email": "info@naval.medical.org",
-    "latitude": "30.66086",
-    "longitude": "78.04609",
+    "zipCode": "533799",
+    "phone": "02919-929505",
+    "email": "info@military.hospital.org",
+    "latitude": "30.25681",
+    "longitude": "79.36423",
     "type": "Military",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Neurosurgery",
+      "Neurology",
       "Cardiology",
-      "Oncology",
-      "Orthopedics"
+      "Nephrology",
+      "Oncology"
     ]
   },
   {
     "id": 222,
-    "name": "Air Force Hospital, Lucknow",
-    "address": "329, Medical Center Road",
-    "city": "Lucknow",
+    "name": "Naval Medical Center, Kanpur",
+    "address": "79, Healthcare Avenue",
+    "city": "Kanpur",
     "state": "Uttar Pradesh",
-    "zipCode": "689403",
-    "phone": "06601-281948",
-    "email": "info@air.force.org",
-    "latitude": "26.67324",
-    "longitude": "81.43288",
+    "zipCode": "568843",
+    "phone": "06658-724537",
+    "email": "info@naval.medical.org",
+    "latitude": "27.27848",
+    "longitude": "81.89669",
     "type": "Military",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
     ]
   },
   {
     "id": 223,
-    "name": "Military Hospital, Lucknow",
-    "address": "6, Main Road",
-    "city": "Lucknow",
+    "name": "Military Medical College & Hospital, Kanpur",
+    "address": "134, Medical Center Road",
+    "city": "Kanpur",
     "state": "Uttar Pradesh",
-    "zipCode": "891163",
-    "phone": "09402-472082",
-    "email": "info@military.hospital.org",
-    "latitude": "27.83952",
-    "longitude": "80.75127",
+    "zipCode": "251813",
+    "phone": "02815-997807",
+    "email": "info@military.medical.org",
+    "latitude": "27.22097",
+    "longitude": "81.79052",
     "type": "Military",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
-      "Obstetrics",
-      "Pediatrics"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 224,
-    "name": "Naval Community Health Center, Kolkata",
-    "address": "306, Hospital Road",
-    "city": "Kolkata",
+    "name": "Defence Medical Center, Asansol",
+    "address": "379, Main Road",
+    "city": "Asansol",
     "state": "West Bengal",
-    "zipCode": "884218",
-    "phone": "08547-431311",
-    "email": "info@naval.community.org",
-    "latitude": "23.03566",
-    "longitude": "87.07313",
+    "zipCode": "637062",
+    "phone": "01769-552982",
+    "email": "info@defence.medical.org",
+    "latitude": "23.86594",
+    "longitude": "87.44312",
     "type": "Military",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
+      "General Medicine",
+      "Orthopedics"
     ]
   },
   {
     "id": 225,
-    "name": "Army Community Health Center, Kolkata",
-    "address": "161, Healthcare Avenue",
-    "city": "Kolkata",
+    "name": "Military Hospital, Asansol",
+    "address": "360, Medical Center Road",
+    "city": "Asansol",
     "state": "West Bengal",
-    "zipCode": "896447",
-    "phone": "05463-415780",
-    "email": "info@army.community.org",
-    "latitude": "22.14086",
-    "longitude": "88.27583",
+    "zipCode": "115664",
+    "phone": "04789-721935",
+    "email": "info@military.hospital.org",
+    "latitude": "23.48813",
+    "longitude": "87.19815",
     "type": "Military",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
     "emergencyServices": true,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Tribal Medicine",
+      "Infectious Diseases"
     ]
   },
   {
     "id": 226,
-    "name": "Defence Hospital, Unknown City",
-    "address": "18, Main Road",
+    "name": "Army Medical College & Hospital, Unknown City",
+    "address": "401, Hospital Road",
     "city": "Unknown City",
     "state": "Total",
-    "zipCode": "210187",
-    "phone": "01550-614978",
-    "email": "info@defence.hospital.org",
-    "latitude": "20.91656",
-    "longitude": "79.85167",
-    "type": "Military",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 227,
-    "name": "Military Community Health Center, Unknown City",
-    "address": "413, Main Road",
-    "city": "Unknown City",
-    "state": "Total",
-    "zipCode": "380762",
-    "phone": "02105-867043",
-    "email": "info@military.community.org",
-    "latitude": "21.55094",
-    "longitude": "79.11116",
+    "zipCode": "677880",
+    "phone": "02426-287547",
+    "email": "info@army.medical.org",
+    "latitude": "19.94098",
+    "longitude": "78.79329",
     "type": "Military",
     "services": [
       "Primary Care",
       "Maternal Health",
       "Child Health",
       "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 228,
-    "name": "State Medical Center, Unknown City",
-    "address": "449, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "S. No."
-      }
-    },
-    "zipCode": "352814",
-    "phone": "05544-797597",
-    "email": "info@state.medical.org",
-    "latitude": "21.32794",
-    "longitude": "79.44442",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 229,
-    "name": "Civil Medical College & Hospital, Unknown City",
-    "address": "357, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "S. No."
-      }
-    },
-    "zipCode": "238198",
-    "phone": "04286-132475",
-    "email": "info@civil.medical.org",
-    "latitude": "20.22999",
-    "longitude": "78.97106",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 230,
-    "name": "Community Hospital, Unknown City",
-    "address": "18, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "1"
-      }
-    },
-    "zipCode": "838738",
-    "phone": "04365-263918",
-    "email": "info@community.hospital.org",
-    "latitude": "21.43924",
-    "longitude": "79.33810",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 231,
-    "name": "Rural Health Center, Unknown City",
-    "address": "179, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "1"
-      }
-    },
-    "zipCode": "720947",
-    "phone": "04593-380630",
-    "email": "info@rural.health.org",
-    "latitude": "20.01894",
-    "longitude": "78.41186",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 232,
-    "name": "State Medical College & Hospital, Unknown City",
-    "address": "251, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "2"
-      }
-    },
-    "zipCode": "212751",
-    "phone": "07369-260671",
-    "email": "info@state.medical.org",
-    "latitude": "21.00119",
-    "longitude": "79.01456",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 233,
-    "name": "Civil Health Center, Unknown City",
-    "address": "328, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "2"
-      }
-    },
-    "zipCode": "631974",
-    "phone": "06669-899719",
-    "email": "info@civil.health.org",
-    "latitude": "19.97085",
-    "longitude": "78.27868",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 234,
-    "name": "State Health Center, Unknown City",
-    "address": "446, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "3"
-      }
-    },
-    "zipCode": "735733",
-    "phone": "04756-854509",
-    "email": "info@state.health.org",
-    "latitude": "21.52570",
-    "longitude": "79.79928",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 235,
-    "name": "State Health Center, Unknown City",
-    "address": "468, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "3"
-      }
-    },
-    "zipCode": "175789",
-    "phone": "08962-594368",
-    "email": "info@state.health.org",
-    "latitude": "20.62755",
-    "longitude": "79.33608",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 236,
-    "name": "State Hospital, Unknown City",
-    "address": "362, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "4"
-      }
-    },
-    "zipCode": "727900",
-    "phone": "05522-322263",
-    "email": "info@state.hospital.org",
-    "latitude": "20.31359",
-    "longitude": "79.94238",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 237,
-    "name": "Rural Medical Center, Unknown City",
-    "address": "160, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "4"
-      }
-    },
-    "zipCode": "136101",
-    "phone": "03909-246588",
-    "email": "info@rural.medical.org",
-    "latitude": "21.45476",
-    "longitude": "78.90784",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 238,
-    "name": "District Medical Center, Unknown City",
-    "address": "364, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "5"
-      }
-    },
-    "zipCode": "494756",
-    "phone": "07241-664429",
-    "email": "info@district.medical.org",
-    "latitude": "19.71985",
-    "longitude": "79.43410",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 239,
-    "name": "Community Medical Center, Unknown City",
-    "address": "236, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "5"
-      }
-    },
-    "zipCode": "869371",
-    "phone": "04132-633580",
-    "email": "info@community.medical.org",
-    "latitude": "21.04914",
-    "longitude": "79.43673",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 240,
-    "name": "District Medical Center, Unknown City",
-    "address": "203, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "6"
-      }
-    },
-    "zipCode": "379859",
-    "phone": "08823-500632",
-    "email": "info@district.medical.org",
-    "latitude": "21.29651",
-    "longitude": "78.29733",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 241,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "363, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "6"
-      }
-    },
-    "zipCode": "157251",
-    "phone": "08909-177040",
-    "email": "info@community.community.org",
-    "latitude": "19.64075",
-    "longitude": "78.60561",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 242,
-    "name": "General Medical College & Hospital, Unknown City",
-    "address": "24, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "7"
-      }
-    },
-    "zipCode": "570937",
-    "phone": "07130-119724",
-    "email": "info@general.medical.org",
-    "latitude": "21.45018",
-    "longitude": "79.80715",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 243,
-    "name": "State Health Center, Unknown City",
-    "address": "327, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "7"
-      }
-    },
-    "zipCode": "135772",
-    "phone": "01532-571097",
-    "email": "info@state.health.org",
-    "latitude": "20.05877",
-    "longitude": "79.23297",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 244,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "124, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "8"
-      }
-    },
-    "zipCode": "265249",
-    "phone": "09571-392882",
-    "email": "info@civil.community.org",
-    "latitude": "20.56885",
-    "longitude": "78.34800",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 245,
-    "name": "Rural Health Center, Unknown City",
-    "address": "199, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "8"
-      }
-    },
-    "zipCode": "738706",
-    "phone": "07889-238840",
-    "email": "info@rural.health.org",
-    "latitude": "20.57365",
-    "longitude": "79.63475",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 246,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "205, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "9"
-      }
-    },
-    "zipCode": "827266",
-    "phone": "03874-958621",
-    "email": "info@community.community.org",
-    "latitude": "20.53548",
-    "longitude": "78.93454",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 247,
-    "name": "Rural Health Center, Unknown City",
-    "address": "144, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "9"
-      }
-    },
-    "zipCode": "742184",
-    "phone": "05707-899566",
-    "email": "info@rural.health.org",
-    "latitude": "21.39037",
-    "longitude": "78.73297",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 248,
-    "name": "Civil Hospital, Unknown City",
-    "address": "282, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "10"
-      }
-    },
-    "zipCode": "374680",
-    "phone": "08900-646569",
-    "email": "info@civil.hospital.org",
-    "latitude": "20.28911",
-    "longitude": "78.75117",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 249,
-    "name": "General Medical Center, Unknown City",
-    "address": "240, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "10"
-      }
-    },
-    "zipCode": "311560",
-    "phone": "01559-944707",
-    "email": "info@general.medical.org",
-    "latitude": "20.91073",
-    "longitude": "78.40415",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 250,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "273, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "11"
-      }
-    },
-    "zipCode": "315871",
-    "phone": "07625-227616",
-    "email": "info@community.community.org",
-    "latitude": "21.57341",
-    "longitude": "77.99899",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 251,
-    "name": "State Community Health Center, Unknown City",
-    "address": "438, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "11"
-      }
-    },
-    "zipCode": "481218",
-    "phone": "06659-139855",
-    "email": "info@state.community.org",
-    "latitude": "19.90097",
-    "longitude": "78.81687",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 252,
-    "name": "Rural Health Center, Unknown City",
-    "address": "460, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "12"
-      }
-    },
-    "zipCode": "450278",
-    "phone": "01495-864070",
-    "email": "info@rural.health.org",
-    "latitude": "20.86107",
-    "longitude": "79.00268",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 253,
-    "name": "Community Hospital, Unknown City",
-    "address": "353, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "12"
-      }
-    },
-    "zipCode": "294791",
-    "phone": "05850-849610",
-    "email": "info@community.hospital.org",
-    "latitude": "20.83413",
-    "longitude": "78.17175",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 254,
-    "name": "Rural Medical College & Hospital, Unknown City",
-    "address": "364, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "13"
-      }
-    },
-    "zipCode": "296676",
-    "phone": "05131-923628",
-    "email": "info@rural.medical.org",
-    "latitude": "19.78358",
-    "longitude": "78.02360",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -6367,78 +5565,307 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 255,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "49, Main Road",
+    "id": 227,
+    "name": "Naval Health Center, Unknown City",
+    "address": "454, Main Road",
     "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "13"
-      }
-    },
-    "zipCode": "736771",
-    "phone": "07181-957053",
-    "email": "info@community.community.org",
-    "latitude": "20.44282",
-    "longitude": "78.43169",
-    "type": "Government",
+    "state": "Total",
+    "zipCode": "533061",
+    "phone": "05596-860586",
+    "email": "info@naval.health.org",
+    "latitude": "20.39850",
+    "longitude": "78.35065",
+    "type": "Military",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 256,
-    "name": "General Community Health Center, Unknown City",
-    "address": "462, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "14"
-      }
-    },
-    "zipCode": "310222",
-    "phone": "03532-245005",
-    "email": "info@general.community.org",
-    "latitude": "21.00896",
-    "longitude": "78.91880",
-    "type": "Government",
-    "services": [
-      "Emergency",
       "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
       "Orthopedics"
     ]
   },
   {
-    "id": 257,
-    "name": "Rural Medical College & Hospital, Unknown City",
-    "address": "276, Main Road",
+    "id": 228,
+    "name": "Civil Medical College & Hospital, Unknown City",
+    "address": "65, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "14"
+        "2017)": "S. No."
       }
     },
-    "zipCode": "779540",
-    "phone": "08605-855587",
-    "email": "info@rural.medical.org",
-    "latitude": "20.06901",
-    "longitude": "78.13152",
+    "zipCode": "652637",
+    "phone": "02986-210453",
+    "email": "info@civil.medical.org",
+    "latitude": "20.48950",
+    "longitude": "79.77970",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 229,
+    "name": "Community Medical College & Hospital, Unknown City",
+    "address": "298, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "S. No."
+      }
+    },
+    "zipCode": "215708",
+    "phone": "08233-254588",
+    "email": "info@community.medical.org",
+    "latitude": "20.48497",
+    "longitude": "77.97349",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 230,
+    "name": "Civil Community Health Center, Unknown City",
+    "address": "306, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "1"
+      }
+    },
+    "zipCode": "198488",
+    "phone": "02450-633933",
+    "email": "info@civil.community.org",
+    "latitude": "19.66444",
+    "longitude": "78.75574",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 231,
+    "name": "District Medical College & Hospital, Unknown City",
+    "address": "338, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "1"
+      }
+    },
+    "zipCode": "193696",
+    "phone": "07330-768015",
+    "email": "info@district.medical.org",
+    "latitude": "20.57045",
+    "longitude": "79.47560",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 232,
+    "name": "State Hospital, Unknown City",
+    "address": "236, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "2"
+      }
+    },
+    "zipCode": "542965",
+    "phone": "08166-355332",
+    "email": "info@state.hospital.org",
+    "latitude": "21.47438",
+    "longitude": "78.96231",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 233,
+    "name": "Community Medical Center, Unknown City",
+    "address": "470, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "2"
+      }
+    },
+    "zipCode": "452806",
+    "phone": "05981-315066",
+    "email": "info@community.medical.org",
+    "latitude": "21.38914",
+    "longitude": "79.32073",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 234,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "438, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "3"
+      }
+    },
+    "zipCode": "746277",
+    "phone": "08239-912520",
+    "email": "info@rural.community.org",
+    "latitude": "20.31708",
+    "longitude": "78.18736",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 235,
+    "name": "Civil Hospital, Unknown City",
+    "address": "401, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "3"
+      }
+    },
+    "zipCode": "771200",
+    "phone": "02554-924820",
+    "email": "info@civil.hospital.org",
+    "latitude": "20.01081",
+    "longitude": "79.13334",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 236,
+    "name": "Community Hospital, Unknown City",
+    "address": "219, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "4"
+      }
+    },
+    "zipCode": "271700",
+    "phone": "08458-566506",
+    "email": "info@community.hospital.org",
+    "latitude": "20.12166",
+    "longitude": "79.30579",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 237,
+    "name": "District Community Health Center, Unknown City",
+    "address": "86, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "4"
+      }
+    },
+    "zipCode": "674822",
+    "phone": "01103-603267",
+    "email": "info@district.community.org",
+    "latitude": "21.15746",
+    "longitude": "79.84056",
     "type": "Government",
     "services": [
       "Emergency",
@@ -6449,55 +5876,53 @@ export const hospitals: Hospital[] = [
     "emergencyServices": true,
     "specialties": [
       "Cardiology",
-      "Nephrology",
-      "Orthopedics"
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
-    "id": 258,
-    "name": "General Hospital, Unknown City",
-    "address": "91, Medical Center Road",
+    "id": 238,
+    "name": "Community Community Health Center, Unknown City",
+    "address": "289, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "15"
+        "2017)": "5"
       }
     },
-    "zipCode": "823424",
-    "phone": "08468-578459",
-    "email": "info@general.hospital.org",
-    "latitude": "20.86429",
-    "longitude": "79.63649",
+    "zipCode": "599413",
+    "phone": "04103-724706",
+    "email": "info@community.community.org",
+    "latitude": "20.89887",
+    "longitude": "78.01959",
     "type": "Government",
     "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
+      "Tribal Medicine",
+      "Infectious Diseases"
     ]
   },
   {
-    "id": 259,
-    "name": "Civil Hospital, Unknown City",
-    "address": "232, Main Road",
+    "id": 239,
+    "name": "State Community Health Center, Unknown City",
+    "address": "269, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "15"
+        "2017)": "5"
       }
     },
-    "zipCode": "528851",
-    "phone": "03792-311451",
-    "email": "info@civil.hospital.org",
-    "latitude": "19.72200",
-    "longitude": "78.78022",
+    "zipCode": "827539",
+    "phone": "09897-583559",
+    "email": "info@state.community.org",
+    "latitude": "21.04807",
+    "longitude": "79.15607",
     "type": "Government",
     "services": [
       "Emergency",
@@ -6512,20 +5937,588 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
+    "id": 240,
+    "name": "Civil Hospital, Unknown City",
+    "address": "360, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "6"
+      }
+    },
+    "zipCode": "123639",
+    "phone": "08813-934650",
+    "email": "info@civil.hospital.org",
+    "latitude": "19.90870",
+    "longitude": "77.98641",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 241,
+    "name": "Civil Health Center, Unknown City",
+    "address": "6, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "6"
+      }
+    },
+    "zipCode": "327353",
+    "phone": "09555-912966",
+    "email": "info@civil.health.org",
+    "latitude": "20.26946",
+    "longitude": "78.02093",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 242,
+    "name": "Civil Hospital, Unknown City",
+    "address": "389, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "7"
+      }
+    },
+    "zipCode": "325719",
+    "phone": "04614-779619",
+    "email": "info@civil.hospital.org",
+    "latitude": "21.46967",
+    "longitude": "79.76208",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 243,
+    "name": "Community Medical Center, Unknown City",
+    "address": "364, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "7"
+      }
+    },
+    "zipCode": "127218",
+    "phone": "08211-892331",
+    "email": "info@community.medical.org",
+    "latitude": "19.97742",
+    "longitude": "78.82258",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 244,
+    "name": "Civil Hospital, Unknown City",
+    "address": "188, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "8"
+      }
+    },
+    "zipCode": "456597",
+    "phone": "02232-171899",
+    "email": "info@civil.hospital.org",
+    "latitude": "20.39216",
+    "longitude": "79.78022",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 245,
+    "name": "Civil Medical College & Hospital, Unknown City",
+    "address": "192, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "8"
+      }
+    },
+    "zipCode": "780429",
+    "phone": "05689-721983",
+    "email": "info@civil.medical.org",
+    "latitude": "21.09554",
+    "longitude": "79.27572",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 246,
+    "name": "Community Community Health Center, Unknown City",
+    "address": "486, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "9"
+      }
+    },
+    "zipCode": "734794",
+    "phone": "06220-829078",
+    "email": "info@community.community.org",
+    "latitude": "20.83304",
+    "longitude": "78.74715",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 247,
+    "name": "Civil Medical College & Hospital, Unknown City",
+    "address": "491, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "9"
+      }
+    },
+    "zipCode": "265802",
+    "phone": "06729-637985",
+    "email": "info@civil.medical.org",
+    "latitude": "19.92828",
+    "longitude": "78.41337",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 248,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "421, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "10"
+      }
+    },
+    "zipCode": "311287",
+    "phone": "05629-148733",
+    "email": "info@rural.community.org",
+    "latitude": "20.77099",
+    "longitude": "79.82447",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 249,
+    "name": "Community Health Center, Unknown City",
+    "address": "69, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "10"
+      }
+    },
+    "zipCode": "386830",
+    "phone": "05530-737392",
+    "email": "info@community.health.org",
+    "latitude": "19.86840",
+    "longitude": "78.30115",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 250,
+    "name": "Rural Medical College & Hospital, Unknown City",
+    "address": "415, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "11"
+      }
+    },
+    "zipCode": "267941",
+    "phone": "04388-793512",
+    "email": "info@rural.medical.org",
+    "latitude": "19.69069",
+    "longitude": "79.92475",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 251,
+    "name": "General Health Center, Unknown City",
+    "address": "434, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "11"
+      }
+    },
+    "zipCode": "198802",
+    "phone": "07392-415446",
+    "email": "info@general.health.org",
+    "latitude": "21.39444",
+    "longitude": "79.34530",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 252,
+    "name": "General Hospital, Unknown City",
+    "address": "116, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "12"
+      }
+    },
+    "zipCode": "662253",
+    "phone": "08482-485024",
+    "email": "info@general.hospital.org",
+    "latitude": "19.64407",
+    "longitude": "79.30036",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 253,
+    "name": "State Medical Center, Unknown City",
+    "address": "324, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "12"
+      }
+    },
+    "zipCode": "173360",
+    "phone": "05811-288637",
+    "email": "info@state.medical.org",
+    "latitude": "20.72828",
+    "longitude": "78.22156",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 254,
+    "name": "Civil Hospital, Unknown City",
+    "address": "112, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "13"
+      }
+    },
+    "zipCode": "338558",
+    "phone": "02119-353904",
+    "email": "info@civil.hospital.org",
+    "latitude": "20.59267",
+    "longitude": "78.13989",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 255,
+    "name": "State Community Health Center, Unknown City",
+    "address": "376, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "13"
+      }
+    },
+    "zipCode": "430547",
+    "phone": "04764-618209",
+    "email": "info@state.community.org",
+    "latitude": "21.53770",
+    "longitude": "79.21939",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 256,
+    "name": "General Medical College & Hospital, Unknown City",
+    "address": "203, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "14"
+      }
+    },
+    "zipCode": "442920",
+    "phone": "04880-563724",
+    "email": "info@general.medical.org",
+    "latitude": "20.06755",
+    "longitude": "78.63999",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 257,
+    "name": "District Health Center, Unknown City",
+    "address": "148, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "14"
+      }
+    },
+    "zipCode": "722812",
+    "phone": "09395-939907",
+    "email": "info@district.health.org",
+    "latitude": "19.62268",
+    "longitude": "78.81298",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 258,
+    "name": "District Hospital, Unknown City",
+    "address": "160, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "15"
+      }
+    },
+    "zipCode": "278500",
+    "phone": "08387-868607",
+    "email": "info@district.hospital.org",
+    "latitude": "20.21096",
+    "longitude": "79.36711",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 259,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "39, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "15"
+      }
+    },
+    "zipCode": "285820",
+    "phone": "07811-766913",
+    "email": "info@rural.community.org",
+    "latitude": "21.23043",
+    "longitude": "78.97253",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
     "id": 260,
-    "name": "General Community Health Center, Unknown City",
-    "address": "296, Healthcare Avenue",
+    "name": "Civil Health Center, Unknown City",
+    "address": "429, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "16"
       }
     },
-    "zipCode": "381839",
-    "phone": "04702-167327",
-    "email": "info@general.community.org",
-    "latitude": "21.30546",
-    "longitude": "78.26373",
+    "zipCode": "635932",
+    "phone": "08918-527719",
+    "email": "info@civil.health.org",
+    "latitude": "20.44721",
+    "longitude": "78.53927",
     "type": "Government",
     "services": [
       "Basic Healthcare",
@@ -6543,335 +6536,19 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 261,
-    "name": "General Hospital, Unknown City",
-    "address": "32, Medical Center Road",
+    "name": "Community Health Center, Unknown City",
+    "address": "403, Hospital Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "16"
       }
     },
-    "zipCode": "739807",
-    "phone": "03983-201622",
-    "email": "info@general.hospital.org",
-    "latitude": "20.28856",
-    "longitude": "78.07588",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 262,
-    "name": "General Medical College & Hospital, Unknown City",
-    "address": "88, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "17"
-      }
-    },
-    "zipCode": "123107",
-    "phone": "06909-741380",
-    "email": "info@general.medical.org",
-    "latitude": "19.86223",
-    "longitude": "79.07326",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 263,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "309, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "17"
-      }
-    },
-    "zipCode": "821148",
-    "phone": "08500-422840",
-    "email": "info@community.medical.org",
-    "latitude": "20.99557",
-    "longitude": "78.29503",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 264,
-    "name": "District Medical Center, Unknown City",
-    "address": "274, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "18"
-      }
-    },
-    "zipCode": "710433",
-    "phone": "08589-631802",
-    "email": "info@district.medical.org",
-    "latitude": "20.72960",
-    "longitude": "79.53228",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 265,
-    "name": "State Health Center, Unknown City",
-    "address": "19, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "18"
-      }
-    },
-    "zipCode": "893555",
-    "phone": "04320-209062",
-    "email": "info@state.health.org",
-    "latitude": "20.17307",
-    "longitude": "78.71535",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 266,
-    "name": "State Medical College & Hospital, Unknown City",
-    "address": "43, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "19"
-      }
-    },
-    "zipCode": "871284",
-    "phone": "05537-880225",
-    "email": "info@state.medical.org",
-    "latitude": "20.08613",
-    "longitude": "78.00831",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 267,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "381, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "19"
-      }
-    },
-    "zipCode": "161727",
-    "phone": "05345-846426",
-    "email": "info@civil.community.org",
-    "latitude": "19.59650",
-    "longitude": "77.98917",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 268,
-    "name": "Rural Medical College & Hospital, Unknown City",
-    "address": "191, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "20"
-      }
-    },
-    "zipCode": "440320",
-    "phone": "07913-953799",
-    "email": "info@rural.medical.org",
-    "latitude": "20.52823",
-    "longitude": "79.69041",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 269,
-    "name": "Rural Medical Center, Unknown City",
-    "address": "5, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "20"
-      }
-    },
-    "zipCode": "720297",
-    "phone": "09948-898550",
-    "email": "info@rural.medical.org",
-    "latitude": "20.93528",
-    "longitude": "78.13783",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 270,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "375, Hospital Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "21"
-      }
-    },
-    "zipCode": "521447",
-    "phone": "01483-505732",
-    "email": "info@civil.community.org",
-    "latitude": "20.67479",
-    "longitude": "78.78957",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 271,
-    "name": "State Hospital, Unknown City",
-    "address": "379, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "21"
-      }
-    },
-    "zipCode": "137558",
-    "phone": "04773-982667",
-    "email": "info@state.hospital.org",
-    "latitude": "20.53530",
-    "longitude": "79.73196",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 272,
-    "name": "General Community Health Center, Unknown City",
-    "address": "475, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "22"
-      }
-    },
-    "zipCode": "717998",
-    "phone": "02562-478775",
-    "email": "info@general.community.org",
-    "latitude": "20.62474",
-    "longitude": "78.51549",
+    "zipCode": "293379",
+    "phone": "02735-545970",
+    "email": "info@community.health.org",
+    "latitude": "19.91033",
+    "longitude": "78.18347",
     "type": "Government",
     "services": [
       "Emergency",
@@ -6881,34 +6558,59 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
+      "Family Medicine"
     ]
   },
   {
-    "id": 273,
-    "name": "Community Medical Center, Unknown City",
-    "address": "187, Main Road",
+    "id": 262,
+    "name": "Community Community Health Center, Unknown City",
+    "address": "411, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "22"
+        "2017)": "17"
       }
     },
-    "zipCode": "218075",
-    "phone": "08286-766525",
-    "email": "info@community.medical.org",
-    "latitude": "20.43319",
-    "longitude": "79.92294",
+    "zipCode": "469768",
+    "phone": "05726-530977",
+    "email": "info@community.community.org",
+    "latitude": "21.46382",
+    "longitude": "79.82943",
     "type": "Government",
     "services": [
       "Emergency",
-      "General Medicine",
       "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 263,
+    "name": "Civil Health Center, Unknown City",
+    "address": "341, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "17"
+      }
+    },
+    "zipCode": "826667",
+    "phone": "06159-590469",
+    "email": "info@civil.health.org",
+    "latitude": "21.24225",
+    "longitude": "78.27549",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -6917,26 +6619,333 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 274,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "481, Hospital Road",
+    "id": 264,
+    "name": "State Medical College & Hospital, Unknown City",
+    "address": "273, Main Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "23"
+        "2017)": "18"
       }
     },
-    "zipCode": "126949",
-    "phone": "04619-817452",
-    "email": "info@community.community.org",
-    "latitude": "21.18165",
-    "longitude": "79.21795",
+    "zipCode": "479138",
+    "phone": "07372-879660",
+    "email": "info@state.medical.org",
+    "latitude": "20.05135",
+    "longitude": "79.52363",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 265,
+    "name": "Community Hospital, Unknown City",
+    "address": "444, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "18"
+      }
+    },
+    "zipCode": "368946",
+    "phone": "08450-545209",
+    "email": "info@community.hospital.org",
+    "latitude": "20.98106",
+    "longitude": "78.48506",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 266,
+    "name": "Community Hospital, Unknown City",
+    "address": "300, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "19"
+      }
+    },
+    "zipCode": "883172",
+    "phone": "02793-499554",
+    "email": "info@community.hospital.org",
+    "latitude": "21.10068",
+    "longitude": "77.98039",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 267,
+    "name": "District Community Health Center, Unknown City",
+    "address": "181, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "19"
+      }
+    },
+    "zipCode": "356995",
+    "phone": "09278-868968",
+    "email": "info@district.community.org",
+    "latitude": "20.60189",
+    "longitude": "79.08449",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 268,
+    "name": "General Hospital, Unknown City",
+    "address": "477, Main Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "20"
+      }
+    },
+    "zipCode": "399665",
+    "phone": "06667-195935",
+    "email": "info@general.hospital.org",
+    "latitude": "21.51256",
+    "longitude": "78.88250",
     "type": "Government",
     "services": [
       "Basic Healthcare",
       "Vaccinations",
       "Health Education",
       "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 269,
+    "name": "Community Community Health Center, Unknown City",
+    "address": "41, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "20"
+      }
+    },
+    "zipCode": "374540",
+    "phone": "07806-848715",
+    "email": "info@community.community.org",
+    "latitude": "19.78093",
+    "longitude": "78.79719",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 270,
+    "name": "Community Medical College & Hospital, Unknown City",
+    "address": "469, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "21"
+      }
+    },
+    "zipCode": "219335",
+    "phone": "06796-596400",
+    "email": "info@community.medical.org",
+    "latitude": "20.08906",
+    "longitude": "78.92050",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 271,
+    "name": "General Hospital, Unknown City",
+    "address": "130, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "21"
+      }
+    },
+    "zipCode": "529839",
+    "phone": "03746-687777",
+    "email": "info@general.hospital.org",
+    "latitude": "19.89617",
+    "longitude": "79.68284",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 272,
+    "name": "State Community Health Center, Unknown City",
+    "address": "426, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "22"
+      }
+    },
+    "zipCode": "238265",
+    "phone": "01919-234119",
+    "email": "info@state.community.org",
+    "latitude": "21.29519",
+    "longitude": "78.97789",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 273,
+    "name": "Community Community Health Center, Unknown City",
+    "address": "440, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "22"
+      }
+    },
+    "zipCode": "759910",
+    "phone": "09395-297280",
+    "email": "info@community.community.org",
+    "latitude": "19.96209",
+    "longitude": "78.37290",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 274,
+    "name": "Rural Medical College & Hospital, Unknown City",
+    "address": "364, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "23"
+      }
+    },
+    "zipCode": "518315",
+    "phone": "01463-758972",
+    "email": "info@rural.medical.org",
+    "latitude": "19.61040",
+    "longitude": "78.75223",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 275,
+    "name": "Rural Health Center, Unknown City",
+    "address": "171, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "23"
+      }
+    },
+    "zipCode": "111922",
+    "phone": "02765-707343",
+    "email": "info@rural.health.org",
+    "latitude": "19.71142",
+    "longitude": "78.39650",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -6947,55 +6956,28 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 275,
-    "name": "State Community Health Center, Unknown City",
-    "address": "81, Medical Center Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "23"
-      }
-    },
-    "zipCode": "667886",
-    "phone": "09606-722962",
-    "email": "info@state.community.org",
-    "latitude": "20.52441",
-    "longitude": "78.40558",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
     "id": 276,
-    "name": "State Medical Center, Unknown City",
-    "address": "390, Medical Center Road",
+    "name": "Civil Medical Center, Unknown City",
+    "address": "481, Healthcare Avenue",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "24"
       }
     },
-    "zipCode": "126870",
-    "phone": "05552-773627",
-    "email": "info@state.medical.org",
-    "latitude": "19.99371",
-    "longitude": "79.57401",
+    "zipCode": "431040",
+    "phone": "07722-446341",
+    "email": "info@civil.medical.org",
+    "latitude": "20.36857",
+    "longitude": "79.69821",
     "type": "Government",
     "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
       "Cardiology",
       "Neurology",
@@ -7004,84 +6986,87 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 277,
-    "name": "Rural Health Center, Unknown City",
-    "address": "286, Medical Center Road",
+    "name": "State Hospital, Unknown City",
+    "address": "371, Main Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "24"
       }
     },
-    "zipCode": "240270",
-    "phone": "06953-628785",
-    "email": "info@rural.health.org",
-    "latitude": "21.28697",
-    "longitude": "79.78873",
+    "zipCode": "455932",
+    "phone": "08146-150037",
+    "email": "info@state.hospital.org",
+    "latitude": "21.26367",
+    "longitude": "78.61712",
     "type": "Government",
     "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 278,
-    "name": "General Hospital, Unknown City",
-    "address": "483, Hospital Road",
+    "name": "Rural Hospital, Unknown City",
+    "address": "304, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "25"
       }
     },
-    "zipCode": "454982",
-    "phone": "05681-992531",
-    "email": "info@general.hospital.org",
-    "latitude": "21.03235",
-    "longitude": "79.25045",
+    "zipCode": "233908",
+    "phone": "01502-783576",
+    "email": "info@rural.hospital.org",
+    "latitude": "20.27566",
+    "longitude": "79.90980",
     "type": "Government",
     "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   },
   {
     "id": 279,
-    "name": "General Medical Center, Unknown City",
-    "address": "103, Medical Center Road",
+    "name": "District Medical Center, Unknown City",
+    "address": "106, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "25"
       }
     },
-    "zipCode": "391259",
-    "phone": "08798-821722",
-    "email": "info@general.medical.org",
-    "latitude": "21.33034",
-    "longitude": "79.51132",
+    "zipCode": "853033",
+    "phone": "09333-742875",
+    "email": "info@district.medical.org",
+    "latitude": "21.30564",
+    "longitude": "79.49636",
     "type": "Government",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
       "Obstetrics",
       "Pediatrics"
@@ -7089,27 +7074,28 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 280,
-    "name": "Community Hospital, Unknown City",
-    "address": "156, Healthcare Avenue",
+    "name": "Rural Health Center, Unknown City",
+    "address": "304, Healthcare Avenue",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "26"
       }
     },
-    "zipCode": "738201",
-    "phone": "04205-928314",
-    "email": "info@community.hospital.org",
-    "latitude": "20.77359",
-    "longitude": "79.37334",
+    "zipCode": "462703",
+    "phone": "05305-148381",
+    "email": "info@rural.health.org",
+    "latitude": "21.28152",
+    "longitude": "78.04178",
     "type": "Government",
     "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
       "General Medicine",
       "Orthopedics"
@@ -7117,109 +7103,51 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 281,
-    "name": "Community Health Center, Unknown City",
-    "address": "454, Main Road",
+    "name": "Civil Community Health Center, Unknown City",
+    "address": "428, Main Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "26"
       }
     },
-    "zipCode": "619933",
-    "phone": "08853-983872",
-    "email": "info@community.health.org",
-    "latitude": "21.25326",
-    "longitude": "78.22586",
+    "zipCode": "711073",
+    "phone": "06808-554942",
+    "email": "info@civil.community.org",
+    "latitude": "19.84899",
+    "longitude": "78.30614",
     "type": "Government",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
     ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 282,
-    "name": "Community Hospital, Unknown City",
-    "address": "475, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "27"
-      }
-    },
-    "zipCode": "280486",
-    "phone": "06628-352734",
-    "email": "info@community.hospital.org",
-    "latitude": "20.88436",
-    "longitude": "78.08671",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 283,
-    "name": "General Medical Center, Unknown City",
-    "address": "496, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "27"
-      }
-    },
-    "zipCode": "856107",
-    "phone": "08846-586559",
-    "email": "info@general.medical.org",
-    "latitude": "20.27796",
-    "longitude": "78.92472",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
     "emergencyServices": false,
     "specialties": [
-      "Cardiology",
-      "Nephrology",
+      "General Medicine",
       "Orthopedics"
     ]
   },
   {
-    "id": 284,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "465, Hospital Road",
+    "id": 282,
+    "name": "State Medical Center, Unknown City",
+    "address": "222, Healthcare Avenue",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "28"
+        "2017)": "27"
       }
     },
-    "zipCode": "721124",
-    "phone": "01387-828004",
-    "email": "info@community.community.org",
-    "latitude": "20.39452",
-    "longitude": "79.48931",
+    "zipCode": "282632",
+    "phone": "07934-977183",
+    "email": "info@state.medical.org",
+    "latitude": "19.94315",
+    "longitude": "78.80855",
     "type": "Government",
     "services": [
       "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -7228,27 +7156,26 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 285,
+    "id": 283,
     "name": "District Medical College & Hospital, Unknown City",
-    "address": "65, Healthcare Avenue",
+    "address": "127, Healthcare Avenue",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "28"
+        "2017)": "27"
       }
     },
-    "zipCode": "698561",
-    "phone": "06466-343874",
+    "zipCode": "812727",
+    "phone": "01758-286042",
     "email": "info@district.medical.org",
-    "latitude": "20.74377",
-    "longitude": "78.96905",
+    "latitude": "19.88160",
+    "longitude": "78.23001",
     "type": "Government",
     "services": [
       "Emergency",
-      "General Medicine",
       "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Cardiac Care",
+      "Dialysis"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -7257,55 +7184,81 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 286,
-    "name": "Rural Community Health Center, Unknown City",
-    "address": "308, Main Road",
+    "id": 284,
+    "name": "General Community Health Center, Unknown City",
+    "address": "224, Main Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": "29"
+        "2017)": "28"
       }
     },
-    "zipCode": "794446",
-    "phone": "04654-376567",
-    "email": "info@rural.community.org",
-    "latitude": "20.54937",
-    "longitude": "79.66670",
+    "zipCode": "520318",
+    "phone": "05435-152490",
+    "email": "info@general.community.org",
+    "latitude": "20.41912",
+    "longitude": "78.67871",
     "type": "Government",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
       "General Practice"
     ]
   },
   {
-    "id": 287,
-    "name": "General Health Center, Unknown City",
-    "address": "214, Healthcare Avenue",
+    "id": 285,
+    "name": "Rural Hospital, Unknown City",
+    "address": "231, Medical Center Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "28"
+      }
+    },
+    "zipCode": "172578",
+    "phone": "04928-610878",
+    "email": "info@rural.hospital.org",
+    "latitude": "21.57690",
+    "longitude": "79.64816",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 286,
+    "name": "General Medical Center, Unknown City",
+    "address": "71, Main Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": "29"
       }
     },
-    "zipCode": "841696",
-    "phone": "06723-211500",
-    "email": "info@general.health.org",
-    "latitude": "21.39776",
-    "longitude": "78.87558",
+    "zipCode": "767940",
+    "phone": "02224-169007",
+    "email": "info@general.medical.org",
+    "latitude": "19.94985",
+    "longitude": "78.63642",
     "type": "Government",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
       "General Surgery",
       "Orthopedics",
@@ -7314,20 +7267,20 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 288,
-    "name": "Civil Medical College & Hospital, Unknown City",
-    "address": "205, Main Road",
+    "id": 287,
+    "name": "District Health Center, Unknown City",
+    "address": "399, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
-        "2017)": ""
+        "2017)": "29"
       }
     },
-    "zipCode": "351185",
-    "phone": "08265-620701",
-    "email": "info@civil.medical.org",
-    "latitude": "20.09453",
-    "longitude": "78.99166",
+    "zipCode": "690421",
+    "phone": "02626-549842",
+    "email": "info@district.health.org",
+    "latitude": "20.16287",
+    "longitude": "79.16140",
     "type": "Government",
     "services": [
       "Emergency",
@@ -7343,53 +7296,25 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 289,
-    "name": "Civil Hospital, Unknown City",
-    "address": "396, Medical Center Road",
+    "id": 288,
+    "name": "Rural Medical Center, Unknown City",
+    "address": "93, Medical Center Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": ""
       }
     },
-    "zipCode": "139627",
-    "phone": "09383-739868",
-    "email": "info@civil.hospital.org",
-    "latitude": "21.33312",
-    "longitude": "78.15477",
+    "zipCode": "181202",
+    "phone": "04298-973264",
+    "email": "info@rural.medical.org",
+    "latitude": "20.86721",
+    "longitude": "79.95760",
     "type": "Government",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 290,
-    "name": "Civil Hospital, Unknown City",
-    "address": "226, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": ""
-      }
-    },
-    "zipCode": "166541",
-    "phone": "05306-537530",
-    "email": "info@civil.hospital.org",
-    "latitude": "19.70731",
-    "longitude": "78.87591",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -7398,159 +7323,25 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 291,
-    "name": "Civil Medical College & Hospital, Unknown City",
-    "address": "243, Healthcare Avenue",
+    "id": 289,
+    "name": "Community Medical College & Hospital, Unknown City",
+    "address": "358, Hospital Road",
     "city": "Unknown City",
     "state": {
       "03": {
         "2017)": ""
       }
     },
-    "zipCode": "893960",
-    "phone": "08164-886585",
-    "email": "info@civil.medical.org",
-    "latitude": "20.94275",
-    "longitude": "79.22803",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 292,
-    "name": "General Health Center, Unknown City",
-    "address": "457, Main Road",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "Source: National Health Profile 2018."
-      }
-    },
-    "zipCode": "759973",
-    "phone": "03660-345892",
-    "email": "info@general.health.org",
-    "latitude": "20.43835",
-    "longitude": "79.54087",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 293,
-    "name": "Civil Medical Center, Unknown City",
-    "address": "353, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": {
-      "03": {
-        "2017)": "Source: National Health Profile 2018."
-      }
-    },
-    "zipCode": "667053",
-    "phone": "07880-426057",
-    "email": "info@civil.medical.org",
-    "latitude": "20.68536",
-    "longitude": "78.67189",
+    "zipCode": "554434",
+    "phone": "04103-844675",
+    "email": "info@community.medical.org",
+    "latitude": "21.31404",
+    "longitude": "78.00656",
     "type": "Government",
     "services": [
       "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 294,
-    "name": "Civil Hospital, Visakhapatnam",
-    "address": "10, Healthcare Avenue",
-    "city": "Visakhapatnam",
-    "state": "Andhra Pradesh",
-    "zipCode": "664428",
-    "phone": "05658-117540",
-    "email": "info@civil.hospital.org",
-    "latitude": "15.21633",
-    "longitude": "78.91411",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 295,
-    "name": "Community Community Health Center, Visakhapatnam",
-    "address": "494, Medical Center Road",
-    "city": "Visakhapatnam",
-    "state": "Andhra Pradesh",
-    "zipCode": "524995",
-    "phone": "08837-587078",
-    "email": "info@community.community.org",
-    "latitude": "15.92016",
-    "longitude": "80.35218",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 296,
-    "name": "District Medical College & Hospital, Unknown City",
-    "address": "47, Hospital Road",
-    "city": "Unknown City",
-    "state": "Arunachal Pradesh*",
-    "zipCode": "235709",
-    "phone": "06864-325709",
-    "email": "info@district.medical.org",
-    "latitude": "19.99817",
-    "longitude": "79.65642",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -7561,16 +7352,48 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 297,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "228, Medical Center Road",
+    "id": 290,
+    "name": "Community Medical Center, Unknown City",
+    "address": "239, Healthcare Avenue",
     "city": "Unknown City",
-    "state": "Arunachal Pradesh*",
-    "zipCode": "744493",
-    "phone": "02289-414861",
-    "email": "info@civil.community.org",
-    "latitude": "19.68593",
-    "longitude": "78.00614",
+    "state": {
+      "03": {
+        "2017)": ""
+      }
+    },
+    "zipCode": "748477",
+    "phone": "04131-231088",
+    "email": "info@community.medical.org",
+    "latitude": "19.85007",
+    "longitude": "78.97856",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 291,
+    "name": "State Community Health Center, Unknown City",
+    "address": "122, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": ""
+      }
+    },
+    "zipCode": "613350",
+    "phone": "09603-459074",
+    "email": "info@state.community.org",
+    "latitude": "20.85231",
+    "longitude": "79.09404",
     "type": "Government",
     "services": [
       "Basic Healthcare",
@@ -7578,104 +7401,178 @@ export const hospitals: Hospital[] = [
       "Health Education",
       "First Aid"
     ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 292,
+    "name": "Civil Hospital, Unknown City",
+    "address": "106, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "Source: National Health Profile 2018."
+      }
+    },
+    "zipCode": "640307",
+    "phone": "09341-296637",
+    "email": "info@civil.hospital.org",
+    "latitude": "19.75328",
+    "longitude": "79.11191",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 293,
+    "name": "Rural Medical Center, Unknown City",
+    "address": "328, Hospital Road",
+    "city": "Unknown City",
+    "state": {
+      "03": {
+        "2017)": "Source: National Health Profile 2018."
+      }
+    },
+    "zipCode": "557785",
+    "phone": "06636-693043",
+    "email": "info@rural.medical.org",
+    "latitude": "19.87589",
+    "longitude": "78.58734",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 294,
+    "name": "Civil Medical Center, Visakhapatnam",
+    "address": "219, Main Road",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "zipCode": "881380",
+    "phone": "05431-653346",
+    "email": "info@civil.medical.org",
+    "latitude": "16.78338",
+    "longitude": "79.64622",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 295,
+    "name": "District Medical Center, Visakhapatnam",
+    "address": "73, Medical Center Road",
+    "city": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "zipCode": "314827",
+    "phone": "06179-822286",
+    "email": "info@district.medical.org",
+    "latitude": "15.96802",
+    "longitude": "80.10366",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 296,
+    "name": "District Medical College & Hospital, Unknown City",
+    "address": "140, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Arunachal Pradesh*",
+    "zipCode": "429489",
+    "phone": "01859-512900",
+    "email": "info@district.medical.org",
+    "latitude": "20.00448",
+    "longitude": "79.76727",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
     "emergencyServices": true,
     "specialties": [
       "Cardiology",
-      "Nephrology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 297,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "128, Hospital Road",
+    "city": "Unknown City",
+    "state": "Arunachal Pradesh*",
+    "zipCode": "897441",
+    "phone": "05881-850609",
+    "email": "info@rural.community.org",
+    "latitude": "21.15490",
+    "longitude": "79.21271",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
       "Orthopedics"
     ]
   },
   {
     "id": 298,
     "name": "District Hospital, Dibrugarh",
-    "address": "200, Healthcare Avenue",
+    "address": "113, Hospital Road",
     "city": "Dibrugarh",
     "state": "Assam",
-    "zipCode": "426837",
-    "phone": "09673-208521",
+    "zipCode": "252073",
+    "phone": "08819-591626",
     "email": "info@district.hospital.org",
-    "latitude": "26.90936",
-    "longitude": "92.96652",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 299,
-    "name": "Community Hospital, Dibrugarh",
-    "address": "171, Hospital Road",
-    "city": "Dibrugarh",
-    "state": "Assam",
-    "zipCode": "662556",
-    "phone": "03775-238715",
-    "email": "info@community.hospital.org",
-    "latitude": "25.24379",
-    "longitude": "92.69267",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 300,
-    "name": "Community Health Center, Patna",
-    "address": "293, Healthcare Avenue",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "631195",
-    "phone": "03233-788168",
-    "email": "info@community.health.org",
-    "latitude": "25.84985",
-    "longitude": "85.01862",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 301,
-    "name": "Community Medical College & Hospital, Patna",
-    "address": "218, Medical Center Road",
-    "city": "Patna",
-    "state": "Bihar",
-    "zipCode": "279302",
-    "phone": "01649-377649",
-    "email": "info@community.medical.org",
-    "latitude": "24.81458",
-    "longitude": "86.20030",
+    "latitude": "26.64558",
+    "longitude": "93.17127",
     "type": "Government",
     "services": [
       "Basic Healthcare",
@@ -7685,80 +7582,30 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 302,
-    "name": "Community Hospital, Korba",
-    "address": "269, Healthcare Avenue",
-    "city": "Korba",
-    "state": "Chhattisgarh",
-    "zipCode": "776637",
-    "phone": "06433-608272",
-    "email": "info@community.hospital.org",
-    "latitude": "21.06702",
-    "longitude": "81.12848",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
+      "General Surgery",
+      "Orthopedics",
       "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
+      "Gynecology"
     ]
   },
   {
-    "id": 303,
-    "name": "District Medical College & Hospital, Korba",
-    "address": "262, Healthcare Avenue",
-    "city": "Korba",
-    "state": "Chhattisgarh",
-    "zipCode": "659110",
-    "phone": "05334-158910",
-    "email": "info@district.medical.org",
-    "latitude": "21.98048",
-    "longitude": "82.58099",
+    "id": 299,
+    "name": "Civil Hospital, Dibrugarh",
+    "address": "119, Main Road",
+    "city": "Dibrugarh",
+    "state": "Assam",
+    "zipCode": "215721",
+    "phone": "09229-743054",
+    "email": "info@civil.hospital.org",
+    "latitude": "26.48694",
+    "longitude": "92.95971",
     "type": "Government",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
       "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 304,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "172, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Goa*",
-    "zipCode": "733567",
-    "phone": "02917-280565",
-    "email": "info@community.medical.org",
-    "latitude": "20.43692",
-    "longitude": "78.25778",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Cardiology"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -7766,67 +7613,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 305,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "44, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Goa*",
-    "zipCode": "433255",
-    "phone": "01435-765389",
-    "email": "info@civil.community.org",
-    "latitude": "19.61461",
-    "longitude": "78.70448",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 306,
-    "name": "State Hospital, Surat",
-    "address": "305, Healthcare Avenue",
-    "city": "Surat",
-    "state": "Gujarat",
-    "zipCode": "328098",
-    "phone": "03472-455792",
-    "email": "info@state.hospital.org",
-    "latitude": "22.93305",
-    "longitude": "70.54190",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 307,
-    "name": "General Hospital, Surat",
-    "address": "452, Main Road",
-    "city": "Surat",
-    "state": "Gujarat",
-    "zipCode": "756497",
-    "phone": "05790-107366",
-    "email": "info@general.hospital.org",
-    "latitude": "21.63217",
-    "longitude": "70.94273",
+    "id": 300,
+    "name": "State Community Health Center, Bhagalpur",
+    "address": "358, Medical Center Road",
+    "city": "Bhagalpur",
+    "state": "Bihar",
+    "zipCode": "521682",
+    "phone": "09728-192977",
+    "email": "info@state.community.org",
+    "latitude": "25.02826",
+    "longitude": "85.91211",
     "type": "Government",
     "services": [
       "Tertiary Care",
@@ -7837,28 +7633,152 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Family Medicine"
     ]
   },
   {
-    "id": 308,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "218, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Haryana*",
-    "zipCode": "310163",
-    "phone": "08542-804714",
-    "email": "info@community.medical.org",
-    "latitude": "21.45598",
-    "longitude": "79.79163",
+    "id": 301,
+    "name": "District Medical College & Hospital, Bhagalpur",
+    "address": "326, Main Road",
+    "city": "Bhagalpur",
+    "state": "Bihar",
+    "zipCode": "671887",
+    "phone": "08644-150580",
+    "email": "info@district.medical.org",
+    "latitude": "24.62968",
+    "longitude": "86.08927",
     "type": "Government",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
       "Pediatrics",
-      "Obstetrics"
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 302,
+    "name": "General Hospital, Bhilai",
+    "address": "161, Main Road",
+    "city": "Bhilai",
+    "state": "Chhattisgarh",
+    "zipCode": "264315",
+    "phone": "06629-807392",
+    "email": "info@general.hospital.org",
+    "latitude": "21.61513",
+    "longitude": "82.81935",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
+    ]
+  },
+  {
+    "id": 303,
+    "name": "District Medical Center, Bhilai",
+    "address": "426, Medical Center Road",
+    "city": "Bhilai",
+    "state": "Chhattisgarh",
+    "zipCode": "528360",
+    "phone": "09792-896696",
+    "email": "info@district.medical.org",
+    "latitude": "21.59684",
+    "longitude": "81.06670",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 304,
+    "name": "General Community Health Center, Unknown City",
+    "address": "11, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Goa*",
+    "zipCode": "589309",
+    "phone": "01843-793654",
+    "email": "info@general.community.org",
+    "latitude": "21.42811",
+    "longitude": "79.13524",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 305,
+    "name": "State Medical College & Hospital, Unknown City",
+    "address": "369, Main Road",
+    "city": "Unknown City",
+    "state": "Goa*",
+    "zipCode": "743617",
+    "phone": "08268-609126",
+    "email": "info@state.medical.org",
+    "latitude": "20.56516",
+    "longitude": "78.48818",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 306,
+    "name": "Civil Medical Center, Ahmedabad",
+    "address": "104, Hospital Road",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "552802",
+    "phone": "08304-658947",
+    "email": "info@civil.medical.org",
+    "latitude": "21.28909",
+    "longitude": "72.11156",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -7867,40 +7787,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 309,
-    "name": "Rural Medical College & Hospital, Unknown City",
-    "address": "49, Main Road",
-    "city": "Unknown City",
-    "state": "Haryana*",
-    "zipCode": "181779",
-    "phone": "02594-966767",
-    "email": "info@rural.medical.org",
-    "latitude": "20.50339",
-    "longitude": "78.81634",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 310,
-    "name": "District Health Center, Unknown City",
-    "address": "67, Hospital Road",
-    "city": "Unknown City",
-    "state": "Himachal Pradesh*",
-    "zipCode": "340244",
-    "phone": "04170-187591",
-    "email": "info@district.health.org",
-    "latitude": "21.01823",
-    "longitude": "78.43794",
+    "id": 307,
+    "name": "Rural Hospital, Ahmedabad",
+    "address": "48, Medical Center Road",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "648820",
+    "phone": "04979-388436",
+    "email": "info@rural.hospital.org",
+    "latitude": "21.39380",
+    "longitude": "70.28436",
     "type": "Government",
     "services": [
       "Tertiary Care",
@@ -7909,106 +7805,30 @@ export const hospitals: Hospital[] = [
       "Neurology",
       "Cardiology"
     ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 311,
-    "name": "Rural Hospital, Unknown City",
-    "address": "301, Main Road",
-    "city": "Unknown City",
-    "state": "Himachal Pradesh*",
-    "zipCode": "827490",
-    "phone": "05992-837386",
-    "email": "info@rural.hospital.org",
-    "latitude": "20.15064",
-    "longitude": "79.86191",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 312,
-    "name": "State Medical Center, Unknown City",
-    "address": "256, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "619248",
-    "phone": "05872-859740",
-    "email": "info@state.medical.org",
-    "latitude": "20.56437",
-    "longitude": "78.27997",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
     "emergencyServices": false,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "General Practice"
     ]
   },
   {
-    "id": 313,
-    "name": "District Community Health Center, Unknown City",
-    "address": "154, Hospital Road",
+    "id": 308,
+    "name": "Civil Health Center, Unknown City",
+    "address": "308, Hospital Road",
     "city": "Unknown City",
-    "state": "Jammu & Kashmir",
-    "zipCode": "350652",
-    "phone": "04128-296566",
-    "email": "info@district.community.org",
-    "latitude": "20.31707",
-    "longitude": "79.87510",
+    "state": "Haryana*",
+    "zipCode": "297818",
+    "phone": "03947-452544",
+    "email": "info@civil.health.org",
+    "latitude": "20.05546",
+    "longitude": "78.56539",
     "type": "Government",
     "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 314,
-    "name": "State Community Health Center, Jamshedpur",
-    "address": "66, Healthcare Avenue",
-    "city": "Jamshedpur",
-    "state": "Jharkhand",
-    "zipCode": "644506",
-    "phone": "06501-398801",
-    "email": "info@state.community.org",
-    "latitude": "23.34234",
-    "longitude": "84.40663",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
     "specialties": [
       "Neurosurgery",
       "Cardiology",
@@ -8017,45 +7837,76 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 315,
-    "name": "Rural Hospital, Jamshedpur",
-    "address": "31, Main Road",
-    "city": "Jamshedpur",
-    "state": "Jharkhand",
-    "zipCode": "462069",
-    "phone": "01154-656187",
-    "email": "info@rural.hospital.org",
-    "latitude": "24.09755",
-    "longitude": "85.57100",
+    "id": 309,
+    "name": "General Hospital, Unknown City",
+    "address": "21, Main Road",
+    "city": "Unknown City",
+    "state": "Haryana*",
+    "zipCode": "282609",
+    "phone": "08420-224567",
+    "email": "info@general.hospital.org",
+    "latitude": "19.96906",
+    "longitude": "78.51063",
     "type": "Government",
     "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
     ]
   },
   {
-    "id": 316,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "191, Healthcare Avenue",
+    "id": 310,
+    "name": "General Medical College & Hospital, Unknown City",
+    "address": "74, Healthcare Avenue",
     "city": "Unknown City",
-    "state": "Karnataka*",
-    "zipCode": "671528",
-    "phone": "03533-177425",
-    "email": "info@community.medical.org",
-    "latitude": "20.41924",
-    "longitude": "78.68946",
+    "state": "Himachal Pradesh*",
+    "zipCode": "735623",
+    "phone": "06786-462851",
+    "email": "info@general.medical.org",
+    "latitude": "20.38321",
+    "longitude": "78.93314",
     "type": "Government",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 311,
+    "name": "General Medical College & Hospital, Unknown City",
+    "address": "195, Hospital Road",
+    "city": "Unknown City",
+    "state": "Himachal Pradesh*",
+    "zipCode": "594715",
+    "phone": "03219-585906",
+    "email": "info@general.medical.org",
+    "latitude": "21.05090",
+    "longitude": "78.35046",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -8065,137 +7916,64 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 317,
-    "name": "District Hospital, Unknown City",
-    "address": "191, Hospital Road",
+    "id": 312,
+    "name": "General Medical College & Hospital, Unknown City",
+    "address": "426, Hospital Road",
     "city": "Unknown City",
-    "state": "Karnataka*",
-    "zipCode": "517337",
-    "phone": "02637-701644",
-    "email": "info@district.hospital.org",
-    "latitude": "21.26625",
-    "longitude": "78.77912",
+    "state": "Jammu & Kashmir",
+    "zipCode": "388324",
+    "phone": "05251-478513",
+    "email": "info@general.medical.org",
+    "latitude": "19.74398",
+    "longitude": "79.87209",
     "type": "Government",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "General Practice"
     ]
   },
   {
-    "id": 318,
-    "name": "Rural Health Center, Thrissur",
-    "address": "416, Main Road",
-    "city": "Thrissur",
-    "state": "Kerala",
-    "zipCode": "377738",
-    "phone": "09228-867927",
-    "email": "info@rural.health.org",
-    "latitude": "10.91417",
-    "longitude": "75.40942",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 319,
-    "name": "Civil Medical Center, Thrissur",
-    "address": "93, Hospital Road",
-    "city": "Thrissur",
-    "state": "Kerala",
-    "zipCode": "150742",
-    "phone": "01175-536719",
-    "email": "info@civil.medical.org",
-    "latitude": "11.12986",
-    "longitude": "77.23079",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 320,
-    "name": "Rural Health Center, Gwalior",
-    "address": "264, Hospital Road",
-    "city": "Gwalior",
-    "state": "Madhya Pradesh",
-    "zipCode": "552499",
-    "phone": "07670-702527",
-    "email": "info@rural.health.org",
-    "latitude": "22.30990",
-    "longitude": "78.47726",
+    "id": 313,
+    "name": "Civil Health Center, Unknown City",
+    "address": "277, Hospital Road",
+    "city": "Unknown City",
+    "state": "Jammu & Kashmir",
+    "zipCode": "286497",
+    "phone": "02228-232212",
+    "email": "info@civil.health.org",
+    "latitude": "20.79765",
+    "longitude": "78.78922",
     "type": "Government",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
     ]
   },
   {
-    "id": 321,
-    "name": "District Health Center, Gwalior",
-    "address": "108, Healthcare Avenue",
-    "city": "Gwalior",
-    "state": "Madhya Pradesh",
-    "zipCode": "286721",
-    "phone": "06606-145629",
-    "email": "info@district.health.org",
-    "latitude": "23.27665",
-    "longitude": "77.94967",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Mobile Healthcare"
-    ]
-  },
-  {
-    "id": 322,
-    "name": "Community Hospital, Nashik",
-    "address": "282, Hospital Road",
-    "city": "Nashik",
-    "state": "Maharashtra",
-    "zipCode": "677664",
-    "phone": "02203-946393",
-    "email": "info@community.hospital.org",
-    "latitude": "19.33367",
-    "longitude": "76.53559",
+    "id": 314,
+    "name": "General Medical College & Hospital, Dhanbad",
+    "address": "249, Healthcare Avenue",
+    "city": "Dhanbad",
+    "state": "Jharkhand",
+    "zipCode": "629085",
+    "phone": "04942-655524",
+    "email": "info@general.medical.org",
+    "latitude": "23.54094",
+    "longitude": "85.83947",
     "type": "Government",
     "services": [
       "Emergency",
@@ -8205,46 +7983,21 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 323,
-    "name": "Community Medical College & Hospital, Nashik",
-    "address": "104, Hospital Road",
-    "city": "Nashik",
-    "state": "Maharashtra",
-    "zipCode": "537836",
-    "phone": "02839-405750",
-    "email": "info@community.medical.org",
-    "latitude": "19.69359",
-    "longitude": "75.90388",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
+      "General Medicine",
       "Orthopedics"
     ]
   },
   {
-    "id": 324,
-    "name": "General Medical College & Hospital, Thoubal",
-    "address": "162, Medical Center Road",
-    "city": "Thoubal",
-    "state": "Manipur",
-    "zipCode": "683108",
-    "phone": "08776-452241",
-    "email": "info@general.medical.org",
-    "latitude": "24.24701",
-    "longitude": "94.03965",
+    "id": 315,
+    "name": "Civil Hospital, Dhanbad",
+    "address": "3, Hospital Road",
+    "city": "Dhanbad",
+    "state": "Jharkhand",
+    "zipCode": "352274",
+    "phone": "06698-263183",
+    "email": "info@civil.hospital.org",
+    "latitude": "23.22821",
+    "longitude": "85.45295",
     "type": "Government",
     "services": [
       "Tertiary Care",
@@ -8255,27 +8008,250 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Obstetrics",
+      "Pediatrics"
     ]
   },
   {
-    "id": 325,
-    "name": "Rural Medical Center, Thoubal",
-    "address": "347, Healthcare Avenue",
-    "city": "Thoubal",
-    "state": "Manipur",
-    "zipCode": "272158",
-    "phone": "07657-522745",
-    "email": "info@rural.medical.org",
-    "latitude": "25.27811",
-    "longitude": "93.91740",
+    "id": 316,
+    "name": "Rural Health Center, Unknown City",
+    "address": "174, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": "Karnataka*",
+    "zipCode": "398512",
+    "phone": "02593-535530",
+    "email": "info@rural.health.org",
+    "latitude": "20.76860",
+    "longitude": "78.42312",
     "type": "Government",
     "services": [
       "Basic Healthcare",
       "Vaccinations",
       "Health Education",
       "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 317,
+    "name": "Community Community Health Center, Unknown City",
+    "address": "449, Hospital Road",
+    "city": "Unknown City",
+    "state": "Karnataka*",
+    "zipCode": "744401",
+    "phone": "09728-732430",
+    "email": "info@community.community.org",
+    "latitude": "20.29279",
+    "longitude": "78.21738",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 318,
+    "name": "General Community Health Center, Thiruvananthapuram",
+    "address": "257, Medical Center Road",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "267754",
+    "phone": "03745-751618",
+    "email": "info@general.community.org",
+    "latitude": "10.02103",
+    "longitude": "75.28072",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 319,
+    "name": "General Medical College & Hospital, Thiruvananthapuram",
+    "address": "205, Medical Center Road",
+    "city": "Thiruvananthapuram",
+    "state": "Kerala",
+    "zipCode": "320325",
+    "phone": "02546-323814",
+    "email": "info@general.medical.org",
+    "latitude": "10.28748",
+    "longitude": "76.25065",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 320,
+    "name": "General Medical Center, Bhopal",
+    "address": "10, Main Road",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "zipCode": "672819",
+    "phone": "04700-816562",
+    "email": "info@general.medical.org",
+    "latitude": "22.65410",
+    "longitude": "78.31193",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Nephrology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 321,
+    "name": "State Hospital, Bhopal",
+    "address": "443, Hospital Road",
+    "city": "Bhopal",
+    "state": "Madhya Pradesh",
+    "zipCode": "380848",
+    "phone": "06143-657288",
+    "email": "info@state.hospital.org",
+    "latitude": "22.18914",
+    "longitude": "77.77751",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 322,
+    "name": "State Community Health Center, Mumbai",
+    "address": "447, Main Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "346983",
+    "phone": "09316-140276",
+    "email": "info@state.community.org",
+    "latitude": "20.06451",
+    "longitude": "74.71973",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 323,
+    "name": "Civil Medical Center, Mumbai",
+    "address": "214, Main Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "783653",
+    "phone": "01143-781866",
+    "email": "info@civil.medical.org",
+    "latitude": "19.19541",
+    "longitude": "75.75410",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 324,
+    "name": "District Medical Center, Thoubal",
+    "address": "413, Main Road",
+    "city": "Thoubal",
+    "state": "Manipur",
+    "zipCode": "344895",
+    "phone": "04647-905828",
+    "email": "info@district.medical.org",
+    "latitude": "24.07905",
+    "longitude": "93.55445",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Neurology",
+      "Cardiology",
+      "Nephrology",
+      "Oncology"
+    ]
+  },
+  {
+    "id": 325,
+    "name": "Rural Community Health Center, Thoubal",
+    "address": "184, Main Road",
+    "city": "Thoubal",
+    "state": "Manipur",
+    "zipCode": "417267",
+    "phone": "09763-147367",
+    "email": "info@rural.community.org",
+    "latitude": "24.97730",
+    "longitude": "93.30764",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
     "emergencyServices": false,
     "specialties": [
@@ -8284,41 +8260,15 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 326,
-    "name": "District Medical Center, Unknown City",
-    "address": "182, Hospital Road",
+    "name": "Rural Medical Center, Unknown City",
+    "address": "479, Hospital Road",
     "city": "Unknown City",
     "state": "Meghalaya*",
-    "zipCode": "369993",
-    "phone": "03746-955692",
-    "email": "info@district.medical.org",
-    "latitude": "20.08547",
-    "longitude": "79.17885",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 327,
-    "name": "Community Community Health Center, Unknown City",
-    "address": "347, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Meghalaya*",
-    "zipCode": "628444",
-    "phone": "08494-990506",
-    "email": "info@community.community.org",
-    "latitude": "19.72032",
-    "longitude": "79.91986",
+    "zipCode": "232656",
+    "phone": "05281-281040",
+    "email": "info@rural.medical.org",
+    "latitude": "20.78782",
+    "longitude": "78.40283",
     "type": "Government",
     "services": [
       "Primary Care",
@@ -8328,20 +8278,23 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
     ]
   },
   {
-    "id": 328,
-    "name": "State Health Center, Unknown City",
-    "address": "448, Main Road",
+    "id": 327,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "471, Healthcare Avenue",
     "city": "Unknown City",
-    "state": "Mizoram*",
-    "zipCode": "447295",
-    "phone": "05278-822539",
-    "email": "info@state.health.org",
-    "latitude": "20.87850",
-    "longitude": "79.74091",
+    "state": "Meghalaya*",
+    "zipCode": "152788",
+    "phone": "04970-375525",
+    "email": "info@rural.community.org",
+    "latitude": "20.61386",
+    "longitude": "78.51183",
     "type": "Government",
     "services": [
       "Primary Care",
@@ -8350,29 +8303,52 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Family Medicine"
+      "General Practice"
+    ]
+  },
+  {
+    "id": 328,
+    "name": "General Health Center, Unknown City",
+    "address": "197, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Mizoram*",
+    "zipCode": "878080",
+    "phone": "01395-866356",
+    "email": "info@general.health.org",
+    "latitude": "19.71018",
+    "longitude": "79.67796",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
     "id": 329,
-    "name": "Civil Medical Center, Unknown City",
-    "address": "5, Main Road",
+    "name": "Rural Medical College & Hospital, Unknown City",
+    "address": "201, Hospital Road",
     "city": "Unknown City",
     "state": "Mizoram*",
-    "zipCode": "898374",
-    "phone": "04335-378420",
-    "email": "info@civil.medical.org",
-    "latitude": "21.48940",
-    "longitude": "78.28309",
+    "zipCode": "489201",
+    "phone": "04475-962052",
+    "email": "info@rural.medical.org",
+    "latitude": "19.77112",
+    "longitude": "79.75624",
     "type": "Government",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
       "General Surgery",
       "Orthopedics",
@@ -8382,15 +8358,15 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 330,
-    "name": "State Medical Center, Mokokchung",
-    "address": "27, Main Road",
-    "city": "Mokokchung",
+    "name": "Community Hospital, Dimapur",
+    "address": "416, Healthcare Avenue",
+    "city": "Dimapur",
     "state": "Nagaland",
-    "zipCode": "137127",
-    "phone": "01604-669820",
-    "email": "info@state.medical.org",
-    "latitude": "27.13556",
-    "longitude": "95.03996",
+    "zipCode": "746474",
+    "phone": "03492-862406",
+    "email": "info@community.hospital.org",
+    "latitude": "25.18252",
+    "longitude": "93.82477",
     "type": "Government",
     "services": [
       "Emergency",
@@ -8408,15 +8384,65 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 331,
-    "name": "General Hospital, Mokokchung",
-    "address": "345, Healthcare Avenue",
-    "city": "Mokokchung",
+    "name": "Rural Medical Center, Dimapur",
+    "address": "340, Medical Center Road",
+    "city": "Dimapur",
     "state": "Nagaland",
-    "zipCode": "722238",
-    "phone": "06652-617704",
-    "email": "info@general.hospital.org",
-    "latitude": "26.39000",
-    "longitude": "94.74506",
+    "zipCode": "366834",
+    "phone": "01385-822688",
+    "email": "info@rural.medical.org",
+    "latitude": "26.88682",
+    "longitude": "94.29837",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 332,
+    "name": "State Medical Center, Unknown City",
+    "address": "453, Hospital Road",
+    "city": "Unknown City",
+    "state": "Odisha*",
+    "zipCode": "585669",
+    "phone": "02586-858865",
+    "email": "info@state.medical.org",
+    "latitude": "20.96692",
+    "longitude": "79.17460",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 333,
+    "name": "District Health Center, Unknown City",
+    "address": "161, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Odisha*",
+    "zipCode": "756171",
+    "phone": "07404-243568",
+    "email": "info@district.health.org",
+    "latitude": "20.62064",
+    "longitude": "79.26462",
     "type": "Government",
     "services": [
       "Emergency",
@@ -8426,23 +8452,67 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
+      "Tribal Medicine",
+      "Infectious Diseases"
     ]
   },
   {
-    "id": 332,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "285, Medical Center Road",
+    "id": 334,
+    "name": "State Medical Center, Unknown City",
+    "address": "310, Medical Center Road",
     "city": "Unknown City",
-    "state": "Odisha*",
-    "zipCode": "354052",
-    "phone": "05634-505126",
-    "email": "info@community.medical.org",
-    "latitude": "21.21717",
-    "longitude": "79.18377",
+    "state": "Punjab*",
+    "zipCode": "880774",
+    "phone": "05685-991721",
+    "email": "info@state.medical.org",
+    "latitude": "19.91188",
+    "longitude": "79.74517",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 335,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "37, Hospital Road",
+    "city": "Unknown City",
+    "state": "Punjab*",
+    "zipCode": "544748",
+    "phone": "08752-419220",
+    "email": "info@rural.community.org",
+    "latitude": "20.99022",
+    "longitude": "79.00545",
+    "type": "Government",
+    "services": [
+      "Tertiary Care",
+      "Specialized Surgery",
+      "Oncology",
+      "Neurology",
+      "Cardiology"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 336,
+    "name": "Community Hospital, Jaipur",
+    "address": "164, Main Road",
+    "city": "Jaipur",
+    "state": "Rajasthan",
+    "zipCode": "722939",
+    "phone": "01291-572091",
+    "email": "info@community.hospital.org",
+    "latitude": "27.15659",
+    "longitude": "74.73427",
     "type": "Government",
     "services": [
       "Emergency",
@@ -8453,114 +8523,20 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 333,
-    "name": "State Health Center, Unknown City",
-    "address": "180, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Odisha*",
-    "zipCode": "559037",
-    "phone": "07162-633738",
-    "email": "info@state.health.org",
-    "latitude": "21.25818",
-    "longitude": "79.60063",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Maternal Health",
-      "Child Health",
-      "Family Planning"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Obstetrics",
-      "Pediatrics"
-    ]
-  },
-  {
-    "id": 334,
-    "name": "General Medical Center, Unknown City",
-    "address": "397, Hospital Road",
-    "city": "Unknown City",
-    "state": "Punjab*",
-    "zipCode": "740808",
-    "phone": "03825-284940",
-    "email": "info@general.medical.org",
-    "latitude": "20.83904",
-    "longitude": "79.81811",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
       "Family Medicine"
-    ]
-  },
-  {
-    "id": 335,
-    "name": "State Community Health Center, Unknown City",
-    "address": "450, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Punjab*",
-    "zipCode": "432196",
-    "phone": "04514-662584",
-    "email": "info@state.community.org",
-    "latitude": "21.31987",
-    "longitude": "79.07318",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 336,
-    "name": "Community Community Health Center, Jodhpur",
-    "address": "315, Medical Center Road",
-    "city": "Jodhpur",
-    "state": "Rajasthan",
-    "zipCode": "185365",
-    "phone": "02957-305678",
-    "email": "info@community.community.org",
-    "latitude": "27.36966",
-    "longitude": "74.32752",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
     ]
   },
   {
     "id": 337,
-    "name": "Community Medical College & Hospital, Jodhpur",
-    "address": "40, Medical Center Road",
-    "city": "Jodhpur",
+    "name": "Community Community Health Center, Jaipur",
+    "address": "447, Main Road",
+    "city": "Jaipur",
     "state": "Rajasthan",
-    "zipCode": "697173",
-    "phone": "02170-803224",
-    "email": "info@community.medical.org",
-    "latitude": "26.53680",
-    "longitude": "73.60095",
+    "zipCode": "597713",
+    "phone": "04865-402457",
+    "email": "info@community.community.org",
+    "latitude": "26.35648",
+    "longitude": "73.67613",
     "type": "Government",
     "services": [
       "Emergency",
@@ -8570,372 +8546,101 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Neurology",
+      "Neurosurgery",
       "Cardiology",
-      "Nephrology",
-      "Oncology"
+      "Oncology",
+      "Orthopedics"
     ]
   },
   {
     "id": 338,
-    "name": "District Hospital, Unknown City",
-    "address": "420, Hospital Road",
+    "name": "Civil Medical Center, Unknown City",
+    "address": "414, Medical Center Road",
     "city": "Unknown City",
     "state": "Sikkim*",
-    "zipCode": "195534",
-    "phone": "06888-648422",
-    "email": "info@district.hospital.org",
-    "latitude": "21.01838",
-    "longitude": "78.89593",
+    "zipCode": "750420",
+    "phone": "09539-153886",
+    "email": "info@civil.medical.org",
+    "latitude": "20.69386",
+    "longitude": "78.81528",
     "type": "Government",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
     ],
-    "emergencyServices": false,
+    "emergencyServices": true,
     "specialties": [
-      "Neurology",
+      "Neurosurgery",
       "Cardiology",
-      "Nephrology",
-      "Oncology"
+      "Oncology",
+      "Orthopedics"
     ]
   },
   {
     "id": 339,
-    "name": "General Hospital, Unknown City",
-    "address": "455, Medical Center Road",
+    "name": "Community Medical College & Hospital, Unknown City",
+    "address": "55, Main Road",
     "city": "Unknown City",
     "state": "Sikkim*",
-    "zipCode": "752525",
-    "phone": "09894-325722",
-    "email": "info@general.hospital.org",
-    "latitude": "21.21491",
-    "longitude": "79.49292",
+    "zipCode": "516521",
+    "phone": "06677-489446",
+    "email": "info@community.medical.org",
+    "latitude": "21.08177",
+    "longitude": "79.25502",
     "type": "Government",
     "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
       "Mobile Healthcare"
     ]
   },
   {
     "id": 340,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "134, Main Road",
+    "name": "District Community Health Center, Unknown City",
+    "address": "487, Healthcare Avenue",
     "city": "Unknown City",
     "state": "Tamil Nadu*",
-    "zipCode": "849295",
-    "phone": "04969-624627",
-    "email": "info@community.medical.org",
-    "latitude": "19.68602",
-    "longitude": "79.60137",
+    "zipCode": "571772",
+    "phone": "03677-328756",
+    "email": "info@district.community.org",
+    "latitude": "20.66263",
+    "longitude": "78.93379",
     "type": "Government",
     "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "Mobile Healthcare"
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
     "id": 341,
-    "name": "General Community Health Center, Unknown City",
-    "address": "27, Healthcare Avenue",
+    "name": "General Health Center, Unknown City",
+    "address": "375, Healthcare Avenue",
     "city": "Unknown City",
     "state": "Tamil Nadu*",
-    "zipCode": "543220",
-    "phone": "04468-705107",
-    "email": "info@general.community.org",
-    "latitude": "21.29767",
-    "longitude": "79.22846",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 342,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "291, Hospital Road",
-    "city": "Unknown City",
-    "state": "Telangana*",
-    "zipCode": "127910",
-    "phone": "02135-923586",
-    "email": "info@community.medical.org",
-    "latitude": "19.74373",
-    "longitude": "78.20244",
+    "zipCode": "258117",
+    "phone": "09230-798591",
+    "email": "info@general.health.org",
+    "latitude": "21.25475",
+    "longitude": "79.25933",
     "type": "Government",
     "services": [
       "Primary Care",
       "Immunization",
       "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 343,
-    "name": "Rural Medical College & Hospital, Unknown City",
-    "address": "460, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Telangana*",
-    "zipCode": "644380",
-    "phone": "08537-995087",
-    "email": "info@rural.medical.org",
-    "latitude": "19.96135",
-    "longitude": "79.29252",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "Surgery",
-      "Cardiac Care",
-      "Dialysis"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 344,
-    "name": "Community Medical College & Hospital, Unknown City",
-    "address": "188, Hospital Road",
-    "city": "Unknown City",
-    "state": "Tripura*",
-    "zipCode": "439802",
-    "phone": "04725-709792",
-    "email": "info@community.medical.org",
-    "latitude": "21.17948",
-    "longitude": "79.80164",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurosurgery",
-      "Cardiology",
-      "Oncology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 345,
-    "name": "Rural Community Health Center, Unknown City",
-    "address": "205, Main Road",
-    "city": "Unknown City",
-    "state": "Tripura*",
-    "zipCode": "691282",
-    "phone": "03502-111047",
-    "email": "info@rural.community.org",
-    "latitude": "20.66527",
-    "longitude": "79.64103",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 346,
-    "name": "General Medical Center, Unknown City",
-    "address": "324, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Uttar Pradesh*",
-    "zipCode": "465684",
-    "phone": "08456-405658",
-    "email": "info@general.medical.org",
-    "latitude": "20.73981",
-    "longitude": "78.27130",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 347,
-    "name": "Rural Medical Center, Unknown City",
-    "address": "253, Main Road",
-    "city": "Unknown City",
-    "state": "Uttar Pradesh*",
-    "zipCode": "757530",
-    "phone": "03940-997197",
-    "email": "info@rural.medical.org",
-    "latitude": "21.05640",
-    "longitude": "78.67189",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Tribal Medicine",
-      "Infectious Diseases"
-    ]
-  },
-  {
-    "id": 348,
-    "name": "Community Medical Center, Haridwar",
-    "address": "359, Hospital Road",
-    "city": "Haridwar",
-    "state": "Uttarakhand",
-    "zipCode": "879939",
-    "phone": "06108-885581",
-    "email": "info@community.medical.org",
-    "latitude": "29.56529",
-    "longitude": "79.26769",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 349,
-    "name": "Community Community Health Center, Haridwar",
-    "address": "452, Hospital Road",
-    "city": "Haridwar",
-    "state": "Uttarakhand",
-    "zipCode": "826742",
-    "phone": "05729-199040",
-    "email": "info@community.community.org",
-    "latitude": "29.46782",
-    "longitude": "78.25884",
-    "type": "Government",
-    "services": [
-      "Basic Healthcare",
-      "Vaccinations",
-      "Health Education",
-      "First Aid"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Family Medicine"
-    ]
-  },
-  {
-    "id": 350,
-    "name": "State Community Health Center, Durgapur",
-    "address": "409, Healthcare Avenue",
-    "city": "Durgapur",
-    "state": "West Bengal",
-    "zipCode": "387782",
-    "phone": "05686-538305",
-    "email": "info@state.community.org",
-    "latitude": "23.20384",
-    "longitude": "87.42611",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 351,
-    "name": "Rural Hospital, Durgapur",
-    "address": "500, Medical Center Road",
-    "city": "Durgapur",
-    "state": "West Bengal",
-    "zipCode": "548174",
-    "phone": "04929-200267",
-    "email": "info@rural.hospital.org",
-    "latitude": "23.81202",
-    "longitude": "87.16884",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "Cardiology",
-      "Neurology",
-      "Gastroenterology"
-    ]
-  },
-  {
-    "id": 352,
-    "name": "General Medical Center, Unknown City",
-    "address": "486, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "669281",
-    "phone": "09971-706881",
-    "email": "info@general.medical.org",
-    "latitude": "21.27146",
-    "longitude": "78.85060",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
     ],
     "emergencyServices": true,
     "specialties": [
@@ -8944,38 +8649,16 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 353,
-    "name": "Rural Medical Center, Unknown City",
-    "address": "307, Hospital Road",
+    "id": 342,
+    "name": "Civil Health Center, Unknown City",
+    "address": "244, Healthcare Avenue",
     "city": "Unknown City",
-    "state": "Andaman & Nicobar Islands",
-    "zipCode": "623275",
-    "phone": "05609-934417",
-    "email": "info@rural.medical.org",
-    "latitude": "20.42613",
-    "longitude": "78.90336",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 354,
-    "name": "District Medical College & Hospital, Unknown City",
-    "address": "76, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Chandigarh",
-    "zipCode": "717807",
-    "phone": "02362-487294",
-    "email": "info@district.medical.org",
-    "latitude": "21.15216",
-    "longitude": "78.07369",
+    "state": "Telangana*",
+    "zipCode": "563245",
+    "phone": "03243-113757",
+    "email": "info@civil.health.org",
+    "latitude": "21.24329",
+    "longitude": "78.73844",
     "type": "Government",
     "services": [
       "Tertiary Care",
@@ -8984,22 +8667,285 @@ export const hospitals: Hospital[] = [
       "Neurology",
       "Cardiology"
     ],
+    "emergencyServices": false,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 343,
+    "name": "General Community Health Center, Unknown City",
+    "address": "401, Hospital Road",
+    "city": "Unknown City",
+    "state": "Telangana*",
+    "zipCode": "631627",
+    "phone": "06594-608069",
+    "email": "info@general.community.org",
+    "latitude": "21.47478",
+    "longitude": "78.26531",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 344,
+    "name": "General Hospital, Unknown City",
+    "address": "489, Main Road",
+    "city": "Unknown City",
+    "state": "Tripura*",
+    "zipCode": "852404",
+    "phone": "06394-398151",
+    "email": "info@general.hospital.org",
+    "latitude": "20.55129",
+    "longitude": "78.39866",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 345,
+    "name": "Civil Community Health Center, Unknown City",
+    "address": "147, Hospital Road",
+    "city": "Unknown City",
+    "state": "Tripura*",
+    "zipCode": "852066",
+    "phone": "01403-782895",
+    "email": "info@civil.community.org",
+    "latitude": "20.84188",
+    "longitude": "78.40971",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 346,
+    "name": "General Medical Center, Unknown City",
+    "address": "93, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Uttar Pradesh*",
+    "zipCode": "797379",
+    "phone": "09147-110771",
+    "email": "info@general.medical.org",
+    "latitude": "21.51021",
+    "longitude": "78.31025",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
     "emergencyServices": true,
     "specialties": [
       "Family Medicine"
     ]
   },
   {
-    "id": 355,
-    "name": "Community Health Center, Unknown City",
-    "address": "300, Medical Center Road",
+    "id": 347,
+    "name": "General Medical College & Hospital, Unknown City",
+    "address": "394, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Uttar Pradesh*",
+    "zipCode": "284467",
+    "phone": "04368-820827",
+    "email": "info@general.medical.org",
+    "latitude": "19.72091",
+    "longitude": "79.90817",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Family Medicine"
+    ]
+  },
+  {
+    "id": 348,
+    "name": "Rural Medical Center, Haldwani",
+    "address": "98, Healthcare Avenue",
+    "city": "Haldwani",
+    "state": "Uttarakhand",
+    "zipCode": "521656",
+    "phone": "06106-605151",
+    "email": "info@rural.medical.org",
+    "latitude": "29.15560",
+    "longitude": "79.51402",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 349,
+    "name": "Civil Hospital, Haldwani",
+    "address": "184, Hospital Road",
+    "city": "Haldwani",
+    "state": "Uttarakhand",
+    "zipCode": "716741",
+    "phone": "07585-516091",
+    "email": "info@civil.hospital.org",
+    "latitude": "30.07259",
+    "longitude": "79.30294",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 350,
+    "name": "State Community Health Center, Durgapur",
+    "address": "225, Hospital Road",
+    "city": "Durgapur",
+    "state": "West Bengal",
+    "zipCode": "249151",
+    "phone": "03549-708371",
+    "email": "info@state.community.org",
+    "latitude": "22.64508",
+    "longitude": "87.35039",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Neurosurgery",
+      "Cardiology",
+      "Oncology",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 351,
+    "name": "District Hospital, Durgapur",
+    "address": "221, Healthcare Avenue",
+    "city": "Durgapur",
+    "state": "West Bengal",
+    "zipCode": "663909",
+    "phone": "04781-467769",
+    "email": "info@district.hospital.org",
+    "latitude": "22.61110",
+    "longitude": "87.97423",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Practice"
+    ]
+  },
+  {
+    "id": 352,
+    "name": "District Hospital, Unknown City",
+    "address": "241, Main Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "466071",
+    "phone": "01835-550549",
+    "email": "info@district.hospital.org",
+    "latitude": "20.35873",
+    "longitude": "79.79241",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 353,
+    "name": "Community Medical Center, Unknown City",
+    "address": "390, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Andaman & Nicobar Islands",
+    "zipCode": "622059",
+    "phone": "03531-358322",
+    "email": "info@community.medical.org",
+    "latitude": "21.40727",
+    "longitude": "78.49082",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "Surgery",
+      "Cardiac Care",
+      "Dialysis"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 354,
+    "name": "General Community Health Center, Unknown City",
+    "address": "50, Main Road",
     "city": "Unknown City",
     "state": "Chandigarh",
-    "zipCode": "346744",
-    "phone": "09474-701311",
-    "email": "info@community.health.org",
-    "latitude": "20.29277",
-    "longitude": "78.46645",
+    "zipCode": "273567",
+    "phone": "02998-866356",
+    "email": "info@general.community.org",
+    "latitude": "20.96849",
+    "longitude": "79.88595",
     "type": "Government",
     "services": [
       "Primary Care",
@@ -9009,21 +8955,44 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "General Medicine",
-      "Orthopedics"
+      "Tribal Medicine",
+      "Infectious Diseases"
+    ]
+  },
+  {
+    "id": 355,
+    "name": "Rural Community Health Center, Unknown City",
+    "address": "305, Healthcare Avenue",
+    "city": "Unknown City",
+    "state": "Chandigarh",
+    "zipCode": "785033",
+    "phone": "02751-313910",
+    "email": "info@rural.community.org",
+    "latitude": "20.92581",
+    "longitude": "78.41429",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": false,
+    "specialties": [
+      "Mobile Healthcare"
     ]
   },
   {
     "id": 356,
-    "name": "Rural Hospital, Unknown City",
-    "address": "428, Main Road",
+    "name": "General Community Health Center, Unknown City",
+    "address": "291, Main Road",
     "city": "Unknown City",
     "state": "Dadra & Nagar Haveli*",
-    "zipCode": "531902",
-    "phone": "01510-469314",
-    "email": "info@rural.hospital.org",
-    "latitude": "20.27753",
-    "longitude": "78.58810",
+    "zipCode": "887459",
+    "phone": "01751-331442",
+    "email": "info@general.community.org",
+    "latitude": "21.42897",
+    "longitude": "79.18889",
     "type": "Government",
     "services": [
       "Tertiary Care",
@@ -9034,20 +9003,92 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Mobile Healthcare"
+      "General Practice"
     ]
   },
   {
     "id": 357,
-    "name": "Community Medical Center, Unknown City",
-    "address": "402, Medical Center Road",
+    "name": "District Medical College & Hospital, Unknown City",
+    "address": "358, Healthcare Avenue",
     "city": "Unknown City",
     "state": "Dadra & Nagar Haveli*",
-    "zipCode": "520650",
-    "phone": "05524-814871",
+    "zipCode": "272463",
+    "phone": "01251-500505",
+    "email": "info@district.medical.org",
+    "latitude": "20.60660",
+    "longitude": "78.87038",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
+    ]
+  },
+  {
+    "id": 358,
+    "name": "Community Medical Center, Unknown City",
+    "address": "492, Main Road",
+    "city": "Unknown City",
+    "state": "Daman & Diu",
+    "zipCode": "776260",
+    "phone": "03504-679672",
     "email": "info@community.medical.org",
-    "latitude": "20.28330",
-    "longitude": "79.92069",
+    "latitude": "20.63932",
+    "longitude": "78.39414",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "General Medicine",
+      "Orthopedics"
+    ]
+  },
+  {
+    "id": 359,
+    "name": "General Medical College & Hospital, Unknown City",
+    "address": "319, Main Road",
+    "city": "Unknown City",
+    "state": "Daman & Diu",
+    "zipCode": "332709",
+    "phone": "08974-288954",
+    "email": "info@general.medical.org",
+    "latitude": "19.89178",
+    "longitude": "78.34323",
+    "type": "Government",
+    "services": [
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Obstetrics",
+      "Pediatrics"
+    ]
+  },
+  {
+    "id": 360,
+    "name": "General Health Center, East Delhi",
+    "address": "463, Healthcare Avenue",
+    "city": "East Delhi",
+    "state": "Delhi",
+    "zipCode": "527827",
+    "phone": "04686-444659",
+    "email": "info@general.health.org",
+    "latitude": "28.87760",
+    "longitude": "76.91304",
     "type": "Government",
     "services": [
       "Primary Care",
@@ -9056,73 +9097,67 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": false,
     "specialties": [
-      "Obstetrics",
-      "Pediatrics"
+      "Family Medicine"
     ]
   },
   {
-    "id": 358,
-    "name": "Rural Medical College & Hospital, Unknown City",
-    "address": "239, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Daman & Diu",
-    "zipCode": "321017",
-    "phone": "09963-816949",
-    "email": "info@rural.medical.org",
-    "latitude": "21.26573",
-    "longitude": "79.48737",
-    "type": "Government",
-    "services": [
-      "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
-    ]
-  },
-  {
-    "id": 359,
-    "name": "State Health Center, Unknown City",
-    "address": "377, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Daman & Diu",
-    "zipCode": "214024",
-    "phone": "07436-613180",
-    "email": "info@state.health.org",
-    "latitude": "21.34116",
-    "longitude": "78.25210",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 360,
-    "name": "State Medical College & Hospital, New Delhi",
-    "address": "256, Main Road",
-    "city": "New Delhi",
+    "id": 361,
+    "name": "Civil Hospital, East Delhi",
+    "address": "200, Hospital Road",
+    "city": "East Delhi",
     "state": "Delhi",
-    "zipCode": "461607",
-    "phone": "01669-457406",
-    "email": "info@state.medical.org",
-    "latitude": "28.83762",
-    "longitude": "76.92796",
+    "zipCode": "865697",
+    "phone": "02447-980672",
+    "email": "info@civil.hospital.org",
+    "latitude": "27.71931",
+    "longitude": "76.12787",
+    "type": "Government",
+    "services": [
+      "Basic Healthcare",
+      "Vaccinations",
+      "Health Education",
+      "First Aid"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 362,
+    "name": "State Hospital, Unknown City",
+    "address": "431, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Lakshadweep",
+    "zipCode": "616557",
+    "phone": "05464-879216",
+    "email": "info@state.hospital.org",
+    "latitude": "19.91278",
+    "longitude": "78.92101",
+    "type": "Government",
+    "services": [
+      "Emergency",
+      "General Medicine",
+      "Surgery",
+      "Pediatrics",
+      "Obstetrics"
+    ],
+    "emergencyServices": true,
+    "specialties": [
+      "Mobile Healthcare"
+    ]
+  },
+  {
+    "id": 363,
+    "name": "Civil Community Health Center, Unknown City",
+    "address": "216, Medical Center Road",
+    "city": "Unknown City",
+    "state": "Lakshadweep",
+    "zipCode": "274394",
+    "phone": "08739-776920",
+    "email": "info@civil.community.org",
+    "latitude": "19.64638",
+    "longitude": "78.00669",
     "type": "Government",
     "services": [
       "Emergency",
@@ -9138,114 +9173,40 @@ export const hospitals: Hospital[] = [
     ]
   },
   {
-    "id": 361,
-    "name": "Civil Health Center, New Delhi",
-    "address": "277, Healthcare Avenue",
-    "city": "New Delhi",
-    "state": "Delhi",
-    "zipCode": "869572",
-    "phone": "01620-482931",
-    "email": "info@civil.health.org",
-    "latitude": "28.72484",
-    "longitude": "77.80891",
-    "type": "Government",
-    "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "General Practice"
-    ]
-  },
-  {
-    "id": 362,
-    "name": "Civil Medical Center, Unknown City",
-    "address": "33, Medical Center Road",
+    "id": 364,
+    "name": "State Medical College & Hospital, Unknown City",
+    "address": "30, Healthcare Avenue",
     "city": "Unknown City",
-    "state": "Lakshadweep",
-    "zipCode": "843961",
-    "phone": "06269-678939",
-    "email": "info@civil.medical.org",
-    "latitude": "20.29416",
-    "longitude": "79.87178",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
-    ],
-    "emergencyServices": false,
-    "specialties": [
-      "General Medicine",
-      "Orthopedics"
-    ]
-  },
-  {
-    "id": 363,
-    "name": "State Health Center, Unknown City",
-    "address": "182, Healthcare Avenue",
-    "city": "Unknown City",
-    "state": "Lakshadweep",
-    "zipCode": "143667",
-    "phone": "06972-118190",
-    "email": "info@state.health.org",
-    "latitude": "20.66691",
-    "longitude": "79.10676",
+    "state": "Puducherry",
+    "zipCode": "586626",
+    "phone": "01454-982282",
+    "email": "info@state.medical.org",
+    "latitude": "21.27114",
+    "longitude": "79.90680",
     "type": "Government",
     "services": [
       "Primary Care",
-      "Immunization",
-      "Basic Medicine"
-    ],
-    "emergencyServices": true,
-    "specialties": [
-      "Neurology",
-      "Cardiology",
-      "Nephrology",
-      "Oncology"
-    ]
-  },
-  {
-    "id": 364,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "44, Medical Center Road",
-    "city": "Unknown City",
-    "state": "Puducherry",
-    "zipCode": "583689",
-    "phone": "03143-187830",
-    "email": "info@civil.community.org",
-    "latitude": "20.65221",
-    "longitude": "79.34803",
-    "type": "Government",
-    "services": [
-      "Tertiary Care",
-      "Specialized Surgery",
-      "Oncology",
-      "Neurology",
-      "Cardiology"
+      "Maternal Health",
+      "Child Health",
+      "Family Planning"
     ],
     "emergencyServices": false,
     "specialties": [
-      "Family Medicine"
+      "Obstetrics",
+      "Pediatrics"
     ]
   },
   {
     "id": 365,
-    "name": "Community Health Center, Unknown City",
-    "address": "75, Main Road",
+    "name": "State Medical College & Hospital, Unknown City",
+    "address": "412, Medical Center Road",
     "city": "Unknown City",
     "state": "Puducherry",
-    "zipCode": "219559",
-    "phone": "08188-424699",
-    "email": "info@community.health.org",
-    "latitude": "19.81135",
-    "longitude": "78.79534",
+    "zipCode": "685002",
+    "phone": "04584-349019",
+    "email": "info@state.medical.org",
+    "latitude": "20.98458",
+    "longitude": "79.92461",
     "type": "Government",
     "services": [
       "Basic Healthcare",
@@ -9260,42 +9221,39 @@ export const hospitals: Hospital[] = [
   },
   {
     "id": 366,
-    "name": "State Community Health Center, Unknown City",
-    "address": "368, Main Road",
+    "name": "Rural Medical Center, Unknown City",
+    "address": "388, Medical Center Road",
     "city": "Unknown City",
     "state": "INDIA",
-    "zipCode": "873701",
-    "phone": "04215-999978",
-    "email": "info@state.community.org",
-    "latitude": "21.42975",
-    "longitude": "79.13466",
+    "zipCode": "698274",
+    "phone": "06757-206008",
+    "email": "info@rural.medical.org",
+    "latitude": "20.69887",
+    "longitude": "78.75353",
     "type": "Government",
     "services": [
-      "Emergency",
-      "General Medicine",
-      "Surgery",
-      "Pediatrics",
-      "Obstetrics"
+      "Primary Care",
+      "Immunization",
+      "Basic Medicine"
     ],
-    "emergencyServices": true,
+    "emergencyServices": false,
     "specialties": [
-      "General Surgery",
-      "Orthopedics",
-      "Pediatrics",
-      "Gynecology"
+      "Cardiology",
+      "Neurology",
+      "Gastroenterology"
     ]
   },
   {
     "id": 367,
-    "name": "Civil Community Health Center, Unknown City",
-    "address": "382, Hospital Road",
+    "name": "Civil Medical Center, Unknown City",
+    "address": "303, Healthcare Avenue",
     "city": "Unknown City",
     "state": "INDIA",
-    "zipCode": "790944",
-    "phone": "03139-836273",
-    "email": "info@civil.community.org",
-    "latitude": "21.55501",
-    "longitude": "78.00034",
+    "zipCode": "425175",
+    "phone": "05709-841904",
+    "email": "info@civil.medical.org",
+    "latitude": "20.44119",
+    "longitude": "78.53912",
     "type": "Government",
     "services": [
       "Basic Healthcare",
@@ -9305,9 +9263,10 @@ export const hospitals: Hospital[] = [
     ],
     "emergencyServices": true,
     "specialties": [
-      "Cardiology",
-      "Nephrology",
-      "Orthopedics"
+      "General Surgery",
+      "Orthopedics",
+      "Pediatrics",
+      "Gynecology"
     ]
   }
 ];

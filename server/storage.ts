@@ -21,6 +21,7 @@ import {
   dietPlans,
   medications
 } from "@shared/schema";
+import { hospitals as hospitalData } from "../client/src/data/hospitals";
 import { db } from "./db";
 import { and, eq, ilike, sql } from "drizzle-orm";
 import session from "express-session";
@@ -366,53 +367,9 @@ export class DatabaseStorage implements IStorage {
     ]);
 
     // Seed hospitals
-    await db.insert(hospitals).values([
-      {
-        name: "District Hospital",
-        address: "Main Road, Sambalpur",
-        city: "Sambalpur",
-        state: "Odisha",
-        zipCode: "768001",
-        phone: "0663-2520100",
-        email: "dh.sambalpur@gov.in",
-        latitude: "21.466",
-        longitude: "83.975",
-        type: "Government",
-        services: ["Emergency", "General Medicine", "Surgery", "Pediatrics", "Obstetrics"],
-        emergencyServices: true,
-        specialties: ["General Medicine", "Orthopedics"]
-      },
-      {
-        name: "Community Health Center",
-        address: "Near Bus Stand, Bargarh",
-        city: "Bargarh",
-        state: "Odisha",
-        zipCode: "768028",
-        phone: "0664-2345678",
-        email: "chc.bargarh@gov.in",
-        latitude: "21.346",
-        longitude: "83.828",
-        type: "Government",
-        services: ["Primary Care", "Maternal Health", "Child Health", "Family Planning"],
-        emergencyServices: false,
-        specialties: ["Family Medicine"]
-      },
-      {
-        name: "Primary Health Center",
-        address: "Hirakud Dam Colony, Hirakud",
-        city: "Hirakud",
-        state: "Odisha",
-        zipCode: "768016",
-        phone: "0663-2456789",
-        email: "phc.hirakud@gov.in",
-        latitude: "21.511",
-        longitude: "83.872",
-        type: "Government",
-        services: ["Primary Care", "Immunization", "Basic Medicine"],
-        emergencyServices: false,
-        specialties: ["General Practice"]
-      }
-    ]);
+    console.log(`Seeding ${hospitalData.length} hospitals from processed data...`);
+    // Use our processed hospital data from the CSV files (367 hospitals)
+    await db.insert(hospitals).values(hospitalData);
 
     // Seed symptoms
     await db.insert(symptoms).values([
