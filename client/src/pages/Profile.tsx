@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLanguage } from '@/providers/LanguageProvider';
-import { useOffline } from '@/providers/OfflineProvider';
+import { useLanguage } from '@/context/LanguageContext';
+import { useOffline } from '@/context/OfflineContext';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

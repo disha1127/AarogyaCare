@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLanguage } from '@/providers/LanguageProvider';
+import { useLanguage } from '@/context/LanguageContext';
 import { articles } from '@/data/articles';
 import ArticleCard from '@/components/ArticleCard';
 import { Input } from '@/components/ui/input';

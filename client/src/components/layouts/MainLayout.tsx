@@ -5,7 +5,7 @@ import OfflineIndicator from '../OfflineIndicator';
 import LanguageSwitcher from '../LanguageSwitcher';
 import SOSButton from '../SOSButton';
 import MobileNavigation from '../MobileNavigation';
-import { useLanguage } from '@/providers/LanguageProvider';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface MainLayoutProps {
   children: React.ReactNode;

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Hospital } from '@/data/hospitals';
-import { useLanguage } from '@/providers/LanguageProvider';
+import { Hospital } from '@shared/schema';
+import { useLanguage } from '@/context/LanguageContext';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useOffline } from '@/providers/OfflineProvider';
+import { useOffline } from '@/context/OfflineContext';
 import { useToast } from '@/hooks/use-toast';
 
 interface HospitalMapProps {
