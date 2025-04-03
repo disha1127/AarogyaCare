@@ -1,0 +1,56 @@
+{
+  "common": {
+    "home": "హోమ్",
+    "healthArticles": "ఆరోగ్య వ్యాసాలు",
+    "symptomChecker": "లక్షణాల తనిఖీ",
+    "dietPlans": "ఆహార ప్రణాళికలు",
+    "hospitalFinder": "ఆసుపత్రి కనుగొనేవారు",
+    "governmentSchemes": "ప్రభుత్వ పథకాలు",
+    "medicationReminders": "మందుల రిమైండర్లు",
+    "offlineMessage": "మీరు ప్రస్తుతం ఆఫ్‌లైన్‌లో ఉన్నారు. కొన్ని ఫీచర్లు పరిమితం కావచ్చు.",
+    "loading": "లోడింగ్...",
+    "error": "ఒక లోపం సంభవించింది",
+    "retry": "మళ్ళీ ప్రయత్నించు",
+    "cancel": "రద్దు చేయండి",
+    "save": "సేవ్ చేయండి",
+    "delete": "తొలగించు",
+    "edit": "సవరించు",
+    "menu": "మెను",
+    "closeMenu": "మెను మూసివేయండి",
+    "login": "లాగిన్",
+    "signup": "సైన్అప్",
+    "logout": "లాగౌట్",
+    "profile": "నా ప్రొఫైల్"
+  },
+  "home": {
+    "heroTitle": "గ్రామీణ సమాజాలకు AI-శక్తితో కూడిన ఆరోగ్య సంరక్షణ",
+    "heroDescription": "గ్రామీణ అవసరాలకు అనుగుణంగా ఆఫ్‌లైన్‌లో కూడా అవసరమైన ఆరోగ్య సేవలను పొందండి. మీరు ఎక్కడ ఉన్నా, మీ ఆరోగ్య సహచరుడు.",
+    "checkSymptoms": "లక్షణాలను తనిఖీ చేయండి",
+    "findHospitals": "ఆసుపత్రులను కనుగొనండి",
+    "essentialFeatures": "అవసరమైన ఆరోగ్య సంరక్షణ ఫీచర్లు",
+    "latestArticles": "తాజా ఆరోగ్య వ్యాసాలు",
+    "viewAllArticles": "అన్ని వ్యాసాలను చూడండి",
+    "readMore": "మరింత చదవండి"
+  },
+  "sos": {
+    "emergencySOS": "అత్యవసర SOS",
+    "emergencyAlert": "అత్యవసర హెచ్చరిక",
+    "sendEmergencyAlert": "అత్యవసర హెచ్చరికను పంపండి",
+    "addEmergencyContact": "అత్యవసర కాంటాక్ట్‌ను జోడించండి",
+    "name": "పేరు",
+    "phone": "ఫోన్ నంబర్",
+    "relationship": "సంబంధం"
+  },
+  "auth": {
+    "emailPlaceholder": "ఇమెయిల్",
+    "passwordPlaceholder": "పాస్‌వర్డ్",
+    "confirmPasswordPlaceholder": "పాస్‌వర్డ్‌ని నిర్ధారించండి",
+    "fullNamePlaceholder": "పూర్తి పేరు",
+    "loginBtn": "లాగిన్",
+    "signupBtn": "సైన్అప్",
+    "noAccount": "ఖాతా లేదా?",
+    "haveAccount": "ఇప్పటికే ఖాతా ఉందా?",
+    "signupPrompt": "ఉచితంగా సైన్ అప్ చేయండి",
+    "loginPrompt": "మీ ఖాతాకు లాగిన్ చేయండి"
+  }
+}

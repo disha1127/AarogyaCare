@@ -10,20 +10,24 @@ import DietPlans from "@/pages/DietPlans";
 import HospitalFinder from "@/pages/HospitalFinder";
 import GovernmentSchemes from "@/pages/GovernmentSchemes";
 import MedicationReminders from "@/pages/MedicationReminders";
+import AuthPage from "@/pages/auth-page";
 import Layout from "@/components/Layout";
 import { OfflineProvider } from "./context/OfflineContext";
 import { LanguageProvider } from "./context/LanguageContext";
+import { AuthProvider } from "@/hooks/use-auth";
+import { ProtectedRoute } from "@/lib/protected-route";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/symptom-checker" component={SymptomChecker} />
+      <Route path="/auth" component={AuthPage} />
+      <ProtectedRoute path="/symptom-checker" component={SymptomChecker} />
       <Route path="/articles" component={Articles} />
-      <Route path="/diet-plans" component={DietPlans} />
+      <ProtectedRoute path="/diet-plans" component={DietPlans} />
       <Route path="/hospital-finder" component={HospitalFinder} />
       <Route path="/government-schemes" component={GovernmentSchemes} />
-      <Route path="/medication-reminders" component={MedicationReminders} />
+      <ProtectedRoute path="/medication-reminders" component={MedicationReminders} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -34,10 +38,12 @@ function App() {
     <OfflineProvider>
       <LanguageProvider>
         <QueryClientProvider client={queryClient}>
-          <Layout>
-            <Router />
-          </Layout>
-          <Toaster />
+          <AuthProvider>
+            <Layout>
+              <Router />
+            </Layout>
+            <Toaster />
+          </AuthProvider>
         </QueryClientProvider>
       </LanguageProvider>
     </OfflineProvider>

@@ -1,0 +1,57 @@
+{
+  "common": {
+    "home": "হোম",
+    "healthArticles": "স্বাস্থ্য নিবন্ধ",
+    "symptomChecker": "লক্ষণ পরীক্ষক",
+    "dietPlans": "খাদ্য পরিকল্পনা",
+    "hospitalFinder": "হাসপাতাল খুঁজুন",
+    "governmentSchemes": "সরকারি প্রকল্প",
+    "medicationReminders": "ওষুধ রিমাইন্ডার",
+    "offlineMessage": "আপনি বর্তমানে অফলাইনে আছেন। কিছু বৈশিষ্ট্য সীমিত হতে পারে।",
+    "loading": "লোড হচ্ছে...",
+    "error": "একটি ত্রুটি ঘটেছে",
+    "retry": "আবার চেষ্টা করুন",
+    "cancel": "বাতিল করুন",
+    "save": "সংরক্ষণ করুন",
+    "delete": "মুছুন",
+    "edit": "সম্পাদনা করুন",
+    "menu": "মেনু",
+    "closeMenu": "মেনু বন্ধ করুন",
+    "login": "লগইন",
+    "signup": "সাইন আপ",
+    "logout": "লগআউট",
+    "profile": "আমার প্রোফাইল"
+  },
+  "home": {
+    "heroTitle": "গ্রামীণ সম্প্রদায়ের জন্য AI-চালিত স্বাস্থ্যসেবা",
+    "heroDescription": "গ্রামীণ চাহিদার জন্য অফলাইনেও অপরিহার্য স্বাস্থ্যসেবা পাওয়া যায়। আপনি যেখানেই থাকুন, আপনার স্বাস্থ্য সঙ্গী।",
+    "checkSymptoms": "লক্ষণ পরীক্ষা করুন",
+    "findHospitals": "হাসপাতাল খুঁজুন",
+    "essentialFeatures": "অপরিহার্য স্বাস্থ্যসেবা বৈশিষ্ট্য",
+    "latestArticles": "সর্বশেষ স্বাস্থ্য নিবন্ধ",
+    "viewAllArticles": "সমস্ত নিবন্ধ দেখুন",
+    "readMore": "আরও পড়ুন"
+  },
+  "sos": {
+    "emergencySOS": "জরুরী SOS",
+    "emergencyAlert": "জরুরী সতর্কতা",
+    "sosConfirmation": "আপনি কি সত্যিই একটি জরুরী সতর্কতা পাঠাতে চান? এটি আপনার বর্তমান অবস্থান সহ আপনার জরুরী যোগাযোগগুলিকে অবহিত করবে।",
+    "sendEmergencyAlert": "জরুরী সতর্কতা পাঠান",
+    "addEmergencyContact": "জরুরী যোগাযোগ যোগ করুন",
+    "name": "নাম",
+    "phone": "ফোন নম্বর",
+    "relationship": "সম্পর্ক"
+  },
+  "auth": {
+    "emailPlaceholder": "ইমেইল",
+    "passwordPlaceholder": "পাসওয়ার্ড",
+    "confirmPasswordPlaceholder": "পাসওয়ার্ড নিশ্চিত করুন",
+    "fullNamePlaceholder": "পুরো নাম",
+    "loginBtn": "লগইন",
+    "signupBtn": "সাইন আপ",
+    "noAccount": "একাউন্ট নেই?",
+    "haveAccount": "ইতিমধ্যে একটি অ্যাকাউন্ট আছে?",
+    "signupPrompt": "বিনামূল্যে সাইন আপ করুন",
+    "loginPrompt": "আপনার অ্যাকাউন্টে লগইন করুন"
+  }
+}

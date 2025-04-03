@@ -11,8 +11,11 @@ import {
   insertDietPlanSchema,
   insertMedicationSchema
 } from "@shared/schema";
+import { setupAuth } from "./auth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Set up authentication
+  setupAuth(app);
   // Users API routes
   app.get("/api/users/:id", async (req, res) => {
     const id = parseInt(req.params.id);

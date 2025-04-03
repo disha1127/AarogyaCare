@@ -1,0 +1,100 @@
+{
+  "common": {
+    "home": "होम",
+    "healthArticles": "स्वास्थ्य लेख",
+    "symptomChecker": "लक्षण जांचकर्ता",
+    "dietPlans": "आहार योजनाएं",
+    "hospitalFinder": "अस्पताल खोजक",
+    "governmentSchemes": "सरकारी योजनाएं",
+    "medicationReminders": "दवा रिमाइंडर",
+    "offlineMessage": "आप वर्तमान में ऑफलाइन हैं। कुछ सुविधाएं सीमित हो सकती हैं।",
+    "loading": "लोड हो रहा है...",
+    "error": "एक त्रुटि हुई",
+    "retry": "पुनः प्रयास करें",
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "menu": "मेनू",
+    "closeMenu": "मेनू बंद करें",
+    "login": "लॉगिन",
+    "signup": "साइन अप",
+    "logout": "लॉगआउट",
+    "profile": "मेरी प्रोफ़ाइल"
+  },
+  "home": {
+    "heroTitle": "ग्रामीण समुदायों के लिए AI-संचालित स्वास्थ्य सेवा",
+    "heroDescription": "ग्रामीण आवश्यकताओं के लिए अनुकूलित आवश्यक स्वास्थ्य सेवाओं तक पहुंच, यहां तक कि ऑफलाइन भी। जहां भी आप हों, आपका स्वास्थ्य साथी।",
+    "checkSymptoms": "लक्षण जांचें",
+    "findHospitals": "अस्पताल खोजें",
+    "essentialFeatures": "आवश्यक स्वास्थ्य सेवा सुविधाएं",
+    "latestArticles": "नवीनतम स्वास्थ्य लेख",
+    "viewAllArticles": "सभी लेख देखें",
+    "readMore": "और पढ़ें"
+  },
+  "hospitalFinder": {
+    "nearbyHospitals": "अपने नजदीकी अस्पताल खोजें",
+    "enterLocation": "अपना स्थान दर्ज करें",
+    "distance": "दूरी",
+    "contactNumber": "संपर्क नंबर",
+    "directions": "दिशा-निर्देश प्राप्त करें"
+  },
+  "footer": {
+    "quickLinks": "त्वरित लिंक",
+    "resources": "संसाधन",
+    "contact": "संपर्क",
+    "healthEducation": "स्वास्थ्य शिक्षा",
+    "emergencyContacts": "आपातकालीन संपर्क",
+    "dietNutrition": "आहार और पोषण",
+    "medicationGuide": "दवा गाइड",
+    "firstAidTips": "प्राथमिक चिकित्सा टिप्स",
+    "tollFree": "टोल फ्री",
+    "ministryAddress": "स्वास्थ्य और परिवार कल्याण मंत्रालय, भारत सरकार",
+    "copyright": "सर्वाधिकार सुरक्षित। ग्रामीण स्वास्थ्य सेवा पहुंच के लिए एक परियोजना।"
+  },
+  "downloadApp": {
+    "accessAnytime": "कभी भी, कहीं भी स्वास्थ्य सेवा प्राप्त करें",
+    "downloadDescription": "AROGYA ऐप डाउनलोड करें और इंटरनेट कनेक्शन के बिना भी सभी सुविधाओं तक ऑफलाइन पहुंच प्राप्त करें।",
+    "downloadAndroid": "Android के लिए डाउनलोड करें",
+    "saveOffline": "ऑफलाइन उपयोग के लिए सहेजें"
+  },
+  "sos": {
+    "emergencySOS": "आपातकालीन SOS",
+    "emergencyAlert": "आपातकालीन अलर्ट",
+    "sosConfirmation": "क्या आप वाकई एक आपातकालीन अलर्ट भेजना चाहते हैं? यह आपके आपातकालीन संपर्कों को आपके वर्तमान स्थान के साथ सूचित करेगा।",
+    "sendEmergencyAlert": "आपातकालीन अलर्ट भेजें",
+    "emergencyAlertSent": "आपातकालीन अलर्ट भेजा गया",
+    "emergencyContactsNotified": "आपके आपातकालीन संपर्कों को आपकी स्थिति के बारे में सूचित कर दिया गया है।",
+    "addEmergencyContact": "आपातकालीन संपर्क जोड़ें",
+    "name": "नाम",
+    "phone": "फोन नंबर",
+    "relationship": "रिश्ता"
+  },
+  "offline": {
+    "offlineDataSaved": "ऑफलाइन डेटा सहेजा गया",
+    "offlineDataSavedDescription": "आवश्यक स्वास्थ्य जानकारी ऑफलाइन उपयोग के लिए सहेज ली गई है।",
+    "offlineDataError": "ऑफलाइन डेटा सहेजने में त्रुटि",
+    "offlineDataErrorDescription": "ऑफलाइन उपयोग के लिए डेटा सहेजने में समस्या हुई। कृपया पुनः प्रयास करें।"
+  },
+  "auth": {
+    "emailPlaceholder": "ईमेल",
+    "passwordPlaceholder": "पासवर्ड",
+    "confirmPasswordPlaceholder": "पासवर्ड की पुष्टि करें",
+    "fullNamePlaceholder": "पूरा नाम",
+    "loginBtn": "लॉगिन",
+    "signupBtn": "साइन अप",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "noAccount": "खाता नहीं है?",
+    "haveAccount": "पहले से ही एक खाता है?",
+    "signupPrompt": "निःशुल्क साइन अप करें",
+    "loginPrompt": "अपने अकाउंट में लॉगिन करें",
+    "signupSuccess": "खाता सफलतापूर्वक बनाया गया!",
+    "loginSuccess": "सफलतापूर्वक लॉगिन किया गया!",
+    "logoutSuccess": "सफलतापूर्वक लॉगआउट किया गया!",
+    "passwordsMustMatch": "पासवर्ड मिलना चाहिए",
+    "emailRequired": "ईमेल आवश्यक है",
+    "passwordRequired": "पासवर्ड आवश्यक है",
+    "invalidEmail": "अमान्य ईमेल प्रारूप",
+    "passwordTooShort": "पासवर्ड कम से कम 6 अक्षर का होना चाहिए"
+  }
+}

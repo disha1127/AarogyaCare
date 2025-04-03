@@ -1,53 +1,43 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { useLocalStorage } from "react-use";
+import { useTranslation } from "react-i18next";
 import { languages, type Language } from "@/data/languages";
-import { formatIntl } from "@/lib/translations";
+import i18n from "@/lib/i18n";
 
 interface LanguageContextType {
   currentLanguage: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string, defaultValue?: string) => string;
+  t: (key: string, options?: any) => string;
   availableLanguages: Language[];
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [storedLanguage, setStoredLanguage] = useLocalStorage<string>("arogya-language", "en");
+  const { t, i18n: i18nInstance } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState<Language>(
-    languages.find(lang => lang.code === storedLanguage) || languages[0]
+    languages.find(lang => lang.code === i18n.language) || languages[0]
   );
-  const [translations, setTranslations] = useState<Record<string, string>>({});
 
-  // Load translations when language changes
+  // Update currentLanguage when i18n language changes
   useEffect(() => {
-    const loadTranslations = async () => {
-      try {
-        // In production, load from API or static files
-        // For now, use the translations from the language object
-        setTranslations(currentLanguage.translations || {});
-        setStoredLanguage(currentLanguage.code);
-      } catch (error) {
-        console.error("Failed to load translations:", error);
-      }
-    };
-
-    loadTranslations();
-  }, [currentLanguage, setStoredLanguage]);
+    const language = languages.find(lang => lang.code === i18nInstance.language) || languages[0];
+    setCurrentLanguage(language);
+  }, [i18nInstance.language]);
 
   const setLanguage = (lang: Language) => {
-    setCurrentLanguage(lang);
+    i18nInstance.changeLanguage(lang.code);
   };
 
-  const t = (key: string, defaultValue?: string): string => {
-    return formatIntl(translations, key, defaultValue);
+  const translateWithNesting = (key: string, options?: any): string => {
+    const translated = t(key, options);
+    return typeof translated === 'string' ? translated : key;
   };
 
   return (
     <LanguageContext.Provider value={{ 
       currentLanguage, 
       setLanguage, 
-      t,
+      t: translateWithNesting,
       availableLanguages: languages 
     }}>
       {children}

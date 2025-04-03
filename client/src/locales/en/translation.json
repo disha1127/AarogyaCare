@@ -1,0 +1,100 @@
+{
+  "common": {
+    "home": "Home",
+    "healthArticles": "Health Articles",
+    "symptomChecker": "Symptom Checker",
+    "dietPlans": "Diet Plans",
+    "hospitalFinder": "Hospital Finder",
+    "governmentSchemes": "Government Schemes",
+    "medicationReminders": "Medication Reminders",
+    "offlineMessage": "You are currently offline. Some features may be limited.",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "login": "Login",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "profile": "My Profile"
+  },
+  "home": {
+    "heroTitle": "AI-Powered Healthcare for Rural Communities",
+    "heroDescription": "Access essential healthcare services tailored for rural needs, even when offline. Your health companion, wherever you are.",
+    "checkSymptoms": "Check Symptoms",
+    "findHospitals": "Find Hospitals",
+    "essentialFeatures": "Essential Healthcare Features",
+    "latestArticles": "Latest Health Articles",
+    "viewAllArticles": "View all articles",
+    "readMore": "Read more"
+  },
+  "hospitalFinder": {
+    "nearbyHospitals": "Find Hospitals Near You",
+    "enterLocation": "Enter your location",
+    "distance": "Distance",
+    "contactNumber": "Contact Number",
+    "directions": "Get Directions"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "contact": "Contact",
+    "healthEducation": "Health Education",
+    "emergencyContacts": "Emergency Contacts",
+    "dietNutrition": "Diet & Nutrition",
+    "medicationGuide": "Medication Guide",
+    "firstAidTips": "First Aid Tips",
+    "tollFree": "Toll Free",
+    "ministryAddress": "Ministry of Health and Family Welfare, Government of India",
+    "copyright": "All rights reserved. A project for rural healthcare access."
+  },
+  "downloadApp": {
+    "accessAnytime": "Access Healthcare Anytime, Anywhere",
+    "downloadDescription": "Download the AROGYA app to get offline access to all features, even without an internet connection.",
+    "downloadAndroid": "Download for Android",
+    "saveOffline": "Save for Offline Use"
+  },
+  "sos": {
+    "emergencySOS": "Emergency SOS",
+    "emergencyAlert": "Emergency Alert",
+    "sosConfirmation": "Are you sure you want to send an emergency alert? This will notify your emergency contacts with your current location.",
+    "sendEmergencyAlert": "Send Emergency Alert",
+    "emergencyAlertSent": "Emergency Alert Sent",
+    "emergencyContactsNotified": "Your emergency contacts have been notified of your situation.",
+    "addEmergencyContact": "Add Emergency Contact",
+    "name": "Name",
+    "phone": "Phone Number",
+    "relationship": "Relationship"
+  },
+  "offline": {
+    "offlineDataSaved": "Offline Data Saved",
+    "offlineDataSavedDescription": "Essential healthcare information has been saved for offline use.",
+    "offlineDataError": "Error Saving Offline Data",
+    "offlineDataErrorDescription": "There was a problem saving data for offline use. Please try again."
+  },
+  "auth": {
+    "emailPlaceholder": "Email",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordPlaceholder": "Confirm Password",
+    "fullNamePlaceholder": "Full Name",
+    "loginBtn": "Login",
+    "signupBtn": "Sign Up",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signupPrompt": "Sign up for free",
+    "loginPrompt": "Login to your account",
+    "signupSuccess": "Account created successfully!",
+    "loginSuccess": "Logged in successfully!",
+    "logoutSuccess": "Logged out successfully!",
+    "passwordsMustMatch": "Passwords must match",
+    "emailRequired": "Email is required",
+    "passwordRequired": "Password is required",
+    "invalidEmail": "Invalid email format",
+    "passwordTooShort": "Password must be at least 6 characters"
+  }
+}
