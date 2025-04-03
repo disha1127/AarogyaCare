@@ -29,7 +29,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   };
 
   const translateWithNesting = (key: string, options?: any): string => {
-    const translated = t(key, options);
+    // First try with the direct key
+    let translated = t(key, { ...options, returnObjects: false });
+    
+    // If it's not a string, try with common prefix since many translations are under 'common'
+    if (typeof translated !== 'string') {
+      translated = t(`common.${key}`, { ...options, returnObjects: false });
+    }
+    
+    // If still not a string, return the key itself as fallback
     return typeof translated === 'string' ? translated : key;
   };
 

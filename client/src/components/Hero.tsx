@@ -16,20 +16,20 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
-              {t("heroTitle", "AI-Powered Healthcare for Rural Communities")}
+              {t("home.heroTitle", "AI-Powered Healthcare for Rural Communities")}
             </h1>
             <p className="text-lg text-primary-100 max-w-lg">
-              {t("heroDescription", "Access essential healthcare services tailored for rural needs, even when offline. Your health companion, wherever you are.")}
+              {t("home.heroDescription", "Access essential healthcare services tailored for rural needs, even when offline. Your health companion, wherever you are.")}
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Link href="/symptom-checker">
                 <a className="inline-flex items-center justify-center rounded-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-white text-primary-700 hover:bg-primary-50 h-11 px-6 py-3 shadow-sm">
-                  {t("checkSymptoms", "Check Symptoms")}
+                  {t("home.checkSymptoms", "Check Symptoms")}
                 </a>
               </Link>
               <Link href="/hospital-finder">
                 <a className="inline-flex items-center justify-center rounded-md font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-500 bg-primary-700 text-white hover:bg-primary-800 border border-primary-500 h-11 px-6 py-3">
-                  {t("findHospitals", "Find Hospitals")}
+                  {t("home.findHospitals", "Find Hospitals")}
                 </a>
               </Link>
             </div>

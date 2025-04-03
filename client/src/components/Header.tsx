@@ -30,7 +30,7 @@ export default function Header() {
           onClick={toggleMenu}
           className="md:hidden inline-flex items-center justify-center rounded-md text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500 p-2"
         >
-          <span className="sr-only">{t("openMainMenu", "Open main menu")}</span>
+          <span className="sr-only">{t("common.openMainMenu", "Open main menu")}</span>
           <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
@@ -39,19 +39,19 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 text-sm font-medium">
           <Link href="/" className={`px-3 py-2 ${isActivePath("/") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-            {t("home", "Home")}
+            {t("common.home", "Home")}
           </Link>
           <Link href="/articles" className={`px-3 py-2 ${isActivePath("/articles") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-            {t("healthArticles", "Health Articles")}
+            {t("common.healthArticles", "Health Articles")}
           </Link>
           <Link href="/symptom-checker" className={`px-3 py-2 ${isActivePath("/symptom-checker") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-            {t("symptomChecker", "Symptom Checker")}
+            {t("common.symptomChecker", "Symptom Checker")}
           </Link>
           <Link href="/diet-plans" className={`px-3 py-2 ${isActivePath("/diet-plans") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-            {t("dietPlans", "Diet Plans")}
+            {t("common.dietPlans", "Diet Plans")}
           </Link>
           <Link href="/hospital-finder" className={`px-3 py-2 ${isActivePath("/hospital-finder") ? "text-primary-600" : "text-slate-700 hover:text-primary-600"}`}>
-            {t("hospitalFinder", "Hospital Finder")}
+            {t("common.hospitalFinder", "Hospital Finder")}
           </Link>
         </nav>
       </div>
